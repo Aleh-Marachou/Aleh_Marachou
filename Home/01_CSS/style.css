@@ -1,0 +1,36 @@
+#pref{
+    color: grey;
+    font-size: 24px;
+}
+h1{
+    text-align:center; color: red; font-family: Times New Roman; background-color: #eee
+}
+h2{
+    text-align:center; color: green; font-family: Times New Roman
+}
+h3{
+    text-align:center; color: green; font-family: Times New Roman
+}
+p{
+    color: black;
+    font-family: Times Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+.vip{
+    background-color: yellowgreen
+}
+.super_vip{
+    font-size: 16px;
+    color: azure
+}
+code{
+    color: violet;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+ul.a li{
+    color: gold;
+}
+ul.b li{
+    text-align:left; color: blue; font-family: cursive; font-size: 14px
+}
