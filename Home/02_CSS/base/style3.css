@@ -1,0 +1,39 @@
+.menu{
+    width: 15em;
+    height: 24em;
+    background: rgb(47, 128, 0);
+    float: left;
+    
+
+}
+*.content{
+    background: red;
+    margin-bottom: 1em;
+
+}
+
+.footer{
+    height: 50px;
+    background: rgb(0, 255, 34);
+    clear: both;
+    
+
+}
+.wrap{
+    background: violet;
+}
+.block{
+    height: 10em;
+    background: black;
+    clear: both;
+}
+.img{
+    background-image: url(email.png);
+    display: block;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+}
+.text{
+    margin-bottom: 2em;
+    padding: 1em 1em; 
+}
