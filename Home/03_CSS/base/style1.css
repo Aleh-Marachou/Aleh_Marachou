@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.day{
+    width: 100px;
+    height: 20px;
+    border: solid black;
+    background-color: yellow;
+    color: brown;
+    float: left;
+}
+@media all and (max-device-width: 1200px) {
+    .day{
+        width: 100px;
+        height: 20px;
+        border: solid black;
+        background-color: aqua;
+        color: black;
+        float: left;
+    }
+}
+@media all and (max-device-width: 699px) {
+    .day{
+        width: 100px;
+        height: 20px;
+        border: solid black;
+        background-color: grey;
+        color: blue;
+        float: left;
+    }   
+    .weekend{
+        width: 100px;
+        height: 20px;
+        border: solid black;
+        background-color: red;
+        color: black;
+        float: left;
+    }
+}
+
+
