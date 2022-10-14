@@ -15,17 +15,24 @@
 	border: 3px solid;
 	border-radius: 10px;
 	text-align: left;
+	
+
 }
 .menu ul {
 	display: table-row;
+	
+	
+	
 }
 .menu li {
 	display: table-cell;
 	/*position: relative;*/
+	
 }
 .menu li a {
 	display: block;
 	padding: 15px 15px;
+	
 }
 .menu ul li:hover, .menu a:hover{
 	background: rgb(190, 148, 148);
@@ -33,6 +40,7 @@
 .menu li:hover ul{
 	display: block;
 	position: absolute;
+	
 }
 .menu ul ul  {
 	display: none;
@@ -46,7 +54,7 @@
 	padding: 0;
 	text-align: center;
 }
-@media screen and (min-device-width: 800px) and (max-device-width: 1920px){
+@media screen and (min-device-width: 1360px) and (max-device-width: 1920px){
 	.menu ul ul li a  {
 		display: block;
 		padding: 0;
@@ -54,16 +62,53 @@
 		text-align: center;
 	}
 }
-@media (max-width: 799px){
-	.menu {
+@media all and (max-device-width: 699px) {
+    .menu{
+        width: 100px;
+        height: 50px;
+        border: solid black;
+        background-color: grey;
+        text-align: center;
+        color: blue;
+		display: block;
+		position: relative;
+		
+    }
+	.menu ul li ul li{/*my*/
 		width: 100px;
-		height: 50px;
+		height: 25px;
 		border: 3px solid;
 		border-radius: 10px;
-		background: rgba(208, 186, 186, 0.871);
-		display: block;
-		
-		color: black;
 		text-align: left;
+	}
+	.menu ul {
+		display: table-row;
+	}
+	.menu li {
+		display: table-cell;
+		/*position: relative;*/
+	}
+	.menu li a {
+		display: block;
+		padding: 15px 15px;
+	}
+	.menu ul li:hover, .menu a:hover{
+		background: rgb(190, 148, 148);
+	}
+	.menu li:hover ul{
+		display: block;
+		position: absolute;
+	}
+	.menu ul ul  {
+		display: none;
+	}
+	.menu ul ul li  {
+		display: block;
+		padding: 5px 0;
+	}
+	.menu ul ul li a  {
+		display: block;
+		padding: 0;
+		text-align: center;   
 	}
 }
