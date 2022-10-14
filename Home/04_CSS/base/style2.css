@@ -1,0 +1,29 @@
+table{
+    border-collapse: collapse;/*убираем пустые промежутки между ячейками*/
+    border-style:dotted;/*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+}
+caption {
+    caption-side: bottom;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+th{
+    padding: 10px 15px;
+    border-style:dotted;
+    /*border-right: 1px solid #0865c2;
+    border-top: 1px solid #0865c2;
+    border-left: 1px solid #0865c2;
+    border-bottom: 1px solid white;*/
+}
+tr:first-child {
+background: #C9E3FE
+}
+tr:nth-child(2n) {
+    background: #e8edff;
+}
+tr:hover th {
+    background: grey;
+}
+
+  

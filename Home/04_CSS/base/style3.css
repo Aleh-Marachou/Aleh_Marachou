@@ -1,0 +1,44 @@
+
+caption {
+    caption-side: bottom;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+/*table td {
+	overflow:hidden;
+}
+table td:nth-of-type(1) {
+	width:1000px;
+}*/
+th{
+    width: 100px;
+    border: 3px solid black;
+}
+th{
+    height: 100px;
+    border: 3px solid black;
+}
+table{
+    border-collapse: collapse;/*убираем пустые промежутки между ячейками*/
+    border: 10px solid black;
+}
+table tr:nth-child(odd) th:nth-child(odd),
+table tr:nth-child(even) th:nth-child(even)
+{
+  background: black;
+}
+table tr:nth-child(even) th:nth-child(odd),
+table tr:nth-child(odd) th:nth-child(even)
+{
+  background: white;
+}
+body {
+    counter-reset: heading; /* Инициируем счетчик */
+}
+th:before {
+    counter-increment: heading; /* Указываем идентификатор счетчика */
+    content: '0 ' counter(heading) '. '; /* Выводим текст перед содержимым тега <h2> */
+    color: red;
+}
+  
