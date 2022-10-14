@@ -1,67 +1,69 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.menu {
+	width: 100px;
+	height: 50px;
+	border: 3px solid;
+	border-radius: 10px;
+	background: rgba(208, 186, 186, 0.871);
+	display: table;
+	float: left;
+	color: black;
+	text-align: center;
 }
-ul{
-    display: none;
-    position: absolute;
+.menu ul li ul li{/*my*/
+	width: 100px;
+	height: 25px;
+	border: 3px solid;
+	border-radius: 10px;
+	text-align: left;
 }
-nav ul li:hover{
-    display:block;
+.menu ul {
+	display: table-row;
 }
-.day{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 50px;
-    border: solid black;
-    background-color: yellow;
-    text-align: center;
-    color: brown;
-    float: left;
+.menu li {
+	display: table-cell;
+	/*position: relative;*/
 }
-@media all and (max-device-width: 1200px) {
-    .day{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100px;
-        height: 50px;
-        border: solid black;
-        background-color: aqua;
-        align-content: center;
-        text-align: center;
-        color: black;
-        float: left;
-    }
+.menu li a {
+	display: block;
+	padding: 15px 15px;
 }
-@media all and (max-device-width: 699px) {
-    .day{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100px;
-        height: 50px;
-        border: solid black;
-        background-color: grey;
-        text-align: center;
-        color: blue;
-        float: left;
-    }   
-    .weekend{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100px;
-        height: 50px;
-        border: solid black;
-        background-color: red;
-        text-align: center;
-        color: black;
-        float: left;
-    }
+.menu ul li:hover, .menu a:hover{
+	background: rgb(190, 148, 148);
 }
-
-
+.menu li:hover ul{
+	display: block;
+	position: absolute;
+}
+.menu ul ul  {
+	display: none;
+}
+.menu ul ul li  {
+	display: block;
+	padding: 5px 0;
+}
+.menu ul ul li a  {
+	display: block;
+	padding: 0;
+	text-align: center;
+}
+@media screen and (min-device-width: 800px) and (max-device-width: 1920px){
+	.menu ul ul li a  {
+		display: block;
+		padding: 0;
+		color: blueviolet;
+		text-align: center;
+	}
+}
+@media (max-width: 799px){
+	.menu {
+		width: 100px;
+		height: 50px;
+		border: 3px solid;
+		border-radius: 10px;
+		background: rgba(208, 186, 186, 0.871);
+		display: block;
+		
+		color: black;
+		text-align: left;
+	}
+}
