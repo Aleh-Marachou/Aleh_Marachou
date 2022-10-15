@@ -1,5 +1,5 @@
 .menu {
-	width: 100px;
+	width: 150px;
 	height: 50px;
 	border: 3px solid;
 	border-radius: 10px;
@@ -15,19 +15,13 @@
 	border: 3px solid;
 	border-radius: 10px;
 	text-align: left;
-	
-
-}
+  }
 .menu ul {
 	display: table-row;
-	
-	
-	
 }
 .menu li {
 	display: table-cell;
 	/*position: relative;*/
-	
 }
 .menu li a {
 	display: block;
@@ -54,7 +48,7 @@
 	padding: 0;
 	text-align: center;
 }
-@media screen and (min-device-width: 1360px) and (max-device-width: 1920px){
+@media all and (min-device-width: 1360px){
 	.menu ul ul li a  {
 		display: block;
 		padding: 0;
@@ -62,53 +56,73 @@
 		text-align: center;
 	}
 }
-@media all and (max-device-width: 699px) {
-    .menu{
-        width: 100px;
-        height: 50px;
-        border: solid black;
-        background-color: grey;
-        text-align: center;
-        color: blue;
-		display: block;
-		position: relative;
-		
-    }
-	.menu ul li ul li{/*my*/
-		width: 100px;
-		height: 25px;
-		border: 3px solid;
-		border-radius: 10px;
-		text-align: left;
-	}
-	.menu ul {
-		display: table-row;
-	}
-	.menu li {
-		display: table-cell;
-		/*position: relative;*/
-	}
-	.menu li a {
-		display: block;
-		padding: 15px 15px;
-	}
-	.menu ul li:hover, .menu a:hover{
-		background: rgb(190, 148, 148);
-	}
-	.menu li:hover ul{
-		display: block;
-		position: absolute;
-	}
-	.menu ul ul  {
-		display: none;
-	}
-	.menu ul ul li  {
-		display: block;
-		padding: 5px 0;
-	}
+@media screen and (min-device-width: 1100px) and (max-device-width: 1360px){
 	.menu ul ul li a  {
 		display: block;
 		padding: 0;
-		text-align: center;   
+		color: rgb(165, 215, 118);
+		text-align: center;
 	}
 }
+@media all and (max-device-width: 1099px) {
+	.wrap{
+		width: 300px;
+		height: 50px;
+	}
+	.menu {
+		display: block;
+		background: none;
+		border: solid white;
+		border-radius: 5px;
+		padding: 0;
+		margin: 0;
+		width: 150px; /*ширина меню и выпадающих блоков*/
+	}
+	.menu li {
+		position: relative;
+		list-style: none;
+		background: #7339BA;
+		border: solid 1px #D6C2FF;
+		border-radius: 5px;
+		padding: 0;
+		margin: 2px;
+	}
+	.menu li:hover {
+		border: solid 1px transparent;
+		border-radius: 5px;
+		margin: 2px 10px;
+	}
+  .menu a {
+	display: block;
+	text-align: left;
+	color: #E6E6FF;
+	padding: 7px; /*регулируем высоту всех кнопок меню*/
+	margin: 0;
+  }
+  .menu a:hover {
+	color: #3D1F4C;
+  }
+  .drop-link:hover {
+	background: #ccf; /*выделяем ссылку родитель выпадающего блока*/
+  }
+  .drop-block {
+	display: block;
+	position: absolute;
+	z-index: 1000;
+	left: 100%; /*если меню справа - right: 100%;*/
+	top: -9999em; /*скрываем выпадающие блоки*/
+  /*анимация для выпадающих блоков*/
+	opacity: 0;
+	padding: 0;
+	margin: -10px -20px 0 0; /*если меню справа - margin: -10px -10px 0 0;*/
+	min-width: 250px; /*обычная ширина*/
+	width: auto; /*ширина если строка без пробелов и переносов*/
+  }
+  .drop-link:hover > .drop-block {
+	top: 0; /*показываем выпадающие блоки*/
+	opacity: 1;
+  }
+}
+
+
+
