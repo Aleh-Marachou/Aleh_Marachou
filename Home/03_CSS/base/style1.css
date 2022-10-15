@@ -76,7 +76,7 @@
 		border-radius: 5px;
 		padding: 0;
 		margin: 0;
-		width: 150px; /*ширина меню и выпадающих блоков*/
+		width: 150px; 
 	}
 	.menu li {
 		position: relative;
@@ -96,30 +96,30 @@
 	display: block;
 	text-align: left;
 	color: #E6E6FF;
-	padding: 7px; /*регулируем высоту всех кнопок меню*/
+	padding: 7px; 
 	margin: 0;
   }
   .menu a:hover {
 	color: #3D1F4C;
   }
   .drop-link:hover {
-	background: #ccf; /*выделяем ссылку родитель выпадающего блока*/
+	background: #ccf; 
   }
   .drop-block {
 	display: block;
 	position: absolute;
 	z-index: 1000;
-	left: 100%; /*если меню справа - right: 100%;*/
-	top: -9999em; /*скрываем выпадающие блоки*/
-  /*анимация для выпадающих блоков*/
+	left: 100%; 
+	top: -9999em; 
+  
 	opacity: 0;
 	padding: 0;
-	margin: -10px -20px 0 0; /*если меню справа - margin: -10px -10px 0 0;*/
-	min-width: 250px; /*обычная ширина*/
-	width: auto; /*ширина если строка без пробелов и переносов*/
+	margin: -10px -20px 0 0; 
+	min-width: 250px; 
+	width: auto; 
   }
   .drop-link:hover > .drop-block {
-	top: 0; /*показываем выпадающие блоки*/
+	top: 0; 
 	opacity: 1;
   }
 }
