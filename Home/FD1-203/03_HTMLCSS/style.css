@@ -1,0 +1,27 @@
+
+
+
+h2{
+    text-align: left;
+    font-style: italic;
+    font-family: fantasy;
+    font-size: 24px;
+    letter-spacing: 5px;
+    color: blueviolet;
+}
+p{
+    text-align: left;
+    text-indent: 25px;
+    font-size: 16px;
+    font-family: monospace;
+    color: brown;
+    line-height: 1.5;
+}
+.vip{
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: orangered;
+    letter-spacing: 5px;
+    font-weight: bold;
+    background-color: aquamarine;
+}
