@@ -1,0 +1,24 @@
+table{
+    border: none;
+}
+.header{
+    color: blue;
+    font-size: 24px;
+    text-align: center;
+    background-color: rgb(170, 221, 241) ;
+}
+.menu{
+    text-align: left;
+    background-color: rgb(212, 214, 136);
+}
+h3{
+    text-align: center;
+}
+.img{
+    float: left;
+    margin: 5px;
+}
+.img_ball{
+    background-image: url('ball.png');
+    background-repeat: repeat-x";
+}
