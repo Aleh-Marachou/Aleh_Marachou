@@ -1,27 +1,74 @@
-
-
-
-h2{
-    text-align: left;
-    font-style: italic;
-    font-family: fantasy;
-    font-size: 24px;
-    letter-spacing: 5px;
-    color: blueviolet;
+.img01{
+    width: 500;
+    height: 194;
+    position: absolute;
+    top: 0px;
+    left: 250px;
+    transition: all 2s ease-in-out;
 }
-p{
-    text-align: left;
-    text-indent: 25px;
-    font-size: 16px;
-    font-family: monospace;
-    color: brown;
-    line-height: 1.5;
+.img02{
+    width: 110;
+    height: 281;
+    position: absolute;
+    top: 394px;
+    left: 0px;
+    transition: all 2s ease-in-out;
 }
-.vip{
-    font-family: 'Caveat', cursive;
-    font-size: 20px;
-    color: orangered;
-    letter-spacing: 5px;
-    font-weight: bold;
-    background-color: aquamarine;
+.img03{
+    width: 84;
+    height: 281;
+    position: absolute;
+    top: 394px;
+    left: 228px;
+    transition: all 2s ease-in-out;
+}
+.img04{
+    width: 110;
+    height: 281;
+    position: absolute;
+    top: 394px;
+    left: 445px;
+    transition: all 2s ease-in-out;
+}
+.img05{
+    width: 84;
+    height: 281;
+    position: absolute;
+    top: 394px;
+    left: 687px;
+    transition: all 2s ease-in-out;
+}
+.img06 {
+    width: 110;
+    height: 281;
+    position: absolute;
+    top: 394px;
+    left: 890px;
+    transition: all 2s ease-in-out;
+}
+.img07{
+    width: 500;
+    height: 223;
+    position: absolute;
+    top: 890px;
+    left: 250px;
+    transition: all 2s ease-in-out;
+}
+#axis:hover .move01{
+    transform: translate(0px,200px);
+}
+#axis:hover .move02{
+    transform: translate(251px,0px);
+}
+#axis:hover .move03{
+    transform: translate(133px,0px);
+}
+#axis:hover .move05{
+    transform: translate(-134px,0px);
+}
+#axis:hover .move06{
+    transform: translate(-252px,0px);
+}
+#axis:hover .move07{
+    transform: translate(0px,-215px);
 }
