@@ -1,0 +1,14 @@
+div{
+    width: 500px;
+    height: 500px;
+}
+.cor_left_top{
+    background-image: url('img/cor_left_top.jpeg');
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+.cor_right_top{
+    background-image: url('img/cor_right_top.jpeg');
+    background-repeat: no-repeat;
+    background-position: right top;
+}
