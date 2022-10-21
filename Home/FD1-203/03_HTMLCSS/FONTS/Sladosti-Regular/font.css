@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Sladosti-Regular';
+  src: url('Sladosti-Regular.eot');
+  src: url('Sladosti-Regular.eot?#iefix') format('embedded-opentype'),
+       url('Sladosti-Regular.svg#Sladosti-Regular') format('svg'),
+       url('Sladosti-Regular.ttf') format('truetype'),
+       url('Sladosti-Regular.woff') format('woff'),
+       url('Sladosti-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+

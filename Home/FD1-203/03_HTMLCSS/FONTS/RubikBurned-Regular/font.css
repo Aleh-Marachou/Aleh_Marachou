@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'RubikBurned-Regular';
+  src: url('RubikBurned-Regular.eot');
+  src: url('RubikBurned-Regular.eot?#iefix') format('embedded-opentype'),
+       url('RubikBurned-Regular.svg#RubikBurned-Regular') format('svg'),
+       url('RubikBurned-Regular.ttf') format('truetype'),
+       url('RubikBurned-Regular.woff') format('woff'),
+       url('RubikBurned-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
