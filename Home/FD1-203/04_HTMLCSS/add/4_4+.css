@@ -1,0 +1,48 @@
+.card_t{
+    width: 136px;
+    height: 185px;
+    border: solid black;
+    background-image: url("img/cards.png");
+    float: left;
+    background-position: 282px 387px;
+}
+.card_k{
+    width: 136px;
+    height: 185px;
+    border: solid black;
+    background-image: url("img/cards.png");
+    float: left;
+    background-position: 282px 586px;
+    margin-top: 75px;
+    margin-left: -75px;
+}
+.card_d{
+    width: 136px;
+    height: 185px;
+    border: solid black;
+    background-image: url("img/cards.png");
+    float: left;
+    background-position: 282px 786px;
+    margin-top: 150px;
+    margin-left: -75px;
+}
+.card_j{
+    width: 136px;
+    height: 185px;
+    border: solid black;
+    background-image: url("img/cards.png");
+    float: left;
+    background-position: 282px 986px;
+    margin-top: 225px;
+    margin-left: -75px;
+}
+.card_jk{
+    width: 136px;
+    height: 185px;
+    border: solid black;
+    background-image: url("img/cards.png");
+    float: left;
+    background-position: 282px 186px;
+    margin-top: 300px;
+    margin-left: -75px;
+}

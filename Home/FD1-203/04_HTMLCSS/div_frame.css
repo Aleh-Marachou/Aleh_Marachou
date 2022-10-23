@@ -1,14 +1,46 @@
-div{
-    width: 500px;
-    height: 500px;
+.frame_top{
+    background-image: url(img/top.jpeg);
+    background-repeat: repeat-x;
+    background-position: left top;
+}
+.frame_bottom{
+    background-image: url(img/top.jpeg);
+    background-repeat: repeat-x;
+    background-position: left bottom;
+}
+.frame_left{
+    background-image: url(img/rigth.jpeg);
+    background-repeat: repeat-y;
+    background-position: left;
+}
+.frame_right{
+    background-image: url(img/rigth.jpeg);
+    background-repeat: repeat-y;
+    background-position: right;
 }
 .cor_left_top{
     background-image: url('img/cor_left_top.jpeg');
     background-repeat: no-repeat;
-    background-position: right top;
+    background-position: left top;
 }
 .cor_right_top{
     background-image: url('img/cor_right_top.jpeg');
     background-repeat: no-repeat;
     background-position: right top;
+}
+.cor_right_bottom{
+    background-image: url('img/cor_right_bottom.jpeg');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+.cor_left_bottom{
+    background-image: url('img/cor_left_bottom.jpeg');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+.text{
+    text-align: center;
+    font-size: 24px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
