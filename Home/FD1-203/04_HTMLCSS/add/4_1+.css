@@ -1,0 +1,16 @@
+
+div{
+    background: 
+    url(../img/cor_right_top.jpeg) no-repeat right top,
+    url(../img/cor_left_bottom.jpeg) no-repeat left bottom,
+    url(../img/cor_left_top.jpeg) no-repeat left top,
+    url(../img/cor_right_bottom.jpeg) no-repeat right bottom,
+    url(../img/top.jpeg) repeat-x top,
+	url(../img/top.jpeg) repeat-x bottom,
+    url(../img/rigth.jpeg) repeat-y left,
+	url(../img/rigth.jpeg) repeat-y right;
+    
+    text-align: center;
+    font-size: 24px;
+    padding: 50px;
+}

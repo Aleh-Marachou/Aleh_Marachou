@@ -1,10 +1,13 @@
 
-.text{
+div{
+    border: 100px solid red;
+    background-size: contain;
+    border-image-source: url(img/ramka.png);
+    border-image-slice: 100;
+    border-image-repeat: round;
+
     text-align: center;
     font-size: 24px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-image: url('img/ramka.png');
-    background-repeat: no-repeat;
-    background-size: auto;
+    padding: 50px;
+    background-size: 24px;
 }

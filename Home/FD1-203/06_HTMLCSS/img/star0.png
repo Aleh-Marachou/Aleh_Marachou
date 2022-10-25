@@ -1,0 +1,94 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <style>
+    .img-container {
+      height: 80px;
+      visibility: visible;
+      text-align: center;
+      padding-top: 2px;
+      font-weight: bold;
+      display: block;
+    }
+  </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="shortcut icon" type="text/x-icon" href="/admin/internal/brand_favico_user.ico?t=1666705266" >
+<title>Доступ запрещен - proxy.mip.by</title>
+<link href="/nonauth/style/staticPage.css?v=5808" rel="stylesheet" type="text/css">
+
+
+<!--[if gte IE 8]><link  href="/nonauth/style/msie8.css?v=5808" rel="stylesheet" type="text/css"><![endif]-->
+<!--[if IE 7]><link  href="/nonauth/style/msie7.css?v=5808" rel="stylesheet" type="text/css"><![endif]-->
+
+</head>
+<body>
+
+<div id="spacer"></div>
+<div class="mainBody">
+<div class="header"><span>Доступ запрещен</span></div>
+
+
+
+
+
+
+<div class="details">
+
+<span class="title">Запрашиваемая страница</span><br>
+
+<span class='urlLine' title='http://fe.it-academy.by/Sites/0041906/lesson6/star0.png'>http://fe.it-academy.by/Sites/0041906/lesson6/star0.png</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="details">
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="details">
+
+
+</div>
+
+
+
+
+
+<div class="footer">proxy.mip.by</div>
+<span class="img-container">
+<img src="/brand/brand_logo.png" onerror="this.style.display='none'" width="300" height="60" alt="">
+</span>
+</div>
+
+</body>
+</html>
+
