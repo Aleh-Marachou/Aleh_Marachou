@@ -1,0 +1,6 @@
+img{
+    display: inline-block;
+}
+img:active::before{
+    content: url(img/star1.png);
+}
