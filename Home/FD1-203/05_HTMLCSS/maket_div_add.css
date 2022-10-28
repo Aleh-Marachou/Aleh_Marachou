@@ -8,6 +8,13 @@ h3{
     text-align: center;
     background-color: rgb(170, 221, 241);
 }
+.wrap{
+    background-color: rgb(177, 179, 126);
+
+}
+.frame{
+    background: url(line_banner.png) repeat-y top left;
+}
 .menu{
     width: 20%;
     float: left;
@@ -21,8 +28,6 @@ h3{
         url(ball.png) no-repeat left bottom,
         url(ball.png) no-repeat right bottom;
     background-size: 5%;
-    
-    background-color: rgb(212, 214, 136);
 }
 .banner{
     width: 200px;
@@ -36,7 +41,7 @@ h3{
         url(ball.png) no-repeat right bottom;
     background-size: 5%;
 
-    background-color: rgb(212, 214, 136);
+    background-color: rgb(177, 179, 126);
 }
 .content{
     margin-left: 20%;
@@ -49,6 +54,7 @@ h3{
         url(ball.png) no-repeat left bottom,
         url(ball.png) no-repeat right bottom;
     background-size: 5%;
+    background-color: white;
 }
 .footer{
     height: 20%;
