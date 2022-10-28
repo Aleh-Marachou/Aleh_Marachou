@@ -7,6 +7,9 @@ h3{
     text-align: center;
     background-color: rgb(170, 221, 241);
 }
+.wrap{
+    background-color: rgb(212, 214, 136);
+}
 .menu{
     width: 20%;
     float: left;
@@ -16,6 +19,7 @@ h3{
     overflow-y: auto;
 }
 .content{
+    background-color: white;
     margin-left: 20%;
     text-indent: 25px;
 }
