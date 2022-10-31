@@ -1,6 +1,6 @@
-img{
+span{
     display: inline-block;
 }
-img:active::before{
+span:active{
     content: url(img/star1.png);
 }
