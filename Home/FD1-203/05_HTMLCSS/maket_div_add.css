@@ -16,7 +16,7 @@ h3{
     background: url(line_banner.png) repeat-y top left;
 }
 .menu{
-    width: 20%;
+    width: 15%;
     float: left;
     text-align: left;
     overflow:scroll;
@@ -27,7 +27,9 @@ h3{
         url(ball.png) no-repeat top right,
         url(ball.png) no-repeat left bottom,
         url(ball.png) no-repeat right bottom;
-    background-size: 5%;
+    background-size: 10%;
+    background-color: rgb(212, 214, 136);
+
 }
 .banner{
     width: 200px;
@@ -39,12 +41,12 @@ h3{
         url(ball.png) no-repeat top right,
         url(ball.png) no-repeat left bottom,
         url(ball.png) no-repeat right bottom;
-    background-size: 5%;
+    background-size: 10%;
 
     background-color: rgb(177, 179, 126);
 }
 .content{
-    margin-left: 20%;
+    margin-left: 15%;
     margin-right: 200px;
     text-indent: 25px;
 
