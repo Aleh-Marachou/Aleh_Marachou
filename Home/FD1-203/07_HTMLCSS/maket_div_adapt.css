@@ -1,0 +1,52 @@
+h3{
+    text-align: center;
+}
+.header{
+    color: blue;
+    font-size: 24px;
+    text-align: center;
+    background-color: rgb(170, 221, 241);
+}
+.wrap{
+
+    background-color: rgb(212, 214, 136);
+}
+.menu{
+    width: 20%;
+    float: left;
+    text-align: left;
+    background-color: rgb(212, 214, 136);
+    overflow:scroll;
+    overflow-y: auto;
+}
+.content{
+    background-color: white;
+    margin-left: 20%;
+    text-indent: 25px;
+}
+.footer{
+    clear: both;
+    color: blue;
+    font-size: 24px;
+    text-align: center;
+    background-color: rgb(170, 221, 241);
+}
+.img{
+    float: left;
+    margin: 5px;
+}
+.img_ball{
+    background-image: url('ball.png');
+    background-position: right top;
+    background-size: 10%;
+    background-repeat: repeat-y;
+}
+
+@media all and (min-device-width: 1360px){
+	.menu ul ul li a  {
+		display: block;
+		padding: 0;
+		color: blueviolet;
+		text-align: center;
+	}
+}

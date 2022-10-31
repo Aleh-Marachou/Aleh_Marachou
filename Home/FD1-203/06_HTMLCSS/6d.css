@@ -1,6 +1,17 @@
-span{
+.rating > span {
     display: inline-block;
+    position: relative;
+    width: 75px;
 }
-span:active{
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
     content: url(img/star1.png);
-}
+    position: absolute;
+}    
+
+
+
+
+
+    
