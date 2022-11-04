@@ -1,116 +1,20 @@
-.rating > span {
-    display: inline-block;
-    position: relative;
-    width: 75px;
+.rating{
+  float: left;
 }
-
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-    content: url(img/star1.png);
-    position: absolute;
-} 
-/*2 способ*/
-
-.rating-area {
-	overflow: hidden;
-	width: 265px;
-	margin: 0 auto;
+.rating div{
+  float: right;
 }
-.rating-area:not(:checked) > input {
-	display: none;
-}
-.rating-area:not(:checked) > label {
-	float: right;
-	width: 42px;
-	padding: 0;
+.rating > div {
+  display: inline-block;
+  position: relative;
+  width: 75px;
 	cursor: pointer;
-	font-size: 32px;
-	line-height: 32px;
-	color: lightgrey;
-	text-shadow: 1px 1px #bbb;
-}
-.rating-area:not(:checked) > label:before {
-	content: '★';
-}
-.rating-area > input:checked ~ label {
-	color: gold;
-	text-shadow: 1px 1px #c60;
-}
-.rating-area:not(:checked) > label:hover,
-.rating-area:not(:checked) > label:hover ~ label {
-	color: gold;
-}
-.rating-area > input:checked + label:hover,
-.rating-area > input:checked + label:hover ~ label,
-.rating-area > input:checked ~ label:hover,
-.rating-area > input:checked ~ label:hover ~ label,
-.rating-area > label:hover ~ input:checked ~ label {
-	color: gold;
-	text-shadow: 1px 1px goldenrod;
-}
-.rate-area > label:active {
-	position: relative;
 }
 
-/*вывод рейтинга*/
-.rating-result {
-	width: 265px;
-	margin: 0 auto;
-}
-.rating-result span {
-	padding: 0;
-	font-size: 32px;
-	margin: 0 3px;
-	line-height: 1;
-	color: lightgrey;
-	text-shadow: 1px 1px #bbb;
-}
-.rating-result > span:before {
-	content: '★';
-}
-.rating-result > span.active {
-	color: gold;
-	text-shadow: 1px 1px #c60;
-}
-
-/*мини-версия Для вывода рейтинга в списках и листингах.*/
-.rating-mini {
-	display: inline-block;
-	font-size: 0;
-}
-.rating-mini span {
-	padding: 0;
-	font-size: 20px;
-	line-height: 1;
-	color: lightgrey;
-}
-.rating-mini > span:before {
-	content: '★';
-}
-.rating-mini > span.active {
-	color: gold;
-}
-
-/*3 способ*/
-.rating_block {
-    width: 125px;
-    height: 25px;
-  }
-  .rating_block input[type="radio"] {
-    display: none;
-  }
-  .label_rating {
-    float: right;
-    display: block;
-    width: 25px;
-    height: 25px;
-    background: url(rating.png) no-repeat 50% 0;
-    cursor: pointer;
-  }
-  /*Пишем правила смены положения background-а*/
-  .rating_block .label_rating:hover, /*Правило для ховера на текущий лейбл*/
-  .rating_block .label_rating:hover ~ .label_rating, /*Правило для всех следующих лейблов по DOM дереву*/
-  .rating_block input[type="radio"]:checked ~ .label_rating /*Правило для всех следующих лейблов после выбранного инпута, чтобы звездочки как бы зафиксировались*/
-  {
-    background-position: 50% -25px;
-  }
+.rating > div:hover:before,
+.rating > div:hover ~ div:before
+ {
+  content: url(img/star1.png);
+  position:fixed;
+	cursor: pointer;
+} 
