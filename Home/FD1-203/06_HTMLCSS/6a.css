@@ -1,0 +1,55 @@
+/*Способ 1*/
+
+td{
+    border-right: solid 3px;
+    border-color: red;
+    font-size: 18px;
+}
+td a{
+    text-decoration: none;
+}
+tr td a:hover{
+    background: aqua;
+    color: red;
+    font-size: 22px;
+}
+
+/*Способ 2*/
+
+.menu_ul_li ul li{
+    display: inline-block;
+    list-style: none;
+    text-align: left;
+    font-size: 18px;
+}
+.menu_ul_li ul li a{
+    text-decoration: none;
+}
+.menu_ul_li ul li::after{
+    content: "|";
+    color: red;
+    font-weight: bold;
+}
+.menu_ul_li ul li a:hover{
+    background: aqua;
+    color: red;
+    font-size: 22px;
+}
+
+/*Способ 3*/
+
+.blok div{
+    float: left;
+    padding: 5px;
+    border-right: solid 3px;
+    border-color: red;
+    font-size: 18px;
+}
+.blok div a{
+    text-decoration: none;
+}
+.blok div a:hover{
+    background: aqua;
+    color: red;
+    font-size: 22px;
+}
