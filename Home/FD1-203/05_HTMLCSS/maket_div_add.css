@@ -10,7 +10,7 @@ h3{
 }
 .wrap{
     background-color: rgb(177, 179, 126);
-
+    margin-top: -20px;
 }
 .frame{
     background: url(line_banner.png) repeat-y top left;
