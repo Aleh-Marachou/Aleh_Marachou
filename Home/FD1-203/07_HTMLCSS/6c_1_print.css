@@ -1,0 +1,24 @@
+p a[href^='https://']{
+    visibility: hidden;
+}
+a[href^='https://']::before {
+    content: " ссылка Информация на " attr(href) "";
+    visibility: visible;
+}
+p:first-child{
+    font-size: 24px;
+    font-weight: bold;
+}
+p a{
+    font-weight: bold;
+}
+p:nth-child(2){
+    color: green;
+}
+p:nth-child(3){
+    color: red;
+}
+p:nth-child(5){
+    color: blue;
+    font-style: italic;
+}
