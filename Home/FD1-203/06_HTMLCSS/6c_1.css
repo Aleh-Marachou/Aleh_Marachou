@@ -1,4 +1,4 @@
-a::before{
+a[href^='https://']::before{
     content: url(img/extref.png);
 }
 p:first-child{
