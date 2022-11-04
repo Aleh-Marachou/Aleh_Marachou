@@ -8,7 +8,7 @@ h3{
     background-color: rgb(170, 221, 241);
 }
 .wrap{
-
+    margin-top: -20px;
     background-color: rgb(212, 214, 136);
 }
 .menu{
@@ -30,23 +30,63 @@ h3{
     font-size: 24px;
     text-align: center;
     background-color: rgb(170, 221, 241);
+    margin-top: -15px;
 }
 .img{
     float: left;
     margin: 5px;
 }
 .img_ball{
-    background-image: url('ball.png');
+    background-image: url(ball.png);
     background-position: right top;
-    background-size: 10%;
+    background-size: 5%;
     background-repeat: repeat-y;
 }
 
-@media all and (min-device-width: 1360px){
-	.menu ul ul li a  {
-		display: block;
-		padding: 0;
-		color: blueviolet;
-		text-align: center;
-	}
+@media screen and (min-width: 800px) and (max-width: 1280px) { 
+    .menu{
+        width: 15%;
+        background-color: bisque;
+    }
+    .content{
+        background-color: aliceblue;
+        margin-left: 15%;
+        text-indent: 15px;
+    }
+    .img_ball{
+        background-image: url(ball.png);
+        background-position: right top;
+        background-size: 10%;
+        background-repeat: repeat-y;
+    }
 }
+@media only screen and (min-width: 100px) and (max-width: 799px) {
+    .header{
+        color: blue;
+        font-size: 20px;
+        text-align: center;
+        background-color: rgb(170, 221, 241);
+    }
+    
+    .menu{
+        width: 100%;
+        text-align: left;
+        background-color: rgb(212, 214, 136);
+        overflow: none;
+    }
+    .content{
+        width: 100%;
+        margin-left: 0%;
+        background-color: white;
+        text-indent: 20px;
+    }
+    .footer{
+        color: blue;
+        font-size: 20px;
+        text-align: center;
+        background-color: rgb(170, 221, 241);
+    }
+}    
+
+
+
