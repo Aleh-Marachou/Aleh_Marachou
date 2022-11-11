@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<HTML lang="en"> 
+    <HEAD>
+        <META charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <TITLE>Фррмы</TITLE>
+        <link rel="stylesheet" href="maket_form.css" media="screen">
+    </HEAD> 
+
+    <BODY>
+        <div class="header">
+            Для публикации вашей статьи заполните, пожалуйста, следующую форму:
+        </div>
+        <div class="wrap">
+            <div>
+                <label for="title_article">Название статьи:</label>
+            </div>
+            <div>
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                    <input type="text" name="title" id="title_article">                    
+                </form>
+            </div>
+            <div class="footer"></div>
+        </div>
+
+        <div class="wrap">
+            <div>
+                <label for="category">Рубрика:</label>
+            </div>
+            <div class="category">
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                    <select name="list" id="category">
+                        <option value="1">компьютерная техника</option>
+                        <option value="2">графика и дизайн</option>
+                        <option value="3">программирование</option>
+                    </select>
+                </form>
+            </div>
+            <div class="footer"></div>
+        </div>
+       
+        
+        <div>
+            <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                <label>Публикация:
+                    <input type="radio" name="radio_group" value="value_01" checked> на сайте
+                    <input type="radio" name="radio_group" value="value_02" > в журнале
+                    <input type="radio" name="radio_group" value="value_03" > на сайте и в журнале
+                </label>
+            </form> 
+        </div>
+        <div>
+            <label>Разрешить комментарии:
+                <input type="checkbox" name=“val_1" checked>
+            </label>
+        </div>
+        <div>
+            <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                <label for="">Текст статьи:<br>
+                    <textarea name="text" required></textarea><br>
+                    <input type="submit" value="Опубликовать">
+                </label>
+            </form>
+        </div>
+    </BODY> 
+</HTML>
