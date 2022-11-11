@@ -27,9 +27,9 @@
             <div>
                 <label for="category">Рубрика:</label>
             </div>
-            <div class="category">
+            <div>
                 <form method="post" action="http://fe.it-academy.by/TestForm.php">
-                    <select name="list" id="category">
+                    <select name="list_category" id="category">
                         <option value="1">компьютерная техника</option>
                         <option value="2">графика и дизайн</option>
                         <option value="3">программирование</option>
@@ -38,26 +38,60 @@
             </div>
             <div class="footer"></div>
         </div>
-       
-        
-        <div>
-            <form method="post" action="http://fe.it-academy.by/TestForm.php">
-                <label>Публикация:
+    <!--    
+        <div class="wrap">
+            <div>
+                <label for="publication">Публикация:</label>
+            </div>
+            <div>
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                    <input type="radio" name="radio_group" value="value_01" checked> на сайте
+                </form>
+            </div>
+            <div>
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                    <input type="radio" name="radio_group" value="value_02" > в журнале
+                </form>
+            </div>
+            <div>
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                    <input type="radio" name="radio_group" value="value_03" > на сайте и в журнале
+                </form>
+            </div>
+            <div class="footer"></div>
+        </div>
+    -->     
+    
+        <div class="wrap">
+            <div>
+                <label for="publication">Публикация:</label>
+            </div>
+            <div>
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
                     <input type="radio" name="radio_group" value="value_01" checked> на сайте
                     <input type="radio" name="radio_group" value="value_02" > в журнале
                     <input type="radio" name="radio_group" value="value_03" > на сайте и в журнале
-                </label>
-            </form> 
+                </form>
+            </div>
+            <div class="footer"></div>
         </div>
-        <div>
-            <label>Разрешить комментарии:
-                <input type="checkbox" name=“val_1" checked>
-            </label>
+         
+        <div class="wrap">
+            <div class="com">
+                <label for="comments">Разрешить комментарии:</label>
+            </div>
+            <div class="chek">
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                    <input type="checkbox" name=“val_1" id="comments" checked>
+                </form>
+            </div>
+            <div class="footer"></div>
         </div>
-        <div>
+    
+        <div class="footer">
             <form method="post" action="http://fe.it-academy.by/TestForm.php">
                 <label for="">Текст статьи:<br>
-                    <textarea name="text" required></textarea><br>
+                    <textarea name="text" id="text" required></textarea><br>
                     <input type="submit" value="Опубликовать">
                 </label>
             </form>
