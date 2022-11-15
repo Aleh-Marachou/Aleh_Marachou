@@ -2,8 +2,15 @@
     margin: 0; 
     padding: 0; 
 }
-.header{
+input[type="text"]{
     width: 100%;
+    box-sizing: border-box;
+}
+textarea{
+    width: 100%;
+    box-sizing: border-box;
+}
+.header{
     text-align: left;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -11,60 +18,69 @@
 }
 .footer{
     clear: both;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.wrap{
+    width: 100%;
+    margin-top: 10px;
+    background-color: aliceblue;
 }
 .wrap div label{
-    width: 9%;
+    width: 10%;
     float: left;
-    padding-left: 20px;
-}
-.wrap div form{
-    margin-left: 10%;
-    padding-right: 20px;
-}
-input[type="text"]{
-    width:99%;
-}
-div{
-    margin-top: 5px;
-}
-textarea{
-    width: 99%;
-}
-.footer form{
-    width: 98%;
     margin-left: 20px;
 }
-
+.footer div label{
+    width: 100%;
+    margin-left: 20px;
+}
+.footer div form{
+    width: 100%;
+    margin-left: 20px;
+}
+.form{
+    margin-right: 20px;
+    margin-left: 10%;
+    padding-left: 20px;
+}
+.radio{
+    float: left;
+}
+.text{
+    margin-right: 20px;
+}
 @media screen and (min-width: 800px) and (max-width: 1360px) {
     .wrap div label{
-        width: 100%;
+        width: 20%;
+        float: left;
+        margin-left: 20px;
+    }
+    .form{
+        margin-right: 20px;
+        margin-left: 20%;
         padding-left: 20px;
     }
-    .wrap div form{
-        margin-left: 20px;
-        padding-right: 20px;
-    }
+    
 } 
 @media screen and (min-width: 360px) and (max-width: 799px) {
     .wrap div label{
         width: 100%;
-        padding-left: 20px;
     }
-    .com {
-        float: left;
-    }
-    .chek{
-        float: left;
-    }
-    .wrap div form{
-        margin-left: 20px;
+    .form{
         margin-right: 20px;
+        margin-left: 20px;
+        padding-left: 0px;
     }
-    textarea{
-        width: 90%;
+    .com{
+        float: left;
     }
-    form input [type="radio"]{
-        width: 20%;
+    .radio{
+        float: none;
+        margin-left: 20px;
+    }
+    .select{
+        margin-left: 20px;
     }
 } 
 

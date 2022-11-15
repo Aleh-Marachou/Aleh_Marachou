@@ -15,7 +15,7 @@
             <div>
                 <label for="title_article">Название статьи:</label>
             </div>
-            <div>
+            <div class="form">
                 <form method="post" action="http://fe.it-academy.by/TestForm.php">
                     <input type="text" name="title" id="title_article">                    
                 </form>
@@ -27,7 +27,7 @@
             <div>
                 <label for="category">Рубрика:</label>
             </div>
-            <div>
+            <div class="select">
                 <form method="post" action="http://fe.it-academy.by/TestForm.php">
                     <select name="list_category" id="category">
                         <option value="1">компьютерная техника</option>
@@ -38,31 +38,31 @@
             </div>
             <div class="footer"></div>
         </div>
-    <!--    
+        
         <div class="wrap">
             <div>
-                <label for="publication">Публикация:</label>
+                <label>Публикация:</label>
             </div>
-            <div>
+            <div class="radio">
                 <form method="post" action="http://fe.it-academy.by/TestForm.php">
-                    <input type="radio" name="radio_group" value="value_01" checked> на сайте
+                    <input type="radio" name="radio_group" value="value_01"> на сайте
                 </form>
             </div>
-            <div>
+            <div class="radio">
                 <form method="post" action="http://fe.it-academy.by/TestForm.php">
-                    <input type="radio" name="radio_group" value="value_02" > в журнале
+                    <input type="radio" name="radio_group" value="value_02"> в журнале
                 </form>
             </div>
-            <div>
+            <div class="radio">
                 <form method="post" action="http://fe.it-academy.by/TestForm.php">
-                    <input type="radio" name="radio_group" value="value_03" > на сайте и в журнале
+                    <input type="radio" name="radio_group" value="value_03"> на сайте и в журнале
                 </form>
             </div>
             <div class="footer"></div>
         </div>
-    -->     
     
-        <div class="wrap">
+        
+        <!-- <div class="wrap">
             <div>
                 <label for="publication">Публикация:</label>
             </div>
@@ -74,13 +74,13 @@
                 </form>
             </div>
             <div class="footer"></div>
-        </div>
+        </div> -->
          
         <div class="wrap">
             <div class="com">
                 <label for="comments">Разрешить комментарии:</label>
             </div>
-            <div class="chek">
+            <div>
                 <form method="post" action="http://fe.it-academy.by/TestForm.php">
                     <input type="checkbox" name=“val_1" id="comments" checked>
                 </form>
@@ -89,12 +89,15 @@
         </div>
     
         <div class="footer">
-            <form method="post" action="http://fe.it-academy.by/TestForm.php">
-                <label for="">Текст статьи:<br>
-                    <textarea name="text" id="text" required></textarea><br>
-                    <input type="submit" value="Опубликовать">
-                </label>
+            <div>
+                <label for="text">Текст статьи:</label>
+            </div>
+            <div class="text">
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                <textarea name="text" id="text" required></textarea><br>
+                <input type="submit" value="Опубликовать">
             </form>
+            </div>
         </div>
     </BODY> 
 </HTML>
