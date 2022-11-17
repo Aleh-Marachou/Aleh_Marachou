@@ -1,38 +1,41 @@
 .header{
     width: 100%;
-    
+    background-color: aqua;
+    /*position: relative;*/
 }
 .img{
     width: 100%;
-   
+    background-color: red;
     position: relative;
 }
-.footer{
-    width: 100%;
-    
-}
-.img .biohazard{
+.biohazard{
     position: absolute;
     left: 100px;
     top: 100px;
     z-index: 10;
 }
-.img .Man-and-woman{
+.Man-and-woman{
     position: absolute;
     left: 300px;
     top: 67px;
     z-index: 10;
 }
-.img .Yin_and_Yang{
+.Yin_and_Yang{
     position: absolute;
     left: 200px;
     top: 300px;
     z-index: 10;
 }
-.img .No_smoking{
+.No_smoking{
     position: absolute;
-    left: 200px;
-    top: 200px;
+    left: 175px;
+    top: 175px;
     z-index: 11;
+}
+.footer{
+    width: 100%;
+    clear: both;
+    background-color: aquamarine;
+    /*position: relative;*/
 }
 
