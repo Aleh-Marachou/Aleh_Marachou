@@ -67,7 +67,7 @@ ul{
 /*меню. конец*/
 
 /* Строка поиска. Начало*/
-.header .form_search{
+/* .header .form_search{
    position: absolute;
    float: left;
    width: 1240px;
@@ -76,67 +76,55 @@ ul{
    margin-top: 46px;
    background: #FFFFFF;
    box-shadow: 0px 0px 20px rgba(157, 157, 157, 0.25);
-   border-radius: 30px;
-}
-.header .form_search input[type="text"]{
-   width: 100%;
-   box-sizing: border-box;
-   margin: auto;
-   font-family: 'Gilroy';
-   font-style: normal;
-   font-weight: 500;
-   font-size: 20px;
-   line-height: 130%;
-   color: #C4C4C4;
-   /*margin-top: 16px;
-   margin-right: 10px;
-   margin-left: 82px;*/
-}
+   border-radius: 30px; 
+}*/
+/*строка поиска. начало*/
 
 form {
    position: relative;
    width: 1240px;
    height: 59px;
-   padding-top: 61px;
-   padding-right: 20px;
-
-   
- }
- input {
+   margin: 0 auto;
+}
+input {
    height: 59px;
    width: 0;
-   padding: 0 42px 0 15px;
+   padding: 0 60px 0 15px;
    border: none;
    border-bottom: 2px solid transparent;
    outline: none;
    background: transparent;
    transition: .4s cubic-bezier(0, 0.8, 0, 1);
    position: absolute;
-   top: 0;
-   right: 0;
+   top: 0px;
+   right: 0px;
    z-index: 2;
- }
- input:focus {
+
+   /* background: #FFFFFF;
+   box-shadow: 0px 0px 20px rgba(157, 157, 157, 0.25);
+   border-radius: 30px;  */
+}
+input:focus {
    width: 1240px;
    z-index: 1;
- }
- button {
+   border-bottom: 2px solid #F9F0DA;
+}
+button {
+   background: #F9B300;
    border: none;
-   height: 40px;
-   width: 40px;
+   height: 60px;
+   width: 42px;
    position: absolute;
    top: 0px;
    right: 0px;
    cursor: pointer;
- }
+}
  button:before {
-   font-family: 'Gilroy';
-   font-style: normal;
-   font-weight: 500;
-   font-size: 20px;
-   line-height: 130%;
-   color: #C4C4C4;
- }
+   font-family: FontAwesome;
+   font-size: 16px;
+   color: #F9F0DA;
+}
+
 /* Строка поиска. конец*/
 
 /* Строка поиска_мои наброски
@@ -166,8 +154,13 @@ input[type="text"]{
    width: 1920px;
    height: 854px;
    background: #E5E5E5;
-   background: url(img/vector_midl.png) no-repeat right top;
-   /*background: url(img/kisspng-cafe-chocolate-covered-coffee-bean-espresso-5aeee25cddd876\ 1.png) no-repeat right top;*/
+   background:
+      url(img/kisspng-coffee-espresso-cappuccino-cafe-breakfast-coffee-5abb12d39e9a33\ 1.png),
+      url(img/kisspng-cafe-chocolate-covered-coffee-bean-espresso-5aeee25cddd876\ 1.png),
+      url(img/vector_midl.png);
+   background-repeat: no-repeat, no-repeat, no-repeat;
+   background-position: 900px 100px, 800px 40px, top right;
+   transform: rotate(0deg), rotate(157.31deg), rotate(0deg);
 }
 .banner h2{
    font-family: 'Gilroy';
@@ -343,6 +336,11 @@ input[type="text"]{
    color: #FFFFFF;
    list-style: none;
    text-decoration: none;
+}
+.coffee_left_fon{
+   position: absolute;
+   top: 500px;
+   left: 0px;
 }
 
 
