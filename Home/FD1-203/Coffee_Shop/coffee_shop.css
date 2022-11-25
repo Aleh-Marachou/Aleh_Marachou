@@ -80,7 +80,7 @@ ul{
 }*/
 /*строка поиска. начало*/
 
-form {
+/* form {
    position: relative;
    width: 1240px;
    height: 59px;
@@ -98,13 +98,13 @@ input {
    position: absolute;
    top: 0px;
    right: 0px;
-   z-index: 2;
+   z-index: 2; */
 
    /* background: #FFFFFF;
    box-shadow: 0px 0px 20px rgba(157, 157, 157, 0.25);
-   border-radius: 30px;  */
-}
-input:focus {
+   border-radius: 30px;  
+}*/
+/* input:focus {
    width: 1240px;
    z-index: 1;
    border-bottom: 2px solid #F9F0DA;
@@ -123,7 +123,7 @@ button {
    font-family: FontAwesome;
    font-size: 16px;
    color: #F9F0DA;
-}
+} */
 
 /* Строка поиска. конец*/
 
@@ -205,9 +205,10 @@ input[type="text"]{
    background: #E5E5E5;
    background: 
       url(img/vector_bottom.png) no-repeat right top,
-      url(img/vector_left.png) no-repeat left top,
-      url(img/Vector_top_for_image10.png) no-repeat left bottom;
-}
+      url(img/Vector_top_for_image10.png) no-repeat left bottom,
+      url(img/vector_left.png) no-repeat left;
+
+   }
 .catalog h2{
    font-family: 'Gilroy';
    font-style: normal;
@@ -253,7 +254,7 @@ input[type="text"]{
    text-decoration: none;
 }
 .catalog .block_coffee img{
-   padding: 67px 83px 0px 0px;
+   padding: 67px 50px 0px 0px;
 }
 .catalog .block_tea{
    position: relative;
@@ -325,7 +326,7 @@ input[type="text"]{
    border-radius: 20px;
 }
 .catalog .block_food img{
-   padding: 67px 0px 0px 55px;
+   padding: 95px 0px 0px 55px;
 }
 .block_food>a>p:last-of-type{
    /*width: 330px;
@@ -342,6 +343,58 @@ input[type="text"]{
    top: 500px;
    left: 0px;
 }
+.catalog .discount_text{
+   float: right;
+   margin-right: 122px;
+   text-align: right;
+   margin-top: 100px;
+}
+.catalog .discount_text p{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 25px;
+   line-height: 130%;
+   text-align: right;
+   color: #000000;
+   padding-top: 60px;
+   width: 100%;
+}
+.catalog .arrow_left{
+   width: 70px;
+   height: 70px;
+   background: url(img/Ellipse\ 6.png) no-repeat left top;
+   float: left;
+   margin: 500px 0 0 300px;
+   color: white;
+   text-align: center;
+   vertical-align: middle;
+   font-size: 50px;
+}
+.catalog .discount_columbia{
+   width: 400px;
+   height: 652px;
+   left: 402px;
+   top: 2044px;
+   background: #FFFFFF;
+   box-shadow: 0px 0px 20px rgba(146, 146, 146, 0.25);
+   border-radius: 20px;
+   float: left;
+}
+.catalog .discount_columbia select{
+   background: #FFF7E1;
+   border: 1px solid #F9B300;
+   border-radius: 5px;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 21px;
+   text-align: center;
+   color: #000000;
+}
+
+
 
 
 
