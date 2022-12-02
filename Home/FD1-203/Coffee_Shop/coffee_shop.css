@@ -10,143 +10,146 @@
    width: 1920px;
    position: relative;
    /*margin-left: 8px;
-   margin-right: 8px;*/
+   margin-right: 8px;
+   box-shadow: 0px 5px 20px rgba(157, 157, 157, 0.25); */
    background: #FFFFFF;
-   box-shadow: 0px 5px 20px rgba(157, 157, 157, 0.25);
    background: 
       url(img/vector_top.png) no-repeat right top,
       url(img/image\ 25.png) no-repeat 122px 22px;
+}
+   /*меню. начало*/
 
-}
-
-/*меню. начало*/
-
-ul{
-   list-style: none;
-}
-.topmenu a{
-   text-decoration: none;
-   display: block;
-   transition: .4s ease-in-out;
-}
-.topmenu>li>a{
-   padding-top: 61px;
-   color: #000000;
-   line-height: 29px;
-}
-.topmenu li{
+.header .dropbtn {
+   border: none;
+   background: #FFFFFF;
+   margin: 61px 0 0 670px;
    font-family: 'Gilroy';
    font-style: normal;
    font-weight: 500;
    font-size: 25px;
    line-height: 29px;
 }
-.topmenu_blog,
-.topmenu_contacts{
-   padding-left: 100px;
+.header .topmenu_catalog {
+   position: relative;
+   display: inline-block;
 }
-.submenu li{
+.header .dropdown-content {
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+   display: none;
+   position: absolute;
+   left: 77%;
    font-family: 'Gilroy';
    font-style: normal;
    font-weight: 500;
    font-size: 16px;
    line-height: 29px;
 }
-
-.topmenu li a:hover {
-   color: #c0a97a;
+.header .topmenu_catalog a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
 }
- 
-.submenu li a{
-   border-bottom: 1px solid #efefef;
+.header .topmenu_catalog:hover .dropdown-content {display: block;}
+.header .topmenu_blog,
+.header .topmenu_contacts{
+   display: inline-block;
+   margin: 61px 0 0 100px;
+}
+.header .topmenu_blog a,
+.header .topmenu_contacts a{
+   list-style: none;
+   text-decoration: none;
    font-family: 'Gilroy';
-   font-size: 16px;
-   color: #484848;
+   font-style: normal;
+   font-weight: 500;
+   font-size: 25px;
+   line-height: 29px;
+   color: black;
 }
+   /*меню. end*/
 
-/*меню. конец*/
-
-/* Строка поиска. Начало*/
-/* .header .form_search{
+   /*search start*/
+   
+.header .form_search{
    position: absolute;
-   float: left;
+   right: 15%;
+   top: 0%;
    width: 1240px;
    height: 59px;
-   margin-left: 402px;
-   margin-top: 46px;
+   margin: 46px 0 0 400px;
    background: #FFFFFF;
    box-shadow: 0px 0px 20px rgba(157, 157, 157, 0.25);
-   border-radius: 30px; 
-}*/
-/*строка поиска. начало*/
-
-/* form {
-   position: relative;
-   width: 1240px;
-   height: 59px;
-   margin: 0 auto;
+   border-radius: 30px;
 }
-input {
-   height: 59px;
-   width: 0;
-   padding: 0 60px 0 15px;
+.header input[type="text"]{
+   width: 100%;
+   box-sizing: border-box;
    border: none;
-   border-bottom: 2px solid transparent;
-   outline: none;
-   background: transparent;
-   transition: .4s cubic-bezier(0, 0.8, 0, 1);
-   position: absolute;
-   top: 0px;
-   right: 0px;
-   z-index: 2; */
-
-   /* background: #FFFFFF;
-   box-shadow: 0px 0px 20px rgba(157, 157, 157, 0.25);
-   border-radius: 30px;  
-}*/
-/* input:focus {
-   width: 1240px;
-   z-index: 1;
-   border-bottom: 2px solid #F9F0DA;
+   margin: 15px 0px 0 0px; 
+   padding: 0px 30px 0px 30px; 
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 130%;
+   color: #C4C4C4;
 }
-button {
-   background: #F9B300;
-   border: none;
-   height: 60px;
-   width: 42px;
-   position: absolute;
-   top: 0px;
-   right: 0px;
+.header label{
+display: inline-block;
+margin: 41px 0 0 350px;
+}
+
+   /* оба чекбокса скрыты всегда, работа с ними только через label */
+.line_search{display: none}
+ /* большой текст обычно скрыт */
+ .line_search + label + div{display: none}
+   /* и отображается только если выбран первый чекбокс */
+.line_search:checked + label + div{display: block}
+   /* первый label обычно отображается */
+.line_search + label{
+   text-decoration: underline;
    cursor: pointer;
 }
- button:before {
-   font-family: FontAwesome;
-   font-size: 16px;
-   color: #F9F0DA;
-} */
-
-/* Строка поиска. конец*/
-
-/* Строка поиска_мои наброски
-.header .form_search{
-    position: absolute;
-    float: left;
-    width: 1240px;
-    height: 59px;
-    margin-left: 402px;
-    margin-top: 46px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 20px rgba(157, 157, 157, 0.25);
-    border-radius: 30px;
+   /* и скрывается если выбран первый чекбокс */
+.line_search:checked + label{display: none}
+   /* второй label обычно скрыт */
+.line_search + label + div + input + label{
+   display: none;
+   text-decoration: underline;
+   cursor: pointer;
 }
-input[type="text"]{
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 16px;
-    margin-right: 10px;
-    margin-left: 82px;
+   /* и отображается только если выбран первый чекбокс */
+.line_search:checked + label + div + input + label{
+   display: block;
+   /* margin: 41px 0 0 100px; */
 }
-*/
+
+/* .line_search label:checked{
+   display: inline-block;
+   margin: 61px 0px 0px 1240px;
+}  */
+/*search end*/
+.header .shopping_cart{
+   position: absolute;
+   top: 48px;
+   right: 200px;
+}
+.header .btn_shopping_cart{
+   border: none;
+   background: #F9B300;
+}
+
+.header .authorization{
+   position: absolute;
+   top: 48px;
+   right: 100px;
+}
+.header .btn_authorization{
+   border: none;
+   background: #F9B300;
+}
 
 /*banner*/
 
@@ -205,8 +208,8 @@ input[type="text"]{
    background: #E5E5E5;
    background: 
       url(img/vector_bottom.png) no-repeat right top,
-      url(img/Vector_top_for_image10.png) no-repeat left bottom,
-      url(img/vector_left.png) no-repeat left;
+      url(img/Vector_catalog.png) no-repeat left bottom,
+      url(img/vector_left.png) no-repeat left top;
 
    }
 .catalog h2{
@@ -345,9 +348,16 @@ input[type="text"]{
 }
 .catalog .discount_text{
    float: right;
-   margin-right: 122px;
+   margin: 100px 122px 0 0;
+}
+.catalog .discount_text h2{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 900;
+   font-size: 50px;
+   line-height: 62px;
+   color: #000000;
    text-align: right;
-   margin-top: 100px;
 }
 .catalog .discount_text p{
    font-family: 'Gilroy';
@@ -365,21 +375,32 @@ input[type="text"]{
    height: 70px;
    background: url(img/Ellipse\ 6.png) no-repeat left top;
    float: left;
-   margin: 500px 0 0 300px;
+   margin: 600px 0 0 300px;
+   color: white;
+   text-align: center;
+   vertical-align: middle;
+   font-size: 50px;
+}
+.catalog .arrow_right{
+   width: 70px;
+   height: 70px;
+   background: url(img/Ellipse\ 6.png) no-repeat left top;
+   float: left;
+   margin: 310px 0 0 70px;
    color: white;
    text-align: center;
    vertical-align: middle;
    font-size: 50px;
 }
 .catalog .discount_columbia{
+   position: relative;
+   float: left;
+   margin: 80px 0 0 70px;
    width: 400px;
    height: 652px;
-   left: 402px;
-   top: 2044px;
    background: #FFFFFF;
    box-shadow: 0px 0px 20px rgba(146, 146, 146, 0.25);
    border-radius: 20px;
-   float: left;
 }
 .catalog .discount_columbia select{
    background: #FFF7E1;
@@ -393,6 +414,380 @@ input[type="text"]{
    text-align: center;
    color: #000000;
 }
+.catalog .discount_columbia p{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 21px;
+   color: #222222;
+   padding: 20px 0 0 0; 
+   height: 5px;
+}
+.catalog .discount_columbia .rating p strong{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 20px;
+   line-height: 24px;
+   color: #222222;
+}
+.catalog .discount_columbia h4{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 900;
+   font-size: 25px;
+   line-height: 31px;
+   color: #222222;
+   text-align: left;
+   padding-top: 20px;
+}
+.catalog .discount_columbia .img_colombia{
+   float: left;
+   padding: 94px 0 0 38px;
+}
+.catalog .discount_columbia form{
+   margin-top: 21px;
+   padding-left: 20px;
+}
+.catalog .discount_columbia form .rating{
+   padding: 70px 0 0 0;
+}
+.catalog .discount_columbia form .rating_roast{
+   padding: 30px 0 0 0;
+}
+.catalog .discount_columbia form input[type=submit]{
+   margin: 40px 0 0 180px;
+   padding: 13px 47px;
+   background: #F9B300;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 22px;
+   color: #FFFFFF;
+}
+.catalog .discount_columbia .token_discount{
+   position: absolute;
+   bottom: 600px;
+   left: 38px;
+   width: 70px;
+   height: 70px;
+   background: url(img/Ellipse\ 6.png) no-repeat left top;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 50px;
+   line-height: 42px;
+   text-align: center;
+   vertical-align: middle;
+   color: #000000;
+   padding-top: 15px;
+}
+.catalog .discount_columbia .token_discount p{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 22px;
+   color: #F9B300;
+   text-align: center;
+   padding-top: 40px;
+}
+.catalog .price_100 p:first-child,
+.catalog .price_250 p:first-child,
+.catalog .price_500 p:first-child,
+.catalog .price_1000 p:first-child{
+   text-decoration: line-through;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 25px;
+   line-height: 29px;
+   text-align: center;
+   text-decoration-line: line-through;
+   color: #C6C6C6;
+}
+.catalog .price_100 p:last-child,
+.catalog .price_250 p:last-child,
+.catalog .price_500 p:last-child,
+.catalog .price_1000 p:last-child{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 900;
+   font-size: 35px;
+   line-height: 44px;
+   text-align: center;
+   color: #222222;
+}
+.catalog .price_100{
+   position: absolute;
+   bottom: 80px;
+   left: 30px;
+}
+.catalog .price_250,
+.catalog .price_500,
+.catalog .price_1000{
+   position: absolute;
+   bottom: 80px;
+   left: 30px;
+   visibility: hidden;
+}
+
+/*узнать, почему не работает видимость элементов после выбора веса. начало*/
+
+.catalog .discount_columbia form select option [value="2"]:active{
+   visibility: visible;
+   display: block;
+}
+.catalog .discount_columbia form select option [value="2"]:hover + .price_250{
+   visibility: visible;
+   display: block;
+}
+/*узнать, почему не работает видимость элементов после выбора веса. конец*/
+
+/*"показать больше". начало*/
+ /* оба чекбокса скрыты всегда, работа с ними только через label */
+.read-more-radio{
+   display: none;
+}
+ /* большой текст обычно скрыт */
+ .read-more-radio + label + div{
+   display: none;
+ }
+ /* и отображается только если выбран первый чекбокс */
+.read-more-radio:checked + label + div{
+   display: block;
+}
+ /* первый label обычно отображается */
+ .read-more-radio + label
+{
+   text-decoration: underline;
+   cursor: pointer;
+}
+ /* и скрывается если выбран первый чекбокс */
+ .read-more-radio:checked + label
+{
+   display: none;
+}
+ /* второй label обычно скрыт */
+.read-more-radio + label + div + input + label{
+   display: none;
+   text-decoration: underline;
+   cursor: pointer;
+}
+ /* и отображается только если выбран первый чекбокс */
+.read-more-radio:checked + label + div + input + label{
+   display: block;
+}
+.catalog .show_more{
+   margin-left: 370px;
+}
+.catalog label{
+   float: right;
+   padding: 50px 120px 0 0;
+}
+.catalog .advertising_header{
+   float: left;
+   margin: 190px 0 0 960px;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 900;
+   font-size: 50px;
+   line-height: 62px;
+   color: #000000;
+}
+
+/* advertising /start*/
+.wrap_advertising{
+   width: 1904px;
+   height: 637px;
+   position: relative;
+   background: #FFF7E1;
+}
+.wrap_advertising .advertising{
+   width: 1904px;
+   height: 637px;
+   position: relative;
+   background: 
+      url(img/pngwing\ 2.png),
+      url(img/kisspng-coffee-bean-tea-cafe-coffee-beans-5abbc29114b2e2\ 1.png);
+   background-repeat: no-repeat, no-repeat;
+   background-position: 120px 200px, 120px 0px;
+}
+.wrap_advertising .advertising .advertising_01,
+.wrap_advertising .advertising .advertising_02,
+.wrap_advertising .advertising .advertising_03{
+   margin: 0 0 0 960px;
+   padding-top: 50px;
+}
+.wrap_advertising .advertising .advertising_01 div:first-of-type,
+.wrap_advertising .advertising .advertising_02 div:first-of-type,
+.wrap_advertising .advertising .advertising_03 div:first-of-type{
+   width: 84px;
+   height: 84px;
+   float: left;
+   background: url(img/Ellipse\ 11.png) no-repeat;
+   text-align: center;
+   padding-top: 25px;
+}
+.wrap_advertising .advertising .advertising_01 h4,
+.wrap_advertising .advertising .advertising_02 h4,
+.wrap_advertising .advertising .advertising_03 h4{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 30px;
+   line-height: 36px;
+   padding: 0 0 0 30px;
+   margin-left: 100px;
+}
+.wrap_advertising .advertising .advertising_01 p,
+.wrap_advertising .advertising .advertising_02 p,
+.wrap_advertising .advertising .advertising_03 p{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 25px;
+   line-height: 130%;
+   padding: 20px 0 0 30px;
+   margin-left: 100px;
+}
+.advertising_next{
+   width: 1904px;
+   height: 1096px;
+   background: 
+      url(img/Vector_top_for_image10.png) no-repeat top left,
+      url(img/Vector_bottom_for_image10.png) no-repeat bottom left,
+      url(img/image\ 10.png) no-repeat top left;
+}
+.advertising_next h3{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 900;
+   font-size: 50px;
+   line-height: 62px;
+   color: #FFFFFF;
+   padding: 200px 0 0 122px;
+}
+.advertising_next div{
+   width: 1246px;
+   margin: 50px 0 0 122px;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 25px;
+   line-height: 130%;
+   color: #FFFFFF;
+}
+.advertising_next button{
+   background: #F9B300;
+   border-radius: 5px;
+   padding: 22px 68px;
+   margin: 120px 0 0 122px;
+}
+.advertising_next button a{
+   text-decoration: none;
+   list-style: none;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 30px;
+   line-height: 36px;
+   color: #FFFFFF;
+   padding: 22px 68px;
+}
+
+   /* news/start */
+
+.news .news_header{
+   width: 1904px;
+   height: 444px;
+   background: #FFFFFF;
+   background: url(img/Vector_news_02.png) no-repeat bottom;
+}
+.news .news_header h4{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 900;
+   font-size: 50px;
+   line-height: 62px;
+   margin: 36px 0 0 122px;
+}
+.news .news_content{
+   width: 1904px;
+   height: 1078px;
+   background: #FFF7E1;
+   position: relative;
+}
+.news .news_content .coffee_tanzania{
+   width: 960px;
+   height: 400px;
+   position: absolute;
+   left: 122px;
+   top: -200px;
+   background: #FFFFFF;
+   box-shadow: 0px 0px 30px rgba(146, 146, 146, 0.2);
+   border-radius: 20px;
+}
+.news .news_content .coffee_tanzania .img{
+   float: left;
+}
+.news .news_content .coffee_tanzania .text{
+   display: inline-block;
+   padding: 50px 0 0 50px;
+}
+.news .news_content .coffee_tanzania .text h4{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 25px;
+   line-height: 130%;
+}
+.news .news_content .coffee_tanzania .text .text_start,
+.news .news_content .coffee_tanzania .text .text_end{
+   width: 560px;
+   height: 182px;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 130%;
+}
+
+/* оба чекбокса скрыты всегда, работа с ними только через label */
+.read-more-radio{
+   display: none;
+}
+ /* большой текст обычно скрыт */
+ .read-more-radio + label + div{
+   display: none;
+ }
+ /* и отображается только если выбран первый чекбокс */
+.read-more-radio:checked + label + div{
+   display: block;
+}
+ /* первый label обычно отображается */
+ .read-more-radio + label
+{
+   text-decoration: underline;
+   cursor: pointer;
+}
+ /* и скрывается если выбран первый чекбокс */
+ .read-more-radio:checked + label
+{
+   display: none;
+}
+ /* второй label обычно скрыт */
+.read-more-radio + label + div + input + label{
+   display: none;
+   text-decoration: underline;
+   cursor: pointer;
+}
+ /* и отображается только если выбран первый чекбокс */
+.read-more-radio:checked + label + div + input + label{
+   display: block;
+}
 
 
 
@@ -400,7 +795,21 @@ input[type="text"]{
 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media(min-width: 600px) {
    .topmenu {
       width: 100%;

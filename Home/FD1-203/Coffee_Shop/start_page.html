@@ -14,42 +14,43 @@
         <!-- меню -->
 
         <div class="header">
-            <ul class="topmenu">
-                <li class="topmenu_catalog"><a href="catalog.html">Каталог товаров</a>
-                    <ul class="submenu">
-                        <li><a href="catalog_coffee.html" target="">Кофе</a></li>
-                        <li><a href="catalog_tea.html" target="">Чай</a></li>
-                        <li><a href="catalog_vending.html" target="">Продукция для вендинга</a></li>
-                        <li><a href="catalog_food.html" target="">Здоровое питание</a></li>
-                    </ul>
-                </li>
-                <li class="topmenu_blog"><a href="blog.html" target="">Блог</a></li>
-                <li class="topmenu_contacts"><a href="contacts.html" target="">Контакты</a></li>
-            </ul>
+            <div class="topmenu_catalog">
+                <button class="dropbtn">Каталог товаров</button>
+                <div class="dropdown-content">
+                    <a href="catalog_coffee.html">Кофе</a>
+                    <a href="catalog_tea.html">Чай</a>
+                    <a href="catalog_vending.html">Продукция для вендинга</a>
+                </div>
+            </div>
+            <div class="topmenu_blog"><a href="blog.html" target="">Блог</a></div>
+            <div class="topmenu_contacts"><a href="contacts.html" target="">Контакты</a></div>
             
-            <!-- строка поиска-->
-            <!-- <div class="form_search">
+                <!-- Строка поиска/ начало -->
+            <input type=radio class="line_search" name="search" id="search_1" value=1>
+            <label for="search_1"><img src="img/search.png" alt="coffee"></label>
+            <div class="form_search">
                 <form method="post" action="http://fe.it-academy.by/TestForm.php">
-                    <input type="text" name="coffee" placeholder="Поиск по товарам">                    
-                    <button type="submit">
-                        <img src="img/search.png" alt="coffee">
-                    </button>
+                    <input type="text" name="coffee" placeholder="Поиск по товарам">
                 </form>
-            </div> -->
-
-            <form method="post" action="http://fe.it-academy.by/TestForm.php">
-                <input type="text" placeholder="Поиск по товарам">
-                <button type="submit">
-                    <img src="img/search.png" alt="coffee">
+            </div>
+            <input type=radio class="line_search" name="search" id="search_2" checked value=2>
+            <label for="search_2"><img src="img/search.png" alt="coffee"></label>
+                <!-- Строка поиска/ конец -->
+            
+            <div class="shopping_cart">
+                <button class="btn_shopping_cart">
+                    <img src="img/shopping_cart.png" alt="tea">
                 </button>
-              </form>
-            
-            <!-- <div class="form_search">
-                <form method="post" action="http://fe.it-academy.by/TestForm.php">
-                    <input type="text" name="coffee" placeholder="Поиск по товарам">                    
-                </form>
-            </div> -->
+            </div>
+            <div class="authorization">
+                <button class="btn_authorization">
+                    <img src="img/authorization.png" alt="tea">
+                </button>
+            </div>
         </div>
+        
+        
+        
         <!--banner-->
 
         <div class="banner">
@@ -116,29 +117,639 @@
             <div class="arrow_left">
                 &#129044;
             </div>
+
             <div class="discount_columbia">
+                <img class="img_colombia" src="img/image 5.jpg" alt="Colombia">
                 <form method="post" action="http://fe.it-academy.by/TestForm.php">
                     <select name="weight">
-                        <option value="1">100 гр</option>
-                        <option value="2">200 гр</option>
+                        <option value="1" selected>100 гр</option>
+                        <option value="2">250 гр</option>
                         <option value="3">500 гр</option>
                         <option value="4">1000 гр</option>
-                    </select><br>
-                    <img src="img/Star 1.jpg" alt="tea">
-                    <img src="img/Star 1.jpg" alt="tea">
-                    <img src="img/Star 1.jpg" alt="tea">
-                    <img src="img/Star 1.jpg" alt="tea">
-                    <img src="img/Star 5.jpg" alt="tea"> <br>
-                    <strong>4.0</strong>(32 отзыва) <br>
-                    <img src="img/Vector_coffee.jpg" alt="coffee">
-                    <img src="img/Vector_coffee.jpg" alt="coffee">
-                    <img src="img/Vector_coffee.jpg" alt="coffee">
-                    <img src="img/Vector_coffee.jpg" alt="coffee">
-                    <img src="img/Vector_coffee.jpg" alt="coffee">
-                    
-                    <input type="submit" value="Купить!">
+                    </select>
+                    <div class="rating">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 5.jpg" alt="tea">
+                        <p><strong>4.0</strong>(32 отзыва)</p>    
+                    </div>
+                    <div class="rating_roast">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee"> <br>
+                    </div>
+                    <p>Кислинка</p>   <br>
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                    <p>Горчинка</p>   <br>
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea"> 
+                    <p>Насыщеность</p>   <br>
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                    <h4>Colombia Supremo</h4>
+                    <p>
+                        Свежеобжаренный кофе - <br>
+                        описание товара, вкус, аромат
+                    </p> <br>
+                    <input type="submit" value="В корзину">
                 </form>
+                <div class="token_discount">
+                    <div>%</div>
+                    <p>Скидки</p>
+                </div>
+                <div class="price_100">
+                    <p>7.5 руб</p>
+                    <p>7.0 руб</p>
+                </div>
+                <div class="price_250">
+                    <p>18.5 руб</p>
+                    <p>16.0 руб</p>
+                </div>
+                <div class="price_500">
+                    <p>37.0 руб</p>
+                    <p>30.0 руб</p>
+                </div>
+                <div class="price_1000">
+                    <p>74.0 руб</p>
+                    <p>65.0 руб</p>
+                </div>
+            </div>
+
+            <div class="discount_columbia">
+                <img class="img_colombia" src="img/image 5.jpg" alt="Colombia">
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                    <select name="weight">
+                        <option value="1" selected>100 гр</option>
+                        <option value="2">250 гр</option>
+                        <option value="3">500 гр</option>
+                        <option value="4">1000 гр</option>
+                    </select>
+                    <div class="rating">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 5.jpg" alt="tea">
+                        <p><strong>4.0</strong>(32 отзыва)</p>    
+                    </div>
+                    <div class="rating_roast">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee"> <br>
+                    </div>
+                    <p>Кислинка</p>   <br>
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                    <p>Горчинка</p>   <br>
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea"> 
+                    <p>Насыщеность</p>   <br>
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                    <h4>Colombia Supremo</h4>
+                    <p>
+                        Свежеобжаренный кофе - <br>
+                        описание товара, вкус, аромат
+                    </p> <br>
+                    <input type="submit" value="В корзину">
+                </form>
+                <div class="token_discount">
+                    <div>%</div>
+                    <p>Скидки</p>
+                </div>
+                <div class="price_100">
+                    <p>7.5 руб</p>
+                    <p>7.0 руб</p>
+                </div>
+                <div class="price_250">
+                    <p>18.5 руб</p>
+                    <p>16.0 руб</p>
+                </div>
+                <div class="price_500">
+                    <p>37.0 руб</p>
+                    <p>30.0 руб</p>
+                </div>
+                <div class="price_1000">
+                    <p>74.0 руб</p>
+                    <p>65.0 руб</p>
+                </div>
+            </div>
+
+            <div class="discount_columbia">
+                <img class="img_colombia" src="img/image 5.jpg" alt="Colombia">
+                <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                    <select name="weight">
+                        <option value="1" selected>100 гр</option>
+                        <option value="2">250 гр</option>
+                        <option value="3">500 гр</option>
+                        <option value="4">1000 гр</option>
+                    </select>
+                    <div class="rating">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 1.jpg" alt="tea">
+                        <img src="img/Star 5.jpg" alt="tea">
+                        <p><strong>4.0</strong>(32 отзыва)</p>    
+                    </div>
+                    <div class="rating_roast">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee">
+                        <img src="img/Vector_coffee.jpg" alt="coffee"> <br>
+                    </div>
+                    <p>Кислинка</p>   <br>
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                    <p>Горчинка</p>   <br>
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea"> 
+                    <p>Насыщеность</p>   <br>
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 25.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea">
+                    <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                    <h4>Colombia Supremo</h4>
+                    <p>
+                        Свежеобжаренный кофе - <br>
+                        описание товара, вкус, аромат
+                    </p> <br>
+                    <input type="submit" value="В корзину">
+                </form>
+                <div class="token_discount">
+                    <div>%</div>
+                    <p>Скидки</p>
+                </div>
+                <div class="price_100">
+                    <p>7.5 руб</p>
+                    <p>7.0 руб</p>
+                </div>
+                <div class="price_250">
+                    <p>18.5 руб</p>
+                    <p>16.0 руб</p>
+                </div>
+                <div class="price_500">
+                    <p>37.0 руб</p>
+                    <p>30.0 руб</p>
+                </div>
+                <div class="price_1000">
+                    <p>74.0 руб</p>
+                    <p>65.0 руб</p>
+                </div>
+            </div>
+            <div class="arrow_right">
+                &#129046;
+            </div>
+            
+            <input type=radio class="read-more-radio" name="coffee" id="coffee_1" value=1>
+            <label for="coffee_1">Показать больше</label>
+            
+            <div class="show_more">
+                <div class="discount_columbia">
+                    <img class="img_colombia" src="img/image 5.jpg" alt="Colombia">
+                    <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                        <select name="weight">
+                            <option value="1" selected>100 гр</option>
+                            <option value="2">250 гр</option>
+                            <option value="3">500 гр</option>
+                            <option value="4">1000 гр</option>
+                        </select>
+                        <div class="rating">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 5.jpg" alt="tea">
+                            <p><strong>4.0</strong>(32 отзыва)</p>    
+                        </div>
+                        <div class="rating_roast">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee"> <br>
+                        </div>
+                        <p>Кислинка</p>   <br>
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                        <p>Горчинка</p>   <br>
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea"> 
+                        <p>Насыщеность</p>   <br>
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                        <h4>Colombia Supremo</h4>
+                        <p>
+                            Свежеобжаренный кофе - <br>
+                            описание товара, вкус, аромат
+                        </p> <br>
+                        <input type="submit" value="В корзину">
+                    </form>
+                    <div class="token_discount">
+                        <div>%</div>
+                        <p>Скидки</p>
+                    </div>
+                    <div class="price_100">
+                        <p>7.5 руб</p>
+                        <p>7.0 руб</p>
+                    </div>
+                    <div class="price_250">
+                        <p>18.5 руб</p>
+                        <p>16.0 руб</p>
+                    </div>
+                    <div class="price_500">
+                        <p>37.0 руб</p>
+                        <p>30.0 руб</p>
+                    </div>
+                    <div class="price_1000">
+                        <p>74.0 руб</p>
+                        <p>65.0 руб</p>
+                    </div>
+                </div>
+                <div class="discount_columbia">
+                    <img class="img_colombia" src="img/image 5.jpg" alt="Colombia">
+                    <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                        <select name="weight">
+                            <option value="1" selected>100 гр</option>
+                            <option value="2">250 гр</option>
+                            <option value="3">500 гр</option>
+                            <option value="4">1000 гр</option>
+                        </select>
+                        <div class="rating">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 5.jpg" alt="tea">
+                            <p><strong>4.0</strong>(32 отзыва)</p>    
+                        </div>
+                        <div class="rating_roast">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee"> <br>
+                        </div>
+                        <p>Кислинка</p>   <br>
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                        <p>Горчинка</p>   <br>
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea"> 
+                        <p>Насыщеность</p>   <br>
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                        <h4>Colombia Supremo</h4>
+                        <p>
+                            Свежеобжаренный кофе - <br>
+                            описание товара, вкус, аромат
+                        </p> <br>
+                        <input type="submit" value="В корзину">
+                    </form>
+                    <div class="token_discount">
+                        <div>%</div>
+                        <p>Скидки</p>
+                    </div>
+                    <div class="price_100">
+                        <p>7.5 руб</p>
+                        <p>7.0 руб</p>
+                    </div>
+                    <div class="price_250">
+                        <p>18.5 руб</p>
+                        <p>16.0 руб</p>
+                    </div>
+                    <div class="price_500">
+                        <p>37.0 руб</p>
+                        <p>30.0 руб</p>
+                    </div>
+                    <div class="price_1000">
+                        <p>74.0 руб</p>
+                        <p>65.0 руб</p>
+                    </div>
+                </div>
+                <div class="discount_columbia">
+                    <img class="img_colombia" src="img/image 5.jpg" alt="Colombia">
+                    <form method="post" action="http://fe.it-academy.by/TestForm.php">
+                        <select name="weight">
+                            <option value="1" selected>100 гр</option>
+                            <option value="2">250 гр</option>
+                            <option value="3">500 гр</option>
+                            <option value="4">1000 гр</option>
+                        </select>
+                        <div class="rating">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 1.jpg" alt="tea">
+                            <img src="img/Star 5.jpg" alt="tea">
+                            <p><strong>4.0</strong>(32 отзыва)</p>    
+                        </div>
+                        <div class="rating_roast">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee">
+                            <img src="img/Vector_coffee.jpg" alt="coffee"> <br>
+                        </div>
+                        <p>Кислинка</p>   <br>
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                        <p>Горчинка</p>   <br>
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea"> 
+                        <p>Насыщеность</p>   <br>
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 25.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea">
+                        <img src="img/Ellipse 32.jpg" alt="tea"> <br>
+                        <h4>Colombia Supremo</h4>
+                        <p>
+                            Свежеобжаренный кофе - <br>
+                            описание товара, вкус, аромат
+                        </p> <br>
+                        <input type="submit" value="В корзину">
+                    </form>
+                    <div class="token_discount">
+                        <div>%</div>
+                        <p>Скидки</p>
+                    </div>
+                    <div class="price_100">
+                        <p>7.5 руб</p>
+                        <p>7.0 руб</p>
+                    </div>
+                    <div class="price_250">
+                        <p>18.5 руб</p>
+                        <p>16.0 руб</p>
+                    </div>
+                    <div class="price_500">
+                        <p>37.0 руб</p>
+                        <p>30.0 руб</p>
+                    </div>
+                    <div class="price_1000">
+                        <p>74.0 руб</p>
+                        <p>65.0 руб</p>
+                    </div>
+                </div>
+            </div>
+           
+            <input type=radio class="read-more-radio" name="coffee" id="coffee_2" checked value=2>
+            <label for="coffee_2">Cкрыть</label>
+            
+            <div class="advertising_header">
+                <p>
+                    Почему стоит работать <br>
+                    именно с нами?
+                </p>
             </div>
         </div>
+        <div class="wrap_advertising">
+            <div class="advertising">
+                <div class="advertising_01">
+                    <div>
+                        <img src="img/Vector_112_01.png" alt="tea">
+                    </div>
+                    <div>
+                        <h4>Всегда свежая обжарка</h4>
+                        <p>
+                            Подбор степени обжарки под каждый <br>
+                            сорт кофе. Всегда свежая обжарка
+                        </p>
+                    </div>
+                </div>
+                <div class="advertising_02">
+                    <div>
+                        <img src="img/Vector_112_02.png" alt="tea">
+                    </div>
+                    <div>
+                        <h4>Лучшие цены на продукцию</h4>
+                        <p>
+                            Благодаря крупным объемам производства <br>
+                            мы даем лучшие цены на нашу продукцию
+                        </p>
+                    </div>
+                </div>
+                <div class="advertising_03">
+                    <div>
+                        <img src="img/Vector_112_02.png" alt="tea">
+                    </div>
+                    <div>
+                        <h4>Консультации 24/7</h4>
+                        <p>
+                            Наши специалисты готовы всегда помочь <br>
+                            и подсказать вам с выбором кофе или <br>
+                            другой продукции.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="advertising_next">
+            <h3>Как мы обжариваем наш кофе:</h3>
+            <div>
+                Компания Нью Рефайнинг Груп находится в г. Калининграде и имеет свой склад и представительство в Москве. Завод работает на рынке свежеобжаренного кофе и растворимой продукции более 15 лет. Завод имеет немецкое оборудование марки Probat по обжарке кофе и итальянские
+            </div>
+            <div>
+                Кофе поставляется в контейнерах напрямую с плантаций по всему миру. Компания имеет долгосрочные контракты по поставке продукции. Каждая партия проходит строгий контроль на заводе для проверки зерна. Зеленое зерно обжаривается, проходит процесс дегазации и тут же отправляется клиентам. Наши обжарщики прошли обучение в России и за рубежом. У нас свой подход к каждой партии зерна.
+            </div>
+            <div>
+                Мы раскрываем вкус каждого сорта кофе.
+            </div>
+            <button><a href="catalog.html">Посмотреть каталог</a></button>
+        </div>
+
+        <!-- news -->
+        <div class="news">
+            <div class="news_header">
+                <h4>Новости компании</h4>
+            </div>
+            <div class="news_content">
+                <div class="coffee_tanzania">
+                    <div class="img">
+                        <img src="img/image 6.jpg" alt="tanzania">
+                    </div>
+                    <div class="text">
+                        <div class="text_start">
+                            <h4>Танзанийский кофе. Откуда он взялся и почему мы его так любим?</h4>
+                            <div>
+                                Танзания – красивая африканская страна. Именно здесь расположены легендарные географические объекты – вулкан Килиманджаро и озеро Виктория.
+                            </div>
+                            <div>
+                                Но наш интерес вызван не столько природными красотами, сколько кофе... 
+                            </div>
+                        </div>
+                        <input type=radio class="read-more-radio" name="tanzania" id="tanzania_1" value=1>
+                        <label for="tanzania_1">Подробнее</label>
+                        <div class="text_end">
+                            <div>
+                                Танзания – красивая африканская страна. Именно здесь расположены легендарные географические объекты – вулкан Килиманджаро и озеро Виктория.
+                            </div>
+                            <div>
+                                Но наш интерес вызван не столько природными красотами, сколько кофе... 
+                            </div>
+                        </div>
+                        <input type=radio class="read-more-radio" name="tanzania" id="tanzania_2" checked value=2>
+                        <label for="tanzania_2">Скрыть</label>
+                    </div>
+                </div>
+                <div class="cofee_kenia"></div>
+            </div>
+            <div class="news_insta"></div>
+            <div class="news_subscription" ></div>
+        </div>
+
+        
+    
+
+         
+        
     </BODY> 
 </HTML>
