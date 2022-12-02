@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header,
+.footer{
+    display: flex;
+    background-color: rgb(170, 221, 241);
+    color: blue;
+    font-size: 24px;
+    align-items: center;
+    justify-content: center;
+}
+.wrap{
+    display: flex;
+}
+.menu{
+    width: 40%;
+    display: flex;
+    background-color: rgb(212, 214, 136);
+    padding: 10px;
+}
+.content{
+    display: flex;
+    flex-grow: 3;
+    /* align-items: safe center; */
+}
+.text{
+    margin: 10px;
+}
+.img_ball{
+    background-image: url(../07_HTMLCSS/ball.png);
+    background-position: right top;
+    background-size: 5%;
+    background-repeat: repeat-y;
+}
+
+/* @media screen and (min-width: 800px) and (max-width: 1280px) { 
+    .menu{
+        width: 15%;
+        background-color: bisque;
+    }
+    .content{
+        background-color: aliceblue;
+        margin-left: 15%;
+        text-indent: 15px;
+    }
+    .img_ball{
+        background-image: url(ball.png);
+        background-position: right top;
+        background-size: 10%;
+        background-repeat: repeat-y;
+    }
+}
+@media only screen and (min-width: 100px) and (max-width: 799px) {
+    .header{
+        color: blue;
+        font-size: 20px;
+        text-align: center;
+        background-color: rgb(170, 221, 241);
+    }
+    
+    .menu{
+        width: 100%;
+        text-align: left;
+        background-color: rgb(212, 214, 136);
+        overflow: none;
+    }
+    .content{
+        width: 100%;
+        margin-left: 0%;
+        background-color: white;
+        text-indent: 20px;
+    }
+    .footer{
+        color: blue;
+        font-size: 20px;
+        text-align: center;
+        background-color: rgb(170, 221, 241);
+    }
+}     */
+
