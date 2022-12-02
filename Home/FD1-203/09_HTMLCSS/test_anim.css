@@ -1,0 +1,102 @@
+@keyframes MyAnimation_1{
+    from{
+        border: 5px solid grey;
+        background-color: aquamarine;
+    }
+    
+    to{
+        border: 20px solid yellow;
+        background-color: blueviolet;
+    }
+}
+@keyframes MyAnimation{
+    from { 
+        background-color: aliceblue; 
+        color: yellow;
+        font-size: 10px; 
+    }
+    to{ 
+        background-color: blue;
+        color: black;
+        font-size: 40px; 
+    }
+}
+@keyframes MyAnimation_101{
+    from { 
+        background-color: red; 
+        transform:translate(0);
+        transform:rotate(-45deg)
+    }
+    to{ 
+        background-color: blue;
+        transform:translate(0, 50px);
+        transform:rotate(-135deg)
+    }
+}
+/* @keyframes MyAnimation_102{
+    from { 
+        background-color: yellow; 
+        transform:translate(0);
+    }
+    to{ 
+        background-color: bisque;
+        transform:translate(0, 50px);
+    }
+} */
+
+
+
+.end{
+    position: relative;
+    width: 1000px; 
+    height: 500px; 
+    border: 5px solid grey;
+    margin: auto;
+    animation: MyAnimation_1 3s steps(5) infinite;
+}
+.end .start{
+    width: 100px; 
+    height: 50px; 
+    border: 2px solid grey;
+    margin: auto;
+    padding-top: 20px; 
+    background-color: aliceblue;
+    color: blue;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+.start:hover{animation: MyAnimation 3s steps(5) infinite;}
+.rot_1{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 250px;
+    left: 350px;
+    background-color: aqua;
+}
+.rot_101{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    /* top: 300px;
+    left: 300px; */
+}
+.start:hover + .rot_101{animation: MyAnimation_101 3s steps(5) infinite;}
+
+/* .rot_2{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 300px;
+    left: 300px;
+    background-color: gray;
+}.rot_102{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 300px;
+    left: 300px;
+} */
+
+
