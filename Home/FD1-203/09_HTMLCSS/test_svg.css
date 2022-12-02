@@ -1,0 +1,29 @@
+.house{
+    stroke: #FF0000;
+    fill:yellow;
+}
+.house:hover{
+    fill: red;
+    stroke: black;
+    stroke-width:10px;
+}
+.window{
+    stroke: black;
+    fill:blue;
+}
+.window:hover{
+    stroke: brown;
+    stroke-width:10px;
+    fill:red;
+    fill-opacity: 0.5;
+}
+.roof{
+    stroke: violet;
+    stroke-width:10px;
+    fill:green;
+}
+.roof:hover{
+    stroke: aqua;
+    stroke-width:20px;
+    fill:lightpink;
+}
