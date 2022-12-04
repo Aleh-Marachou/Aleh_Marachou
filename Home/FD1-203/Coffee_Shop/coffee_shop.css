@@ -720,22 +720,34 @@ margin: 41px 0 0 350px;
    background: #FFF7E1;
    position: relative;
 }
-.news .news_content .coffee_tanzania{
-   width: 960px;
-   height: 400px;
+.news .news_content .news_content_wrap{
    position: absolute;
    left: 122px;
    top: -200px;
+}
+.news .news_content .coffee_tanzania{
+   width: 960px;
+   height: 400px;
+   float: left;
+   margin: 20px 0 0 20px;
+   /* position: absolute;
+   left: 122px;
+   top: -200px; */
    background: #FFFFFF;
    box-shadow: 0px 0px 30px rgba(146, 146, 146, 0.2);
    border-radius: 20px;
 }
-.news .news_content .coffee_tanzania .img{
+
+.news .news_content .coffee_tanzania img{
    float: left;
 }
 .news .news_content .coffee_tanzania .text{
-   display: inline-block;
-   padding: 50px 0 0 50px;
+   margin: 40px 30px 40px 400px;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 130%;
 }
 .news .news_content .coffee_tanzania .text h4{
    font-family: 'Gilroy';
@@ -744,59 +756,152 @@ margin: 41px 0 0 350px;
    font-size: 25px;
    line-height: 130%;
 }
-.news .news_content .coffee_tanzania .text .text_start,
-.news .news_content .coffee_tanzania .text .text_end{
-   width: 560px;
-   height: 182px;
+.news .news_content .coffee_tanzania .text div:nth-child(2),
+.news .news_content .coffee_tanzania .text div:nth-child(3),
+.news .news_content .coffee_tanzania .text div:nth-child(4){
+   margin-top: 30px;
+}
+.news .news_content .coffee_tanzania .text div:nth-child(4){
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 24px;
+   color: #F9B300;
+}
+.news .news_content .cofee_kenia{
+   width: 680px;
+   height: 400px;
+   margin: 20px 0 0 20px;
+   float: left;
+   background: #FFFFFF;
+   box-shadow: 0px 0px 30px rgba(146, 146, 146, 0.2);
+   border-radius: 20px;
+}
+.news .news_content .cofee_kenia h4{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 25px;
+   line-height: 130%;
+   padding: 60px 0 0 140px;
+}
+.news .news_content .cofee_kenia div:nth-child(2){
+   margin: 40px 112px 0 140px;
    font-family: 'Gilroy';
    font-style: normal;
    font-weight: 500;
    font-size: 20px;
    line-height: 130%;
 }
-
-/* оба чекбокса скрыты всегда, работа с ними только через label */
-.read-more-radio{
-   display: none;
+.news .news_content .cofee_kenia div:nth-child(3){
+   margin: 50px 0 0 140px;
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 20px;
+   line-height: 24px;
+   color: #F9B300;
 }
- /* большой текст обычно скрыт */
- .read-more-radio + label + div{
-   display: none;
- }
- /* и отображается только если выбран первый чекбокс */
-.read-more-radio:checked + label + div{
-   display: block;
+.title_insta{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 900;
+   font-size: 50px;
+   line-height: 62px;
+   background: #FFF7E1;
+   margin: 0px 0 300px 120px;
+   padding-top: 700px;
 }
- /* первый label обычно отображается */
- .read-more-radio + label
-{
-   text-decoration: underline;
-   cursor: pointer;
+.title_insta h4{float: left;}
+.title_insta img{
+   float: left;
+   margin-left: 55px;
 }
- /* и скрывается если выбран первый чекбокс */
- .read-more-radio:checked + label
-{
-   display: none;
+.news_insta{
+   width: 1904px;
+   height: 660px;
+   position: relative;
+   background: #F9B300;
 }
- /* второй label обычно скрыт */
-.read-more-radio + label + div + input + label{
-   display: none;
-   text-decoration: underline;
-   cursor: pointer;
+.news_insta .phone_1{
+   position: absolute;
+   left: 0px;
+   top: -300px;
 }
- /* и отображается только если выбран первый чекбокс */
-.read-more-radio:checked + label + div + input + label{
-   display: block;
+.news_insta .phone_2{
+   position: absolute;
+   left: 0px;
+   top: -200px;
 }
-
-
-
-
-
-
-
-
-
+.news_insta .insta_photo{
+   position: absolute;
+   left: 944px;
+   top: -300px;
+}
+.news_insta .insta_photo .photo_1{
+   width: 400px;
+   height: 382px;
+   float: left;
+   margin: 20px 0 0 20px;
+   background: #E9E9E9;
+   border-radius: 10px;
+}
+.news_insta .insta_photo .photo_2{
+   width: 100px;
+   height: 382px;
+   float: left;
+   margin: 20px 0 0 20px;
+   background: #E9E9E9;
+   border-radius: 10px;
+}
+.news_insta .insta_arrow{
+   width: 70px;
+   height: 70px;
+   position: absolute;
+   top: 70px;
+   left: 1820px;
+   background: url(img/Ellipse\ 6_1.png) no-repeat top;
+   text-align: center;
+   padding-top: 3px;
+   font-size: 50px;
+   color: #F9B300;
+}
+.news_subscription{
+   width: 1904px;
+   height: 700px;
+   background: #E5E5E5;
+   background:
+      url(img/kisspng-coffee-espresso-cappuccino-cafe-breakfast-coffee-5abb12d39e9a33\ 2.png),
+      url(img/kisspng-cafe-chocolate-covered-coffee-bean-espresso-5aeee25cddd876\ 2.png),
+      url(img/Vector_subscr.png);
+   background-repeat: no-repeat, no-repeat, no-repeat;
+   background-position: 1260px 100px, 1200px 10px, top right;
+   transform: rotate(0deg), rotate(163.23deg), rotate(0deg);
+}
+.news_subscription h3{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 900;
+   font-size: 50px;
+   line-height: 62px;
+   padding: 160px 0 0 122px;
+}
+.news_subscription .mes{
+   font-family: 'Gilroy';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 25px;
+   line-height: 130%;
+   margin: 50px 0px 0 120px;
+   padding-right: 1000px;
+}
+.news_subscription .form_email{
+   height: 80px;
+   margin: 60px 680px 0 122px;
+   background: #F3F3F3;
+   border-radius: 40px;
+}
 
 
 
