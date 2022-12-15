@@ -3,6 +3,7 @@
     padding: 0;
 }
 .wrap{
+    margin: 0 5px 0 5px;
     display: grid; 
     border: solid red 1px;
     grid-template-columns: 1fr 200px 4fr; 
