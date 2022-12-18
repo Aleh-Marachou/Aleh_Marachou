@@ -1,0 +1,28 @@
+.sprite-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.sprite-image {
+    height: 180px;
+    width: 115px;
+    background: url(img/sprite.png) 0px 0px;
+    animation: 
+        play 0.8s steps(9) infinite,
+        step 11s linear infinite;
+    position: absolute;
+    left: 0;
+}
+
+@keyframes play {
+    100% {
+        background-position: -1117px;
+    }
+}
+
+@keyframes step {
+    100% {
+        left: 100%;
+    }
+}
