@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<HTML lang="en"> 
+    <HEAD>
+        <META charset="utf-8">
+            <!--смартфоны автоматически НЕ изменяют масштаб страницы -->
+        <meta name="HandheldFriendly" content="True"/> 
+            <!--Чтобы мобильные браузеры не пытались обнаружить на веб-странице телефоны и адреса и соответственно не предлагали функционал для работы с ними -->
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <meta name="x-rim-auto-match" content="none" forua="true">
+            <!-- Чтобы переключить Internet Explorer в режим последней версии: -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <TITLE>GROUP de PALOL</TITLE>
+        <link rel="stylesheet" href="fonts/converted-fonts/styles.css" media="screen">
+        <link rel="stylesheet" href="palol.css" media="screen">
+    </HEAD> 
+
+    <BODY>
+        <script>
+            var last_name = prompt('Введите вашу фамилию');
+            var second_name = prompt('Введите ваше имя');
+            var middle_name = prompt('Введите ваше отчество');
+            var age = parseInt(prompt('Введите ваш возраст (полное количество лет)'));
+            var gender = confirm('Ваш пол - мужской?');
+            var pension = "";
+            
+            age_day = age * 365;
+            age_five = age + 5;
+
+            gender_new = gender ? 'мужской' : 'женский';
+            pension = ((age >= 62) && (gender)) ? 'Да' : 'Нет';
+            pension = ((age >= 58) && (!gender)) ? 'Да' : 'Нет';
+
+            alert(
+                'Ваше ФИО: ' + last_name + ' ' + second_name + ' ' + middle_name + '\n'
+                + 'Ваш возраст в годах: ' + age + '\n'
+                + 'Ваш возраст в днях: ' + age_day + '\n'
+                + 'Через 5 лет вам будет: ' + age_five + '\n'
+                + 'Ваш пол: ' + gender_new + '\n'
+                +'Вы на пенсии: ' + pension,
+            )
+        </script>    
+    </BODY> 
+</HTML>
