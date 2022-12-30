@@ -230,9 +230,118 @@ header, main{
   border: none;
 }
 .partners_wrap div:nth-child(4){
-  align-self: center;
+  /* align-self: center; */
+  padding-top: 47.5px;
 }
-footer{
+.partners_wrap div:nth-child(6){
+  /* align-self: center; */
+  padding-top: 24px;
+}
+.partners_wrap div:nth-child(8){
+  /* align-self: center; */
+  padding-top: 38px;
+}
+.partners_wrap div button{
+  cursor: pointer;
+  background-color: white;
+  padding: 15px 30px;
+  border: 2px solid #2F323B;
+  margin-top: 45px;
+}
+.partners_wrap div button a{
+  font-family: 'HelveticaNeueCyr-Light';
+  font-size: 21px;
+  line-height: 30px;
+  color: #2F323B;
+  text-decoration: none;
+}
+.connection{
   background: #2F323B;
 }
- 
+.connection_wrap{
+  display: grid;
+  grid-template-columns:  1fr 1fr; 
+  grid-template-rows: auto;
+  padding: 110px 120px;
+}
+.connection_wrap div h3{
+  font-family: 'HelveticaNeueCyr-Light';
+  font-size: 32px;
+  line-height: 35px;
+  color: #F7F5F3;
+}
+.connection_wrap div span{
+  font-family: 'HelveticaNeueCyr-Light';
+  font-size: 21px;
+  line-height: 30px;
+  color: #F7F5F3;
+  opacity: 0.5;
+  /* border-bottom: 1px solid rgba(247, 245, 243, 0.2); */
+}
+.connection_wrap div a{
+  font-family: 'HelveticaNeueCyr-Light';
+  font-size: 21px;
+  line-height: 30px;
+  color: #F7F5F3;
+  float: right;
+  text-decoration: none;
+}
+.connection_wrap div a:hover{color: #2DB1E4;}
+.connection_wrap .connection_text div{
+  padding: 30px 0 30px 0;
+  border-bottom: 1px solid rgba(247, 245, 243, 0.2);
+}
+.connection_wrap .connection_text div:last-child{border-bottom: none;}
+footer{
+  /* display: flex; */
+  background: #2F323B;
+}
+
+@media(min-width: 1440px) {
+  .topmenu {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+  }
+  .topmenu>li {
+     position: relative;
+  }
+  .topmenu>li:after {
+     position: absolute;
+     right: 0;
+     width: 1px;
+     height: 12px;
+     top: 20px;
+     box-shadow: 4px -2px 0 red;
+     transform: rotate(30deg);
+  }
+  .topmenu>li:last-child:after {
+     background: none;
+     box-shadow: none;
+  }
+  .submenu {
+     position: absolute;
+     left: 50%;
+     bottom: 70%;
+     width: 210px;
+     margin-left: -105px;
+     background: #fafafa;
+     border: 1px solid #ededed;
+     z-index: 5;
+     visibility: hidden;
+     opacity: 0;
+     transform: scale(.8);
+     transition: .4s ease-in-out;
+  }
+  .topmenu>li:hover .submenu {
+     visibility: visible;
+     opacity: 1;
+     transform: scale(1);
+  }
+  .submenu li a {
+     text-align: center;
+     padding: 10px 0;
+     margin: 0 10px;
+  }
+  .hamburger-menu{display: none;}
+}
