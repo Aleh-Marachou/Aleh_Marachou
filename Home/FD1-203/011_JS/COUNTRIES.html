@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<HTML lang="en"> 
+    <HEAD>
+        <META charset="utf-8">
+            <!--смартфоны автоматически НЕ изменяют масштаб страницы -->
+        <meta name="HandheldFriendly" content="True"/> 
+            <!--Чтобы мобильные браузеры не пытались обнаружить на веб-странице телефоны и адреса и соответственно не предлагали функционал для работы с ними -->
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <meta name="x-rim-auto-match" content="none" forua="true">
+            <!-- Чтобы переключить Internet Explorer в режим последней версии: -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <TITLE>COUNTRIES</TITLE>
+        <!-- <link rel="stylesheet" href="fonts/converted-fonts/styles.css" media="screen">
+        <link rel="stylesheet" href="palol.css" media="screen"> -->
+    </HEAD> 
+
+    <BODY>
+        <input type='button' value='ввод информации о стране' onclick='enterCountryInfo()'>
+        <br>
+        <input type='button' value='получение информации о стране' onclick='getCountryInfo()'>
+        <br>
+        <input type='button' value='перечень всех стран' onclick='getListCountry()'>
+        <br>
+        <input type='button' value='удаление информации о стране' onclick='deleteCountryInfo()'>
+        <script>
+            var сountrysH={};
+            function enterCountryInfo(){
+                var сountryName = prompt('Введите название страны:');
+                var capitalName = prompt('Введите название столицы:');
+                addCountry(сountryName, capitalName);
+            }
+            function addCountry(сountryName, capitalName){
+                сountrysH[сountryName] = capitalName;
+            }
+
+            function getCountryInfo(){
+                var сountryName = prompt('О какой стране Вы желаете получить информацию?');
+                getCountry(сountryName);
+            }
+            function getCountry(сountryName) {
+                if (сountryName in сountrysH)
+                    console.log('страна: ' + сountryName + ' столица: ' + сountrysH[сountryName]);
+                else
+                    console.log('нет информации о стране ' + сountryName + '!');
+            }
+
+            function getListCountry(){
+                console.log(сountrysH);
+            }
+
+            function deleteCountryInfo(){
+                var сountryName = prompt('Какую страну удалить?');
+                // delCountry(сountryName);
+                delete сountrysH[сountryName];
+                console.log('страна: ' + сountryName + ' удалена: ');
+                console.log(сountrysH);
+            }
+        </script>    
+    </BODY> 
+</HTML>
