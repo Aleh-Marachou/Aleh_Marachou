@@ -22,8 +22,6 @@
     transform: translateX(-150%);
   }
 }
-
-
 .zero{
   padding: 0 10px 0 10px;
   background-color: black;
@@ -329,7 +327,7 @@ header .menu_wrap .topmenu .submenu li a{
   font-size: 21px;
   line-height: 30px;
   color: rgba(47, 50, 59, 0.6);
-  padding: 45px 0 45px 0;
+  padding: 45px 0;
 }
 .partners_wrap .partners_text{
   font-family: 'HelveticaNeueCyr-Light';
@@ -650,7 +648,7 @@ footer .footer_wrap div:last-child p a:hover{  color: #2DB1E4;}
   header .menu_wrap .topmenu li a:hover{
     color: #2DB1E4;
   }
-  header .menu_wrap .topmenu li:last-child{display: none;}
+  header .menu_wrap .topmenu li:nth-child(5){display: none;}
   .hamburger-menu{display: none;}
   footer .footer_wrap .topmenu {
     width: 100%;
@@ -1269,7 +1267,7 @@ footer .footer_wrap div:last-child p a:hover{  color: #2DB1E4;}
     grid-row: 1;
   }
   header .menu_wrap nav{display: none;}
-  .slogan{height: 55px;}
+  .slogan{height: 66px;}
   .slogan p{display: none;}
   .slogan ul{
     display: block;
@@ -1307,10 +1305,7 @@ footer .footer_wrap div:last-child p a:hover{  color: #2DB1E4;}
     padding: 0;
   }
   .project_wrap div a{font-size: 14px;}
-  .project_wrap div button{
-    padding: 8px 20px;
-    margin: 0 0 0 20px;
-  }
+  .project_wrap div button{display: none;}
   .project_wrap div span{display: none;}
   .project_wrap div:nth-child(3) p,
   .project_wrap div:nth-child(5) p,
@@ -1549,6 +1544,39 @@ footer .footer_wrap div:last-child p a:hover{  color: #2DB1E4;}
     grid-column: 1 / span 2;
     grid-row: 2;
   }
-  footer .footer_wrap{padding: 20px;}
-  footer div:nth-child(1){display: none;}
+  footer .footer_wrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto;
+    padding: 0 20px 0 20px;
+  }
+  footer .footer_wrap div > nav{display: none;}
+  footer .footer_wrap .media{
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    justify-self: center;
+  }
+  footer .footer_wrap .media div{padding: 18px 0;}
+  footer .footer_wrap .media div a{
+    font-size: 14px;
+    line-height: 40px;
+    padding: 0 20px;
+  }
+  footer .footer_wrap div p{
+    font-size: 14px;
+    line-height: 40px;
+    padding: 18px 0;
+  }
+  footer .footer_wrap div:nth-child(3){
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    border-bottom: none;
+  }
+  footer .footer_wrap div:nth-child(4){
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    border-bottom: none;
+  }
 }
