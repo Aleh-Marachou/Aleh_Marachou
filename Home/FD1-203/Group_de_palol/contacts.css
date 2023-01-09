@@ -6,7 +6,6 @@
 .zero{
   padding: 0 10px 0 10px;
   background-color: black;
-  /* overflow: hidden; */  
 }
 h3{
   font-family: 'HelveticaNeueCyr-Light';
@@ -14,18 +13,19 @@ h3{
   line-height: 35px;
   color: #2F323B;  
 }
-h4{
-  font-family: 'HelveticaNeueCyr-Light';
-  font-size: 21px;
-  line-height: 30px;
-  color: #2F323B;
-}
 a, p, ul, li, span{
   font-family: 'HelveticaNeueCyr-Light';
   font-size: 21px;
   line-height: 30px;
   color: #2F323B;
-}  
+  box-sizing: border-box
+}
+label{
+  font-family: 'HelveticaNeueCyr-Light';
+  font-size: 21px;
+  line-height: 30px;
+  color: rgba(47, 50, 59, 0.6);
+}
 header{
   background-color: #FFFFFF;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -65,34 +65,69 @@ header .menu_wrap .topmenu .submenu li a{
   color: #415360;
 }  
 
-  /* MENU/END */    
+  /* MENU/END */ 
   
-  
-.connection{
-  background: #2F323B;
-}  
+.connection{background: #FFFFFF;}  
 .connection_wrap{
   display: grid;
   grid-template-columns:  1fr 1fr; 
   grid-template-rows: auto;
-  padding: 110px 120px;
+  padding: 0 120px;
 }
-.connection_wrap div h3{color: #F7F5F3;}
-.connection_wrap div span{
-  color: #F7F5F3;
-  opacity: 0.5;
-}  
+.connection_wrap div a:hover{color: #2DB1E4;}
+.connection_wrap .map{
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+.connection_wrap .map iframe{
+  width: 100%;
+  height: 100%;
+}
+.connection_wrap .connection_text h3{padding: 25px 0;}
 .connection_wrap div a{
-  color: #F7F5F3;
   float: right;
   text-decoration: none;
 }  
-.connection_wrap div a:hover{color: #2DB1E4;}
 .connection_wrap .connection_text div{
-  padding: 30px 0;
-  border-bottom: 1px solid rgba(247, 245, 243, 0.2);
+  padding: 30px 0 ;
+  margin-left: 40px;
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
 }  
-.connection_wrap .connection_text div:last-child{border-bottom: none;}
+.connection_wrap .request h3{padding: 45px 0 15px 0;}
+.connection_wrap .request div{
+  padding-bottom: 30px;
+  margin-left: 40px;
+}
+.connection_wrap .request div:nth-child(1){border-bottom: 1px solid rgba(230, 230, 230, 1);}
+.connection_wrap .request textarea,
+.connection_wrap .request input[type="email"],
+.connection_wrap .request input[type="text"]{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px 0;
+  border: none;
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+  font-size: 21px;
+  line-height: 30px;
+  color: rgba(145, 147, 151, 1);
+}
+.connection_wrap .request textarea{padding-bottom: 0;}
+.connection_wrap .request input[type="checkbox"]{margin-top: 30px;}
+.connection_wrap .request div form{width: 100%;}
+.connection_wrap .request div button{
+  cursor: pointer;
+  background-color: #FFFFFF;
+  font-size: 21px;
+  line-height: 30px;
+  color: rgba(73, 76, 84, 1);
+  padding: 20px 70px;
+  margin: 30px 0;
+  float: right;
+}
+.connection_wrap .request div button:hover{
+  color: #2DB1E4;
+  background-color: #F7F5F3;
+}
 footer{
   background: #2F323B;
   border-top: 1px solid rgba(247, 245, 243, 0.2);
@@ -360,16 +395,20 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
   }  
   footer .footer_wrap .topmenu li a:hover{color: #2DB1E4;}
 }
+
 @media(min-width: 960px) and (max-width: 1439px){
   h3{
     font-size: 25px;
     line-height: 45px; 
   }
-  h4{line-height: 25px;}
   a, p, ul, li, span{
-    font-size: 21px;
+    font-size: 16px;
     line-height: 25px;
-  }  
+  }
+  label{
+    font-size: 12px;
+    line-height: 15px;
+  }
   header .menu_wrap{
     grid-template-columns: 108px 1fr;
     padding: 30px;
@@ -433,11 +472,45 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
   }  
   header .menu_wrap .topmenu li:last-child{display: block;}
   .hamburger-menu{display: none;}
-  .connection_wrap{padding: 80px;}
-  .connection_wrap div h3{font-size: 25px;}
-  .connection_wrap div span{font-size: 16px;}
-  .connection_wrap div a{font-size: 16px;}
-  .connection_wrap .connection_text div{padding: 22px 0;}
+  .connection_wrap{padding: 0;}
+  .connection_wrap .map{
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
+  .connection_wrap .connection_text{
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .connection_wrap .request{
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .connection_wrap .connection_text h3{padding: 15px 0;}
+  .connection_wrap .connection_text div{
+    padding: 30px 0 ;
+    margin-left: 0;
+  }
+  .connection_wrap .connection_text div{
+    padding: 22px 0;
+    margin: 0 30px;
+  }
+  .connection_wrap .request{border-left: 1px solid rgba(230, 230, 230, 1);}
+  .connection_wrap .request div{
+    padding-bottom: 0;
+    margin: 0 30px;
+  }
+  .connection_wrap .request h3{padding: 37px 0;}
+  .connection_wrap .request textarea,
+  .connection_wrap .request input[type="email"],
+  .connection_wrap .request input[type="text"]{
+    padding: 19.5px 0;
+    font-size: 16px;
+  }
+  .connection_wrap .request div button{
+    font-size: 16px;
+    line-height: 30px;
+    padding: 20px 50px;
+  }
   footer .footer_wrap{padding: 0 80px;}
   footer .footer_wrap nav{float: left;}
   footer .footer_wrap nav ul{
@@ -500,101 +573,128 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
   footer .footer_wrap .media div{padding: 22px 0;}
   footer .footer_wrap .media a{padding-left: 20px;}
   footer .footer_wrap div p{padding: 22px 0;}
+}
+
+@media(min-width: 760px) and (max-width: 959px){
+  h3{
+    font-size: 25px;
+    line-height: 45px; 
   }
-  @media(min-width: 760px) and (max-width: 959px){
-    h3{
-      font-size: 25px;
-      line-height: 45px; 
-    }
-    h4{line-height: 25px;}
-    a, p, ul, li, span{
-      font-size: 16px;
-      line-height: 25px;
-    }  
-    .hamburger-menu{display: block;}
-    header .menu_wrap{
-      display: grid;
-      grid-template-columns: 1fr 94px;
-      grid-template-rows: auto;
-      padding: 10px;
-    }
-    header .menu_wrap div:first-child{
-      grid-column: 2;
-      grid-row: 1;
-    }
-    header .menu_wrap nav{display: none;}
-    .connection_wrap{padding: 40px 30px;}
-    .connection_wrap div h3{font-size: 21px;}
-    .connection_wrap div span{font-size: 16px;}
-    .connection_wrap div a{font-size: 16px;}
-    .connection_wrap .connection_text div{padding: 22px 0;}
-    footer .footer_wrap{padding: 0 30px;}
-    footer .footer_wrap nav{float: left;}
-    footer .footer_wrap nav ul{
-      list-style: none;
-      padding: 22px 0;
-    }
-    footer .footer_wrap .topmenu {
-      width: 100%;
-      display: flex;
-      justify-content: right;
-    }
-    footer .footer_wrap .topmenu>li {
-      position: relative;
-      list-style: none;
-    }
-    footer .footer_wrap .topmenu>li:after {
-      position: absolute;
-      right: 0;
-      width: 1px;
-      height: 12px;
-      top: 20px;
-      box-shadow: 4px -2px 0 red;
-      transform: rotate(30deg);
-    }
-    footer .footer_wrap .topmenu>li:last-child:after {
-      background: none;
-      box-shadow: none;
-    }
-    footer .footer_wrap .topmenu>li>a{padding: 0 20px 0 0;}
-    footer .footer_wrap .topmenu .submenu {
-      position: absolute;
-      left: 60%;
-      bottom: 100%;
-      width: 150px;
-      margin-left: -105px;
-      background: #fafafa;
-      border: 1px solid #ededed;
-      z-index: 5;
-      visibility: hidden;
-      opacity: 0;
-      transform: scale(.8);
-      transition: .4s ease-in-out;
-    }
-    footer .footer_wrap .topmenu>li:hover .submenu {
-      visibility: visible;
-      opacity: 1;
-      transform: scale(1);
-    }
-    footer .footer_wrap .topmenu .submenu li a {
-      text-decoration: none;
-      text-align: center;
-      padding: 10px 0;
-      margin: 0 10px;
-    }
-    footer .footer_wrap .topmenu li a:hover {color: #2DB1E4;}
-    footer .footer_wrap .media div{padding: 22px 0;}
-    footer .footer_wrap .media a{padding-left: 20px;}
-    footer .footer_wrap div p{padding: 22px 0;}
+  a, p, ul, li, span{
+    font-size: 16px;
+    line-height: 25px;
+  }    
+  .hamburger-menu{display: block;}
+  header .menu_wrap{
+    display: grid;
+    grid-template-columns: 1fr 94px;
+    grid-template-rows: auto;
+    padding: 10px;
   }
- @media(min-width: 375px) and (max-width: 759px){
+  header .menu_wrap div:first-child{
+    grid-column: 2;
+    grid-row: 1;
+  }
+  header .menu_wrap nav{display: none;}  
+  .connection_wrap{padding: 0;}
+  .connection_wrap .map{height: 390px;}
+  .connection_wrap .map{
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
+  .connection_wrap .connection_text{
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+  .connection_wrap .request{
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+  .connection_wrap .connection_text h3{padding: 15px 0;}
+  .connection_wrap .connection_text div{
+    padding: 30px 0 ;
+    margin: 0 30px;
+  }
+  .connection_wrap .request div{
+    padding-bottom: 0;
+    margin: 0 30px;
+  }
+  .connection_wrap .request h3{padding: 45px 0;}
+  .connection_wrap .request textarea,
+  .connection_wrap .request input[type="email"],
+  .connection_wrap .request input[type="text"]{
+    padding: 17.5px 0;
+    font-size: 16px;
+  }
+  .connection_wrap .request div button{
+    font-size: 16px;
+    line-height: 30px;
+    padding: 20px 50px;
+  }
+  footer .footer_wrap{padding: 0 30px;}
+  footer .footer_wrap nav{float: left;}
+  footer .footer_wrap nav ul{
+    list-style: none;
+    padding: 22px 0;
+  }
+  footer .footer_wrap .topmenu {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+  }
+  footer .footer_wrap .topmenu>li {
+    position: relative;
+    list-style: none;
+  }
+  footer .footer_wrap .topmenu>li:after {
+    position: absolute;
+    right: 0;
+    width: 1px;
+    height: 12px;
+    top: 20px;
+    box-shadow: 4px -2px 0 red;
+    transform: rotate(30deg);
+  }
+  footer .footer_wrap .topmenu>li:last-child:after {
+    background: none;
+    box-shadow: none;
+  }
+  footer .footer_wrap .topmenu>li>a{padding: 0 20px 0 0;}
+  footer .footer_wrap .topmenu .submenu {
+    position: absolute;
+    left: 60%;
+    bottom: 100%;
+    width: 150px;
+    margin-left: -105px;
+    background: #fafafa;
+    border: 1px solid #ededed;
+    z-index: 5;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(.8);
+    transition: .4s ease-in-out;
+  }
+  footer .footer_wrap .topmenu>li:hover .submenu {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+  footer .footer_wrap .topmenu .submenu li a {
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 10px;
+  }
+  footer .footer_wrap .topmenu li a:hover {color: #2DB1E4;}
+  footer .footer_wrap .media div{padding: 22px 0;}
+  footer .footer_wrap .media a{padding-left: 20px;}
+  footer .footer_wrap div p{padding: 22px 0;}  
+} 
+    
+@media(min-width: 375px) and (max-width: 759px){
   h3{
     font-size: 21px;
     line-height: 35px; 
-  }
-  h4{
-    font-size: 16px;
-    line-height: 25px; 
   }
   a, p, ul, li, span{
     font-size: 14px;
@@ -612,22 +712,52 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     grid-row: 1;
   }  
   header .menu_wrap nav{display: none;}  
-  
-
-
-  .connection_wrap{padding: 20px;}
+  .connection_wrap{padding: 0 20px;}
+  .connection_wrap .map{height: 390px;}
+  .connection_wrap .connection_text h3{padding: 15px 0;}
   .connection_wrap .connection_text div{
-    padding: 23px 0;
-    border-bottom: 1px solid rgba(247, 245, 243, 0.2);
-  }  
-  .connection_wrap div:nth-child(1){
-    grid-column: 1 / span 2;
-    grid-row: 1;
-  }  
-  .connection_wrap div:nth-child(2){
+    padding: 30px 0 ;
+    margin-left: 0;
+  }
+  .connection_wrap .map{
     grid-column: 1 / span 2;
     grid-row: 2;
-  }  
+  }
+  .connection_wrap .connection_text{
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
+  .connection_wrap .request{
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+  .connection_wrap .connection_text h3{padding: 8px 0;}
+  .connection_wrap .connection_text div{
+    padding: 20px 0 ;
+    margin: 0;
+  }
+  .connection_wrap .request div{
+    padding-bottom: 0;
+    margin: 0;
+  }
+  .connection_wrap .request h3{padding: 23px 0;}
+  .connection_wrap .request textarea,
+  .connection_wrap .request input[type="email"],
+  .connection_wrap .request input[type="text"]{
+    padding: 15px 0;
+    font-size: 16px;
+  }
+  .connection_wrap .request label{
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 20px;
+  }
+  .connection_wrap .request div button{
+    width: 100%;
+    font-size: 16px;
+    line-height: 30px;
+    padding: 20px 0;
+  }
   footer .footer_wrap{
     display: grid;
     grid-template-columns: 1fr 1fr; 
@@ -655,4 +785,4 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     justify-self: end;
     border-bottom: none;
   }  
-  }
+}
