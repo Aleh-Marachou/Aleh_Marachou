@@ -4,33 +4,54 @@
   -webkit-text-size-adjust: none; /*чтобы автоматически НЕ изменять размеры шрифтов при изменении ориентации устройства*/
 }
 .zero{
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
   background-color: black;
 }
 h3{
   font-family: 'HelveticaNeueCyr-Light';
   font-size: 33px;
   line-height: 35px;
-  color: #2F323B;  
+  color: #2F323B;
+  box-sizing: border-box; 
 }
 a, p, ul, li, span{
   font-family: 'HelveticaNeueCyr-Light';
   font-size: 21px;
   line-height: 30px;
   color: #2F323B;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 label{
   font-family: 'HelveticaNeueCyr-Light';
   font-size: 21px;
   line-height: 30px;
   color: rgba(47, 50, 59, 0.6);
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s;
+}
+a:hover{
+  color: #2DB1E4;
+  background-size: 100% 2px;
+}
+.wrap{
+  display: grid;
+  grid-template-columns:  1fr 1fr; 
+  grid-template-rows: auto;
 }
 header{
   background-color: #FFFFFF;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-main{background-color: #FFFFFF;}  
+main{
+  background-color: #FFFFFF;
+}  
 header .menu_wrap{
   display: grid;
   grid-template-columns: 140px 1fr;
@@ -42,18 +63,26 @@ header .menu_wrap svg{
   height: 100%; 
   object-fit: contain;
 }  
-header .menu_wrap svg path{fill: #2F323B;}  
-header .menu_wrap nav{padding: 50px 0;}   
+header .menu_wrap svg path{
+  fill: #2F323B;
+}  
+header .menu_wrap nav{
+  padding: 50px 0;
+}   
 
 /* MENU/CTART */
   
-header .menu_wrap nav ul{list-style: none;}
+header .menu_wrap nav ul{
+  list-style: none;
+}
 header .menu_wrap .topmenu a{
   text-decoration: none;
   display: block;
   transition: .4s ease-in-out;
 }
-header .menu_wrap .topmenu>li>a{padding: 0 20px;}  
+header .menu_wrap .topmenu>li>a{
+  padding: 0 20px;
+}  
 header .menu_wrap .topmenu li a:hover{
   color: #2DB1E4;
   transform: scale(1.2);
@@ -67,41 +96,47 @@ header .menu_wrap .topmenu .submenu li a{
 
   /* MENU/END */ 
   
-.connection{background: #FFFFFF;}  
-.connection_wrap{
-  display: grid;
-  grid-template-columns:  1fr 1fr; 
-  grid-template-rows: auto;
+.connection{
+  background: #FFFFFF;
+}  
+.connection .wrap{
+  
   padding: 0 120px;
 }
-.connection_wrap div a:hover{color: #2DB1E4;}
-.connection_wrap .map{
+
+.wrap .map{
   grid-column: 1;
   grid-row: 1 / span 2;
 }
-.connection_wrap .map iframe{
+.wrap .map iframe{
   width: 100%;
   height: 100%;
 }
-.connection_wrap .connection_text h3{padding: 25px 0;}
-.connection_wrap div a{
+.wrap .connection_text h3{
+  padding: 25px 0;
+}
+.connection .wrap div a{
   float: right;
   text-decoration: none;
 }  
-.connection_wrap .connection_text div{
+.wrap .connection_text div{
   padding: 30px 0 ;
   margin-left: 40px;
   border-bottom: 1px solid rgba(230, 230, 230, 1);
 }  
-.connection_wrap .request h3{padding: 45px 0 15px 0;}
-.connection_wrap .request div{
+.wrap .request h3{
+  padding: 45px 0 15px 0;
+}
+.wrap .request div{
   padding-bottom: 30px;
   margin-left: 40px;
 }
-.connection_wrap .request div:nth-child(1){border-bottom: 1px solid rgba(230, 230, 230, 1);}
-.connection_wrap .request textarea,
-.connection_wrap .request input[type="email"],
-.connection_wrap .request input[type="text"]{
+.wrap .request div:nth-child(1){
+  border-bottom: 1px solid rgba(230, 230, 230, 1);
+}
+.wrap .request textarea,
+.wrap .request input[type="email"],
+.wrap .request input[type="text"]{
   width: 100%;
   box-sizing: border-box;
   padding: 30px 0;
@@ -111,10 +146,16 @@ header .menu_wrap .topmenu .submenu li a{
   line-height: 30px;
   color: rgba(145, 147, 151, 1);
 }
-.connection_wrap .request textarea{padding-bottom: 0;}
-.connection_wrap .request input[type="checkbox"]{margin-top: 30px;}
-.connection_wrap .request div form{width: 100%;}
-.connection_wrap .request div button{
+.wrap .request textarea{
+  padding-bottom: 0;
+}
+.wrap .request input[type="checkbox"]{
+  margin-top: 30px;
+}
+.wrap .request div form{
+  width: 100%;
+}
+.wrap .request div button{
   cursor: pointer;
   background-color: #FFFFFF;
   font-size: 21px;
@@ -123,10 +164,12 @@ header .menu_wrap .topmenu .submenu li a{
   padding: 20px 70px;
   margin: 30px 0;
   float: right;
+  box-shadow: 0 0 20px #415360 inset;
 }
-.connection_wrap .request div button:hover{
+.wrap .request div button:hover{
   color: #2DB1E4;
   background-color: #F7F5F3;
+  box-shadow: 0 0 20px #2DB1E4 inset;
 }
 footer{
   background: #2F323B;
@@ -136,10 +179,14 @@ footer .footer_wrap{
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto;
-  padding: 0 120px 0 120px;
+  padding: 0 120px;
 }  
-footer .footer_wrap div{border-bottom: 1px solid rgba(255, 255, 255, 0.1);}
-footer .footer_wrap nav{float: left;}
+footer .footer_wrap div{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+footer .footer_wrap nav{
+  float: left;
+}
 footer .footer_wrap nav ul{
   list-style: none;
   padding: 60px 0 60px 0;
@@ -163,7 +210,9 @@ footer .footer_wrap .topmenu .submenu li a{
   line-height: 16px;
   color: #415360;
 }
-footer .media{border-bottom: 1px solid rgba(255, 255, 255, 0.1);}
+footer .media{
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 footer .footer_wrap .media div{
   padding: 60px 0;
   float: right;
@@ -175,17 +224,23 @@ footer .footer_wrap .media a{
   text-decoration: none;
   padding-left: 40px;
 }
-footer .footer_wrap .media a:hover{color: #2DB1E4;}  
+footer .footer_wrap .media a:hover{
+  color: #2DB1E4;
+}  
 footer .footer_wrap div p{
   color: rgba(255, 255, 255, 0.5);
   padding: 30px 0;
 }
-footer .footer_wrap div:last-child p{float: right;}
+footer .footer_wrap div:last-child p{
+  float: right;
+}
 footer .footer_wrap div:last-child p a{
   color: #F7F5F3;
   text-decoration: none;
 }
-footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}  
+footer .footer_wrap div:last-child p a:hover{
+  color: #2DB1E4;
+}  
 #menu__toggle{
   opacity: 0;
 }  
@@ -393,7 +448,9 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     padding: 10px 0;
     margin: 0 10px;
   }  
-  footer .footer_wrap .topmenu li a:hover{color: #2DB1E4;}
+  footer .footer_wrap .topmenu li a:hover{
+    color: #2DB1E4;
+  }
 }
 
 @media(min-width: 960px) and (max-width: 1439px){
@@ -470,43 +527,55 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     border: 2px solid #FFFFFF;
     transform: scale(1);
   }  
-  header .menu_wrap .topmenu li:last-child{display: block;}
-  .hamburger-menu{display: none;}
-  .connection_wrap{padding: 0;}
-  .connection_wrap .map{
+  header .menu_wrap .topmenu li:last-child{
+    display: block;
+  }
+  .hamburger-menu{
+    display: none;
+  }
+  .connection .wrap{
+    padding: 0;
+  }
+  .connection .wrap .map{
     grid-column: 1 / span 2;
     grid-row: 2;
   }
-  .connection_wrap .connection_text{
+  .connection .wrap .connection_text{
     grid-column: 1;
     grid-row: 1;
   }
-  .connection_wrap .request{
+  .connection .wrap .request{
     grid-column: 2;
     grid-row: 1;
   }
-  .connection_wrap .connection_text h3{padding: 15px 0;}
-  .connection_wrap .connection_text div{
+  .connection .wrap .connection_text h3{
+    padding: 15px 0;
+  }
+  .connection .wrap .connection_text div{
     padding: 30px 0 ;
     margin-left: 0;
   }
-  .connection_wrap .connection_text div{
+  .connection .wrap .connection_text div{
     padding: 22px 0;
     margin: 0 30px;
   }
-  .connection_wrap .request{border-left: 1px solid rgba(230, 230, 230, 1);}
-  .connection_wrap .request div{
+  .connection .wrap .request{
+    border-left: 1px solid rgba(230, 230, 230, 1);
+  }
+  .connection .wrap .request div{
     padding-bottom: 0;
     margin: 0 30px;
   }
-  .connection_wrap .request h3{padding: 37px 0;}
-  .connection_wrap .request textarea,
-  .connection_wrap .request input[type="email"],
-  .connection_wrap .request input[type="text"]{
+  .connection .wrap .request h3{
+    padding: 37px 0;
+  }
+  .connection .wrap .request textarea,
+  .connection .wrap .request input[type="email"],
+  .connection .wrap .request input[type="text"]{
     padding: 19.5px 0;
     font-size: 16px;
   }
-  .connection_wrap .request div button{
+  .connection .wrap .request div button{
     font-size: 16px;
     line-height: 30px;
     padding: 20px 50px;
@@ -595,44 +664,58 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     grid-column: 2;
     grid-row: 1;
   }
-  header .menu_wrap nav{display: none;}  
-  .connection_wrap{padding: 0;}
-  .connection_wrap .map{height: 390px;}
-  .connection_wrap .map{
+  header .menu_wrap nav{
+    display: none;
+  }  
+  .connection .wrap{
+    padding: 0;
+  }
+  .connection .wrap .map{
+    height: 390px;
+  }
+  .connection .wrap .map{
     grid-column: 1 / span 2;
     grid-row: 2;
   }
-  .connection_wrap .connection_text{
+  .connection .wrap .connection_text{
     grid-column: 1 / span 2;
     grid-row: 1;
   }
-  .connection_wrap .request{
+  .connection .wrap .request{
     grid-column: 1 / span 2;
     grid-row: 3;
   }
-  .connection_wrap .connection_text h3{padding: 15px 0;}
-  .connection_wrap .connection_text div{
+  .connection .wrap .connection_text h3{
+    padding: 15px 0;
+  }
+  .connection .wrap .connection_text div{
     padding: 30px 0 ;
     margin: 0 30px;
   }
-  .connection_wrap .request div{
+  .connection .wrap .request div{
     padding-bottom: 0;
     margin: 0 30px;
   }
-  .connection_wrap .request h3{padding: 45px 0;}
-  .connection_wrap .request textarea,
-  .connection_wrap .request input[type="email"],
-  .connection_wrap .request input[type="text"]{
+  .connection .wrap .request h3{
+    padding: 45px 0;
+  }
+  .connection .wrap .request textarea,
+  .connection .wrap .request input[type="email"],
+  .connection .wrap .request input[type="text"]{
     padding: 17.5px 0;
     font-size: 16px;
   }
-  .connection_wrap .request div button{
+  .connection .wrap .request div button{
     font-size: 16px;
     line-height: 30px;
     padding: 20px 50px;
   }
-  footer .footer_wrap{padding: 0 30px;}
-  footer .footer_wrap nav{float: left;}
+  footer .footer_wrap{
+    padding: 0 30px;
+  }
+  footer .footer_wrap nav{
+    float: left;
+  }
   footer .footer_wrap nav ul{
     list-style: none;
     padding: 22px 0;
@@ -659,7 +742,9 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     background: none;
     box-shadow: none;
   }
-  footer .footer_wrap .topmenu>li>a{padding: 0 20px 0 0;}
+  footer .footer_wrap .topmenu>li>a{
+    padding: 0 20px 0 0;
+  }
   footer .footer_wrap .topmenu .submenu {
     position: absolute;
     left: 60%;
@@ -685,10 +770,16 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     padding: 10px 0;
     margin: 0 10px;
   }
-  footer .footer_wrap .topmenu li a:hover {color: #2DB1E4;}
-  footer .footer_wrap .media div{padding: 22px 0;}
-  footer .footer_wrap .media a{padding-left: 20px;}
-  footer .footer_wrap div p{padding: 22px 0;}  
+  footer .footer_wrap .topmenu li a:hover {
+    color: #2DB1E4;}
+  footer .footer_wrap .media div{padding: 22px 0;
+  }
+  footer .footer_wrap .media a{
+    padding-left: 20px;
+  }
+  footer .footer_wrap div p{
+    padding: 22px 0;
+  }  
 } 
     
 @media(min-width: 375px) and (max-width: 759px){
@@ -700,7 +791,9 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     font-size: 14px;
     line-height: 20px;
   }  
-  .hamburger-menu{display: block;}
+  .hamburger-menu{
+    display: block;
+  }
   header .menu_wrap{
     display: grid;
     grid-template-columns: 1fr 94px;
@@ -711,48 +804,60 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     grid-column: 2;
     grid-row: 1;
   }  
-  header .menu_wrap nav{display: none;}  
-  .connection_wrap{padding: 0 20px;}
-  .connection_wrap .map{height: 390px;}
-  .connection_wrap .connection_text h3{padding: 15px 0;}
-  .connection_wrap .connection_text div{
+  header .menu_wrap nav{
+    display: none;
+  }  
+  .connection .wrap{
+    padding: 0 20px;
+  }
+  .connection .wrap .map{
+    height: 390px;
+  }
+  .connection .wrap .connection_text h3{
+    padding: 15px 0;
+  }
+  .connection .wrap .connection_text div{
     padding: 30px 0 ;
     margin-left: 0;
   }
-  .connection_wrap .map{
+  .connection .wrap .map{
     grid-column: 1 / span 2;
     grid-row: 2;
   }
-  .connection_wrap .connection_text{
+  .connection .wrap .connection_text{
     grid-column: 1 / span 2;
     grid-row: 1;
   }
-  .connection_wrap .request{
+  .connection .wrap .request{
     grid-column: 1 / span 2;
     grid-row: 3;
   }
-  .connection_wrap .connection_text h3{padding: 8px 0;}
-  .connection_wrap .connection_text div{
+  .connection .wrap .connection_text h3{
+    padding: 8px 0;
+  }
+  .connection .wrap .connection_text div{
     padding: 20px 0 ;
     margin: 0;
   }
-  .connection_wrap .request div{
+  .connection .wrap .request div{
     padding-bottom: 0;
     margin: 0;
   }
-  .connection_wrap .request h3{padding: 23px 0;}
-  .connection_wrap .request textarea,
-  .connection_wrap .request input[type="email"],
-  .connection_wrap .request input[type="text"]{
+  .connection .wrap .request h3{
+    padding: 23px 0;
+  }
+  .connection .wrap .request textarea,
+  .connection .wrap .request input[type="email"],
+  .connection .wrap .request input[type="text"]{
     padding: 15px 0;
     font-size: 16px;
   }
-  .connection_wrap .request label{
+  .connection .wrap .request label{
     font-size: 12px;
     line-height: 15px;
     margin-top: 20px;
   }
-  .connection_wrap .request div button{
+  .connection .wrap .request div button{
     width: 100%;
     font-size: 16px;
     line-height: 30px;
@@ -764,15 +869,23 @@ footer .footer_wrap div:last-child p a:hover{color: #2DB1E4;}
     grid-template-rows: auto;
     padding: 0 20px;
   }  
-  footer .footer_wrap div > nav{display: none;}
+  footer .footer_wrap div > nav{
+    display: none;
+  }
   footer .footer_wrap .media{
     grid-column: 1 / span 2;
     grid-row: 1;
     justify-self: center;
   }  
-  footer .footer_wrap .media div{padding: 18px 0;}
-  footer .footer_wrap .media div a{padding: 0 20px;}
-  footer .footer_wrap div p{padding: 18px 0;}
+  footer .footer_wrap .media div{
+    padding: 18px 0;
+  }
+  footer .footer_wrap .media div a{
+    padding: 0 20px;
+  }
+  footer .footer_wrap div p{
+    padding: 18px 0;
+  }
   footer .footer_wrap div:nth-child(3){
     grid-column: 1;
     grid-row: 2;
