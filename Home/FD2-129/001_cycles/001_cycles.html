@@ -83,47 +83,47 @@
                 2) Число ${numWholeFractional}
                 3) Число ${numPositiveNegative}`)
 
-            
-            // Цикл while    
+            // Цикл while
+
         
-            let numberLines = Number(prompt('Введите количесво строк'));
+        let numberLines = Number(prompt('Введите количесво строк'));
 
-            if (numberLines > 0) {
-                let i = 1;
+        if (numberLines > 0) {
+            let i = 1;
 
-                while (i <= numberLines) {
-                    let line = '';
-                    let j = 0;
+            while (i <= numberLines) {
+                let line = '';
+                let j = 0;
 
-                    while (j < i) {
-                        line += '|_';
-                        j++;
-                    }
-
-                    console.log(`${line}`);
-                    i++;
-                }
-            } else {
-                console.log (`Неверное значение! Чтобы построить лесенку, введите целое положительное число.`);
-            }
-
-            // Цикл for
-
-            const BLACK = "\u2B1B";
-            const WHITE = "\u2B1C";
-            let n = 8;
-            let res = "";
-
-            for (let i = 0; i < n; ++i) {
-                var line = ""
-                
-                for (let j = 0; j < n; ++j) {
-                    line += (i + j) % 2 == 0 ? WHITE : BLACK
+                while (j < i) {
+                    line += '|_';
+                    j++;
                 }
 
-                res += line + "\n"
+                console.log(`${line}`);
+                i++;
             }
-            console.log (res)
+        } else {
+            console.log (`Неверное значение! Чтобы построить лесенку, введите целое положительное число.`);
+        }
+
+        // Цикл for
+
+        const BLACK = "\u2B1B";
+        const WHITE = "\u2B1C";
+        let n = 8;
+        let res = "";
+
+        for (let i = 0; i < n; ++i) {
+            var line = ""
+            
+            for (let j = 0; j < n; ++j) {
+                line += (i + j) % 2 == 0 ? WHITE : BLACK
+            }
+
+            res += line + "\n"
+        }
+        console.log (res)
         </script>    
     </BODY> 
 </HTML>
