@@ -23,19 +23,23 @@
 
             let width = Number(prompt('Введите длину прямоугольника'));
             let length = Number(prompt('Введите ширину прямоугольника'));
-            
-            let area = width * length;
-            let perimeter = 2 * (width + length);
 
-            if (width != length) {
-                console.log (
-                    'Площадь равна '+ area + '\n' +
-                    'Периметр равен ' + perimeter);
-            } else {
+            if (width > 0 && length > 0) {
+                let area = width * length;
+                let perimeter = 2 * (width + length);
+
+                ( width == length ) ? 
                 console.log (
                     'Площадь равна '+ area + '\n' +
                     'Периметр равен ' + perimeter + '\n' +
-                    'Перед нами квадрат');
+                    'Перед нами квадрат'
+                ) : 
+                console.log (
+                    'Площадь равна '+ area + '\n' +
+                    'Периметр равен ' + perimeter
+                );
+            } else {
+                console.log (`Неверное значение! длина и ширина должны быть больше нуля.`);
             }
 
             // Месяц
@@ -57,73 +61,78 @@
             // Число
 
             let num = Number(prompt('Введите число'));
+            let numEvenOdd = "";
+            let numWholeFractional = "";
+            let numPositiveNegative = "";
+            
 
             if (num % 2 == 0) {
-                let numEvenOdd = `четное`;
+                numEvenOdd = `четное`;
             } else {
-                let numEvenOdd = `нечетное`;
+                numEvenOdd = `нечетное`;
             }
 
             if (num % 1 == 0) {
-                let numWholeFractional = `целое`;
+                numWholeFractional = `целое`;
             } else {
-                let numWholeFractional = `дробное`;
+                numWholeFractional = `дробное`;
             }
-            
+
             if (num == 0) {
-                let numPositiveNegative = ` не является положительным или отрицательным`;
+                numPositiveNegative = ` не является положительным или отрицательным`;
             } else if (num > 0) {
-                let numPositiveNegative = `положительное`;
+                numPositiveNegative = `положительное`;
             } else if (num < 0) {
-                let numPositiveNegative = `отрицательное`;
+                numPositiveNegative = `отрицательное`;
             }
-            
+
             console.log (`Информация о числе ${num}:
                 1) Число ${numEvenOdd}
                 2) Число ${numWholeFractional}
-                3) Число ${numPositiveNegative}`)
+                3) Число ${numPositiveNegative}`
+            )
 
             // Цикл while
 
         
-        let numberLines = Number(prompt('Введите количесво строк'));
+            let numberLines = Number(prompt('Введите количесво строк'));
 
-        if (numberLines > 0) {
-            let i = 1;
+            if (numberLines > 0) {
+                let i = 1;
 
-            while (i <= numberLines) {
-                let line = '';
-                let j = 0;
+                while (i <= numberLines) {
+                    let line = '';
+                    let j = 0;
 
-                while (j < i) {
-                    line += '|_';
-                    j++;
+                    while (j < i) {
+                        line += '|_';
+                        j++;
+                    }
+
+                    console.log(`${line}`);
+                    i++;
+                }
+            } else {
+                console.log (`Неверное значение! Чтобы построить лесенку, введите целое положительное число.`);
+            }
+
+            // Цикл for
+
+            const BLACK = "\u2B1B";
+            const WHITE = "\u2B1C";
+            let n = 8;
+            let res = "";
+
+            for (let i = 0; i < n; ++i) {
+                var line = ""
+                
+                for (let j = 0; j < n; ++j) {
+                    line += (i + j) % 2 == 0 ? WHITE : BLACK
                 }
 
-                console.log(`${line}`);
-                i++;
+                res += line + "\n"
             }
-        } else {
-            console.log (`Неверное значение! Чтобы построить лесенку, введите целое положительное число.`);
-        }
-
-        // Цикл for
-
-        const BLACK = "\u2B1B";
-        const WHITE = "\u2B1C";
-        let n = 8;
-        let res = "";
-
-        for (let i = 0; i < n; ++i) {
-            var line = ""
-            
-            for (let j = 0; j < n; ++j) {
-                line += (i + j) % 2 == 0 ? WHITE : BLACK
-            }
-
-            res += line + "\n"
-        }
-        console.log (res)
+            console.log (res)
         </script>    
     </BODY> 
 </HTML>
