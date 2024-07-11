@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<HTML lang="en"> 
+    <HEAD>
+        <META charset="utf-8">
+            <!--смартфоны автоматически НЕ изменяют масштаб страницы -->
+        <meta name="HandheldFriendly" content="True"/> 
+            <!--Чтобы мобильные браузеры не пытались обнаружить на веб-странице телефоны и адреса и соответственно не предлагали функционал для работы с ними -->
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <meta name="x-rim-auto-match" content="none" forua="true">
+            <!-- Чтобы переключить Internet Explorer в режим последней версии: -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <TITLE>calcWithFunc</TITLE> 
+        <!-- <link rel="stylesheet" href="fonts/converted-fonts/styles.css" media="screen">
+        <link rel="stylesheet" href="palol.css" media="screen"> -->
+    </HEAD> 
+
+    <BODY>
+
+        <button class="btn">Нажми</button>
+        <button class="btn">Кликни</button>
+        <button class="btn">Цисни!</button>
+
+        <script>
+
+            // const buttons = document.querySelectorAll(".btn");
+
+            // console.log(buttons);
+            // for (let i = 0; i < buttons.length; i += 1) {
+            // console.log(buttons[i]);
+            //     buttons[i].onclick = function() {
+            //     console.log(buttons[i].textContent);
+            //     buttons[i].textContent = "Нажми еще " + message + " раз!"
+            //     }
+            // }
+
+            // function getCounter() {
+            //     let counter = 0;
+            //     function increment() {
+            //         counter++;
+            //     }
+            //     function log() {
+            //         let message = `Количество нажатий: ${counter}`;
+            //         console.log(message);
+            //     }
+                
+            //     return [increment, log];
+            // }
+
+            // const [increment, log] = getCounter();
+            // increment();
+            const buttons = document.querySelectorAll(".btn");
+
+            console.log(buttons);
+            for (let i = 0; i < buttons.length; i += 1) {
+                console.log(buttons[i]);
+                buttons[i].onclick = function() {
+                    console.log(buttons[i].textContent);
+                    buttons[i].textContent = "Нажми еще " + message + " раз!"
+                }
+            }
+
+            function getCounter() {
+                let counter = 0;
+                function increment() {
+                    counter++;
+                }
+                function log() {
+                    let message = `Количество нажатий: ${counter}`;
+                    console.log(message);
+                }
+                
+                return [increment, log];
+            }
+
+            const [increment, log] = getCounter();
+            increment();
+            increment();
+            increment();
+
+        </script>    
+    </BODY> 
+</HTML>

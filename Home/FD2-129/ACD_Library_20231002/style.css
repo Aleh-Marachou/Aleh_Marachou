@@ -1,0 +1,76 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style: none;
+    -webkit-text-size-adjust: none; /*чтобы автоматически НЕ изменять размеры шрифтов при изменении ориентации устройства*/
+}
+.zero{
+    padding: 0 10px;
+    background-color: black;
+    overflow: hidden;
+}
+div input[type="text"]{
+    width: 100%;
+    font-size: 21px;
+    line-height: 30px;
+    color: rgba(145, 147, 151, 1);
+}
+div img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+header{
+    background-color: rgb(247, 248, 250);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.header-container{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: auto;
+    padding: 30px;
+    align-items: center;
+    /* justify-items: center; */
+}
+svg
+.search-container{
+    padding: 0 50px;
+}
+.header-container button{
+    padding: 10px 0;
+}
+main{
+    background-color: yellow;
+}
+.workspace{
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: auto;
+    padding: 30px;
+    background-color: blue;
+}
+
+/* раскрывающееся меню - start */
+.listree-submenu-heading {
+    cursor: pointer;
+}
+/* ul.listree {
+    list-style: none;
+} */
+ul.listree-submenu-items {
+    /* list-style: none; */
+    border-left: 1px dashed black;
+    white-space: nowrap;
+    margin-right: 4px;
+    padding-left: 20px;
+}
+div.listree-submenu-heading.collapsed:before {
+    content: "+";
+    margin-right: 4px;
+}
+div.listree-submenu-heading.expanded:before {
+    content: "-";
+    margin-right: 4px;
+}
+/* раскрывающееся меню - end */

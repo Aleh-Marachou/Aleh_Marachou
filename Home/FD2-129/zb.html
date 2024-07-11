@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        .listree-submenu-heading {
+            cursor: pointer;
+        }
+        ul.listree {
+            list-style: none;
+        }
+        ul.listree-submenu-items {
+            list-style: none;
+            border-left: 1px dashed black;
+            white-space: nowrap;
+            margin-right: 4px;
+            padding-left: 20px;
+        }
+        div.listree-submenu-heading.collapsed:before {
+            content: "+";
+            margin-right: 4px;
+        }
+        div.listree-submenu-heading.expanded:before {
+            content: "-";
+            margin-right: 4px;
+        }
+    </style>
+    <title>Easy Tree</title>
+  </head>
+  <body>
+
+    <!-- <nav>
+        <ul class="listree">
+            <li>
+                <div class="listree-submenu-heading">Каталог</div>
+                <ul class="listree-submenu-items">
+                    <li>
+                        <div class="listree-submenu-heading">КЖ.4</div>
+                        <ul class="listree-submenu-items">
+                            <li><a href="">ОД</a></li>
+                            <li><a href="">Камеры</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="listree-submenu-heading">КЖ.6</div>
+                        <ul class="listree-submenu-items">
+                            <li><a href="">ОД</a></li>
+                            <li><a href="">Камеры</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav> -->
+
+
+    <!-- v.3 -->
+    <table id="table"></table>
+
+        <!-- v.2 -->
+
+    <!-- <table>
+        <tbody id="contayner"></tbody>
+    </table> -->
+
+    <script type="text/javascript">
+        function listree() {
+            const subMenuHeadings = document.getElementsByClassName("listree-submenu-heading");
+            Array.from(subMenuHeadings).forEach(function(subMenuHeading){
+                subMenuHeading.classList.add("collapsed");
+                subMenuHeading.nextElementSibling.style.display = "none";
+                subMenuHeading.addEventListener('click', function(event){
+                    event.preventDefault();
+                    const subMenuList = event.target.nextElementSibling;
+                    if(subMenuList.style.display=="none"){
+                        subMenuHeading.classList.remove("collapsed");
+                        subMenuHeading.classList.add("expanded");
+                        subMenuList.style.display = "block";
+                    }
+                    else {
+                        subMenuHeading.classList.remove("expanded");
+                        subMenuHeading.classList.add("collapsed");
+                        subMenuList.style.display = "none";
+                    }
+                    event.stopPropagation();
+                });
+            });
+        }
+        listree();
+
+
+//         function createList(data) {
+//   var list = document.createElement("ul");
+//   for (var i = 0; i < data.length; i++) {
+//     var newItem = document.createElement("li");
+//     var newText = document.createTextNode(data[i]);
+//     newItem.appendChild(newText);
+//     list.appendChild(newItem);
+//   }
+//   return list;
+// }
+
+
+
+// в2
+/*
+const RCS4_TOTAL_INFARMATION = [
+    "Чертежи разработаны на основании задания на проектирование",
+    "Чертежи разработаны в соответствии с действующими ТНПА",
+    "Ведомость основных комплектов см. на листе общих данных комплекта ГП",
+    "Работы по строительству выполнять по проекту производства работ (ППР)",
+    "Уровень ответствености сооружений - II по ГОСТ 27751-88. Класс сложности К-3 по по СН3.02.07-2020. Класс надежности - RC2 по СН 2.01.01-2022",
+    "Принятые в чертежах технические решения соответствуют требованиям экологических, санитарно-гигиенических, противопожарных и других действующих норм и правил и обеспечивают безопасную для жизни и здоровья людей эксплуатацию объекта при соблюдении предусмотренных чертежами мероприятий",
+    "Расположение колодцев на местности см. на листах НВК",
+    "При производстве монтажа и транспортировке строительных конструкций и деталей необходимо соблюдать требования СН 1.03.01-2019, СН 5.01.01-2023, все работы вести с облюдением \"Правил по охране труда при выполнении строительных работ\", утвержденных Постановлением Министерства труда и социальной защиты РБ и МАиС РБ  №24/33 от 31.05.2019",
+    "Все наружные поверхности, соприкасающиеся с грунтом, окрасить горячей мастикой МБПГ по СТБ 1262-2021 за 2 раза общей толщиной 3 мм по слою грунтовки разжиженным окрасочным составом по подготовленной поверхности (кроме перекрытия камер) \nПо перекрытию камер выполнить сплошную оклеечную гидроизоляцию из двух слоев рулонного гидроизоляционного материала Г-ПХ-БЭ-ПП/ПП-3.0 по СТБ 1107-98 на мастике методом наплавления с заведением на стены ниже плит перекрытия на 30 см. Наплавление производить по огрунтовке разжиженным окрасочным составом по выравнивающей стяжке из цементного раствора М50 толщиной 20-50 мм с уклонам к краям. Горизонтальные плоскости оклеечной изоляции защитить цементным раствором М50 толщиной 30 мм по уклону",
+    "Элементы горловин колодцев располагать над скобами",
+    "Установку люков выполнять на 50-70 мм выше поверхности земли в зеленой зоне и в одном уровне с поверхностью усовершенствованного покрытия. Для этого при монтаже варьировать толщиной цементного раствора между кольцами горловин",
+    "Устройство гидроизоляции вести в соответствии с требованиями ТКП 45-5.08-75-2007",
+    "Обратную засыпку котлованов производить после монтажа элементов перекрытия: под усовершенствованным покрытием - природным непучинистым песчаным грунтом без органических примесей, в зеленой зоне -  местным непучинистым грунтом, без включения строительного мусора и растительного грунта равномерно со всех сторон с уплотнением в соответствии с требованиями ТКП 45-5.01-254-2012",
+    "При строительстве применять методы работ, не приводящие к ухудшению свойств грунтов основания неорганизованным водоотливом, замачиванием, размывом поверхностными водами, промерзанием, повреждением механизмами и транспортом",
+    "Металлические элементы окрасить эмалью ПФ-115 ГОСТ 6465-76 за два раза по грунтовке ГФ-021 ГОСТ 25129-2020 по подготовленной поверхности (общая толщина покрытия 80 мкм)",
+    "Снятие опалубки производить после достижения бетоном 70%-ной прочности",
+    "Все колодцы сети обозначить соответствующими знаками на стационарных объектах в соответствии с требованиями ГОСТ 12.4.026-2015",
+    "Согласно отчетам об инженерно-геологических изысканиях, выполненных УП\"Минскинжпроект\" в 2023 г. к объекту №21.70.14.01, в основании сетей хоз-питьевого водопровода залегает: \nПо результатам химического анализа водной вытяжки грунта по содержанию сульфатов ... слабоагрессивны к бетону марки W4, неагрессивны к бетону марок W6, W8, W12",
+    "Грунты основания приняты по ближайшим скважинам. Колонки скважин в разрезе с высотной привязкой нанесены на профилях раздела НВК",
+    'Перечень работ, для которых необходимо составление актов освидетельствования скрытых работ: \n -грунты основания (с участием представителя организации, производившей изыскания); \n -защита стальных конструкций от коррозии (выборочно); \n -устройство гидроизоляции (выборочно)',
+    "Конструкции, принятые в проекте, выпускаются организациями Республики Беларусь, указанными в Каталоге оборудования, конструкций, изделий и материалов для строительства (stroycatalog.by)",
+    "Класс экспозиции согласно СП 5.03.01-2020 для монолитных и сборных железобетонных конструкций - ХС2 (бетон класса С16/20 W4), монолитных бетонных конструкций - Х0 (бетон класса С12/15 W4) \nБетон для монолитных и сборных конструкций выполнить  на портландцементе с содержанием СзS не более 65%, СзА не боллее 7%, СзА+СчАF не более 22% или на шлакопортландцементе",
+    "Вокруг люков колодцев, расположенных в зеленой зоне, выполнить асфальтовую отмостку из асфальтобетона ПДг-III/2,0 толщиной 40 мм шириной 500 мм по щебеночному основанию толщиной 100 мм, втрамбованному в грунт",
+    "Люки колодцев, расположенные в зеленой зоне, окрасить в зеленый цвет; люки, расположенные под усовершенствованным покрытием - в серый цвет",
+    "Песчаную подготовку  в основании колодцев выполнить из природного непучинистого песчаного грунта без органических включений"
+]
+/*
+function aadFn() {
+    const RCS_HEADER_TOTAL_INFARMATION = document.createElement('h3');
+    RCS_HEADER_TOTAL_INFARMATION.textContent = 'Общие данные';
+    document.body.append(RCS_HEADER_TOTAL_INFARMATION);
+
+    const OL_CONTENT_RCS_TOTAL_INFARMATION = document.createElement('ol');
+    document.body.append(OL_CONTENT_RCS_TOTAL_INFARMATION);
+
+    for (let i = 0; i < RCS4_TOTAL_INFARMATION.length; i++) {
+
+        let li = document.createElement('li');
+        li.textContent = RCS4_TOTAL_INFARMATION[i];
+
+        OL_CONTENT_RCS_TOTAL_INFARMATION.append(li);
+    }
+}
+*/
+aadFn();
+
+/*
+const RCS_HEADER_TOTAL_INFARMATION = document.createElement('h3');
+RCS_HEADER_TOTAL_INFARMATION.textContent = 'Общие данные';
+document.body.append(RCS_HEADER_TOTAL_INFARMATION);
+
+const OL_CONTENT_RCS_TOTAL_INFARMATION = document.createElement('ol');
+document.body.append(OL_CONTENT_RCS_TOTAL_INFARMATION);
+
+for (let i = 0; i < RCS4_TOTAL_INFARMATION.length; i++) {
+
+	let li = document.createElement('li');
+	li.textContent = RCS4_TOTAL_INFARMATION[i];
+
+    OL_CONTENT_RCS_TOTAL_INFARMATION.append(li);
+
+}
+*/
+// v.3
+/*
+let users = [
+	{
+		name: 'name1',
+		surname: 'surname1',
+		patronymic: 'patronymic1'
+	},
+	{
+		name: 'name2',
+		surname: 'surname2',
+		patronymic: 'patronymic2'
+	},
+	{
+		name: 'name3',
+		surname: 'surname3',
+		patronymic: 'patronymic3'
+	},
+];
+
+let table = document.getElementById('table');
+
+for (let user of users) {
+	let tr = document.createElement('tr');
+
+	let td1 = document.createElement('td');
+	td1.textContent = user.name;
+	tr.appendChild(td1);
+
+	let td2 = document.createElement('td');
+	td2.textContent = user.surname;
+	tr.appendChild(td2);
+
+	let td3 = document.createElement('td');
+	td3.textContent = user.patronymic;
+	tr.appendChild(td3);
+
+	table.appendChild(tr);
+}
+*/
+
+
+const people = [
+    {
+        room: "8",
+        name: {
+            f: "Степанов",
+            i: "Борис",
+            o: "Иванович"
+        },
+        date: {
+            d: 17,
+            m: 6,
+            y: 1996
+        },
+        number: ["89057999079"]
+    },
+    {
+        room: "3",
+        name: {
+            f: "Смирнов",
+            i: "Сергей",
+            o: "Борисович"
+        },
+        date: {
+            d: 22,
+            m: 9,
+            y: 1994
+        },
+        number: ["89097622050"]
+    },
+    {
+        room: "1",
+        name: {
+            f: "Архипов",
+            i: "Иван",
+            o: "Сергеевич"
+        },
+        date: {
+            d: 24,
+            m: 7,
+            y: 1993
+        },
+        number: ["89056664737"]
+    },
+    {
+        room: "2",
+        name: {
+            f: "Горшков",
+            i: "Кирилл",
+            o: "Петрович"
+        },
+        date: {
+            d: 25,
+            m: 6,
+            y: 1995
+        },
+        number: ["89137782447"]
+    },
+]
+
+
+function rooms() {
+    let rooms = [];
+    for(let i=0; i<people.length; i++) {
+        rooms.push(
+            [ people[i]["room"], `${people[i]["name"]["f"]} ${people[i]["name"]["i"]} ${people[i]["name"]["o"]}` ]
+        )
+    }
+    return rooms.sort((a, b) => +a[0]-b[0])
+}
+
+const addTable = document.createElement('table')
+document.querySelector('body').append(addTable)
+
+const title_rooms = document.createElement('tr')
+addTable.append(title_rooms)
+
+// const myroom = document.createElement('th')
+// myroom.textContent = 'Комната'
+// title_rooms.append(myroom)
+
+// const fio = document.createElement('th')
+// fio.textContent = 'ФИО'
+// title_rooms.append(fio)
+
+// document.querySelector('body').innerHTML = `<table></table>`
+// let title_rooms = document.createElement('tr')
+// title_rooms.innerHTML = `
+//     <th>Комната</th>
+//     <th>ФИО</th>`
+// document.querySelector('table').append(title_rooms)
+for(let i=0; i<rooms().length; i++) {
+
+    const row1 = document.createElement('tr')
+    const row1TD = document.createElement('td')
+    row1TD.textContent = `${rooms()[i][0]}`
+    row1.append(row1TD)
+
+    const row2TD = document.createElement('td')
+    rowTD.textContent = `${rooms()[i][1]}`
+    row1.append(row2TD)
+
+    addTable.append(row1)
+/*
+    let row = document.createElement('tr')
+    row.innerHTML = `
+        <td>${rooms()[i][0]}</td>
+        <td>${rooms()[i][1]}</td>
+    `
+    document.querySelector('table').append(row)
+    */
+}
+   </script>
+  </body>
+</html>

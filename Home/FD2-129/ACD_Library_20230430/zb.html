@@ -1,0 +1,257 @@
+<!DOCTYPE html> 
+<HTML lang="en"> 
+    <HEAD>
+        <META charset="utf-8">
+            <!--смартфоны автоматически НЕ изменяют масштаб страницы -->
+        <meta name="HandheldFriendly" content="True"/> 
+            <!--Чтобы мобильные браузеры не пытались обнаружить на веб-странице телефоны и адреса и соответственно не предлагали функционал для работы с ними -->
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="address=no"/>
+        <meta name="x-rim-auto-match" content="none" forua="true">
+            <!-- Чтобы переключить Internet Explorer в режим последней версии: -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <TITLE>ZB</TITLE>
+        <!-- <link rel="stylesheet" href="fonts/converted-fonts/styles.css" media="screen">
+        <link rel="stylesheet" href="palol.css" media="screen"> -->
+
+        <style>
+            .title {
+                color: blue;
+                text-align: center;
+            }
+        
+            .title_v2 {
+                color: red;
+            }
+        
+            p > img {
+                max-width: 300px;
+            }
+        
+            .alert {
+                padding: 15px;
+                border: 1px solid red;
+                border-radius: 4px;
+                color: white;
+                background-color: rgba(255,0,0,.45);
+                margin: 10px 0;
+            } 
+        
+            .alert button {
+                background: none;
+                border: none;
+                float: right;
+            } 
+        
+            .alert button:hover {
+                cursor: pointer;
+            }  
+          </style>
+    </HEAD> 
+
+    <BODY>
+        <!-- Comment here!!! -->
+        <h1 id="title" class="title test">Hello, <strong>students</strong>!</h1>
+
+        <p>
+            <button type="button" id="change-h1">Change H1</button>
+        </p>
+
+        <p>
+            <button id="change-p">Add some magic</button>
+        </p>
+
+        <p id="test-p">Lorem ipsum dolor, sit amet, consectetur adipisicing elit. Facilis, culpa.</p>
+
+        <p class="test">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus sint nostrum ratione soluta, quam, esse!</p>
+
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita incidunt itaque ex possimus sint aperiam magni, at aut sit in quis iusto ut qui dolore distinctio deserunt consequuntur voluptatibus pariatur, eius sed officiis id aliquam, eos. Laborum eum labore libero tempora itaque porro laudantium, quibusdam sed qui reiciendis, odit aliquid.</p>
+
+        <h2 class="test">Subtitle</h2>
+
+        <ul id="list" class="test">
+            <li>List item 1</li>
+            <li>List <a href="#">item 2</a></li>
+            <li>List item 3</li>
+            <li>List item 4</li>
+            <li>List <a href="#">item 5</a></li>
+        </ul>
+
+        <p>
+            <button type="button" class="addAlert">Навести страху!</button>
+        </p>
+
+        <p>
+            <input type="text" id="text-input">
+            <button class="increase" type="button">+</button>
+            <button class="decrease" type="button">-</button>
+        </p>
+
+        <p class="test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est tempore fuga magnam perspiciatis quae dignissimos veritatis tempora velit laudantium accusamus.</p>
+
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas, neque accusamus quidem cum provident nam totam maiores consectetur, esse exercitationem, quo voluptatibus! Est quam, cum autem voluptas ratione ipsum inventore, corporis tempore. Voluptas veniam asperiores dolorum aspernatur cum animi, laudantium voluptatum sequi suscipit magni vitae? Amet ut aliquid expedita, minima! Nostrum necessitatibus accusantium a, molestias nihil pariatur libero quisquam quia. Labore temporibus obcaecati est reprehenderit, eos consequuntur, modi voluptatem corporis, beatae ab consectetur, adipisci quas dicta fugit non earum aliquid eaque totam assumenda aliquam eligendi amet vel ipsum expedita alias. Eligendi sunt distinctio ab enim, aut, officia minus assumenda illum?</p>
+        
+        <script>
+            /*const nodes = document.body.childNodes;
+            const children = document.body.children;
+
+            console.log(nodes);
+            console.log(children);*/
+
+            /*const title = document.getElementById("title");
+            console.dir(title);
+            console.log(title.id);
+            console.log(title.className);
+            console.log(title.innerHTML);
+            console.log(title.textContent);
+
+            title.innerHTML = "We can <b>DO</b> it!!!";
+
+            //title.style.color = "red";
+            //title.style.textAlign = "center";
+            //title.style.cssText = "color: blue; text-align: center;";
+
+            //title.className += " title";
+            //title.className += " title_v2";
+
+            console.log(title.className);
+            console.log(title.classList);
+            title.classList.toggle("title_v2");
+            console.log(title.classList.contains("test"));*/
+
+            const h1ChangeBtn = document.getElementById("change-h1");
+            h1ChangeBtn.onclick = function() {
+                const title = document.getElementById("title");
+                title.classList.toggle("title_v2");
+            }   
+
+            const pChangeBtn = document.getElementById("change-p");
+            pChangeBtn.onclick = pChangeHandler;
+
+            function pChangeHandler() {
+                const p = document.getElementById("test-p");
+
+                console.log(p.innerHTML);
+
+                p.innerHTML = "<img src=\"https://cdn.cdnparenting.com/articles/2021/06/04112330/115992457.jpg\" alt=\"smile\">";
+
+                pChangeBtn.onclick = null;
+
+                pChangeBtn.disabled = true;
+            }
+
+            /*const testElementsByGet = document.getElementsByClassName("test");
+            const testElementsByQuery = document.querySelectorAll(".test");
+
+            console.log(testElementsByGet);
+            console.log(testElementsByQuery);*/
+
+            /*const list = document.querySelector("#list");
+            const linksInList = list.querySelectorAll("a");
+            const linksInList2 = document.querySelectorAll("#list a");
+
+            console.log(linksInList);
+            console.log(linksInList2);*/
+            let counter = 1;
+
+            const addSomeFear = document.querySelector(".addAlert");
+            addSomeFear.onclick = function() {
+                const div = document.createElement('div');
+                div.className = "alert";
+                div.innerHTML = `<strong>Всем привет!</strong> Вы прочитали важное сообщение. (${counter}) <button type='button'>❌</button>`;
+                document.body.prepend(div);
+                counter++;
+
+                const closeBtn = div.querySelector("button");
+                closeBtn.onclick = function() {
+                    //this.parentElement.remove();
+                    this.closest(".alert").remove();
+                }
+
+                const alerts = document.querySelectorAll(".alert");
+                if (alerts.length >= 5) {
+                    addSomeFear.onclick = null;
+                    addSomeFear.setAttribute("disabled", "disabled");
+                }
+            }
+
+            const myList = document.querySelector("#list");
+
+            const pBefore = document.createElement("p");
+            pBefore.textContent = "Я перед списком";
+            myList.before(pBefore); // вставить элемент перед <ol>
+
+            const pAfter = document.createElement("p");
+            pAfter.textContent = "Я после списка";
+            myList.after(pAfter); // вставить элемент после <ol>
+
+            const liFirst = document.createElement("li");
+            liFirst.innerHTML = "<strong>Первый</strong> элемент";
+            myList.prepend(liFirst); // вставить liFirst в начало <ol>
+
+            const liLast = document.createElement("li");
+            liLast.innerHTML = "<strong>Последний</strong> элемент";
+            myList.append(liLast); // вставить liLast в конец <ol>
+
+            const inputText = document.querySelector("#text-input");
+            const increaseBtn = document.querySelector(".increase");
+            const decreaseBtn = document.querySelector(".decrease");
+
+            inputText.focus();
+            inputText.onblur = function() {
+                console.log(this.value);
+            }
+
+            increaseBtn.onclick = function() {
+                inputText.value++;
+            }
+
+            decreaseBtn.onclick = function() {
+                inputText.value--;
+            }
+
+            
+            
+            
+            'use strict';
+
+            // Создаем новый элемент с указанным именем тега
+            const divZero = document.createElement("div");
+
+            // Добавляем к div класс black
+            // divZero.classList.add('alert');
+
+            // Добавляем в конец body тег div
+            document.body.append(divZero);
+            divZero.textContent = "Я создал див";
+            divZero.style.backgroundColor = 'green';
+            divZero.style.cssText = 'border: solid red 1px; background-color: blue';
+
+            const paragraph = document.createElement('p');
+            document.body.append(paragraph);
+            paragraph.textContent = "I'm a paragraph!";
+            paragraph.innerHTML = "I'm a <strong>bold</strong> paragraph!";
+            
+            const text = document.createTextNode("I'm a text node!");
+            text.innerHTML
+            /*
+            // Получить элемент ul
+            const list = document.querySelector('ul');
+            // Создать новый элемент списка
+            const newItem = document.createElement('li');
+            newItem.textContent = 'Get nice cheese';
+            */
+            var elem=document.getElementById('proba');
+            var pos=elem.getBoundingClientRect();
+            function getElementPos(elem) {
+            var bbox=elem.getBoundingClientRect();
+            return {
+                left: bbox.left+window.pageXOffset,
+                top: bbox.top+window.pageYOffset
+            };
+            }
+        </script>    
+    </BODY> 
+</HTML>

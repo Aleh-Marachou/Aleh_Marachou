@@ -19,28 +19,120 @@
 
     <BODY>
         <script>
-            var last_name = prompt('Введите вашу фамилию');
-            var second_name = prompt('Введите ваше имя');
-            var middle_name = prompt('Введите ваше отчество');
-            var age = parseInt(prompt('Введите ваш возраст (полное количество лет)'));
-            var gender = confirm('Ваш пол - мужской?');
-            var pension = "";
+            // Прямоугольник
+
+            let width = Number(prompt('Введите длину прямоугольника'));
+            let length = Number(prompt('Введите ширину прямоугольника'));
+            // let area = "";
+            // let perimeter = "";
+
+            if (width > 0 && length > 0) {
+                // let area = width * length;
+                let perimeter = 2 * (width + length);
+            } else {
+                console.log (`Неверное значение! длина и ширина должны быть больше нуля.`);
+            }
             
-            age_day = age * 365;
-            age_five = age + 5;
+            
 
-            gender_new = gender ? 'мужской' : 'женский';
-            pension = ((age >= 62) && (gender)) ? 'Да' : 'Нет';
-            pension = ((age >= 58) && (!gender)) ? 'Да' : 'Нет';
+            if (width != length) {
+                console.log (`Площадь ${perimeter}`);
+                // console.log (
+                //     'Площадь равна '+ area + '\n' +
+                //     'Периметр равен ' + perimeter);
+            } else {
+                console.log (
+                    // 'Площадь равна '+ area + '\n' +
+                    'Периметр равен ' + perimeter + '\n' +
+                    'Перед нами квадрат');
+            }
 
-            alert(
-                'Ваше ФИО: ' + last_name + ' ' + second_name + ' ' + middle_name + '\n'
-                + 'Ваш возраст в годах: ' + age + '\n'
-                + 'Ваш возраст в днях: ' + age_day + '\n'
-                + 'Через 5 лет вам будет: ' + age_five + '\n'
-                + 'Ваш пол: ' + gender_new + '\n'
-                +'Вы на пенсии: ' + pension,
-            )
+            // Месяц
+
+            // let numberMonth = Number(prompt('Введите номер месяца'));
+
+            // if (numberMonth >= 1 && numberMonth < 3 || numberMonth == 12) {
+            //     console.log(`пора года: зима`);
+            // } else if (numberMonth >= 3 && numberMonth <= 5) {
+            //     console.log(`пора года: весна`);
+            // } else if (numberMonth >= 6 && numberMonth <= 8) {
+            //     console.log(`пора года: лето`);
+            // } else if (numberMonth >= 9 && numberMonth <= 11) {
+            //     console.log(`пора года: осень`);
+            // } else if (numberMonth > 12 || numberMonth <= 0) {
+            //     console.log (`Неверное значение! Чтобы узнать пору года, введите целое число от 1 до 12.`);
+            // }
+
+            // Число
+
+            // let num = Number(prompt('Введите число'));
+
+            // if (num % 2 == 0) {
+            //     let numEvenOdd = `четное`;
+            // } else {
+            //     let numEvenOdd = `нечетное`;
+            // }
+
+            // if (num % 1 == 0) {
+            //     let numWholeFractional = `целое`;
+            // } else {
+            //     let numWholeFractional = `дробное`;
+            // }
+            
+            // if (num == 0) {
+            //     let numPositiveNegative = ` не является положительным или отрицательным`;
+            // } else if (num > 0) {
+            //     let numPositiveNegative = `положительное`;
+            // } else if (num < 0) {
+            //     let numPositiveNegative = `отрицательное`;
+            // }
+            
+            // console.log (`Информация о числе ${num}:
+            //     1) Число ${numEvenOdd}
+            //     2) Число ${numWholeFractional}
+            //     3) Число ${numPositiveNegative}`)
+
+            // Цикл while
+
+        
+        // let numberLines = Number(prompt('Введите количесво строк'));
+
+        // if (numberLines > 0) {
+        //     let i = 1;
+
+        //     while (i <= numberLines) {
+        //         let line = '';
+        //         let j = 0;
+
+        //         while (j < i) {
+        //             line += '|_';
+        //             j++;
+        //         }
+
+        //         console.log(`${line}`);
+        //         i++;
+        //     }
+        // } else {
+        //     console.log (`Неверное значение! Чтобы построить лесенку, введите целое положительное число.`);
+        // }
+
+        // Цикл for
+
+        // const BLACK = "\u2B1B";
+        // const WHITE = "\u2B1C";
+        // let n = 8;
+        // let res = "";
+
+        // for (let i = 0; i < n; ++i) {
+        //     var line = ""
+            
+        //     for (let j = 0; j < n; ++j) {
+        //         line += (i + j) % 2 == 0 ? WHITE : BLACK
+        //     }
+
+        //     res += line + "\n"
+        // }
+        // console.log (res)
         </script>    
     </BODY> 
 </HTML>
