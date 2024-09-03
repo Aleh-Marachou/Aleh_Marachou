@@ -1,114 +1,205 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    /* list-style: none; */
-    -webkit-text-size-adjust: none; /*чтобы автоматически НЕ изменять размеры шрифтов при изменении ориентации устройства*/
+    -webkit-text-size-adjust: none;
+    /*чтобы автоматически НЕ изменять размеры шрифтов при изменении ориентации устройства*/
 }
-.zero{
+
+.zero {
+    position: relative;
     padding: 0 10px;
     background-color: black;
     overflow: hidden;
 }
-div input[type="text"]{
+
+a[href]::before {
+    content: url(img/extref.png);
+}
+
+h3 {
+    text-align: center;
+}
+
+ol {
+    list-style: decimal;
+    padding: 0px 30px;
+    margin-left: 10px;
+    text-align: justify;
+}
+
+ul {
+    list-style: none;
+}
+
+li ul li:before {
+    content: "\2012";
+    position: relative;
+    left: -5px;
+}
+
+div input[type="text"] {
     width: 100%;
     font-size: 21px;
     line-height: 30px;
     color: rgba(145, 147, 151, 1);
 }
+
 div img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
-header{
+
+header {
+    /* display: block; */
+    position: fixed;
+    z-index: 1;
+    /* padding: 0 50px; */
+    left: 10px;
+    right: 10px;
     background-color: rgb(247, 248, 250);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.header-container{
+
+.header-container {
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     grid-template-rows: auto;
     padding: 30px;
     align-items: center;
-    /* justify-items: center; */
 }
-svg
-.search-container{
+
+.search-container {
     padding: 0 50px;
 }
-.header-container button{
+
+.header-container button {
     padding: 10px 0;
 }
-main{
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: auto;
-    background-color: yellow;
-}
-ol{
-    list-style: decimal;
-    padding-left: 20px;
-}
-.workspace{
-    /*
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: auto;
-    padding: 30px;
-    */
+
+.workspace {
     background-color: aqua;
 }
+
+main {
+    /* position: relative; */
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: auto;
+    margin-top: 135px;
+    background-color: yellow;
+}
+
 /* раскрывающееся меню - start */
-.listree-submenu-heading {
+
+nav {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.listree-submenu-items {
     cursor: pointer;
 }
-/* ul.listree {
-    list-style: none;
-} */
+
 ul.listree-submenu-items {
-    /* list-style: none; */
+    list-style: none;
     border-left: 1px dashed black;
     white-space: nowrap;
     margin-right: 4px;
     padding-left: 20px;
 }
+
 div.listree-submenu-heading.collapsed:before {
     content: "+";
     margin-right: 4px;
 }
+
 div.listree-submenu-heading.expanded:before {
     content: "-";
     margin-right: 4px;
 }
+
 /* раскрывающееся меню - end */
 
-table{
-    border-collapse: collapse;  /*убираем пустые промежутки между ячейками*/
+table {
+    border-collapse: collapse;
+    /*убираем пустые промежутки между ячейками*/
 }
+
 caption {
     caption-side: top;
     text-align: center;
     padding: 10px 0;
     font-size: 24px;
 }
+
 th,
 tr,
-td{
-    padding: 10px 15px;
-    border-style:solid;
-    /*border-right: 1px solid #0865c2;
-    border-top: 1px solid #0865c2;
-    border-left: 1px solid #0865c2;
-    border-bottom: 1px solid white;*/
+td {
+    padding: 10px 10px;
+    border-style: solid;
 }
-/*tr:first-child {
-    background: #C9E3FE;
-}*/
-/*tr:nth-child(2n) {
-    background: #e8edff;
-}*/
+
 tr:hover th,
 tr:hover td {
     background: #e8edff;
 }
+
+.box-s3_006,
+.box-s3_006_1-3,
+.box-s3_507-1 {
+    position: relative;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.s3_006,
+.s3_006_1-3,
+.s3_507-1 {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 15%;
+    background: whitesmoke;
+    padding: 5px;
+    border-style: groove;
+}
+
+.s3_006 li,
+.s3_006_1-3 li,
+.s3_507-1 li {
+    padding: 5px;
+    border: 1px solid yellowgreen;
+}
+
+.box-s3_006:hover .s3_006,
+.box-s3_006_1-3:hover .s3_006_1-3,
+.box-s3_507-1:hover .s3_507-1 {
+    display: block;
+    z-index: 1;
+}
+
+.s3_006 li:hover,
+.s3_006_1-3 li:hover,
+.s3_507-1 li:hover,
+.menu nav ul li ul li:hover {
+    background-color: aqua;
+}
+
+.menu ul div:hover {
+    background-color: gray;
+}
+
+.od-RCS4,
+.od-RCS6,
+.od-RCS7 {
+    display: none;
+}
+
+/* .search>div {
+    visibility: hidden;
+} */
