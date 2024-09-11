@@ -10,8 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <TITLE>Библиотека АСО</TITLE>
-    <!-- <script src="addStyle.js" type="text/javascript"></script> -->
-    <link rel="stylesheet" href="fonts/fontStyles.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>    <link rel="stylesheet" href="fonts/fontStyles.css" media="screen">
     <link rel="stylesheet" href="style.css" media="screen">
 </head>
 
@@ -29,6 +28,28 @@
             <div class="workspace">
                 <div>
                     <article>
+                        <h3>
+                            Исходные данные
+                        </h3>
+                        <section>
+                            <ul>
+                                <li>
+                                    Масса опоры &ndash;
+                                </li>
+                                <li>
+                                    Высота опоры &ndash;
+                                </li>
+                                <li>
+                                    Диаметр стойки опоры &ndash;
+                                </li>
+                                <li>
+                                    Грунт в основании фундамента &ndash;
+                                </li>
+                                <li>
+                                    Грунт обратной засыпки &ndash;
+                                </li>
+                            </ul>
+                        </section>
                         <section>
                             <h3>
                                 Определение нагрузок на фундамент
@@ -47,9 +68,19 @@
                             <p>
                                 Выполним проверку фундамента на сдвиг согласно условию
                             </p>
-                            <p>
-                                1,2Q<sub>сдв</sub> &#x2264; Q<sub>уд</sub>,
-                            </p>
+                            <math>
+                                <mn>1,2</mn>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>Q</mi>
+                                    <mi>сдв</mi>
+                                </msub>
+                                <mo>&#x2264;</mo>
+                                <msub>
+                                    <mi>Q</mi>
+                                    <mi>уд</mi>
+                                  </msub>
+                              </math>
                             <dl>
                                 <dt>
                                     где Q<sub>сдв</sub> &ndash; сдвигающее усилие,
@@ -81,9 +112,17 @@
                             <p>
                                 Выполним проверку фундамента на опрокидывание согласно условию
                             </p>
-                            <p>
-                                M<sub>опр</sub> &#x2264; М<sub>уд</sub>,
-                            </p>
+                            <math>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>опр</mi>
+                                </msub>
+                                <mo>&#x2264;</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>уд</mi>
+                                </msub>
+                              </math>
                             <dl>
                                 <dt>
                                     где M<sub>опр</sub> &ndash; опрокидывающий момент,
@@ -111,6 +150,44 @@
                             </h3>
                             <p>
                                 Определим напряжения под подошвой фундамента по формуле
+                            </p>
+                            <math>
+                                <msubsup>
+                                    <mi>P</mi>
+                                    <mi>min</mi>
+                                    <mi>max</mi>
+                                </msubsup>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <msup>
+                                      <mi>N</mi>
+                                    </msup>
+                                    <mi>F</mi>
+                                </mfrac>
+                                <mo>&#x00b1;</mo>
+                                <mfrac>
+                                    <msup>
+                                      <mi>M</mi>
+                                    </msup>
+                                    <mi>W</mi>
+                                </mfrac>
+                            </math>
+                            <dl></dl>
+                                <dt>
+                                    где N &ndash; вертикальная нагрузка на фундамент,
+                                </dt>
+                                <dt>
+                                    F &ndash; площадь фундамента.
+                                </dt>
+                                <dt>
+                                    M &ndash; момент на подошве фундамента,
+                                </dt>
+                                <dt>
+                                    W &ndash; момент сопротивления фундамента.
+                                </dt>
+                            </dl>
+                            <p>
+                                Определим момент на подошве фундамента
                             </p>
                         </section>
                     </article>
