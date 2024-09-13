@@ -103,9 +103,6 @@
                                     где &#947;<sub>&#8545;</sub> &ndash; удельный вес грунта,
                                 </dt>
                                 <dt>
-                                    h<sub>ф</sub> &ndash; глубина фундамента,
-                                </dt>
-                                <dt>
                                     &#966;<sub>&#8545;</sub> &ndash; ориентировочное значение условного угла сопротивления грунта сдвигу.
                                 </dt>
                             </dl>
@@ -130,6 +127,10 @@
                                     <mi>h</mi>
                                     <mi>ф</mi>
                                 </msub>
+                                <msub>
+                                    <mi>a</mi>
+                                    <mi>ф</mi>
+                                </msub>
                             </math>
                             <p>
                                 Определим пассивное давление грунта на фундамент
@@ -137,7 +138,7 @@
                             <math>
                                 <msub>
                                     <mi>&#963;</mi>
-                                    <mi>п</mi>
+                                    <mi>p</mi>
                                 </msub>
                                 <mo>=</mo>
                                 <msub>
@@ -171,7 +172,7 @@
                             <math>
                                 <msub>
                                     <mi>E</mi>
-                                    <mi>п</mi>
+                                    <mi>p</mi>
                                 </msub>
                                 <mo>=</mo>
                                 <mfrac>
@@ -180,10 +181,14 @@
                                 </mfrac>
                                 <msub>
                                     <mi>&#963;</mi>
-                                    <mi>п</mi>
+                                    <mi>p</mi>
                                 </msub>
                                 <msub>
                                     <mi>h</mi>
+                                    <mi>ф</mi>
+                                </msub>
+                                <msub>
+                                    <mi>a</mi>
                                     <mi>ф</mi>
                                 </msub>
                             </math>
@@ -199,6 +204,14 @@
                                 <msub>
                                     <mi>q</mi>
                                     <mi>q</mi>
+                                </msub>
+                                <msub>
+                                    <mi>h</mi>
+                                    <mi>ф</mi>
+                                </msub>
+                                <msub>
+                                    <mi>a</mi>
+                                    <mi>ф</mi>
                                 </msub>
                                 <msup>
                                     <mi>tg</mi>
@@ -229,7 +242,6 @@
                             </p>
                             <math>
                                 <mn>1,2</mn>
-                                <mo>&#183;</mo>
                                 <msub>
                                     <mi>Q</mi>
                                     <mi>сдв</mi>
@@ -251,12 +263,91 @@
                             <p>
                                 Сдвигающее усилие определим по формуле
                             </p>
-                            <p>
-                                Q<sub>сдв</sub> = 1,1E<sub>a</sub> + 0,7&times;1,5E <sub>q</sub> + 1,5Q<sub>w</sub>
-                            </p>
+                            <math>
+                                <msub>
+                                    <mi>Q</mi>
+                                    <mi>сдв</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Gj</mn>
+                                </msub>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q1</mi>
+                                </msub>
+                                <msub>
+                                    <mi>&#968;</mi>
+                                    <mn>0</mn>
+                                </msub>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q1</mi>
+                                </msub>
+                                <msub>
+                                    <mi>Q</mi>
+                                    <mi>q</mi>
+                                </msub>
+                            </math>
+                            <dl>
+                                <dt>
+                                    где &#947;<sub>Gj</sub> &ndash; частный коэффициент для постоянного воздействия,
+                                </dt>
+                                <dt>
+                                    &#947;<sub>Q1</sub> &ndash; частный коэффициент для переменного воздействия,
+                                </dt>
+                                <dt>
+                                    &#968;<sub>0</sub> &ndash; коэффициент сочетания воздействий, учитывающий комбинационное значение переменного воздействия.
+                                </dt>
+                            </dl>
                             <p>
                                 Удерживающее усилие определим по формуле
                             </p>
+                            <math>
+                                <msub>
+                                    <mi>Q</mi>
+                                    <mi>уд</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Gj</mn>
+                                </msub>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mn>оп</mn>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mi>ф</mi>
+                                </msub>
+                                <mo>&#41;</mo>
+                                <mo>&#40;</mo>
+                                <mn>45</mn>
+                                <mi>&#x00B0;</mi>
+                                <mo>-</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>&#966;</mi>
+                                        <mi>&#8545;</mi>
+                                    </msub>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                            </math>
                             <p>
                                 Q<sub>уд</sub> = 0,9Q<sub>св</sub> tg(&phi; - &beta;) + 0,9E<sub>п</sub>
                             </p>
