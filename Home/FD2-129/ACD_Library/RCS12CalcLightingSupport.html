@@ -52,6 +52,15 @@
                         <p>
                             Расчетная схема фундамента опоры приведена на рисунке 1.
                         </p>
+                        <!-- <div class="RCScalcModel">
+                            <p>
+                                Расчетная схема фундамента опоры приведена на рисунке 1.
+                            </p>
+                            <img src="img/RCS12_calcModel.png" alt="calcModel">
+                            <p>
+                                Рисунок 1 &ndash; Расчетная схема фундамента
+                            </p>
+                        </div> -->
                         <p>
                             Рисунок 1 &ndash; Расчетная схема фундамента
                         </p>
@@ -108,6 +117,34 @@
                                 сопротивления грунта сдвигу.
                             </dt>
                         </dl>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>&#963;</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mi class="gama_II"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="d_f"></mi>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mi>tg</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>&#40;</mo>
+                                <mn>45</mn>
+                                <mo>-</mo>
+                                <mfrac>
+                                    <mi class="fee_II"></mi>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mi class="sigma_a"></mi>
+                                <mn>&ensp;кПа.</mn>
+                            </math>
+                        </div>
                         <p>
                             Определим равнодействующую активного давления грунта
                         </p>
@@ -138,6 +175,28 @@
                                     <mi>f</mi>
                                 </msub>
                                 <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mi class="sigma_a"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="d_f"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="b_f"></mi>
+                                <mo>=</mo>
+                                <mi class="Ea"></mi>
+                                <mi>&ensp;кН.</mi>
                             </math>
                         </div>
                         <p>
@@ -179,6 +238,34 @@
                                 <mo>.</mo>
                             </math>
                         </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>&#963;</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mi class="gama_II"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="d_f"></mi>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mi>tg</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>&#40;</mo>
+                                <mn>45</mn>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mi class="fee_II"></mi>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mi class="sigma_p"></mi>
+                                <mn>&ensp;кПа.</mn>
+                            </math>
+                        </div>
                         <p>
                             Определим равнодействующую пассивного давления грунта
                         </p>
@@ -209,6 +296,28 @@
                                     <mi>f</mi>
                                 </msub>
                                 <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mi class="sigma_p"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="d_f"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="b_f"></mi>
+                                <mo>=</mo>
+                                <mi class="Ep"></mi>
+                                <mi>&ensp;кН.</mi>
                             </math>
                         </div>
                         <p>
@@ -256,6 +365,36 @@
                                 <mo>.</mo>
                             </math>
                         </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mi class="q_q"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="d_f"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="b_f"></mi>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mi>tg</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>&#40;</mo>
+                                <mn>45</mn>
+                                <mo>-</mo>
+                                <mfrac>
+                                    <mi class="fee_II"></mi>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mi class="Eq"></mi>
+                                <mn>&ensp;кН.</mn>
+                            </math>
+                        </div>
                         <p>
                             Определим ветровое давление, действующее на внешнюю поверхность опоры освещения,
                             согласно п. 5.2
@@ -299,6 +438,21 @@
                                 c<sub>pe</sub> &ndash; аэродинамический коэффициент внешнего давления.
                             </dt>
                         </dl>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>w</mi>
+                                    <mi>e</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mi class="q_p-z_e"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="c_pe"></mi>
+                                <mo>=</mo>
+                                <mi class="w_e"></mi>
+                                <mi>кПа.</mi>
+                            </math>
+                        </div>
                         <p>
                             Пиковое значение скоростного напора ветра определим согласно п. 4.5
                             <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
@@ -694,7 +848,8 @@
                         </dl>
                         <p>
                             Коэффициент наружного давления для цилиндра с бесконечной
-                            гибкостью определим по рисунку 7.27, вычислив коэффициент Рейнольдса R<sub>e</sub> согласно п. 7.9.1
+                            гибкостью определим по рисунку 7.27, вычислив коэффициент Рейнольдса R<sub>e</sub> согласно
+                            п. 7.9.1
                             <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
                                 title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
                                 [3]
@@ -766,33 +921,32 @@
                                 </msub>
                                 <mo>&#41;</mo>
                                 <mo>=</mo>
-                                <mi>
-                                    <msub>
-                                        <mi>c</mi>
-                                        <mi>r</mi>
-                                    </msub>
-                                    <mo>&#40;</mo>
-                                    <mi>z</mi>
-                                    <mo>&#41;</mo>
-                                </mi>
-                                <mo>&#183;</mo>
-                                <mi>
-                                    <msub>
-                                        <mi>c</mi>
-                                        <mn>0</mn>
-                                    </msub>
-                                    <mo>&#40;</mo>
-                                    <mi>z</mi>
-                                    <mo>&#41;</mo>
-                                </mi>
-                                <mo>&#183;</mo>
-                                <msub>
-                                    <mi>v</mi>
-                                    <mi>b</mi>
-                                </msub>
+                                <msqrt>
+                                    <mfrac>
+                                        <mrow>
+                                            <mn>2</mn>
+                                            <mo>&#183;</mo>
+                                            <msub>
+                                                <mi>q</mi>
+                                                <mi>p</mi>
+                                            </msub>
+                                        </mrow>
+                                        <mi>p</mi>
+                                    </mfrac>
+                                </msqrt>
                                 <mo>,</mo>
                             </math>
                         </div>
+                        <dl>
+                            <dt>
+                                p=0,2 &ndash; годовая вероятность превышения (прим. 4, п. 4.2,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
                     </section>
                     <section>
                         <h3>
@@ -981,7 +1135,10 @@
                                 <mo>+</mo>
                                 <mi>A</mi>
                                 <mo>&#183;</mo>
-                                <mi>c</mi>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mn>II</mn>
+                                </msub>
                                 <mo>+</mo>
                                 <msub>
                                     <mi>&#947;</mi>
@@ -1015,7 +1172,7 @@
                                 A &ndash; площадь подошвы фундамента;
                             </dt>
                             <dt>
-                                с &ndash; расчетное удельное сцепление грунта.
+                                c<sub>II</sub> &ndash; расчетное удельное сцепление грунта.
                             </dt>
                         </dl>
                         <p>
@@ -1216,7 +1373,7 @@
                     </section>
                     <section>
                         <h3>
-                            Расчет по деформациям
+                            Расчет по деформациям основания
                         </h3>
                         <p>
                             Определим эксцентриситет приложения нагрузки на подошву фундамента согласно п. 5.3.7
@@ -1412,6 +1569,165 @@
                                 Q &ndash; нагрузка от веса фундамента G<sub>f</sub>.
                             </dt>
                         </dl>
+                        <p>
+                            Расчетное сопротивление грунта под подошвой фундамента определим согласно п. 5.4.1
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>&#947;</mi>
+                                            <mi>1</mi>
+                                        </msub>
+                                        <mo>&#183;</mo>
+                                        <msub>
+                                            <mi>&#947;</mi>
+                                            <mi>2</mi>
+                                        </msub>
+                                    </mrow>
+                                    <mi>k</mi>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mo>&#91;</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>&#947;</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>k</mi>
+                                    <mi>z</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>b</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>II</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>l</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msubsup>
+                                    <mi>&#947;</mi>
+                                    <mi>II</mi>
+                                    <mi>'</mi>
+                                </msubsup>
+                                <mo>+</mo>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>b</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msubsup>
+                                    <mi>&#947;</mi>
+                                    <mi>II</mi>
+                                    <mi>'</mi>
+                                </msubsup>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>c</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mi>II</mi>
+                                </msub>
+                                <mo>&#93;</mo>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где &#947;<sub>1</sub> и &#947;<sub>2</sub> &ndash; коэффициенты условий работы (т. 5.2,
+                                п. 5.4.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                k &ndash; коэффициенты (п. 5.4.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                M<sub>&#947;</sub>, M<sub>q</sub>, M<sub>c</sub>, &ndash; коэффициенты (т. 5.3, п.
+                                5.4.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                k<sub>z</sub> &ndash; коэффициенты (п. 5.4.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                b<sub>f</sub> &ndash; ширина подошвы фундамента;
+                            </dt>
+                            <dt>
+                                &#947;<sub>II</sub> &ndash; среднее арифметическое расчетное значение удельного веса
+                                грунтов, залегающих ниже подошвы фундамента на глубину сжимаемой толщи;
+                            </dt>
+                            <dt>
+                                d<sub>l</sub> &ndash; глубина заложения фундаментов бесподвальных сооружений от уровня
+                                планировки
+                                или приведенная глубина заложения наружных и внутренних фундаментов от пола подвала;
+                            </dt>
+                            <dt>
+                                &#947;'<sub>II</sub> &ndash; среднее арифметическое расчетное значение удельного веса
+                                грунтов, залегающих выше подошвы фундамента;
+                            </dt>
+                            <dt>
+                                d<sub>b</sub> &ndash; глубина подвала, от уровня планировки до верха пола;
+                            </dt>
+                            <dt>
+                                c<sub>II</sub> &ndash; расчетное удельное сцепление грунта, залегающего непосредственно
+                                под подошвой
+                                фундамента.
+                            </dt>
+                        </dl>
+                        <p>
+                            Условие выполняется. Размеры фундамента подобраны правильно.
+                        </p>
                     </section>
                     <section>
                         <h3>
@@ -1445,13 +1761,12 @@
                     </section>
                 </article>
             </div>
-    </div>
-    <div class="menu"></div>
-    </main>
-
-    <footer></footer>
+            <div class="menu"></div>
+        </main>
+        <footer></footer>
     </div>
     <script src="js/header.js"></script>
+    <script src="js/RCS12CalcLightingSuppirt.js"></script>
     <!-- <script src="js/menu.js"></script> -->
     <!-- <script src="js/rcsList.js"></script> -->
     <!-- <script src="js/workspace.js"></script> -->

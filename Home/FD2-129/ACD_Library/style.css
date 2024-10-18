@@ -207,3 +207,37 @@ tr:hover td {
 .cover-math {
     text-align: center;
 }
+
+/* вычисления в формуле - start*/
+/* .formula {
+    border: 1px solid yellow;
+    display: flex;
+    align-items: center;
+} */
+
+/* .drob-box {
+    display: flex;
+    align-items: center;
+}
+
+.drob {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.drob span:first-child {
+    border-bottom: 1px solid green;
+    align-items: center;
+}
+
+.formula span {
+    padding: 0 1px;
+} */
+
+/* вычисления в формуле - end*/
+
+/* .RCScalcModel {
+    height: 100px;
+} */
