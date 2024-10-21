@@ -208,6 +208,28 @@ tr:hover td {
     text-align: center;
 }
 
+article section {
+    padding: 10px 0;
+}
+
+/* .workspace article section:first-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.workspace article section:first-child h3 {
+    grid-column: 1 / span 2;
+}
+
+.workspace article section:first-child div img {
+    background: url(img/RCS12_calcModel.png) no-repeat;
+    background-size: contain;
+}
+
+.workspace article section:first-child ul {
+    padding: 10px;
+} */
+
 /* вычисления в формуле - start*/
 /* .formula {
     border: 1px solid yellow;
@@ -238,6 +260,3 @@ tr:hover td {
 
 /* вычисления в формуле - end*/
 
-/* .RCScalcModel {
-    height: 100px;
-} */

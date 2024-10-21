@@ -31,6 +31,12 @@
                         <h3>
                             Исходные данные
                         </h3>
+                        <!-- <div>
+                            <img src="img/RCS12_calcModel.png" alt="calcModel">
+                            <p>
+                                Рисунок 1 &ndash; Расчетная схема фундамента
+                            </p>
+                        </div> -->
                         <ul>
                             <li>
                                 Масса опоры &ndash;
@@ -50,19 +56,7 @@
                             </li>
                         </ul>
                         <p>
-                            Расчетная схема фундамента опоры приведена на рисунке 1.
-                        </p>
-                        <!-- <div class="RCScalcModel">
-                            <p>
-                                Расчетная схема фундамента опоры приведена на рисунке 1.
-                            </p>
-                            <img src="img/RCS12_calcModel.png" alt="calcModel">
-                            <p>
-                                Рисунок 1 &ndash; Расчетная схема фундамента
-                            </p>
-                        </div> -->
-                        <p>
-                            Рисунок 1 &ndash; Расчетная схема фундамента
+                            Расчетную схему фундамента см. приложение А.
                         </p>
                     </section>
                     <section>
@@ -603,6 +597,37 @@
                                 </a>).
                             </dt>
                         </dl>
+                        <div>
+                            <math>
+                                <mi>
+                                    <msub>
+                                        <mi>I</mi>
+                                        <mi>v</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi class="k_i"></mi>
+                                    <mrow>
+                                        <mi class="c_0_z"></mi>
+                                        <mo>&#183;</mo>
+                                        <mi>ln</mi>
+                                        <mo>&#40;</mo>
+                                        <mfrac>
+                                            <mi class="supportHigt"></mi>
+                                            <mi class="z_0ji"></mi>
+                                        </mfrac>
+                                        <mo>&#41;</mo>
+                                    </mrow>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mi class="I_v_z"></mi>
+                                <mo>.</mo>
+                            </math>
+                        </div>
                         <p>
                             Определим среднюю скорость ветра на высоте z над уровнем земли согласно п. 4.3.1
                             <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
@@ -753,6 +778,79 @@
                                 ).
                             </dt>
                         </dl>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>k</mi>
+                                    <mi>r</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn>0.19</mn>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mrow>
+                                        <mo>&#40;</mo>
+                                        <mfrac>
+                                            <mi class="supportHigt"></mi>
+                                            <mi class="z_0ji"></mi>
+                                        </mfrac>
+                                        <mo>&#41;</mo>
+                                    </mrow>
+                                    <mrow>
+                                        <mo>0,07</mo>
+                                    </mrow>
+                                </msup>
+                                <mo>=</mo>
+                                <mi class="k_r"></mi>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mi>
+                                    <msub>
+                                        <mi>c</mi>
+                                        <mi>r</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <mi class="k_r"></mi>
+                                <mo>&#183;</mo>
+                                <mi>ln</mi>
+                                <mo>&#40;</mo>
+                                <mfrac>
+                                    <mi class="supportHigt"></mi>
+                                    <mi class="z_0ji"></mi>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mi class="c_r_z"></mi>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>v</mi>
+                                    <mi>m</mi>
+                                </msub>
+                                <mo>&#40;</mo>
+                                <mi>z</mi>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mi class="c_r_z"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="c_0_z"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="v_b"></mi>
+                                <mo>=</mo>
+                                <mi class="v_m_z"></mi>
+                                <mi>&ensp;м/с</mi>
+                            </math>
+                        </div>
                         <p>
                             Базовую скорость ветра определим согласно п. 4.2
                             <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
@@ -810,6 +908,23 @@
                                 ).
                             </dt>
                         </dl>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>v</mi>
+                                    <mi>b</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mi class="c_dir"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="c_season"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="v_b0"></mi>
+                                <mo>=</mo>
+                                <mi class="v_b"></mi>
+                                <mi>&ensp;м/с.</mi>
+                            </math>
+                        </div>
                         <p>
                             Определим аэродинамический коэффициент внешнего давления согласно п. 7.9.1
                             <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"

@@ -1,4 +1,4 @@
-let supportMass = 100;
+let supportMass = 0.981;
 let H = 10;
 let b_f = 1.2;
 let l_f = 1.2;
@@ -6,6 +6,14 @@ let d_f = 2.6;
 let gama_II = 17.6;
 let fee_II_Enter = 0;
 let q_q = 19.62;
+
+// Коэффициенты для расчета ветровой нагрузки
+const const_c_dir = 1;
+const const_c_season = 1;
+const const_v_b0 = 23;
+const const_z_0ji = 0.05;
+const const_c_0_z = 1;
+const const_k_i = 1;
 
 let fee_II = fee_II_Enter > 0 ? fee_II_Enter : 30;
 
@@ -28,15 +36,45 @@ let Ep_Exit = + Ep.toFixed(3);
 
 let Eq_Exit = + Eq.toFixed(3);
 
-console.log('Сигма_а = ' + sigma_a);
-console.log('Сигма_а (округление) = ' + sigma_a_Exit);
-console.log('Ea = ' + Ea);
-console.log('Eа (округление) = ' + Ea_Exit);
+// Расчет ветровой нагрузки
+function getWind(supportHigt) {
+    let k_r = 0.19 * Math.pow(supportHigt / const_z_0ji, 0.07);
+    let v_b = const_c_dir * const_c_season * const_v_b0;
+    let c_r_z = k_r * Math.log(supportHigt / const_z_0ji);
+    let v_m_z = c_r_z * const_c_0_z * v_b;
 
-console.log('Сигма_p = ' + sigma_p);
-console.log('Сигма_p (округление) = ' + sigma_p_Exit);
-console.log('Ep = ' + Ep);
-console.log('Ep (округление) = ' + Ep_Exit);
+    // округляем полученные результаты до 3-х знаков
+    let k_r_Exit = + k_r.toFixed(3);
+    let c_r_z_Exit = + c_r_z.toFixed(3);
+    let v_m_z_Exit = + v_m_z.toFixed(3);
+
+    // выводим полученные результаты в HTML
+    replaceVariables(const_c_dir, '.c_dir');
+    replaceVariables(const_c_season, '.c_season');
+    replaceVariables(const_v_b0, '.v_b0');
+    replaceVariables(const_z_0ji, '.z_0ji');
+    replaceVariables(const_c_0_z, '.c_0_z');
+    replaceVariables(const_k_i, '.k_i');
+
+
+
+    replaceVariables(supportHigt, '.supportHigt');
+    replaceVariables(c_r_z_Exit, '.c_r_z');
+    replaceVariables(k_r_Exit, '.k_r');
+    replaceVariables(v_b, '.v_b');
+    replaceVariables(v_m_z_Exit, '.v_m_z');
+}
+getWind(H)
+
+// console.log('Сигма_а = ' + sigma_a);
+// console.log('Сигма_а (округление) = ' + sigma_a_Exit);
+// console.log('Ea = ' + Ea);
+// console.log('Eа (округление) = ' + Ea_Exit);
+
+// console.log('Сигма_p = ' + sigma_p);
+// console.log('Сигма_p (округление) = ' + sigma_p_Exit);
+// console.log('Ep = ' + Ep);
+// console.log('Ep (округление) = ' + Ep_Exit);
 
 function replaceVariables(valueOfVariable, classOfVariable) {
     let arrayOfClasses = document.querySelectorAll(classOfVariable);
@@ -57,90 +95,3 @@ replaceVariables(Ea_Exit, '.Ea');
 replaceVariables(sigma_p_Exit, '.sigma_p');
 replaceVariables(Ep_Exit, '.Ep');
 replaceVariables(Eq_Exit, '.Eq');
-// createTableList();
-// --container for RCS4_GD
-/*
-const CONTAINER_FOR_RCS4_GD = document.createElement('div');
-VIEWPORT.append(CONTAINER_FOR_RCS4_GD);
-
-function addSectionList () {
-    const TYTLE_OF_SECTION_LIST = document.createElement('h1');
-    TYTLE_OF_SECTION_LIST.textContent = 'Ведомость основных комплектов марки КЖ';
-    CONTAINER_FOR_RCS4_GD.append(TYTLE_OF_SECTION_LIST);
-    const SECTION_DESIGNATION = document.createElement('div');
-    SECTION_DESIGNATION.textContent = 'Обозначение';
-}
-addSectionList();
-*/
-
-// ---element search - start---
-
-// document.querySelector('form').addEventListener('click', (event) => {
-//     event.preventDefault(); //- не отправляем данные из формы на сервер
-//     let radio = document.querySelector("input[name='search-object']");
-//     for (let i = 0; i < radio.length; i++) {
-//         if (radio[i].checked) {
-//             let a = document.querySelector('input[type="text"]').value;
-//             let data = radio[i].value;
-//             break;
-//         }
-//     }
-//     console.log(a);
-//     console.log(data);
-//     form.reset(); //- очищаем форму
-// });
-
-// function searchObjectSection(){
-//     if(input[type="text"].value == object_RCS4){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(input[type="text"].value == object_RCS4){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(input[type="text"].value == object_RCS6){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(input[type="text"].value == object_RCS7){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(input[type="text"].value == object_RCS11){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(input[type="text"].value == object_RCS12){
-//         let a = document.querySelector('input[type="text"]').value;
-//     }
-//     console.log(a);
-// }
-
-// SEARCH_OBJECT_SECTION.addEventListener('click', searchObjectSection);
-// function myClick(){
-//     if(value == object_RCS4){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(value == object_RCS6){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(value == object_RCS7){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(value == object_RCS11){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(value == object_RCS12){
-//         let a = document.querySelector('input[type="text"]').value;
-//     } else if(value == object_RCS12){
-//         let a = document.querySelector('input[type="text"]').value;
-//     }
-//     console.log(a);
-// }
-
-// document.querySelector('button').onclick = myClick;
-// function myClick(){
-//     let a = document.querySelector('input').value;
-//     console.log(a);
-// }
-
-// document.querySelector('input[type="text"]') = ;
-
-// input.addEventListener('keydown', function(e){
-//     let a = document.querySelector('input').value;
-//     console.log(a);
-// }
-
-// ---VIEWPORT - end---
-
-// ---menu to search for items - start---
-
-//import {addRcsList} from './rcs7ListBuildingCode.js';
-// addRcsList ();
