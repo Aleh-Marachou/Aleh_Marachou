@@ -432,21 +432,6 @@
                                 c<sub>pe</sub> &ndash; аэродинамический коэффициент внешнего давления.
                             </dt>
                         </dl>
-                        <div>
-                            <math>
-                                <msub>
-                                    <mi>w</mi>
-                                    <mi>e</mi>
-                                </msub>
-                                <mo>=</mo>
-                                <mi class="q_p-z_e"></mi>
-                                <mo>&#183;</mo>
-                                <mi class="c_pe"></mi>
-                                <mo>=</mo>
-                                <mi class="w_e"></mi>
-                                <mi>кПа.</mi>
-                            </math>
-                        </div>
                         <p>
                             Пиковое значение скоростного напора ветра определим согласно п. 4.5
                             <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
@@ -791,7 +776,7 @@
                                     <mrow>
                                         <mo>&#40;</mo>
                                         <mfrac>
-                                            <mi class="supportHigt"></mi>
+                                            <mi class="z_0"></mi>
                                             <mi class="z_0ji"></mi>
                                         </mfrac>
                                         <mo>&#41;</mo>
@@ -823,32 +808,12 @@
                                 <mo>&#40;</mo>
                                 <mfrac>
                                     <mi class="supportHigt"></mi>
-                                    <mi class="z_0ji"></mi>
+                                    <mi class="z_0"></mi>
                                 </mfrac>
                                 <mo>&#41;</mo>
                                 <mo>=</mo>
                                 <mi class="c_r_z"></mi>
                                 <mo>.</mo>
-                            </math>
-                        </div>
-                        <div>
-                            <math>
-                                <msub>
-                                    <mi>v</mi>
-                                    <mi>m</mi>
-                                </msub>
-                                <mo>&#40;</mo>
-                                <mi>z</mi>
-                                <mo>&#41;</mo>
-                                <mo>=</mo>
-                                <mi class="c_r_z"></mi>
-                                <mo>&#183;</mo>
-                                <mi class="c_0_z"></mi>
-                                <mo>&#183;</mo>
-                                <mi class="v_b"></mi>
-                                <mo>=</mo>
-                                <mi class="v_m_z"></mi>
-                                <mi>&ensp;м/с</mi>
                             </math>
                         </div>
                         <p>
@@ -925,6 +890,68 @@
                                 <mi>&ensp;м/с.</mi>
                             </math>
                         </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>v</mi>
+                                    <mi>m</mi>
+                                </msub>
+                                <mo>&#40;</mo>
+                                <mi>z</mi>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mi class="c_r_z"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="c_0_z"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="v_b"></mi>
+                                <mo>=</mo>
+                                <mi class="v_m_z"></mi>
+                                <mi>&ensp;м/с</mi>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mi>
+                                    <msub>
+                                        <mi>q</mi>
+                                        <mi>p</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <msub>
+                                        <mi>z</mi>
+                                        <mi>e</mi>
+                                    </msub>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <mo>&#91;</mo>
+                                <mn>1</mn>
+                                <mo>+</mo>
+                                <mn>7</mn>
+                                <mo>&#183;</mo>
+                                <mi class="I_v_z"></mi>
+                                <mo>&#93;</mo>
+                                <mo>&#183;</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mi class="ro"></mi>
+                                <mo>&#183;</mo>
+                                <mi>
+                                    <msubsup>
+                                        <mi class="v_m_z"></mi>
+                                        <mi></mi>
+                                        <mn>2</mn>
+                                    </msubsup>
+                                </mi>
+                                <mo>=</mo>
+                                <mi class="q_p_z_e"></mi>
+                                <mi>&ensp;Па.</mi>
+                            </math>
+                        </div>
                         <p>
                             Определим аэродинамический коэффициент внешнего давления согласно п. 7.9.1
                             <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
@@ -958,7 +985,12 @@
                             </dt>
                             <dt>
                                 &#968;<sub>&#955;0</sub> &ndash; коэффициент, учитывающий концевой эффект для кругового
-                                цилиндра.
+                                цилиндра (п. 7.9.1,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                ).
                             </dt>
                         </dl>
                         <p>
@@ -1062,6 +1094,89 @@
                                 ).
                             </dt>
                         </dl>
+                        <div>
+                            <math>
+                                <mi>v</mi>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>z</mi>
+                                    <mi>e</mi>
+                                </msub>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <msqrt>
+                                    <mfrac>
+                                        <mrow>
+                                            <mn>2</mn>
+                                            <mo>&#183;</mo>
+                                            <mi class="q_p_z_e"></mi>
+                                        </mrow>
+                                        <mi class="p"></mi>
+                                    </mfrac>
+                                </msqrt>
+                                <mo>=</mo>
+                                <mi class="vz_e"></mi>
+                                <mi>&ensp;м/с.</mi>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>R</mi>
+                                    <mi>e</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi class="supportDiametr"></mi>
+                                        <mo>&#183;</mo>
+                                        <mi class="vz_e"></mi>
+                                    </mrow>
+                                    <mi class="kinematic_viscosity"></mi>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mi class="R_e"></mi>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mi>10</mi>
+                                    <mi>6</mi>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mi>pe</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mi class="c_p0"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="psi_lyambda0"></mi>
+                                <mo>=</mo>
+                                <mi class="c_pe"></mi>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>w</mi>
+                                    <mi>e</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mi class="q_p_z_e"></mi>
+                                <mo>&#183;</mo>
+                                <mi class="c_pe"></mi>
+                                <mo>=</mo>
+                                <mi class="w_e"></mi>
+                                <mi>&ensp;Па.</mi>
+                                <mo>=</mo>
+                                <mi class="w_e_translate_Exit"></mi>
+                                <mi>&ensp;кПа.</mi>
+                            </math>
+                        </div>
                     </section>
                     <section>
                         <h3>
