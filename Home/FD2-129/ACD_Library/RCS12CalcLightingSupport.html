@@ -39,17 +39,33 @@
                         </div> -->
                         <ul>
                             <li>
-                                Масса опоры &ndash;
+                                Масса опоры G<sub>s</sub> &ndash;
+                                <span class="supportMass"></span>
+                                т;
                             </li>
                             <li>
-                                Высота опоры &ndash;
+                                Высота опоры z &ndash;
+                                <span class="supportHigt"></span>
+                                м;
                             </li>
                             <li>
-                                Диаметр стойки опоры &ndash;
+                                Диаметр стойки опоры b &ndash;
+                                <span class="supportDiametr"></span>
+                                м;
                             </li>
-
                             <li>
                                 Размеры фундамента (b<sub>f</sub>&#x00D7;l<sub>f</sub>&#x00D7;d<sub>f</sub>) &ndash;
+                                <span class="b_f"></span>
+                                &#x00D7;
+                                <span class="l_f"></span>
+                                &#x00D7;
+                                <span class="d_f"></span>
+                                м;
+                            </li>
+                            <li>
+                                Масса фундамента G<sub>f</sub> &ndash;
+                                <span class="Gf"></span>
+                                т;
                             </li>
                             <li>
                                 Грунт в основании фундамента &ndash;
@@ -118,25 +134,31 @@
                                     <mi>a</mi>
                                 </msub>
                                 <mo>=</mo>
-                                <mi class="gama_II"></mi>
+                                <mn class="gama_II"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="d_f"></mi>
+                                <mn class="d_f"></mn>
                                 <mo>&#183;</mo>
+                                <mn class="sigma_a_coefFriction">
+                                    <msup>
+                                        <mi>tg</mi>
+                                        <mn>2</mn>
+                                    </msup>
+                                    <mo>&#40;</mo>
+                                    <mn>45</mn>
+                                    <mo>-</mo>
+                                    <mfrac>
+                                        <mn class="fee_II"></mn>
+                                        <mn>2</mn>
+                                    </mfrac>
+                                    <mo>&#41;</mo>
+                                </mn>
+                                <mo>=</mo>
+                                <mn class="sigma_a"></mn>
                                 <msup>
-                                    <mi>tg</mi>
+                                    <mi>&ensp;т/м</mi>
                                     <mn>2</mn>
                                 </msup>
-                                <mo>&#40;</mo>
-                                <mn>45</mn>
-                                <mo>-</mo>
-                                <mfrac>
-                                    <mi class="fee_II"></mi>
-                                    <mn>2</mn>
-                                </mfrac>
-                                <mo>&#41;</mo>
-                                <mo>=</mo>
-                                <mi class="sigma_a"></mi>
-                                <mn>&ensp;кПа.</mn>
+                                <mo>.</mo>
                             </math>
                         </div>
                         <p>
@@ -183,14 +205,14 @@
                                     <mn>2</mn>
                                 </mfrac>
                                 <mo>&#183;</mo>
-                                <mi class="sigma_a"></mi>
+                                <mn class="sigma_a"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="d_f"></mi>
+                                <mn class="d_f"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="b_f"></mi>
+                                <mn class="b_f"></mn>
                                 <mo>=</mo>
-                                <mi class="Ea"></mi>
-                                <mi>&ensp;кН.</mi>
+                                <mn class="Ea"></mn>
+                                <mi>&ensp;т.</mi>
                             </math>
                         </div>
                         <p>
@@ -239,25 +261,31 @@
                                     <mi>p</mi>
                                 </msub>
                                 <mo>=</mo>
-                                <mi class="gama_II"></mi>
+                                <mn class="gama_II"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="d_f"></mi>
+                                <mn class="d_f"></mn>
                                 <mo>&#183;</mo>
+                                <mn class="sigma_p_coefFriction">
+                                    <msup>
+                                        <mi>tg</mi>
+                                        <mn>2</mn>
+                                    </msup>
+                                    <mo>&#40;</mo>
+                                    <mn>45</mn>
+                                    <mo>+</mo>
+                                    <mfrac>
+                                        <mn class="fee_II"></mn>
+                                        <mn>2</mn>
+                                    </mfrac>
+                                    <mo>&#41;</mo>
+                                </mn>
+                                <mo>=</mo>
+                                <mn class="sigma_p"></mn>
                                 <msup>
-                                    <mi>tg</mi>
+                                    <mi>&ensp;т/м</mi>
                                     <mn>2</mn>
                                 </msup>
-                                <mo>&#40;</mo>
-                                <mn>45</mn>
-                                <mo>+</mo>
-                                <mfrac>
-                                    <mi class="fee_II"></mi>
-                                    <mn>2</mn>
-                                </mfrac>
-                                <mo>&#41;</mo>
-                                <mo>=</mo>
-                                <mi class="sigma_p"></mi>
-                                <mn>&ensp;кПа.</mn>
+                                <mo>.</mo>
                             </math>
                         </div>
                         <p>
@@ -304,14 +332,14 @@
                                     <mn>2</mn>
                                 </mfrac>
                                 <mo>&#183;</mo>
-                                <mi class="sigma_p"></mi>
+                                <mn class="sigma_p"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="d_f"></mi>
+                                <mn class="d_f"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="b_f"></mi>
+                                <mn class="b_f"></mn>
                                 <mo>=</mo>
-                                <mi class="Ep"></mi>
-                                <mi>&ensp;кН.</mi>
+                                <mn class="Ep"></mn>
+                                <mi>&ensp;т.</mi>
                             </math>
                         </div>
                         <p>
@@ -366,27 +394,29 @@
                                     <mi>q</mi>
                                 </msub>
                                 <mo>=</mo>
-                                <mi class="q_q"></mi>
+                                <mn class="q_q"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="d_f"></mi>
+                                <mn class="d_f"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="b_f"></mi>
+                                <mn class="b_f"></mn>
                                 <mo>&#183;</mo>
-                                <msup>
-                                    <mi>tg</mi>
-                                    <mn>2</mn>
-                                </msup>
-                                <mo>&#40;</mo>
-                                <mn>45</mn>
-                                <mo>-</mo>
-                                <mfrac>
-                                    <mi class="fee_II"></mi>
-                                    <mn>2</mn>
-                                </mfrac>
-                                <mo>&#41;</mo>
+                                <mn class="sigma_a_coefFriction">
+                                    <msup>
+                                        <mi>tg</mi>
+                                        <mn>2</mn>
+                                    </msup>
+                                    <mo>&#40;</mo>
+                                    <mn>45</mn>
+                                    <mo>-</mo>
+                                    <mfrac>
+                                        <mn class="fee_II"></mn>
+                                        <mn>2</mn>
+                                    </mfrac>
+                                    <mo>&#41;</mo>
+                                </mn>
                                 <mo>=</mo>
-                                <mi class="Eq"></mi>
-                                <mn>&ensp;кН.</mn>
+                                <mn class="Eq"></mn>
+                                <mn>&ensp;т.</mn>
                             </math>
                         </div>
                         <p>
@@ -595,21 +625,21 @@
                                 </mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi class="k_i"></mi>
+                                    <mn class="k_i"></mn>
                                     <mrow>
-                                        <mi class="c_0_z"></mi>
+                                        <mn class="c_0_z"></mn>
                                         <mo>&#183;</mo>
                                         <mi>ln</mi>
                                         <mo>&#40;</mo>
                                         <mfrac>
-                                            <mi class="supportHigt"></mi>
-                                            <mi class="z_0ji"></mi>
+                                            <mn class="supportHigt"></mn>
+                                            <mn class="z_0ji"></mn>
                                         </mfrac>
                                         <mo>&#41;</mo>
                                     </mrow>
                                 </mfrac>
                                 <mo>=</mo>
-                                <mi class="I_v_z"></mi>
+                                <mn class="I_v_z"></mn>
                                 <mo>.</mo>
                             </math>
                         </div>
@@ -776,8 +806,8 @@
                                     <mrow>
                                         <mo>&#40;</mo>
                                         <mfrac>
-                                            <mi class="z_0"></mi>
-                                            <mi class="z_0ji"></mi>
+                                            <mn class="z_0"></mn>
+                                            <mn class="z_0ji"></mn>
                                         </mfrac>
                                         <mo>&#41;</mo>
                                     </mrow>
@@ -786,7 +816,7 @@
                                     </mrow>
                                 </msup>
                                 <mo>=</mo>
-                                <mi class="k_r"></mi>
+                                <mn class="k_r"></mn>
                                 <mo>.</mo>
                             </math>
                         </div>
@@ -802,17 +832,17 @@
                                     <mo>&#41;</mo>
                                 </mi>
                                 <mo>=</mo>
-                                <mi class="k_r"></mi>
+                                <mn class="k_r"></mn>
                                 <mo>&#183;</mo>
                                 <mi>ln</mi>
                                 <mo>&#40;</mo>
                                 <mfrac>
-                                    <mi class="supportHigt"></mi>
-                                    <mi class="z_0"></mi>
+                                    <mn class="supportHigt"></mn>
+                                    <mn class="z_0"></mn>
                                 </mfrac>
                                 <mo>&#41;</mo>
                                 <mo>=</mo>
-                                <mi class="c_r_z"></mi>
+                                <mn class="c_r_z"></mn>
                                 <mo>.</mo>
                             </math>
                         </div>
@@ -880,13 +910,13 @@
                                     <mi>b</mi>
                                 </msub>
                                 <mo>=</mo>
-                                <mi class="c_dir"></mi>
+                                <mn class="c_dir"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="c_season"></mi>
+                                <mn class="c_season"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="v_b0"></mi>
+                                <mn class="v_b0"></mn>
                                 <mo>=</mo>
-                                <mi class="v_b"></mi>
+                                <mn class="v_b"></mn>
                                 <mi>&ensp;м/с.</mi>
                             </math>
                         </div>
@@ -900,13 +930,13 @@
                                 <mi>z</mi>
                                 <mo>&#41;</mo>
                                 <mo>=</mo>
-                                <mi class="c_r_z"></mi>
+                                <mn class="c_r_z"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="c_0_z"></mi>
+                                <mn class="c_0_z"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="v_b"></mi>
+                                <mn class="v_b"></mn>
                                 <mo>=</mo>
-                                <mi class="v_m_z"></mi>
+                                <mn class="v_m_z"></mn>
                                 <mi>&ensp;м/с</mi>
                             </math>
                         </div>
@@ -930,7 +960,7 @@
                                 <mo>+</mo>
                                 <mn>7</mn>
                                 <mo>&#183;</mo>
-                                <mi class="I_v_z"></mi>
+                                <mn class="I_v_z"></mn>
                                 <mo>&#93;</mo>
                                 <mo>&#183;</mo>
                                 <mfrac>
@@ -938,18 +968,24 @@
                                     <mn>2</mn>
                                 </mfrac>
                                 <mo>&#183;</mo>
-                                <mi class="ro"></mi>
+                                <mn class="ro"></mn>
                                 <mo>&#183;</mo>
                                 <mi>
-                                    <msubsup>
-                                        <mi class="v_m_z"></mi>
-                                        <mi></mi>
+                                    <msup>
+                                        <mn class="v_m_z"></mn>
                                         <mn>2</mn>
-                                    </msubsup>
+                                    </msup>
                                 </mi>
                                 <mo>=</mo>
-                                <mi class="q_p_z_e"></mi>
-                                <mi>&ensp;Па.</mi>
+                                <mn class="q_p_z_e"></mn>
+                                <mn>&ensp;Па</mn>
+                                <mo>=</mo>
+                                <mn class="q_p_z_e_translate_Exit"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
                             </math>
                         </div>
                         <p>
@@ -1128,14 +1164,14 @@
                                 <mo>=</mo>
                                 <mfrac>
                                     <mrow>
-                                        <mi class="supportDiametr"></mi>
+                                        <mn class="supportDiametr"></mn>
                                         <mo>&#183;</mo>
-                                        <mi class="vz_e"></mi>
+                                        <mn class="vz_e"></mn>
                                     </mrow>
-                                    <mi class="kinematic_viscosity"></mi>
+                                    <mn class="kinematic_viscosity"></mn>
                                 </mfrac>
                                 <mo>=</mo>
-                                <mi class="R_e"></mi>
+                                <mn class="R_e"></mn>
                                 <mo>&#183;</mo>
                                 <msup>
                                     <mi>10</mi>
@@ -1151,11 +1187,11 @@
                                     <mi>pe</mi>
                                 </msub>
                                 <mo>=</mo>
-                                <mi class="c_p0"></mi>
+                                <mn class="c_p0"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="psi_lyambda0"></mi>
+                                <mn class="psi_lyambda0"></mn>
                                 <mo>=</mo>
-                                <mi class="c_pe"></mi>
+                                <mn class="c_pe"></mn>
                                 <mo>.</mo>
                             </math>
                         </div>
@@ -1166,22 +1202,286 @@
                                     <mi>e</mi>
                                 </msub>
                                 <mo>=</mo>
-                                <mi class="q_p_z_e"></mi>
+                                <mn class="q_p_z_e_translate_Exit"></mn>
                                 <mo>&#183;</mo>
-                                <mi class="c_pe"></mi>
+                                <mn class="c_pe"></mn>
                                 <mo>=</mo>
-                                <mi class="w_e"></mi>
-                                <mi>&ensp;Па.</mi>
-                                <mo>=</mo>
-                                <mi class="w_e_translate_Exit"></mi>
-                                <mi>&ensp;кПа.</mi>
+                                <mn class="w_e_translate_Exit"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
                             </math>
                         </div>
                     </section>
+                    <p>
+                        Определим равнодействующую от ветрового давления, действующего на внешнюю поверхность опоры
+                        освещения
+                    </p>
+                    <div class="cover-math">
+                        <math>
+                            <msub>
+                                <mi>F</mi>
+                                <mi>w</mi>
+                            </msub>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mn>1</mn>
+                                <mn>2</mn>
+                            </mfrac>
+                            <mo>&#183;</mo>
+                            <msub>
+                                <mi>w</mi>
+                                <mi>e</mi>
+                            </msub>
+                            <mo>&#183;</mo>
+                            <mi>H</mi>
+                            <mo>.</mo>
+                        </math>
+                    </div>
+                    <div>
+                        <math>
+                            <msub>
+                                <mi>F</mi>
+                                <mi>w</mi>
+                            </msub>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mn>1</mn>
+                                <mn>2</mn>
+                            </mfrac>
+                            <mo>&#183;</mo>
+                            <mn class="w_e_translate_Exit"></mn>
+                            <mo>&#183;</mo>
+                            <mn class="supportHigt"></mn>
+                            <mo>=</mo>
+                            <mn class="Fw_translate_Exit"></mn>
+                            <mi>&ensp;т.</mi>
+                        </math>
+                    </div>
                     <section>
                         <h3>
                             Расчет фундамента против сдвига
                         </h3>
+                        <p>
+                            Определим сумму горизонтальных проекций на плоскость скольжения расчетных
+                            сдвигающих сил с учетом активного давления грунта на боковые грани
+                            фундамента согласно п. 5.9.11
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mo>&#x2211;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>s.h</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#968;</mi>
+                                    <mn>0</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>w</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Gsup</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где &#947;<sub>Q</sub> &ndash; частный коэффициент для переменного воздействия (т. А.2,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                &#968;<sub>0</sub> &ndash; коэффициент сочетания воздействий, учитывающий
+                                комбинационное значение переменного воздействия (т. А.1,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                ).
+                            </dt>
+                            <dt>
+                                &#947;<sub>Gsup</sub> &ndash; частный коэффициент для постоянного
+                                воздействия при определении верхних расчетных значений (т. А.2,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                );
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <mo>&#x2211;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>s.h</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="gama_Q"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="psi_0"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Eq"></mn>
+                                <mo>+</mo>
+                                <mn class="gama_Q"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Fw_translate_Exit"></mn>
+                                <mo>+</mo>
+                                <mn class="gama_Gsup"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ea"></mn>
+                                <mo>=</mo>
+                                <mn class="suma_Fsh"></mn>
+                                <mn>&ensp;т.</mn>
+                            </math>
+                        </div>
+                        <p>
+                            Определим сумму горизонтальных проекций на плоскость скольжения расчетных
+                            удерживающих сил с учетом
+                            пассивного давления грунта на боковые грани фундамента согласно п. 5.9.11
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mo>&#x2211;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>s.p</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Ginf</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mn>s</mn>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mn>f</mn>
+                                </msub>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <mi>f</mi>
+                                <mo>+</mo>
+                                <mi>A</mi>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mn>II</mn>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Ginf</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где &#947;<sub>Ginf</sub> &ndash; частный коэффициент для постоянного воздействия
+                                при определении нижних расчетных значений (т. А.2,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                f &ndash; коэффициент трения подошвы фундамента по грунту (п. 5.9.11,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                A &ndash; площадь подошвы фундамента;
+                            </dt>
+                            <dt>
+                                c<sub>II</sub> &ndash; расчетное удельное сцепление грунта.
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <mo>&#x2211;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>s.p</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="gama_Ginf"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn class="supportMass"></mn>
+                                <mo>+</mo>
+                                <mn class="Gf"></mn>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <mn class="COEF_FRICTION"></mn>
+                                <mo class="without_cII">+</mo>
+                                <mn class="without_cII areaOfFoundation"></mn>
+                                <mo class="without_cII">&#183;</mo>
+                                <mn class="without_cII c_II"></mn>
+                                <mo>+</mo>
+                                <mn class="gama_Ginf"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ep"></mn>
+                                <mo>=</mo>
+                                <mn class="suma_Fsp"></mn>
+                                <mn>&ensp;т.</mn>
+                            </math>
+                        </div>
                         <p>
                             Выполним проверку фундамента против сдвига согласно п. 5.9.11
                             <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
@@ -1218,19 +1518,7 @@
                         </div>
                         <dl>
                             <dt>
-                                где &#x2211;F<sub>s.h</sub> &ndash; сумма горизонтальных проекций на плоскость
-                                скольжения расчетных
-                                сдвигающих сил, определяемых с учетом активного давления грунта на боковые грани
-                                фундамента;
-                            </dt>
-                            <dt>
-                                &#x2211;F<sub>s.p</sub> &ndash; сумма горизонтальных проекций на плоскость
-                                скольжения расчетных
-                                удерживающих сил, определяемых с учетом
-                                пассивного давления грунта на боковые грани фундамента;
-                            </dt>
-                            <dt>
-                                &#947;<sub>c</sub> &ndash; коэффициент условий работы (п. 5.9.4,
+                                где &#947;<sub>c</sub> &ndash; коэффициент условий работы (п. 5.9.4,
                                 <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
                                     title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
                                     [2]
@@ -1247,214 +1535,28 @@
                                 ).
                             </dt>
                         </dl>
-                        <p>
-                            Определим сумму горизонтальных проекций на плоскость скольжения расчетных
-                            сдвигающих сил согласно п. 5.9.11
-                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
-                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
-                                [2]
-                            </a>
-                        </p>
-                        <div class="cover-math">
+                        <div>
                             <math>
-                                <mo>&#x2211;</mo>
-                                <msub>
-                                    <mi>F</mi>
-                                    <mi>s.h</mi>
-                                </msub>
+                                <mn class="suma_Fsh"></mn>
+                                <mn>&ensp;т.</mn>
+                                <mo class="conclusion_Fs_sign"></mo>
+                                <mfrac>
+                                    <mn class="GAMMA_C"></mn>
+                                    <mn class="GAMMA_N"></mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="suma_Fsp"></mn>
                                 <mo>=</mo>
-                                <msub>
-                                    <mi>&#947;</mi>
-                                    <mi>Q</mi>
-                                </msub>
-                                <mo>&#183;</mo>
-                                <msub>
-                                    <mi>&#968;</mi>
-                                    <mn>0</mn>
-                                </msub>
-                                <mo>&#183;</mo>
-                                <msub>
-                                    <mi>E</mi>
-                                    <mi>q</mi>
-                                </msub>
-                                <mo>+</mo>
-                                <msub>
-                                    <mi>&#947;</mi>
-                                    <mi>Q</mi>
-                                </msub>
-                                <mo>&#183;</mo>
-                                <msub>
-                                    <mi>Q</mi>
-                                    <mi>w</mi>
-                                </msub>
-                                <mo>+</mo>
-                                <msub>
-                                    <mi>&#947;</mi>
-                                    <mn>Gsup</mn>
-                                </msub>
-                                <mo>&#183;</mo>
-                                <msub>
-                                    <mi>E</mi>
-                                    <mi>a</mi>
-                                </msub>
-                                <mo>,</mo>
+                                <mn class="Fsp_conclusion_Fixed"></mn>
+                                <mn>&ensp;т.</mn>
                             </math>
                         </div>
-                        <dl>
-                            <dt>
-                                где &#947;<sub>Gsup</sub> &ndash; частный коэффициент для постоянного
-                                воздействия при определении верхних расчетных значений (т. А.2,
-                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
-                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
-                                    [1]
-                                </a>
-                                );
-                            </dt>
-                            <dt>
-                                &#947;<sub>Q</sub> &ndash; частный коэффициент для переменного воздействия (т. А.2,
-                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
-                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
-                                    [1]
-                                </a>
-                                );
-                            </dt>
-                            <dt>
-                                &#968;<sub>0</sub> &ndash; коэффициент сочетания воздействий, учитывающий
-                                комбинационное значение переменного воздействия (т. А.1,
-                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
-                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
-                                    [1]
-                                </a>
-                                ).
-                            </dt>
-                        </dl>
-                        <p>
-                            Определим сумму горизонтальных проекций на плоскость скольжения расчетных
-                            удерживающих сил согласно п. 5.9.11
-                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
-                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
-                                [2]
-                            </a>
-                        </p>
-                        <div class="cover-math">
-                            <math>
-                                <msub>
-                                    <mi>F</mi>
-                                    <mi>s.p</mi>
-                                </msub>
-                                <mo>=</mo>
-                                <msub>
-                                    <mi>&#947;</mi>
-                                    <mn>Ginf</mn>
-                                </msub>
-                                <mo>&#183;</mo>
-                                <mo>&#40;</mo>
-                                <msub>
-                                    <mi>G</mi>
-                                    <mn>оп</mn>
-                                </msub>
-                                <mo>+</mo>
-                                <msub>
-                                    <mi>G</mi>
-                                    <mn>f</mn>
-                                </msub>
-                                <mo>&#41;</mo>
-                                <mo>&#183;</mo>
-                                <mi>tg</mi>
-                                <mi>&#966;</mi>
-                                <mo>+</mo>
-                                <mi>A</mi>
-                                <mo>&#183;</mo>
-                                <msub>
-                                    <mi>c</mi>
-                                    <mn>II</mn>
-                                </msub>
-                                <mo>+</mo>
-                                <msub>
-                                    <mi>&#947;</mi>
-                                    <mn>Ginf</mn>
-                                </msub>
-                                <mo>&#183;</mo>
-                                <msub>
-                                    <mi>E</mi>
-                                    <mi>p</mi>
-                                </msub>
-                                <mo>,</mo>
-                            </math>
-                        </div>
-                        <dl>
-                            <dt>
-                                где &#947;<sub>Ginf</sub> &ndash; частный коэффициент для постоянного воздействия
-                                при определении нижних расчетных значений (т. А.2,
-                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
-                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
-                                    [1]
-                                </a>
-                                );
-                            </dt>
-                            <dt>
-                                G<sub>оп</sub> &ndash; собственный вес опоры;
-                            </dt>
-                            <dt>
-                                G<sub>f</sub> &ndash; собственный вес фундамента;
-                            </dt>
-                            <dt>
-                                A &ndash; площадь подошвы фундамента;
-                            </dt>
-                            <dt>
-                                c<sub>II</sub> &ndash; расчетное удельное сцепление грунта.
-                            </dt>
-                        </dl>
-                        <p>
-                            Условие выполняется. Устойчивость фундамента против сдвига обеспечена.
-                        </p>
+                        <p class="conclusion_Fs"></p>
                     </section>
                     <section>
                         <h3>
                             Расчет фундамента против опрокидывания
                         </h3>
-                        <p>
-                            Устойчивость фундамента против опрокидывания выполним согласно п. 5.9.12.2
-                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
-                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
-                                [2]
-                            </a>
-                        </p>
-                        <div class="cover-math">
-                            <math>
-                                <msub>
-                                    <mi>M</mi>
-                                    <mi>ext</mi>
-                                </msub>
-                                <mo>&#x2264;</mo>
-                                <mfrac>
-                                    <msub>
-                                        <mi>&#947;</mi>
-                                        <mi>c</mi>
-                                    </msub>
-                                    <msub>
-                                        <mi>&#947;</mi>
-                                        <mi>n</mi>
-                                    </msub>
-                                </mfrac>
-                                <mo>&#183;</mo>
-                                <msub>
-                                    <mi>M</mi>
-                                    <mi>int</mi>
-                                </msub>
-                                <mo>,</mo>
-                            </math>
-                        </div>
-                        <dl>
-                            <dt>
-                                где M<sub>ext</sub> &ndash; моменты опрокидывающих сил относительно
-                                оси возможного поворота конструкции, проходящей через точку "О";
-                            </dt>
-                            <dt>
-                                M<sub>int</sub> &ndash; моменты удерживающих сил относительно
-                                оси возможного поворота конструкции, проходящей через точку "О".
-                            </dt>
-                        </dl>
                         <p>
                             Определим моменты опрокидывающих сил относительно
                             оси возможного поворота конструкции, проходящей через точку "О"
@@ -1497,7 +1599,7 @@
                                 </msub>
                                 <mo>&#183;</mo>
                                 <msub>
-                                    <mi>Q</mi>
+                                    <mi>F</mi>
                                     <mi>w</mi>
                                 </msub>
                                 <mo>&#183;</mo>
@@ -1512,7 +1614,7 @@
                                     <mn>2</mn>
                                 </mfrac>
                                 <mo>&#183;</mo>
-                                <mi>H</mi>
+                                <mi>z</mi>
                                 <mo>&#41;</mo>
                                 <mo>+</mo>
                                 <mfrac>
@@ -1535,6 +1637,56 @@
                                     <mi>f</mi>
                                 </msub>
                                 <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>ext</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Q"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="psi_0"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Eq"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>+</mo>
+                                <mn class="gama_Q"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Fw_translate_Exit"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="supportHigt"></mn>
+                                <mo>&#41;</mo>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Ginf"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ea"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>=</mo>
+                                <mn class="Mext"></mn>
+                                <mn>&ensp;т&#183;м.</mn>
                             </math>
                         </div>
                         <p>
@@ -1561,7 +1713,7 @@
                                 <mo>&#40;</mo>
                                 <msub>
                                     <mi>G</mi>
-                                    <mi>оп</mi>
+                                    <mi>s</mi>
                                 </msub>
                                 <mo>+</mo>
                                 <msub>
@@ -1597,9 +1749,92 @@
                                 <mo>.</mo>
                             </math>
                         </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>int</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Ginf"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn class="supportMass"></mn>
+                                <mo>+</mo>
+                                <mn class="Gf"></mn>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <mn class="b_f"></mn>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Ginf"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ep"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>=</mo>
+                                <mn class="Mint"></mn>
+                                <mn>&ensp;т&#183;м.</mn>
+                            </math>
+                        </div>
                         <p>
-                            Условие выполняется. Устойчивость фундамента против опрокидывания обеспечена.
+                            Устойчивость фундамента против опрокидывания выполним согласно п. 5.9.12.2
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
                         </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>ext</mi>
+                                </msub>
+                                <mo>&#x2264;</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>&#947;</mi>
+                                        <mi>c</mi>
+                                    </msub>
+                                    <msub>
+                                        <mi>&#947;</mi>
+                                        <mi>n</mi>
+                                    </msub>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>int</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mn class="Mext"></mn>
+                                <mn>&ensp;т&#183;м</mn>
+                                <mo class="conclusion_Mext_sign"></mo>
+                                <mfrac>
+                                    <mn class="GAMMA_C"></mn>
+                                    <mn class="GAMMA_N"></mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="Mint"></mn>
+                                <mo>=</mo>
+                                <mn class="Mint_conclusion_Fixed"></mn>
+                                <mn>&ensp;т&#183;м.</mn>
+                            </math>
+                        </div>
+                        <p class="conclusion_Mext"></p>
                     </section>
                     <section>
                         <h3>
@@ -1622,22 +1857,7 @@
                                         <mi>N</mi>
                                         <mo>+</mo>
                                         <msub>
-                                            <mi>&#947;</mi>
-                                            <mi>mt</mi>
-                                        </msub>
-                                        <mo>&#183;</mo>
-                                        <msub>
-                                            <mi>d</mi>
-                                            <mi>f</mi>
-                                        </msub>
-                                        <mo>&#183;</mo>
-                                        <msub>
-                                            <mi>l</mi>
-                                            <mi>f</mi>
-                                        </msub>
-                                        <mo>&#183;</mo>
-                                        <msub>
-                                            <mi>b</mi>
+                                            <mi>G</mi>
                                             <mi>f</mi>
                                         </msub>
                                     </mrow>
@@ -1654,12 +1874,34 @@
                                 N &ndash; расчетная равнодействующая вертикальная нагрузка на фундамент от
                                 надземных конструкций (без учета веса фундамента);
                             </dt>
+                        </dl>
+                        <p>
+                            Определим расчетную равнодействующую вертикальную нагрузку на фундамент от надземных
+                            конструкций (без учета веса фундамента) по формуле
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>N</mi>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Gsup</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mi>s</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
                             <dt>
-                                &#947;<sub>mt</sub> &ndash; усредненный нормативный удельный вес материала
-                                фундамента (п. 5.3.7,
-                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
-                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
-                                    [2]
+                                где &#947;<sub>Gsup</sub> &ndash; частный коэффициент для постоянного
+                                воздействия при определении верхних расчетных значений (т. А.3,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
                                 </a>
                                 ).
                             </dt>
@@ -1743,52 +1985,6 @@
                                 <mo>,</mo>
                             </math>
                         </div>
-                        <!-- <p>
-                                                    Определим фактическое давление под подошвой центрально загруженного фундамента по
-                                                    формуле
-                                                </p>
-                                                <math>
-                                                    <msubsup>
-                                                        <mi>P</mi>
-                                                        <mi>min</mi>
-                                                        <mi>max</mi>
-                                                    </msubsup>
-                                                    <mo>=</mo>
-                                                    <mfrac>
-                                                        <msup>
-                                                            <mi>N</mi>
-                                                        </msup>
-                                                        <mi>A</mi>
-                                                    </mfrac>
-                                                    <mo>&#x00b1;</mo>
-                                                    <mfrac>
-                                                        <msup>
-                                                            <mi>M</mi>
-                                                        </msup>
-                                                        <mi>W</mi>
-                                                    </mfrac>
-                                                </math> -->
-                        <!-- <math>
-                                                    <msubsup>
-                                                        <mi>P</mi>
-                                                        <mi>min</mi>
-                                                        <mi>max</mi>
-                                                    </msubsup>
-                                                    <mo>=</mo>
-                                                    <mfrac>
-                                                        <msup>
-                                                            <mi>N</mi>
-                                                        </msup>
-                                                        <mi>A</mi>
-                                                    </mfrac>
-                                                    <mo>&#x00b1;</mo>
-                                                    <mfrac>
-                                                        <msup>
-                                                            <mi>M</mi>
-                                                        </msup>
-                                                        <mi>W</mi>
-                                                    </mfrac>
-                                                </math> -->
                         <dl>
                             <dt>
                                 где N &ndash; расчетная равнодействующая вертикальная нагрузка на фундамент от
