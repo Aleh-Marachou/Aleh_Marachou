@@ -2,12 +2,13 @@
 let supportMass = 0.1;
 let supportHigt = 9;
 let supportDiametr = 0.16;
-let b_f = 1.0;
-let l_f = 1.0;
-let d_f = 1.0;
-let gama_II = 1.8;
-let c_II_Enter = 10;    /*значение в кПа*/
-let fee_II_Enter = 32;
+let b_f = 1.2;
+let l_f = 1.2;
+let d_f = 3.0;
+let gama_II = 1.7;
+let c_II_Enter = -10;    /*значение в кПа*/
+let fee_II_Enter = -20;
+let Rnull_Enter = 110;     /*значение в кПа*/
 let q_q = 2;
 
 // Коэффициенты для расчета массы фундамента
@@ -19,53 +20,114 @@ const PSI_0 = 0.7;
 const GAMA_Gsup = 1.1;
 const GAMA_Ginf = 0.9;
 
+replaceVariables(supportMass, '.supportMass');
+replaceVariables(supportHigt, '.supportHigt');
+
+replaceVariables(b_f, '.b_f');
+replaceVariables(l_f, '.l_f');
+replaceVariables(d_f, '.d_f');
+
+replaceVariables(q_q, '.q_q');
+replaceVariables(gama_II, '.gama_II');
+
 // let tanFee_II_Square = Math.pow(Math.tan((Math.PI / 4) + 0.5 * (fee_II * (Math.PI / 180))), 2);
 
 function get_c_II(c_II_Enter) {
+
     if (c_II_Enter <= 0) {
+
         let c_II = 0;
         return c_II;
+
     } else {
+
         let c_II = c_II_Enter / 9.81;   /*значение в т/м2*/
         let c_II_Fixed = + c_II.toFixed(3);
         replaceVariables(c_II_Fixed, '.c_II');
+
         return c_II;
     }
 };
 
 function get_fee_II(fee_II_Enter) {
-    if (fee_II_Enter <= 0) {
-        let fee_II = 0;
-        return fee_II;
-    } else {
+
+    if (fee_II_Enter > 0) {
+
         let fee_II = fee_II_Enter;
         replaceVariables(fee_II, '.fee_II');
+
+        return fee_II;
+
+    } else {
+
+        let fee_II = 0;
+
         return fee_II;
     }
 };
 
+function getRnull(Rnull_Enter) {
+
+    let Rnull = Rnull_Enter / 9.81;   /*значение в т/м2*/
+    let Rnull_Fixed = + Rnull.toFixed(3);
+    replaceVariables(Rnull_Fixed, '.Rnull');
+
+    return Rnull;
+};
+let Rnull_Exit = getRnull(Rnull_Enter);
+
 function getN(supportMass) {
+
     const GAMA_Gsup = 1.35;
 
     let N = GAMA_Gsup * supportMass;
     let N_Fixed = + N.toFixed(3);
+    replaceVariables(GAMA_Gsup, '.GAMA_Gsup_forN');
     replaceVariables(N_Fixed, '.N_Fixed');
+
     return N;
 };
 
+function getA(b_f, l_f) {
+
+    let A = b_f * l_f;
+    let A_Fixed = + A.toFixed(3);
+    replaceVariables(A_Fixed, '.areaOfFoundation');
+
+    return A;
+};
+let A_Exit = getA(b_f, l_f);
+
+function getW(b_f, l_f) {
+
+    let W = l_f * Math.pow(b_f, 2) / 6;
+    let W_Fixed = + W.toFixed(3);
+    replaceVariables(W_Fixed, '.W_Fixed');
+
+    return W;
+};
+let W_Exit = getW(b_f, l_f);
+
 function getGf(RO_CONCR, b_f, l_f, d_f) {
+
     let Gf = RO_CONCR * b_f * l_f * d_f;
-    replaceVariables(Gf, '.Gf');
+    let Gf_Fixed = + Gf.toFixed(3);
+    replaceVariables(Gf_Fixed, '.Gf');
+
     return Gf;
 };
 
 function getSigma_a(gama_II, fee_II, d_f) {
+
     if (fee_II > 0) {
+
         let sigma_a = gama_II * d_f * Math.pow(Math.tan((Math.PI / 4) - 0.5 * (fee_II * (Math.PI / 180))), 2);
         let sigma_a_Fixed = + sigma_a.toFixed(3);
         replaceVariables(sigma_a_Fixed, '.sigma_a');
         return sigma_a;
+
     } else {
+
         let sigma_a = gama_II * d_f * 0.33;
         let sigma_a_Fixed = + sigma_a.toFixed(3);
         replaceVariables('0.333', '.sigma_a_coefFriction');
@@ -75,12 +137,16 @@ function getSigma_a(gama_II, fee_II, d_f) {
 };
 
 function getSigma_p(gama_II, fee_II, d_f) {
+
     if (fee_II > 0) {
+
         let sigma_p = gama_II * d_f * Math.pow(Math.tan((Math.PI / 4) + 0.5 * (fee_II * (Math.PI / 180))), 2);
         let sigma_p_Fixed = + sigma_p.toFixed(3);
         replaceVariables(sigma_p_Fixed, '.sigma_p');
         return sigma_p;
+
     } else {
+
         let sigma_p = gama_II * d_f * 3;
         let sigma_p_Fixed = + sigma_p.toFixed(3);
         replaceVariables('3', '.sigma_p_coefFriction');
@@ -90,6 +156,7 @@ function getSigma_p(gama_II, fee_II, d_f) {
 };
 
 function getEa(sigma_a, d_f, b_f) {
+
     let Ea = 0.5 * sigma_a * d_f * b_f;
     let Ea_Fixed = + Ea.toFixed(3);
     replaceVariables(Ea_Fixed, '.Ea');
@@ -97,6 +164,7 @@ function getEa(sigma_a, d_f, b_f) {
 };
 
 function getEp(sigma_p, d_f, b_f) {
+
     let Ep = 0.5 * sigma_p * d_f * b_f;
     let Ep_Fixed = + Ep.toFixed(3);
     replaceVariables(Ep_Fixed, '.Ep');
@@ -104,12 +172,16 @@ function getEp(sigma_p, d_f, b_f) {
 };
 
 function getEq(q_q, d_f, b_f, fee_II) {
+
     if (fee_II > 0) {
+
         let Eq = q_q * d_f * b_f * Math.pow(Math.tan((Math.PI / 4) - 0.5 * (fee_II * (Math.PI / 180))), 2);
         let Eq_Fixed = + Eq.toFixed(3);
         replaceVariables(Eq_Fixed, '.Eq');
         return Eq;
+
     } else {
+
         let Eq = q_q * d_f * b_f * 0.333;
         let Eq_Fixed = + Eq.toFixed(3);
         replaceVariables('0.333', '.sigma_a_coefFriction');
@@ -119,6 +191,7 @@ function getEq(q_q, d_f, b_f, fee_II) {
 };
 
 function getWind(z, b) {
+
     // Коэффициенты для расчета ветровой нагрузки
     const const_c_dir = 1;
     const const_c_season = 1;
@@ -201,15 +274,19 @@ function getWind(z, b) {
 }
 
 function getFsh(GAMA_Q, PSI_0, GAMA_Gsup, Eq_Exit, Fw_Exit, Ea_Exit) {
+
     let suma_Fsh = GAMA_Q * PSI_0 * Eq_Exit + GAMA_Q * Fw_Exit + GAMA_Gsup * Ea_Exit;
     let suma_Fsh_Fixed = + suma_Fsh.toFixed(3);
     replaceVariables(suma_Fsh_Fixed, '.suma_Fsh');
+
     return suma_Fsh;
 };
 
 
-function getFsp(GAMA_Ginf, supportMass, Gf_Exit, fee_II, b_f, l_f, c_II, Ep_Exit) {
+function getFsp(GAMA_Ginf, supportMass, Gf_Exit, fee_II, A, c_II, Ep_Exit) {
+
     if (fee_II > 0 && c_II <= 0) {
+
         const COEF_FRICTION = Math.tan(fee_II * (Math.PI / 180));
 
         let suma_Fsp = GAMA_Ginf * (supportMass + Gf_Exit) * COEF_FRICTION + GAMA_Ginf * Ep_Exit;
@@ -223,63 +300,70 @@ function getFsp(GAMA_Ginf, supportMass, Gf_Exit, fee_II, b_f, l_f, c_II, Ep_Exit
         document.querySelectorAll(".without_cII").forEach(elements => elements.style.display = 'none');
 
         return suma_Fsp;
+
     } else if (fee_II > 0 && c_II > 0) {
+
         const COEF_FRICTION = Math.tan(fee_II * (Math.PI / 180));
 
-        let A = b_f * l_f;
         let suma_Fsp = GAMA_Ginf * (supportMass + Gf_Exit) * COEF_FRICTION + A * c_II + GAMA_Ginf * Ep_Exit;
 
         let suma_Fsp_Fixed = + suma_Fsp.toFixed(3);
         let COEF_FRICTION_Fixed = COEF_FRICTION.toFixed(3);
 
         replaceVariables(COEF_FRICTION_Fixed, '.COEF_FRICTION');
-        replaceVariables(A, '.areaOfFoundation');
         replaceVariables(suma_Fsp_Fixed, '.suma_Fsp');
 
         return suma_Fsp;
-    }
-    else {
+
+    } else if (fee_II <= 0 && c_II <= 0) {
+
         const COEF_FRICTION = 0.4;
 
         let suma_Fsp = GAMA_Ginf * (supportMass + Gf_Exit) * COEF_FRICTION + GAMA_Ginf * Ep_Exit;
         let suma_Fsp_Fixed = + suma_Fsp.toFixed(3);
+
+        replaceVariables(GAMA_Ginf, '.gama_Ginf');
         replaceVariables(COEF_FRICTION, '.COEF_FRICTION');
         replaceVariables(suma_Fsp_Fixed, '.suma_Fsp');
+
         document.querySelectorAll(".without_cII").forEach(elements => elements.style.display = 'none');
+
         return suma_Fsp;
     }
 };
 
 function getMext(GAMA_Q, PSI_0, GAMA_Gsup, Eq, Fw, Ea, z, d_f) {
+
     let Mext = 0.5 * GAMA_Q * PSI_0 * Eq * d_f + GAMA_Q * Fw * (d_f + 0.5 * z) + (GAMA_Gsup * Ea * d_f / 3);
     let Mext_Fixed = + Mext.toFixed(3);
     replaceVariables(Mext_Fixed, '.Mext');
+
     return Mext;
 };
 
 function getMint(GAMA_Ginf, supportMass, Gf, b_f, d_f, Ep) {
+
     let Mint = 0.5 * GAMA_Ginf * (supportMass + Gf) * b_f + (GAMA_Ginf * Ep * d_f / 3);
     let Mint_Fixed = + Mint.toFixed(3);
+
+    replaceVariables(GAMA_Ginf, '.gama_Ginf');
     replaceVariables(Mint_Fixed, '.Mint');
+
     return Mint;
 };
 
 function replaceVariables(valueOfVariable, classOfVariable) {
+
     let arrayOfClasses = document.querySelectorAll(classOfVariable);
     for (let elem of arrayOfClasses) {
         elem.textContent = valueOfVariable;
     };
 };
 
-function getEccentricity(M, N, Gf) {
-    let e = M / (N + Gf);
-    let e_Fixed = + e.toFixed(3);
-    replaceVariables(e_Fixed, '.e_Fixed');
-};
-let e_Exit = getEccentricity(Mint_Exit, N_Exit, Gf_Exit);
-
 let c_II_Exit = get_c_II(c_II_Enter);
 let fee_II_Exit = get_fee_II(fee_II_Enter);
+// console.log(fee_II_Exit);
+
 
 let sigma_a_Exit = getSigma_a(gama_II, fee_II_Exit, d_f);
 let sigma_p_Exit = getSigma_p(gama_II, fee_II_Exit, d_f);
@@ -292,12 +376,205 @@ let N_Exit = getN(supportMass);
 let Gf_Exit = getGf(RO_CONCR, b_f, l_f, d_f);
 
 let suma_Fsh_Exit = getFsh(GAMA_Q, PSI_0, GAMA_Gsup, Eq_Exit, Fw_Exit, Ea_Exit);
-let suma_Fsp_Exit = getFsp(GAMA_Ginf, supportMass, Gf_Exit, fee_II_Exit, b_f, l_f, c_II_Exit, Ep_Exit);
+let suma_Fsp_Exit = getFsp(GAMA_Ginf, supportMass, Gf_Exit, fee_II_Exit, A_Exit, c_II_Exit, Ep_Exit);
 
 let Mext_Exit = getMext(GAMA_Q, PSI_0, GAMA_Gsup, Eq_Exit, Fw_Exit, Ea_Exit, supportHigt, d_f);
 let Mint_Exit = getMint(GAMA_Ginf, supportMass, Gf_Exit, b_f, d_f, Ep_Exit);
 
+// Момент на подошве фундамента относительно оси симметрии
+function getMcg(Eq, Fw, Ea, Ep, z, d_f) {
+
+    const GAMA_Q_Mcg = 1.3;
+    const PSI_0_Mcg = 0.7;
+    const GAMA_Gsup_Mcg = 1.0;
+    const GAMA_Ginf_Mcg = 1.0;
+
+    let Mcg = 0.5 * GAMA_Q_Mcg * PSI_0_Mcg * Eq * d_f + GAMA_Q_Mcg * Fw * (d_f + 0.5 * z) + (GAMA_Gsup_Mcg * Ea * d_f / 3) - (GAMA_Ginf_Mcg * Ep * d_f / 3);
+
+    let McgModul = (Mcg > 0) ? Mcg : -1 * Mcg;
+
+    let McgModul_Fixed = + McgModul.toFixed(3);
+
+    replaceVariables(GAMA_Q_Mcg, '.gama_Q_Mcg');
+    replaceVariables(PSI_0_Mcg, '.psi_0_Mcg');
+    replaceVariables(GAMA_Gsup_Mcg, '.gama_Gsup_Mcg');
+    replaceVariables(GAMA_Ginf_Mcg, '.gama_Ginf_Mcg');
+    replaceVariables(McgModul_Fixed, '.Mcg');
+
+    return McgModul;
+};
+let Mcg_Exit = getMcg(Eq_Exit, Fw_Exit, Ea_Exit, Ep_Exit, supportHigt, d_f);
+
+function getEccentricity(M, N, Gf, l_f) {
+    let e = M / (N + Gf);
+    let eNull = l_f / 30;
+
+    let e_Fixed = + e.toFixed(3);
+    let eNull_Fixed = + eNull.toFixed(3);
+
+    replaceVariables(e_Fixed, '.e_Fixed');
+    replaceVariables(eNull_Fixed, '.eNull_Fixed');
+
+    if (e < eNull) {
+
+        replaceVariables('Условие выполняется, значит размеры подошвы фундамента следует принимать как для центрально нагруженного фундамента.', '.conclusion_e');
+        replaceVariables('<', '.conclusion_e_sign');
+        replaceVariables('Для центрально нагруженного фундамента расчет по деформациям выполним согласно п. 5.3.3', '.conclusion_e_for_p');
+
+        document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+    } else if (e === eNull) {
+
+        replaceVariables('Условие выполняется, значит размеры подошвы фундамента следует принимать как для центрально нагруженного фундамента.', '.conclusion_e');
+        replaceVariables('=', '.conclusion_e_sign');
+        replaceVariables('Для центрально нагруженного фундамента расчет по деформациям выполним согласно п. 5.3.3', '.conclusion_e_for_p');
+
+        document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+    } else if (e > eNull) {
+
+        replaceVariables('Условие не выполняется, значит размеры подошвы фундамента следует принимать как для внецентренно нагруженного фундамента.', '.conclusion_e');
+        replaceVariables('>', '.conclusion_e_sign');
+        replaceVariables('Для внецентренно нагруженного фундамента расчет по деформациям выполним согласно п. 5.3.3', '.conclusion_e_for_p');
+    }
+
+    return e;
+};
+let e_Exit = getEccentricity(Mcg_Exit, N_Exit, Gf_Exit, l_f);
+
+function get_p_m(N, Q, A) {
+
+    let p_m = (N + Q) / A;
+    let p_m_Fixed = + p_m.toFixed(3);
+
+    replaceVariables(p_m_Fixed, '.p_m');
+
+    return p_m;
+};
+let p_m_Exit = get_p_m(N_Exit, Gf_Exit, A_Exit);
+
+function get_p_max(N, Q, M, A, W) {
+
+    let p_max = ((N + Q) / A) + (M / W);
+
+    let p_max_Fixed = + p_max.toFixed(3);
+    replaceVariables(p_max_Fixed, '.p_max');
+
+    return p_max;
+};
+let p_max_Exit = get_p_max(N_Exit, Gf_Exit, Mcg_Exit, A_Exit, W_Exit)
+
+function get_p_min(N, Q, M, A, W) {
+
+    let p_min = ((N + Q) / A) - (M / W);
+
+    let p_min_Fixed = + p_min.toFixed(3);
+    replaceVariables(p_min_Fixed, '.p_min');
+
+    return p_min;
+};
+let p_min_Exit = get_p_min(N_Exit, Gf_Exit, Mcg_Exit, A_Exit, W_Exit);
+
+function getR(gama_II, feeIIforR, cIIforR, Rnull, b_f, d_l) {
+
+    let fee_II = feeIIforR;
+    let c_II = cIIforR;
+
+    const GAMA_ONE = 1;
+    const GAMA_TWO = 1;
+    const k = 1;
+    const k_z = 1;
+    const Mgama = 1.15;
+    const Mq = 5.59;
+    const Mc = 7.95;
+
+    let gama_II_backSoil = 1.7;
+
+    replaceVariables(GAMA_ONE, '.GAMA_ONE');
+    replaceVariables(GAMA_TWO, '.GAMA_TWO');
+    replaceVariables(k, '.kForR');
+    replaceVariables(k_z, '.k_z');
+    replaceVariables(Mgama, '.Mgama');
+    replaceVariables(Mq, '.Mq');
+    replaceVariables(Mc, '.Mc');
+    replaceVariables(gama_II_backSoil, '.gama_II_backSoil');
+
+    if (fee_II_Exit > 0 && c_II_Exit > 0) {
+
+        document.querySelectorAll(".without_feeII").forEach(elements => elements.style.display = 'none');
+
+        let R = GAMA_ONE * GAMA_TWO * (Mgama * k_z * b_f * gama_II + Mq * d_f * gama_II_backSoil + Mc * c_II);
+        let R_Fixed = + R.toFixed(3);
+        replaceVariables(R_Fixed, '.R');
+
+        return R;
+
+    } else if (fee_II > 0 && c_II <= 0) {
+
+        document.querySelectorAll(".without_feeII").forEach(elements => elements.style.display = 'none');
+
+        let R = GAMA_ONE * GAMA_TWO * (Mgama * k_z * b_f * gama_II + Mq * d_f * gama_II_backSoil);
+        let R_Fixed = + R.toFixed(3);
+        replaceVariables(R_Fixed, '.R');
+
+        return R;
+
+    } else if (fee_II <= 0 && c_II <= 0) {
+
+        document.querySelectorAll(".with_feeII").forEach(elements => elements.style.display = 'none');
+
+        let kOne = 0.050;
+        let kTwo = 0.15;
+        let bNull = 1;
+        let dNull = 2;
+
+        replaceVariables(kOne, '.kOne');
+        replaceVariables(kTwo, '.kTwo');
+
+        replaceVariables(bNull, '.bNull');
+        replaceVariables(dNull, '.dNull');
+
+        let d_f = d_l;
+
+        if (d_f < 2) {
+
+            document.querySelectorAll(".d_f_moreTwo").forEach(elements => elements.style.display = 'none');
+
+            let R = Rnull * (1 + kOne * ((b_f - bNull) / bNull)) * ((d_f + dNull) / (2 * dNull));
+            let R_Fixed = + R.toFixed(3);
+            replaceVariables(R_Fixed, '.R');
+
+            return R;
+
+        } else if (d_f === 2) {
+
+            document.querySelectorAll(".d_f_equalsTwo").forEach(elements => elements.style.display = 'none');
+            document.querySelectorAll(".d_f_lessTwo").forEach(elements => elements.style.display = 'none');
+            document.querySelectorAll(".d_f_moreTwo").forEach(elements => elements.style.display = 'none');
+
+            let R = Rnull_Exit;
+            let R_Fixed = + R.toFixed(3);
+            replaceVariables(R_Fixed, '.R');
+
+            return R;
+
+        } else if (d_f > 2) {
+
+            document.querySelectorAll(".d_f_lessTwo").forEach(elements => elements.style.display = 'none');
+
+            let R = Rnull * (1 + kOne * ((b_f - bNull) / bNull)) + kTwo * gama_II_backSoil * (d_f - dNull);
+            let R_Fixed = + R.toFixed(3);
+            replaceVariables(R_Fixed, '.R');
+
+            return R;
+        }
+    }
+};
+let R_Exit = getR(gama_II, fee_II_Exit, c_II_Exit, Rnull_Exit, b_f, d_f);
+
+
 function calcSupport(suma_Fsh, suma_Fsp, Mext, Mint) {
+
     const GAMMA_C = 0.8;
     const GAMMA_N = 1.1;
 
@@ -309,42 +586,43 @@ function calcSupport(suma_Fsh, suma_Fsp, Mext, Mint) {
 
     replaceVariables(GAMMA_C, '.GAMMA_C');
     replaceVariables(GAMMA_N, '.GAMMA_N');
+
     replaceVariables(Fsp_conclusion_Fixed, '.Fsp_conclusion_Fixed');
     replaceVariables(Mint_conclusion_Fixed, '.Mint_conclusion_Fixed');
 
     if (suma_Fsh < Fsp_conclusion) {
+
         replaceVariables('Условие выполняется. Устойчивость фундамента против сдвига обеспечена.', '.conclusion_Fs');
         replaceVariables('<', '.conclusion_Fs_sign');
+
     } else if (suma_Fsh === Fsp_conclusion) {
+
         replaceVariables('Условие выполняется. Устойчивость фундамента против сдвига обеспечена.', '.conclusion_Fs');
         replaceVariables('=', '.conclusion_Fs_sign');
+
     } else if (suma_Fsh > Fsp_conclusion) {
+
         replaceVariables('Условие не выполняется. Устойчивость фундамента против сдвига не обеспечена.', '.conclusion_Fs');
         replaceVariables('>', '.conclusion_Fs_sign');
-    }
 
+    }
     if (Mext < Mint_conclusion) {
+
         replaceVariables('Условие выполняется. Устойчивость фундамента против опрокидывания обеспечена.', '.conclusion_Mext');
         replaceVariables('<', '.conclusion_Mext_sign');
+
     } else if (Mext === Mint_conclusion) {
+
         replaceVariables('Условие выполняется. Устойчивость фундамента против опрокидывания обеспечена.', '.conclusion_Mext');
         replaceVariables('=', '.conclusion_Mext_sign');
+
     } else if (Mext > Mint_conclusion) {
+
         replaceVariables('Условие не выполняется. Устойчивость фундамента против опрокидывания не обеспечена.', '.conclusion_Mext');
         replaceVariables('>', '.conclusion_Mext_sign');
     }
 };
 calcSupport(suma_Fsh_Exit, suma_Fsp_Exit, Mext_Exit, Mint_Exit);
-
-replaceVariables(supportMass, '.supportMass');
-replaceVariables(supportHigt, '.supportHigt');
-
-replaceVariables(b_f, '.b_f');
-replaceVariables(l_f, '.l_f');
-replaceVariables(d_f, '.d_f');
-
-replaceVariables(q_q, '.q_q');
-replaceVariables(gama_II, '.gama_II');
 
 replaceVariables(GAMA_Q, '.gama_Q');
 replaceVariables(PSI_0, '.psi_0');
