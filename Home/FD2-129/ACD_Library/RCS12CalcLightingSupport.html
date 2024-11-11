@@ -20,7 +20,6 @@
     <!-- <script src="js/menu.js" type="text/javascript"></script> -->
     <!-- <script src="js/workspace.js" type="module"></script> -->
 
-
     <div class="zero">
         <header></header>
         <main>
@@ -2698,7 +2697,7 @@
                                 <mo>,</mo>
                             </math>
                         </div>
-                        <dl class="d_f_equalsTwo">
+                        <dl class="without_feeII d_f_equalsTwo">
                             <dt>
                                 где b<sub>0</sub> &ndash; условная ширина фундамента (п. 5.4.3.1,
                                 <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
@@ -2708,7 +2707,7 @@
                                 );
                             </dt>
                             <dt>
-                                где k<sub>1</sub> &ndash; коэффициент, принимаемый для оснований в зависимости грунта,
+                                k<sub>1</sub> &ndash; коэффициент, принимаемый для оснований в зависимости грунта,
                                 расположенного ниже подошвы фундамента (п. 5.4.3.1,
                                 <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
                                     title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
@@ -2717,13 +2716,17 @@
                                 );
                             </dt>
                             <dt class="d_f_moreTwo">
-                                где k<sub>2</sub> &ndash; коэффициент, принимаемый для оснований в зависимости грунта,
+                                k<sub>2</sub> &ndash; коэффициент, принимаемый для оснований в зависимости грунта,
                                 расположенного выше подошвы фундамента (п. 5.4.3.1,
                                 <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
                                     title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
                                     [2]
                                 </a>
                                 );
+                            </dt>
+                            <dt class="d_f_moreTwo">
+                                &#947;'<sub>II</sub> &ndash; среднее арифметическое расчетное значение удельного веса
+                                грунтов, залегающих выше подошвы фундамента;
                             </dt>
                             <dt>
                                 d<sub>0</sub> &ndash; условная глубина заложения фундамента (п.
@@ -2834,7 +2837,7 @@
                                 <mo>,</mo>
                             </math>
                         </div>
-                        <div class="cover-math">
+                        <div class="cover-math p_offCenterLoadedFoundation">
                             <math>
                                 <msub>
                                     <mi>p</mi>
@@ -2846,7 +2849,7 @@
                                 <mo>,</mo>
                             </math>
                         </div>
-                        <div class="cover-math">
+                        <div class="cover-math p_offCenterLoadedFoundation">
                             <math>
                                 <msub>
                                     <mi>p</mi>
@@ -2864,13 +2867,13 @@
                                     <mn>&ensp;т/м</mn>
                                     <mn>2</mn>
                                 </msup>
-                                <mo>&#10877;</mo>
+                                <mo class="conclusion_p_m_sign"></mo>
                                 <mn class="R"></mn>
                                 <msup>
                                     <mn>&ensp;т/м</mn>
                                     <mn>2</mn>
                                 </msup>
-                                <mo>,</mo>
+                                <mo class="signEndOfSentence"></mo>
                             </math>
                         </div>
                         <div class="p_offCenterLoadedFoundation">
@@ -2880,12 +2883,12 @@
                                     <mn>&ensp;т/м</mn>
                                     <mn>2</mn>
                                 </msup>
-                                <mo>&#10877;</mo>
+                                <mo class="conclusion_p_max_sign"></mo>
                                 <mn>1.2</mn>
                                 <mo>&#183;</mo>
                                 <mn class="R"></mn>
                                 <mo>=</mo>
-                                <mn class=""></mn>
+                                <mn class="p_max_conclusion"></mn>
                                 <msup>
                                     <mn>&ensp;т/м</mn>
                                     <mn>2</mn>
@@ -2900,14 +2903,12 @@
                                     <mn>&ensp;т/м</mn>
                                     <mn>2</mn>
                                 </msup>
-                                <mo>&#10878;</mo>
+                                <mo class="conclusion_p_min_sign"></mo>
                                 <mn>0</mn>
                                 <mo>.</mo>
                             </math>
                         </div>
-                        <p>
-                            Условие выполняется. Размеры фундамента подобраны правильно.
-                        </p>
+                        <p class="conclusion_p_m"></p>
                     </section>
                     <section>
                         <h3>

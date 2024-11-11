@@ -1,36 +1,288 @@
-// Исходые данные
-let supportMass = 0.1;
-let supportHigt = 9;
-let supportDiametr = 0.16;
-let b_f = 1.2;
-let l_f = 1.2;
-let d_f = 3.0;
-let gama_II = 1.7;
-let c_II_Enter = -10;    /*значение в кПа*/
-let fee_II_Enter = -20;
-let Rnull_Enter = 110;     /*значение в кПа*/
-let q_q = 2;
+// function calcSupport(suma_Fsh, suma_Fsp, Mext, Mint) {
+function calcSupport() {
 
-// Коэффициенты для расчета массы фундамента
-const RO_CONCR = 2.4;   /*плотность бетона в т/м2*/
+    // Исходые данные
+    let supportMass = 0.15;         /*т*/
+    let supportHigt = 9;            /*м*/
+    let supportDiametr = 0.16;       /*м*/
 
-// Коэффициенты сочетания нагрузок
-const GAMA_Q = 1.5;
-const PSI_0 = 0.7;
-const GAMA_Gsup = 1.1;
-const GAMA_Ginf = 0.9;
+    let b_f = 1.2;
+    let l_f = 1.2;
+    let d_f = 1.6;
 
-replaceVariables(supportMass, '.supportMass');
-replaceVariables(supportHigt, '.supportHigt');
+    let gama_II = 1.7;
+    let c_II_Enter = 0;         /*значение в кПа*/
+    let fee_II_Enter = 0;
+    let Rnull_Enter = 180;       /*значение в кПа*/
 
-replaceVariables(b_f, '.b_f');
-replaceVariables(l_f, '.l_f');
-replaceVariables(d_f, '.d_f');
+    let q_q = 2;                /*значение в т/м2*/
 
-replaceVariables(q_q, '.q_q');
-replaceVariables(gama_II, '.gama_II');
+    const RO_CONCR = 2.4;       /*плотность бетона в т/м3*/
+
+    // Коэффициенты сочетания нагрузок
+    const GAMA_Q = 1.5;
+    const PSI_0 = 0.7;
+    const GAMA_Gsup = 1.1;
+    const GAMA_Ginf = 0.9;
+
+    // Коэффициент условия работы
+    const GAMMA_C = 0.8;
+    // коэффициент надежности по назначению сооружения
+    const GAMMA_N = 1.1;
+
+    replaceVariables(gama_II, '.gama_II');
+
+    replaceVariables(GAMA_Q, '.gama_Q');
+    replaceVariables(PSI_0, '.psi_0');
+    replaceVariables(GAMA_Gsup, '.gama_Gsup');
+    replaceVariables(GAMA_Ginf, '.gama_Ginf');
+
+    replaceVariables(supportMass, '.supportMass');
+    replaceVariables(supportHigt, '.supportHigt');
+
+    replaceVariables(b_f, '.b_f');
+    replaceVariables(l_f, '.l_f');
+    replaceVariables(d_f, '.d_f');
+
+    replaceVariables(q_q, '.q_q');
+
+    replaceVariables(GAMMA_C, '.GAMMA_C');
+    replaceVariables(GAMMA_N, '.GAMMA_N');
+
+    let fee_II_Exit = get_fee_II(fee_II_Enter);
+    let c_II_Exit = get_c_II(c_II_Enter);
+    let Rnull_Exit = getRnull(Rnull_Enter);
+
+    console.log('фиII=' + fee_II_Exit);
+    console.log('cII=' + c_II_Exit);
+    console.log('Ro=' + Rnull_Exit);
+
+    let A_Exit = getA(b_f, l_f);
+    let Gf_Exit = getGf(RO_CONCR, b_f, l_f, d_f);
+    let W_Exit = getW(b_f, l_f);
+
+    let sigma_a_Exit = getSigma_a(gama_II, fee_II_Exit, d_f);
+    let sigma_p_Exit = getSigma_p(gama_II, fee_II_Exit, d_f);
+
+    let N_Exit = getN(supportMass);
+
+    let Ea_Exit = getEa(sigma_a_Exit, d_f, b_f);
+    let Ep_Exit = getEp(sigma_p_Exit, d_f, b_f);
+    let Eq_Exit = getEq(q_q, d_f, b_f, fee_II_Exit);
+    let Fw_Exit = getWind(supportHigt, supportDiametr);
+
+    let suma_Fsh_Exit = getFsh(GAMA_Q, PSI_0, GAMA_Gsup, Eq_Exit, Fw_Exit, Ea_Exit);
+    let suma_Fsp_Exit = getFsp(GAMA_Ginf, supportMass, Gf_Exit, fee_II_Exit, A_Exit, c_II_Exit, Ep_Exit);
+
+    let Fsp_conclusion = GAMMA_C * suma_Fsp_Exit / GAMMA_N;
+    let Fsp_conclusion_Fixed = + Fsp_conclusion.toFixed(3);
+
+    replaceVariables(Fsp_conclusion_Fixed, '.Fsp_conclusion_Fixed');
+
+    if (suma_Fsh_Exit < Fsp_conclusion) {
+
+        replaceVariables('Условие выполняется. Устойчивость фундамента против сдвига обеспечена.', '.conclusion_Fs');
+        replaceVariables('<', '.conclusion_Fs_sign');
+
+    } else if (suma_Fsh_Exit === Fsp_conclusion) {
+
+        replaceVariables('Условие выполняется. Устойчивость фундамента против сдвига обеспечена.', '.conclusion_Fs');
+        replaceVariables('=', '.conclusion_Fs_sign');
+
+    } else if (suma_Fsh_Exit > Fsp_conclusion) {
+
+        replaceVariables('Условие не выполняется. Устойчивость фундамента против сдвига не обеспечена.', '.conclusion_Fs');
+        replaceVariables('>', '.conclusion_Fs_sign');
+
+    }
+
+    let Mext_Exit = getMext(GAMA_Q, PSI_0, GAMA_Gsup, Eq_Exit, Fw_Exit, Ea_Exit, supportHigt, d_f);
+    let Mint_Exit = getMint(GAMA_Ginf, supportMass, Gf_Exit, b_f, d_f, Ep_Exit);
+
+    let Mint_conclusion = GAMMA_C * Mint_Exit / GAMMA_N;
+    let Mint_conclusion_Fixed = + Mint_conclusion.toFixed(3);
+
+    replaceVariables(Mint_conclusion_Fixed, '.Mint_conclusion_Fixed');
+
+    if (Mext_Exit < Mint_conclusion) {
+
+        replaceVariables('Условие выполняется. Устойчивость фундамента против опрокидывания обеспечена.', '.conclusion_Mext');
+        replaceVariables('<', '.conclusion_Mext_sign');
+
+    } else if (Mext_Exit === Mint_conclusion) {
+
+        replaceVariables('Условие выполняется. Устойчивость фундамента против опрокидывания обеспечена.', '.conclusion_Mext');
+        replaceVariables('=', '.conclusion_Mext_sign');
+
+    } else if (Mext_Exit > Mint_conclusion) {
+
+        replaceVariables('Условие не выполняется. Устойчивость фундамента против опрокидывания не обеспечена.', '.conclusion_Mext');
+        replaceVariables('>', '.conclusion_Mext_sign');
+    }
+
+    let Mcg_Exit = getMcg(Eq_Exit, Fw_Exit, Ea_Exit, Ep_Exit, supportHigt, d_f);
+
+    let R_Exit = getR(gama_II, fee_II_Exit, c_II_Exit, Rnull_Exit, b_f, d_f);
+
+    let e_Exit = getEccentricity(Mcg_Exit, N_Exit, Gf_Exit, l_f);
+    let eNull = getEccentricityNull(l_f);
+
+    if (e_Exit < eNull) {
+
+        replaceVariables('Условие выполняется, значит размеры подошвы фундамента следует принимать как для центрально нагруженного фундамента.', '.conclusion_e');
+        replaceVariables('<', '.conclusion_e_sign');
+        replaceVariables('Для центрально нагруженного фундамента расчет по деформациям выполним согласно п. 5.3.3', '.conclusion_e_for_p');
+
+        document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+        let p_m_Exit = get_p_m(N_Exit, Gf_Exit, A_Exit);
+
+        if (p_m_Exit < R_Exit) {
+
+            document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+            replaceVariables('<', '.conclusion_p_m_sign');
+            replaceVariables('Условие выполняется. Размеры фундамента подобраны правильно.', '.conclusion_p_m');
+            replaceVariables('.', '.signEndOfSentence');
+
+        } else if (p_m_Exit === R_Exit) {
+
+            document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+            replaceVariables('=', '.conclusion_p_m_sign');
+            replaceVariables('Условие выполняется. Размеры фундамента подобраны правильно.', '.conclusion_p_m');
+            replaceVariables('.', '.signEndOfSentence');
+
+        } else if (p_m_Exit > R_Exit) {
+
+            document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+            replaceVariables('>', '.conclusion_p_m_sign');
+            replaceVariables('Условие не выполняется. Размеры фундамента подобраны неправильно.', '.conclusion_p_m');
+            replaceVariables('.', '.signEndOfSentence');
+        }
+
+    } else if (e_Exit === eNull) {
+
+        replaceVariables('Условие выполняется, значит размеры подошвы фундамента следует принимать как для центрально нагруженного фундамента.', '.conclusion_e');
+        replaceVariables('=', '.conclusion_e_sign');
+        replaceVariables('Для центрально нагруженного фундамента расчет по деформациям выполним согласно п. 5.3.3', '.conclusion_e_for_p');
+
+        document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+        let p_m_Exit = get_p_m(N_Exit, Gf_Exit, A_Exit);
+
+        if (p_m_Exit < R_Exit) {
+
+            document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+            replaceVariables('<', '.conclusion_p_m_sign');
+            replaceVariables('Условие выполняется. Размеры фундамента подобраны правильно.', '.conclusion_p_m');
+            replaceVariables('.', '.signEndOfSentence');
+
+        } else if (p_m_Exit === R_Exit) {
+
+            document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+            replaceVariables('=', '.conclusion_p_m_sign');
+            replaceVariables('Условие выполняется. Размеры фундамента подобраны правильно.', '.conclusion_p_m');
+            replaceVariables('.', '.signEndOfSentence');
+
+        } else if (p_m_Exit > R_Exit) {
+
+            document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
+
+            replaceVariables('>', '.conclusion_p_m_sign');
+            replaceVariables('Условие не выполняется. Размеры фундамента подобраны неправильно.', '.conclusion_p_m');
+            replaceVariables('.', '.signEndOfSentence');
+
+        }
+
+    } else if (e_Exit > eNull) {
+
+        replaceVariables('Условие не выполняется, значит размеры подошвы фундамента следует принимать как для внецентренно нагруженного фундамента.', '.conclusion_e');
+        replaceVariables('>', '.conclusion_e_sign');
+        replaceVariables('Для внецентренно нагруженного фундамента расчет по деформациям выполним согласно п. 5.3.3', '.conclusion_e_for_p');
+
+        let p_m_Exit = get_p_m(N_Exit, Gf_Exit, A_Exit);
+        let p_max_Exit = get_p_max(N_Exit, Gf_Exit, Mcg_Exit, A_Exit, W_Exit);
+        let p_min_Exit = get_p_min(N_Exit, Gf_Exit, Mcg_Exit, A_Exit, W_Exit);
+
+        if (p_m_Exit < R_Exit) {
+
+            replaceVariables('<', '.conclusion_p_m_sign');
+            replaceVariables(',', '.signEndOfSentence');
+
+        } else if (p_m_Exit === R_Exit) {
+
+            replaceVariables('=', '.conclusion_p_m_sign');
+
+        } else if (p_m_Exit > R_Exit) {
+
+            replaceVariables('>', '.conclusion_p_m_sign');
+        }
+
+        if (p_min_Exit > 0) {
+
+            replaceVariables('>', '.conclusion_p_min_sign');
+
+        } else if (p_min_Exit === 0) {
+
+            replaceVariables('=', '.conclusion_p_min_sign');
+
+        } else if (p_min_Exit < 0) {
+
+            replaceVariables('<', '.conclusion_p_min_sign');
+
+        }
+
+        let p_max_conclusion = 1.2 * R_Exit;
+        let p_max_conclusion_Exit = + p_max_conclusion.toFixed(3);
+
+        replaceVariables(p_max_conclusion_Exit, '.p_max_conclusion');
+
+        if (p_max_Exit < p_max_conclusion) {
+
+            replaceVariables('<', '.conclusion_p_max_sign');
+
+        } else if (p_max_Exit === p_max_conclusion) {
+
+            replaceVariables('=', '.conclusion_p_max_sign');
+
+        } else if (p_max_Exit > p_max_conclusion) {
+
+            replaceVariables('>', '.conclusion_p_max_sign');
+
+        }
+
+        if (p_m_Exit <= R_Exit && p_max_Exit <= p_max_conclusion && p_min_Exit >= 0) {
+
+            replaceVariables('Условие выполняется. Размеры фундамента подобраны правильно.', '.conclusion_p_m');
+
+        } else {
+
+            replaceVariables('Условие не выполняется. Размеры фундамента подобраны неправильно.', '.conclusion_p_m');
+        }
+    }
+}
+calcSupport();
 
 // let tanFee_II_Square = Math.pow(Math.tan((Math.PI / 4) + 0.5 * (fee_II * (Math.PI / 180))), 2);
+
+function get_fee_II(fee_II_Enter) {
+
+    if (fee_II_Enter > 0) {
+
+        let fee_II = fee_II_Enter;
+        replaceVariables(fee_II, '.fee_II');
+        return fee_II;
+
+    } else {
+
+        let fee_II = 0;
+        return fee_II;
+    }
+};
 
 function get_c_II(c_II_Enter) {
 
@@ -49,23 +301,6 @@ function get_c_II(c_II_Enter) {
     }
 };
 
-function get_fee_II(fee_II_Enter) {
-
-    if (fee_II_Enter > 0) {
-
-        let fee_II = fee_II_Enter;
-        replaceVariables(fee_II, '.fee_II');
-
-        return fee_II;
-
-    } else {
-
-        let fee_II = 0;
-
-        return fee_II;
-    }
-};
-
 function getRnull(Rnull_Enter) {
 
     let Rnull = Rnull_Enter / 9.81;   /*значение в т/м2*/
@@ -74,7 +309,6 @@ function getRnull(Rnull_Enter) {
 
     return Rnull;
 };
-let Rnull_Exit = getRnull(Rnull_Enter);
 
 function getN(supportMass) {
 
@@ -96,7 +330,6 @@ function getA(b_f, l_f) {
 
     return A;
 };
-let A_Exit = getA(b_f, l_f);
 
 function getW(b_f, l_f) {
 
@@ -106,7 +339,6 @@ function getW(b_f, l_f) {
 
     return W;
 };
-let W_Exit = getW(b_f, l_f);
 
 function getGf(RO_CONCR, b_f, l_f, d_f) {
 
@@ -360,27 +592,6 @@ function replaceVariables(valueOfVariable, classOfVariable) {
     };
 };
 
-let c_II_Exit = get_c_II(c_II_Enter);
-let fee_II_Exit = get_fee_II(fee_II_Enter);
-// console.log(fee_II_Exit);
-
-
-let sigma_a_Exit = getSigma_a(gama_II, fee_II_Exit, d_f);
-let sigma_p_Exit = getSigma_p(gama_II, fee_II_Exit, d_f);
-
-let Ea_Exit = getEa(sigma_a_Exit, d_f, b_f);
-let Ep_Exit = getEp(sigma_p_Exit, d_f, b_f);
-let Eq_Exit = getEq(q_q, d_f, b_f, fee_II_Exit);
-let Fw_Exit = getWind(supportHigt, supportDiametr);
-let N_Exit = getN(supportMass);
-let Gf_Exit = getGf(RO_CONCR, b_f, l_f, d_f);
-
-let suma_Fsh_Exit = getFsh(GAMA_Q, PSI_0, GAMA_Gsup, Eq_Exit, Fw_Exit, Ea_Exit);
-let suma_Fsp_Exit = getFsp(GAMA_Ginf, supportMass, Gf_Exit, fee_II_Exit, A_Exit, c_II_Exit, Ep_Exit);
-
-let Mext_Exit = getMext(GAMA_Q, PSI_0, GAMA_Gsup, Eq_Exit, Fw_Exit, Ea_Exit, supportHigt, d_f);
-let Mint_Exit = getMint(GAMA_Ginf, supportMass, Gf_Exit, b_f, d_f, Ep_Exit);
-
 // Момент на подошве фундамента относительно оси симметрии
 function getMcg(Eq, Fw, Ea, Ep, z, d_f) {
 
@@ -403,44 +614,24 @@ function getMcg(Eq, Fw, Ea, Ep, z, d_f) {
 
     return McgModul;
 };
-let Mcg_Exit = getMcg(Eq_Exit, Fw_Exit, Ea_Exit, Ep_Exit, supportHigt, d_f);
 
-function getEccentricity(M, N, Gf, l_f) {
-    let e = M / (N + Gf);
+function getEccentricityNull(l_f) {
+
     let eNull = l_f / 30;
-
-    let e_Fixed = + e.toFixed(3);
     let eNull_Fixed = + eNull.toFixed(3);
-
-    replaceVariables(e_Fixed, '.e_Fixed');
     replaceVariables(eNull_Fixed, '.eNull_Fixed');
 
-    if (e < eNull) {
+    return eNull;
+};
 
-        replaceVariables('Условие выполняется, значит размеры подошвы фундамента следует принимать как для центрально нагруженного фундамента.', '.conclusion_e');
-        replaceVariables('<', '.conclusion_e_sign');
-        replaceVariables('Для центрально нагруженного фундамента расчет по деформациям выполним согласно п. 5.3.3', '.conclusion_e_for_p');
+function getEccentricity(M, N, Gf, l_f) {
 
-        document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
-
-    } else if (e === eNull) {
-
-        replaceVariables('Условие выполняется, значит размеры подошвы фундамента следует принимать как для центрально нагруженного фундамента.', '.conclusion_e');
-        replaceVariables('=', '.conclusion_e_sign');
-        replaceVariables('Для центрально нагруженного фундамента расчет по деформациям выполним согласно п. 5.3.3', '.conclusion_e_for_p');
-
-        document.querySelectorAll(".p_offCenterLoadedFoundation").forEach(elements => elements.style.display = 'none');
-
-    } else if (e > eNull) {
-
-        replaceVariables('Условие не выполняется, значит размеры подошвы фундамента следует принимать как для внецентренно нагруженного фундамента.', '.conclusion_e');
-        replaceVariables('>', '.conclusion_e_sign');
-        replaceVariables('Для внецентренно нагруженного фундамента расчет по деформациям выполним согласно п. 5.3.3', '.conclusion_e_for_p');
-    }
+    let e = M / (N + Gf);
+    let e_Fixed = + e.toFixed(3);
+    replaceVariables(e_Fixed, '.e_Fixed');
 
     return e;
 };
-let e_Exit = getEccentricity(Mcg_Exit, N_Exit, Gf_Exit, l_f);
 
 function get_p_m(N, Q, A) {
 
@@ -451,7 +642,6 @@ function get_p_m(N, Q, A) {
 
     return p_m;
 };
-let p_m_Exit = get_p_m(N_Exit, Gf_Exit, A_Exit);
 
 function get_p_max(N, Q, M, A, W) {
 
@@ -462,7 +652,6 @@ function get_p_max(N, Q, M, A, W) {
 
     return p_max;
 };
-let p_max_Exit = get_p_max(N_Exit, Gf_Exit, Mcg_Exit, A_Exit, W_Exit)
 
 function get_p_min(N, Q, M, A, W) {
 
@@ -473,7 +662,6 @@ function get_p_min(N, Q, M, A, W) {
 
     return p_min;
 };
-let p_min_Exit = get_p_min(N_Exit, Gf_Exit, Mcg_Exit, A_Exit, W_Exit);
 
 function getR(gama_II, feeIIforR, cIIforR, Rnull, b_f, d_l) {
 
@@ -499,11 +687,11 @@ function getR(gama_II, feeIIforR, cIIforR, Rnull, b_f, d_l) {
     replaceVariables(Mc, '.Mc');
     replaceVariables(gama_II_backSoil, '.gama_II_backSoil');
 
-    if (fee_II_Exit > 0 && c_II_Exit > 0) {
+    if (fee_II > 0 && c_II > 0) {
 
         document.querySelectorAll(".without_feeII").forEach(elements => elements.style.display = 'none');
 
-        let R = GAMA_ONE * GAMA_TWO * (Mgama * k_z * b_f * gama_II + Mq * d_f * gama_II_backSoil + Mc * c_II);
+        let R = GAMA_ONE * GAMA_TWO * (Mgama * k_z * b_f * gama_II + Mq * d_l * gama_II_backSoil + Mc * c_II);
         let R_Fixed = + R.toFixed(3);
         replaceVariables(R_Fixed, '.R');
 
@@ -513,7 +701,7 @@ function getR(gama_II, feeIIforR, cIIforR, Rnull, b_f, d_l) {
 
         document.querySelectorAll(".without_feeII").forEach(elements => elements.style.display = 'none');
 
-        let R = GAMA_ONE * GAMA_TWO * (Mgama * k_z * b_f * gama_II + Mq * d_f * gama_II_backSoil);
+        let R = GAMA_ONE * GAMA_TWO * (Mgama * k_z * b_f * gama_II + Mq * d_l * gama_II_backSoil);
         let R_Fixed = + R.toFixed(3);
         replaceVariables(R_Fixed, '.R');
 
@@ -552,7 +740,7 @@ function getR(gama_II, feeIIforR, cIIforR, Rnull, b_f, d_l) {
             document.querySelectorAll(".d_f_lessTwo").forEach(elements => elements.style.display = 'none');
             document.querySelectorAll(".d_f_moreTwo").forEach(elements => elements.style.display = 'none');
 
-            let R = Rnull_Exit;
+            let R = Rnull;
             let R_Fixed = + R.toFixed(3);
             replaceVariables(R_Fixed, '.R');
 
@@ -570,61 +758,3 @@ function getR(gama_II, feeIIforR, cIIforR, Rnull, b_f, d_l) {
         }
     }
 };
-let R_Exit = getR(gama_II, fee_II_Exit, c_II_Exit, Rnull_Exit, b_f, d_f);
-
-
-function calcSupport(suma_Fsh, suma_Fsp, Mext, Mint) {
-
-    const GAMMA_C = 0.8;
-    const GAMMA_N = 1.1;
-
-    let Fsp_conclusion = GAMMA_C * suma_Fsp / GAMMA_N;
-    let Fsp_conclusion_Fixed = + Fsp_conclusion.toFixed(3);
-
-    let Mint_conclusion = GAMMA_C * Mint / GAMMA_N;
-    let Mint_conclusion_Fixed = + Mint_conclusion.toFixed(3);
-
-    replaceVariables(GAMMA_C, '.GAMMA_C');
-    replaceVariables(GAMMA_N, '.GAMMA_N');
-
-    replaceVariables(Fsp_conclusion_Fixed, '.Fsp_conclusion_Fixed');
-    replaceVariables(Mint_conclusion_Fixed, '.Mint_conclusion_Fixed');
-
-    if (suma_Fsh < Fsp_conclusion) {
-
-        replaceVariables('Условие выполняется. Устойчивость фундамента против сдвига обеспечена.', '.conclusion_Fs');
-        replaceVariables('<', '.conclusion_Fs_sign');
-
-    } else if (suma_Fsh === Fsp_conclusion) {
-
-        replaceVariables('Условие выполняется. Устойчивость фундамента против сдвига обеспечена.', '.conclusion_Fs');
-        replaceVariables('=', '.conclusion_Fs_sign');
-
-    } else if (suma_Fsh > Fsp_conclusion) {
-
-        replaceVariables('Условие не выполняется. Устойчивость фундамента против сдвига не обеспечена.', '.conclusion_Fs');
-        replaceVariables('>', '.conclusion_Fs_sign');
-
-    }
-    if (Mext < Mint_conclusion) {
-
-        replaceVariables('Условие выполняется. Устойчивость фундамента против опрокидывания обеспечена.', '.conclusion_Mext');
-        replaceVariables('<', '.conclusion_Mext_sign');
-
-    } else if (Mext === Mint_conclusion) {
-
-        replaceVariables('Условие выполняется. Устойчивость фундамента против опрокидывания обеспечена.', '.conclusion_Mext');
-        replaceVariables('=', '.conclusion_Mext_sign');
-
-    } else if (Mext > Mint_conclusion) {
-
-        replaceVariables('Условие не выполняется. Устойчивость фундамента против опрокидывания не обеспечена.', '.conclusion_Mext');
-        replaceVariables('>', '.conclusion_Mext_sign');
-    }
-};
-calcSupport(suma_Fsh_Exit, suma_Fsp_Exit, Mext_Exit, Mint_Exit);
-
-replaceVariables(GAMA_Q, '.gama_Q');
-replaceVariables(PSI_0, '.psi_0');
-replaceVariables(GAMA_Gsup, '.gama_Gsup');
-replaceVariables(GAMA_Ginf, '.gama_Ginf');
