@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <META charset="utf-8">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="x-rim-auto-match" content="none" forua="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <TITLE>Расчет фундамента опоры освещения ПЗ</TITLE>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="stylesheet" href="fonts/fontStyles.css" media="screen">
+    <link rel="stylesheet" href="style.css" media="screen">
+</head>
+
+<body>
+    <!-- <script src="js/header.js" type="text/javascript"></script> -->
+    <!-- <script src="js/menu.js" type="text/javascript"></script> -->
+    <!-- <script src="js/workspace.js" type="module"></script> -->
+
+    <div class="zero">
+        <header></header>
+        <main>
+            <div class="search"></div>
+            <div class="workspace">
+                <article>
+                    <section>
+                        <h3>
+                            Исходные данные
+                        </h3>
+                        <!-- <div>
+                            <img src="img/RCS12_calcModel.png" alt="calcModel">
+                            <p>
+                                Рисунок 1 &ndash; Расчетная схема фундамента
+                            </p>
+                        </div> -->
+                        <ul>
+                            <li>
+                                Масса опоры G<sub>s</sub> &ndash;
+                                <span class="supportMass"></span>
+                                т;
+                            </li>
+                            <li>
+                                Высота опоры z &ndash;
+                                <span class="supportHigt"></span>
+                                м;
+                            </li>
+                            <li>
+                                Диаметр стойки опоры b &ndash;
+                                <span class="supportDiametr"></span>
+                                м;
+                            </li>
+                            <li>
+                                Размеры фундамента (b<sub>f</sub>&#x00D7;l<sub>f</sub>&#x00D7;d<sub>f</sub>) &ndash;
+                                <span class="b_f"></span>
+                                &#x00D7;
+                                <span class="l_f"></span>
+                                &#x00D7;
+                                <span class="d_f"></span>
+                                м;
+                            </li>
+                            <li>
+                                Масса фундамента G<sub>f</sub> &ndash;
+                                <span class="Gf"></span>
+                                т;
+                            </li>
+                            <li>
+                                Грунт в основании фундамента &ndash;
+                            </li>
+                        </ul>
+                        <p>
+                            Расчетную схему фундамента см. приложение А.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>
+                            Определение нагрузок на фундамент
+                        </h3>
+                        <p>
+                            Определим активное давление грунта на фундамент
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>&#963;</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>&#8545;</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mi>tg</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>&#40;</mo>
+                                <mn>45</mn>
+                                <mi>&#x00B0;</mi>
+                                <mo>-</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>&#966;</mi>
+                                        <mi>&#8545;</mi>
+                                    </msub>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где &#947;<sub>&#8545;</sub> &ndash; удельный вес грунта,
+                            </dt>
+                            <dt>
+                                &#966;<sub>&#8545;</sub> &ndash; ориентировочное значение условного угла
+                                сопротивления грунта сдвигу.
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>&#963;</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="gama_II"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="sigma_a_coefFriction">
+                                    <msup>
+                                        <mi>tg</mi>
+                                        <mn>2</mn>
+                                    </msup>
+                                    <mo>&#40;</mo>
+                                    <mn>45</mn>
+                                    <mo>-</mo>
+                                    <mfrac>
+                                        <mn class="fee_II"></mn>
+                                        <mn>2</mn>
+                                    </mfrac>
+                                    <mo>&#41;</mo>
+                                </mn>
+                                <mo>=</mo>
+                                <mn class="sigma_a"></mn>
+                                <msup>
+                                    <mi>&ensp;т/м</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p>
+                            Определим равнодействующую активного давления грунта
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#963;</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>b</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="sigma_a"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="b_f"></mn>
+                                <mo>=</mo>
+                                <mn class="Ea"></mn>
+                                <mi>&ensp;т.</mi>
+                            </math>
+                        </div>
+                        <p>
+                            Определим пассивное давление грунта на фундамент
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>&#963;</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>&#8545;</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mi>tg</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>&#40;</mo>
+                                <mn>45</mn>
+                                <mi>&#x00B0;</mi>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>&#966;</mi>
+                                        <mi>&#8545;</mi>
+                                    </msub>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>&#963;</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="gama_II"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="sigma_p_coefFriction">
+                                    <msup>
+                                        <mi>tg</mi>
+                                        <mn>2</mn>
+                                    </msup>
+                                    <mo>&#40;</mo>
+                                    <mn>45</mn>
+                                    <mo>+</mo>
+                                    <mfrac>
+                                        <mn class="fee_II"></mn>
+                                        <mn>2</mn>
+                                    </mfrac>
+                                    <mo>&#41;</mo>
+                                </mn>
+                                <mo>=</mo>
+                                <mn class="sigma_p"></mn>
+                                <msup>
+                                    <mi>&ensp;т/м</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p>
+                            Определим равнодействующую пассивного давления грунта
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#963;</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>b</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="sigma_p"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="b_f"></mn>
+                                <mo>=</mo>
+                                <mn class="Ep"></mn>
+                                <mi>&ensp;т.</mi>
+                            </math>
+                        </div>
+                        <p>
+                            Определим равнодействующую горизонтального давления от временной нагрузки на поверхности
+                            грунта вблизи фундамента
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>q</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>b</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mi>tg</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>&#40;</mo>
+                                <mn>45</mn>
+                                <mi>&#x00B0;</mi>
+                                <mo>-</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>&#966;</mi>
+                                        <mi>&#8545;</mi>
+                                    </msub>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="q_q"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="b_f"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="sigma_a_coefFriction">
+                                    <msup>
+                                        <mi>tg</mi>
+                                        <mn>2</mn>
+                                    </msup>
+                                    <mo>&#40;</mo>
+                                    <mn>45</mn>
+                                    <mo>-</mo>
+                                    <mfrac>
+                                        <mn class="fee_II"></mn>
+                                        <mn>2</mn>
+                                    </mfrac>
+                                    <mo>&#41;</mo>
+                                </mn>
+                                <mo>=</mo>
+                                <mn class="Eq"></mn>
+                                <mn>&ensp;т.</mn>
+                            </math>
+                        </div>
+                        <p>
+                            Определим ветровое давление, действующее на внешнюю поверхность опоры освещения,
+                            согласно п. 5.2
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>w</mi>
+                                    <mi>e</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mi>
+                                    <msub>
+                                        <mi>q</mi>
+                                        <mi>p</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <msub>
+                                        <mi>z</mi>
+                                        <mi>e</mi>
+                                    </msub>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mi>pe</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где q<sub>p</sub>(z<sub>e</sub>) &ndash; пиковое значение скоростного напора ветра;
+                            </dt>
+                            <dt>
+                                c<sub>pe</sub> &ndash; аэродинамический коэффициент внешнего давления.
+                            </dt>
+                        </dl>
+                        <p>
+                            Пиковое значение скоростного напора ветра определим согласно п. 4.5
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>
+                                    <msub>
+                                        <mi>q</mi>
+                                        <mi>p</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <msub>
+                                        <mi>z</mi>
+                                        <mi>e</mi>
+                                    </msub>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <mo>&#91;</mo>
+                                <mn>1</mn>
+                                <mo>+</mo>
+                                <mn>7</mn>
+                                <mo>&#183;</mo>
+                                <mi>
+                                    <msub>
+                                        <mi>I</mi>
+                                        <mi>v</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>&#93;</mo>
+                                <mo>&#183;</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mi>&#961;</mi>
+                                <mo>&#183;</mo>
+                                <mi>
+                                    <msubsup>
+                                        <mi>v</mi>
+                                        <mi>m</mi>
+                                        <mn>2</mn>
+                                    </msubsup>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где I<sub>v</sub>(z) &ndash; интенсивность турбулентности на высоте z над уровнем
+                                земли;
+                            </dt>
+                            <dt>
+                                &#961; &ndash; плотность воздуха (прим. 2, п. 4.5,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                v<sub>m</sub>(z) &ndash; cредняя скорость ветра на высоте z над уровнем земли.
+                            </dt>
+                        </dl>
+                        <p>
+                            Интенсивность турбулентности на высоте z над уровнем
+                            земли определим согласно п. 4.4
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>
+                                    <msub>
+                                        <mi>I</mi>
+                                        <mi>v</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>k</mi>
+                                        <mi>i</mi>
+                                    </msub>
+                                    <mrow>
+                                        <mi>
+                                            <msub>
+                                                <mi>c</mi>
+                                                <mn>0</mn>
+                                            </msub>
+                                            <mo>&#40;</mo>
+                                            <mi>z</mi>
+                                            <mo>&#41;</mo>
+                                        </mi>
+                                        <mo>&#183;</mo>
+                                        <mi>ln</mi>
+                                        <mo>&#40;</mo>
+                                        <mfrac>
+                                            <mi>z</mi>
+                                            <msub>
+                                                <mi>z</mi>
+                                                <mn>0</mn>
+                                            </msub>
+                                        </mfrac>
+                                        <mo>&#41;</mo>
+                                    </mrow>
+                                </mfrac>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где k<sub>i</sub> &ndash; коэффициент турбулентности (п. 4.4,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                c<sub>0</sub>(z) &ndash; орографический коэффициент (т. НП.1,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>);
+                            </dt>
+                            <dt>
+                                z<sub>0</sub> &ndash; параметр шероховатости (т. 4.1,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>).
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <mi>
+                                    <msub>
+                                        <mi>I</mi>
+                                        <mi>v</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn class="k_i"></mn>
+                                    <mrow>
+                                        <mn class="c_0_z"></mn>
+                                        <mo>&#183;</mo>
+                                        <mi>ln</mi>
+                                        <mo>&#40;</mo>
+                                        <mfrac>
+                                            <mn class="supportHigt"></mn>
+                                            <mn class="z_0ji"></mn>
+                                        </mfrac>
+                                        <mo>&#41;</mo>
+                                    </mrow>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn class="I_v_z"></mn>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p>
+                            Определим среднюю скорость ветра на высоте z над уровнем земли согласно п. 4.3.1
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>v</mi>
+                                    <mi>m</mi>
+                                </msub>
+                                <mo>&#40;</mo>
+                                <mi>z</mi>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mi>
+                                    <msub>
+                                        <mi>c</mi>
+                                        <mi>r</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>&#183;</mo>
+                                <mi>
+                                    <msub>
+                                        <mi>c</mi>
+                                        <mn>0</mn>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>v</mi>
+                                    <mi>b</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где c<sub>r</sub>(z) &ndash; коэффициент, учитывающий тип местности;
+                            </dt>
+                            <dt>
+                                c<sub>0</sub>(z) &ndash; орографический коэффициент (т. НП.1
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                v<sub>b</sub> &ndash; базовая скорость ветра.
+                            </dt>
+                        </dl>
+                        <p>
+                            Определим коэффициент, учитывающий тип местности, согласно п. 4.3.2
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>
+                                    <msub>
+                                        <mi>c</mi>
+                                        <mi>r</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>k</mi>
+                                    <mi>r</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mi>ln</mi>
+                                <mo>&#40;</mo>
+                                <mfrac>
+                                    <mi>z</mi>
+                                    <msub>
+                                        <mi>z</mi>
+                                        <mn>0</mn>
+                                    </msub>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где k<sub>r</sub> &ndash; коэффициент местности.
+                            </dt>
+                        </dl>
+                        <p>
+                            Коэффициент местности определим согласно п. 4.3.2
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>k</mi>
+                                    <mi>r</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn>0,19</mn>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mrow>
+                                        <mo>&#40;</mo>
+                                        <mfrac>
+                                            <msub>
+                                                <mi>z</mi>
+                                                <mi>0</mi>
+                                            </msub>
+                                            <msub>
+                                                <mi>z</mi>
+                                                <mi>0,ji</mi>
+                                            </msub>
+                                        </mfrac>
+                                        <mo>&#41;</mo>
+                                    </mrow>
+                                    <mrow>
+                                        <mo>0,07</mo>
+                                    </mrow>
+                                </msup>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где z<sub>0,ji</sub> &ndash; 0,05 м (тип местности II, т. 4.1,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>k</mi>
+                                    <mi>r</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn>0.19</mn>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mrow>
+                                        <mo>&#40;</mo>
+                                        <mfrac>
+                                            <mn class="z_0"></mn>
+                                            <mn class="z_0ji"></mn>
+                                        </mfrac>
+                                        <mo>&#41;</mo>
+                                    </mrow>
+                                    <mrow>
+                                        <mo>0,07</mo>
+                                    </mrow>
+                                </msup>
+                                <mo>=</mo>
+                                <mn class="k_r"></mn>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mi>
+                                    <msub>
+                                        <mi>c</mi>
+                                        <mi>r</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <mi>z</mi>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <mn class="k_r"></mn>
+                                <mo>&#183;</mo>
+                                <mi>ln</mi>
+                                <mo>&#40;</mo>
+                                <mfrac>
+                                    <mn class="supportHigt"></mn>
+                                    <mn class="z_0"></mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mn class="c_r_z"></mn>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p>
+                            Базовую скорость ветра определим согласно п. 4.2
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>v</mi>
+                                    <mi>b</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mi>dir</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mn>season</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>v</mi>
+                                    <mi>b,0</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где c<sub>dir</sub> &ndash; коэффициент, учитывающий направление ветра (прим. 2, п. 4.2,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                c<sub>season</sub> &ndash; сезонный коэффициент (прим. 3, п. 4.2,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                v<sub>b,0</sub> &ndash; основное значение базовой скорости ветра (т. НП.1,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>v</mi>
+                                    <mi>b</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="c_dir"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="c_season"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="v_b0"></mn>
+                                <mo>=</mo>
+                                <mn class="v_b"></mn>
+                                <mi>&ensp;м/с.</mi>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>v</mi>
+                                    <mi>m</mi>
+                                </msub>
+                                <mo>&#40;</mo>
+                                <mi>z</mi>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mn class="c_r_z"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="c_0_z"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="v_b"></mn>
+                                <mo>=</mo>
+                                <mn class="v_m_z"></mn>
+                                <mi>&ensp;м/с</mi>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mi>
+                                    <msub>
+                                        <mi>q</mi>
+                                        <mi>p</mi>
+                                    </msub>
+                                    <mo>&#40;</mo>
+                                    <msub>
+                                        <mi>z</mi>
+                                        <mi>e</mi>
+                                    </msub>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <mo>&#91;</mo>
+                                <mn>1</mn>
+                                <mo>+</mo>
+                                <mn>7</mn>
+                                <mo>&#183;</mo>
+                                <mn class="I_v_z"></mn>
+                                <mo>&#93;</mo>
+                                <mo>&#183;</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="ro"></mn>
+                                <mo>&#183;</mo>
+                                <mi>
+                                    <msup>
+                                        <mn class="v_m_z"></mn>
+                                        <mn>2</mn>
+                                    </msup>
+                                </mi>
+                                <mo>=</mo>
+                                <mn class="q_p_z_e"></mn>
+                                <mn>&ensp;Па</mn>
+                                <mo>=</mo>
+                                <mn class="q_p_z_e_translate_Exit"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p>
+                            Определим аэродинамический коэффициент внешнего давления согласно п. 7.9.1
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mi>pe</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mi>p,0</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#968;</mi>
+                                    <mi>&#955;0</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где c<sub>p,0</sub> &ndash; коэффициент наружного давления для цилиндра с бесконечной
+                                гибкостью;
+                            </dt>
+                            <dt>
+                                &#968;<sub>&#955;0</sub> &ndash; коэффициент, учитывающий концевой эффект для кругового
+                                цилиндра (п. 7.9.1,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
+                        <p>
+                            Коэффициент наружного давления для цилиндра с бесконечной
+                            гибкостью определим по рисунку 7.27, вычислив коэффициент Рейнольдса R<sub>e</sub> согласно
+                            п. 7.9.1
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>R</mi>
+                                    <mi>e</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>b</mi>
+                                        <mo>&#183;</mo>
+                                        <mi>
+                                            <mi>v</mi>
+                                            <mo>&#40;</mo>
+                                            <msub>
+                                                <mi>z</mi>
+                                                <mi>e</mi>
+                                            </msub>
+                                            <mo>&#41;</mo>
+                                        </mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>v</mi>
+                                    </mrow>
+                                </mfrac>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где b &ndash; диаметр опоры освещения;
+                            </dt>
+                            <dt>
+                                v(z<sub>e</sub>) &ndash; пиковое значение скорости ветра (прим. 2, рис. 7.27,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                v &ndash; кинематическая вязкость воздуха (п. 7.9.1,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
+                        <p>
+                            Пиковое значение скорости ветра определим согласно прим. 2 п. 7.9.1
+                            <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                [3]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>v</mi>
+                                <mi>
+                                    <mo>&#40;</mo>
+                                    <msub>
+                                        <mi>z</mi>
+                                        <mi>e</mi>
+                                    </msub>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <msqrt>
+                                    <mfrac>
+                                        <mrow>
+                                            <mn>2</mn>
+                                            <mo>&#183;</mo>
+                                            <msub>
+                                                <mi>q</mi>
+                                                <mi>p</mi>
+                                            </msub>
+                                        </mrow>
+                                        <mi>p</mi>
+                                    </mfrac>
+                                </msqrt>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                p=0,2 &ndash; годовая вероятность превышения (прим. 4, п. 4.2,
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    [3]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <mi>v</mi>
+                                <mi>
+                                    <mo>&#40;</mo>
+                                    <msub>
+                                        <mi>z</mi>
+                                        <mi>e</mi>
+                                    </msub>
+                                    <mo>&#41;</mo>
+                                </mi>
+                                <mo>=</mo>
+                                <msqrt>
+                                    <mfrac>
+                                        <mrow>
+                                            <mn>2</mn>
+                                            <mo>&#183;</mo>
+                                            <mi class="q_p_z_e"></mi>
+                                        </mrow>
+                                        <mi class="p"></mi>
+                                    </mfrac>
+                                </msqrt>
+                                <mo>=</mo>
+                                <mi class="vz_e"></mi>
+                                <mi>&ensp;м/с.</mi>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>R</mi>
+                                    <mi>e</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn class="supportDiametr"></mn>
+                                        <mo>&#183;</mo>
+                                        <mn class="vz_e"></mn>
+                                    </mrow>
+                                    <mn class="kinematic_viscosity"></mn>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn class="R_e"></mn>
+                                <mo>&#183;</mo>
+                                <msup>
+                                    <mi>10</mi>
+                                    <mi>6</mi>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mi>pe</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="c_p0"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="psi_lyambda0"></mn>
+                                <mo>=</mo>
+                                <mn class="c_pe"></mn>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>w</mi>
+                                    <mi>e</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="q_p_z_e_translate_Exit"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="c_pe"></mn>
+                                <mo>=</mo>
+                                <mn class="w_e_translate_Exit"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                    </section>
+                    <p>
+                        Определим равнодействующую от ветрового давления, действующего на внешнюю поверхность опоры
+                        освещения
+                    </p>
+                    <div class="cover-math">
+                        <math>
+                            <msub>
+                                <mi>F</mi>
+                                <mi>w</mi>
+                            </msub>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mn>1</mn>
+                                <mn>2</mn>
+                            </mfrac>
+                            <mo>&#183;</mo>
+                            <msub>
+                                <mi>w</mi>
+                                <mi>e</mi>
+                            </msub>
+                            <mo>&#183;</mo>
+                            <mi>H</mi>
+                            <mo>.</mo>
+                        </math>
+                    </div>
+                    <div>
+                        <math>
+                            <msub>
+                                <mi>F</mi>
+                                <mi>w</mi>
+                            </msub>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mn>1</mn>
+                                <mn>2</mn>
+                            </mfrac>
+                            <mo>&#183;</mo>
+                            <mn class="w_e_translate_Exit"></mn>
+                            <mo>&#183;</mo>
+                            <mn class="supportHigt"></mn>
+                            <mo>=</mo>
+                            <mn class="Fw_translate_Exit"></mn>
+                            <mi>&ensp;т.</mi>
+                        </math>
+                    </div>
+                    <section>
+                        <h3>
+                            Расчет фундамента против сдвига
+                        </h3>
+                        <p>
+                            Определим сумму горизонтальных проекций на плоскость скольжения расчетных
+                            сдвигающих сил с учетом активного давления грунта на боковые грани
+                            фундамента согласно п. 5.9.11
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mo>&#x2211;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>s.h</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#968;</mi>
+                                    <mn>0</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>w</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Gsup</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где &#947;<sub>Q</sub> &ndash; частный коэффициент для переменного воздействия (т. А.2,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                &#968;<sub>0</sub> &ndash; коэффициент сочетания воздействий, учитывающий
+                                комбинационное значение переменного воздействия (т. А.1,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                ).
+                            </dt>
+                            <dt>
+                                &#947;<sub>Gsup</sub> &ndash; частный коэффициент для постоянного
+                                воздействия при определении верхних расчетных значений (т. А.2,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                );
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <mo>&#x2211;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>s.h</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="gama_Q"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="psi_0"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Eq"></mn>
+                                <mo>+</mo>
+                                <mn class="gama_Q"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Fw_translate_Exit"></mn>
+                                <mo>+</mo>
+                                <mn class="gama_Gsup"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ea"></mn>
+                                <mo>=</mo>
+                                <mn class="suma_Fsh"></mn>
+                                <mn>&ensp;т.</mn>
+                            </math>
+                        </div>
+                        <p>
+                            Определим сумму горизонтальных проекций на плоскость скольжения расчетных
+                            удерживающих сил с учетом
+                            пассивного давления грунта на боковые грани фундамента согласно п. 5.9.11
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>&#x2211;</mi>
+                                <msub>
+                                    <mn>F</mn>
+                                    <mn>s.p</mn>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Ginf</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mn>s</mn>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mn>f</mn>
+                                </msub>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <mi>f</mi>
+                                <mo>+</mo>
+                                <mi>A</mi>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mn>II</mn>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Ginf</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где &#947;<sub>Ginf</sub> &ndash; частный коэффициент для постоянного воздействия
+                                при определении нижних расчетных значений (т. А.2,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                f &ndash; коэффициент трения подошвы фундамента по грунту (п. 5.9.11,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                A &ndash; площадь подошвы фундамента;
+                            </dt>
+                            <dt>
+                                c<sub>II</sub> &ndash; расчетное удельное сцепление грунта.
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <mo>&#x2211;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>s.p</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mn class="gama_Ginf"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn class="supportMass"></mn>
+                                <mo>+</mo>
+                                <mn class="Gf"></mn>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <mn class="COEF_FRICTION"></mn>
+                                <mo class="without_cII">+</mo>
+                                <mn class="without_cII areaOfFoundation"></mn>
+                                <mo class="without_cII">&#183;</mo>
+                                <mn class="without_cII c_II"></mn>
+                                <mo>+</mo>
+                                <mn class="gama_Ginf"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ep"></mn>
+                                <mo>=</mo>
+                                <mn class="suma_Fsp"></mn>
+                                <mn>&ensp;т.</mn>
+                            </math>
+                        </div>
+                        <p>
+                            Выполним проверку фундамента против сдвига согласно п. 5.9.11
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mo>&#x2211;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>s.h</mi>
+                                </msub>
+                                <mo>&#x2264;</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>&#947;</mi>
+                                        <mi>c</mi>
+                                    </msub>
+                                    <msub>
+                                        <mi>&#947;</mi>
+                                        <mi>n</mi>
+                                    </msub>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mo>&#x2211;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>s.p</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где &#947;<sub>c</sub> &ndash; коэффициент условий работы (п. 5.9.4,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                &#947;<sub>n</sub> &ndash; коэффициент надежности по назначению сооружения (п.
+                                5.9.4,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <mn class="suma_Fsh"></mn>
+                                <mn>&ensp;т.</mn>
+                                <mo class="conclusion_Fs_sign"></mo>
+                                <mfrac>
+                                    <mn class="GAMMA_C"></mn>
+                                    <mn class="GAMMA_N"></mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="suma_Fsp"></mn>
+                                <mo>=</mo>
+                                <mn class="Fsp_conclusion_Fixed"></mn>
+                                <mn>&ensp;т.</mn>
+                            </math>
+                        </div>
+                        <p class="conclusion_Fs"></p>
+                    </section>
+                    <section>
+                        <h3>
+                            Расчет фундамента против опрокидывания
+                        </h3>
+                        <p>
+                            Определим моменты опрокидывающих сил относительно
+                            оси возможного поворота конструкции, проходящей через точку "О"
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>ext</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#968;</mi>
+                                    <mn>0</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>w</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mi>z</mi>
+                                <mo>&#41;</mo>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Gsup</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>ext</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Q"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="psi_0"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Eq"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>+</mo>
+                                <mn class="gama_Q"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Fw_translate_Exit"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="supportHigt"></mn>
+                                <mo>&#41;</mo>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Gsup"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ea"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>=</mo>
+                                <mn class="Mext"></mn>
+                                <mn>&ensp;т&#183;м.</mn>
+                            </math>
+                        </div>
+                        <p>
+                            Определим моменты удерживающих сил относительно
+                            оси возможного поворота конструкции, проходящей через точку "О"
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>int</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Ginf</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mi>s</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>b</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Ginf</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>int</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Ginf"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn class="supportMass"></mn>
+                                <mo>+</mo>
+                                <mn class="Gf"></mn>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <mn class="b_f"></mn>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Ginf"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ep"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>=</mo>
+                                <mn class="Mint"></mn>
+                                <mn>&ensp;т&#183;м.</mn>
+                            </math>
+                        </div>
+                        <p>
+                            Выполним проверку фундамента против опрокидывания согласно п.
+                            5.9.12.2
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>ext</mi>
+                                </msub>
+                                <mo>&#x2264;</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>&#947;</mi>
+                                        <mi>c</mi>
+                                    </msub>
+                                    <msub>
+                                        <mi>&#947;</mi>
+                                        <mi>n</mi>
+                                    </msub>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>int</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mn class="Mext"></mn>
+                                <mn>&ensp;т&#183;м</mn>
+                                <mo class="conclusion_Mext_sign"></mo>
+                                <mfrac>
+                                    <mn class="GAMMA_C"></mn>
+                                    <mn class="GAMMA_N"></mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="Mint"></mn>
+                                <mo>=</mo>
+                                <mn class="Mint_conclusion_Fixed"></mn>
+                                <mn>&ensp;т&#183;м.</mn>
+                            </math>
+                        </div>
+                        <p class="conclusion_Mext"></p>
+                    </section>
+                    <section>
+                        <h3>
+                            Расчет по деформациям основания
+                        </h3>
+                        <p>
+                            Определим эксцентриситет приложения нагрузки на подошву фундамента согласно п. 5.3.7
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>e</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>M</mi>
+                                    <mrow>
+                                        <mi>N</mi>
+                                        <mo>+</mo>
+                                        <msub>
+                                            <mi>G</mi>
+                                            <mi>f</mi>
+                                        </msub>
+                                    </mrow>
+                                </mfrac>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где M &ndash; момент, действующий в уровне подошвы фундамента, определяемый с учетом
+                                заглубления фундамента в грунте и перераспределяющего влияния верхних конструкций;
+                            </dt>
+                            <dt>
+                                N &ndash; расчетная равнодействующая вертикальная нагрузка на фундамент от
+                                надземных конструкций (без учета веса фундамента);
+                            </dt>
+                        </dl>
+                        <p>
+                            Определим момент, действующий в уровне подошвы фундамента относительно оси симметрии, с
+                            учетом
+                            заглубления фундамента в грунте и перераспределяющего влияния верхних конструкций
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>M</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#968;</mi>
+                                    <mn>0</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>Q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>w</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mi>z</mi>
+                                <mo>&#41;</mo>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Gsup</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>a</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>-</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Ginf</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>E</mi>
+                                    <mi>p</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где &#947;<sub>Q</sub> &ndash; частный коэффициент для переменного воздействия (т. А.4,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                &#947;<sub>Gsup</sub> &ndash; частный коэффициент для постоянного
+                                воздействия при определении верхних расчетных значений (т. А.4,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <mi>M</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Q_Mcg"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="psi_0_Mcg"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Eq"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>+</mo>
+                                <mn class="gama_Q_Mcg"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Fw_translate_Exit"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="supportHigt"></mn>
+                                <mo>&#41;</mo>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Gsup_Mcg"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ea"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>-</mo>
+                                <mfrac>
+                                    <mn>1</mn>
+                                    <mn>3</mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mn class="gama_Ginf_Mcg"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="Ep"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>=</mo>
+                                <mn class="Mcg"></mn>
+                                <mn>&ensp;т&#183;м.</mn>
+                            </math>
+                        </div>
+                        <p>
+                            Определим расчетную равнодействующую вертикальную нагрузку на фундамент от надземных
+                            конструкций (без учета веса фундамента) по формуле
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>N</mi>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mn>Gsup</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>G</mi>
+                                    <mi>s</mi>
+                                </msub>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где &#947;<sub>Gsup</sub> &ndash; частный коэффициент для постоянного
+                                воздействия при определении верхних расчетных значений (т. А.3,
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    [1]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <mi>N</mi>
+                                <mo>=</mo>
+                                <mn class="GAMA_Gsup_forN"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="supportMass"></mn>
+                                <mo>=</mo>
+                                <mn class="N_Fixed"></mn>
+                                <mn>&ensp;т.</mn>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mi>e</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mn class="Mcg"></mn>
+                                    <mrow>
+                                        <mn class="N_Fixed"></mn>
+                                        <mo>+</mo>
+                                        <mn class="Gf"></mn>
+                                    </mrow>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn class="e_Fixed"></mn>
+                                <mn>&ensp;м.</mn>
+                            </math>
+                        </div>
+                        <p>
+                            Согласно п. 5.3.8
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                            проверяем выполнение условия
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <mi>e</mi>
+                                <mo>&#8804;</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>l</mi>
+                                        <mi>f</mi>
+                                    </msub>
+                                    <mn>30</mn>
+                                </mfrac>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mn class="e_Fixed"></mn>
+                                <mn>&ensp;м</mn>
+                                <mo class="conclusion_e_sign"></mo>
+                                <mfrac>
+                                    <mn class="l_f"></mn>
+                                    <mn>30</mn>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn class="eNull_Fixed"></mn>
+                                <mn>&ensp;м</mn>
+                            </math>
+                        </div>
+                        <p class="conclusion_e"></p>
+                        <p>
+                            Определим среднее давление под подошвой фундамента согласно п. 5.3.4
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>p</mi>
+                                    <mi>m</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>N</mi>
+                                        <mo>+</mo>
+                                        <mi>Q</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>A</mi>
+                                    </mrow>
+                                </mfrac>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl>
+                            <dt>
+                                где N &ndash; расчетная равнодействующая вертикальная нагрузка на фундамент от
+                                надземных
+                                конструкций (без учета веса фундамента);
+                            </dt>
+                            <dt>
+                                Q &ndash; нагрузка от веса фундамента G<sub>f</sub>.
+                            </dt>
+                        </dl>
+                        <div>
+                            <math>
+                                <msub>
+                                    <mi>p</mi>
+                                    <mi>m</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn class="N_Fixed"></mn>
+                                        <mo>+</mo>
+                                        <mn class="Gf"></mn>
+                                    </mrow>
+                                    <mrow>
+                                        <mn class="areaOfFoundation"></mn>
+                                    </mrow>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn class="p_m"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p class="p_offCenterLoadedFoundation">
+                            Для внецентренно нагруженного фундамента определим краевые давления на гранях фундамента
+                            согласно п. 5.3.4
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math p_offCenterLoadedFoundation">
+                            <math>
+                                <msubsup>
+                                    <mi>p</mi>
+                                    <mi>min</mi>
+                                    <mi>max</mi>
+                                </msubsup>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>N</mi>
+                                        <mo>+</mo>
+                                        <mi>Q</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>A</mi>
+                                    </mrow>
+                                </mfrac>
+                                <mo>&#x00b1;</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>M</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>W</mi>
+                                    </mrow>
+                                </mfrac>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl class="p_offCenterLoadedFoundation">
+                            <dt>
+                                где W &ndash; момент сопротивления для опорной части подошвы фундамента.
+                            </dt>
+                        </dl>
+                        <p class="p_offCenterLoadedFoundation">
+                            Определим момент сопротивления для опорной части подошвы фундамента
+                        </p>
+                        <div class="cover-math p_offCenterLoadedFoundation">
+                            <math>
+                                <mi>W</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>l</mi>
+                                            <mi>f</mi>
+                                        </msub>
+                                        <mo>&#183;</mo>
+                                        <msubsup>
+                                            <mi>b</mi>
+                                            <mi>f</mi>
+                                            <mn>2</mn>
+                                        </msubsup>
+                                    </mrow>
+                                    <mn>6</mn>
+                                </mfrac>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div class="p_offCenterLoadedFoundation">
+                            <math>
+                                <mi>W</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn class="l_f"></mn>
+                                        <mo>&#183;</mo>
+                                        <msup>
+                                            <mn class="b_f"></mn>
+                                            <mn>2</mn>
+                                        </msup>
+                                    </mrow>
+                                    <mn>6</mn>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn class="W_Fixed"></mn>
+                                <msup>
+                                    <mn>&ensp;м</mn>
+                                    <mn>3</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p class="p_offCenterLoadedFoundation">
+                            Определим максимальное краевое давление
+                        </p>
+                        <div class="p_offCenterLoadedFoundation">
+                            <math>
+                                <msub>
+                                    <mi>p</mi>
+                                    <mi>max</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn class="N_Fixed"></mn>
+                                        <mo>+</mo>
+                                        <mn class="Gf"></mn>
+                                    </mrow>
+                                    <mrow>
+                                        <mn class="areaOfFoundation"></mn>
+                                    </mrow>
+                                </mfrac>
+                                <mo>+</mo>
+                                <mfrac>
+                                    <mn class="Mcg"></mn>
+                                    <mn class="W_Fixed"></mn>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn class="p_max"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p class="p_offCenterLoadedFoundation">
+                            Определим минимальное краевое давление
+                        </p>
+                        <div class="p_offCenterLoadedFoundation">
+                            <math>
+                                <msub>
+                                    <mi>p</mi>
+                                    <mi>min</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn class="N_Fixed"></mn>
+                                        <mo>+</mo>
+                                        <mn class="Gf"></mn>
+                                    </mrow>
+                                    <mrow>
+                                        <mn class="areaOfFoundation"></mn>
+                                    </mrow>
+                                </mfrac>
+                                <mo>-</mo>
+                                <mfrac>
+                                    <mn class="Mcg"></mn>
+                                    <mn class="W_Fixed"></mn>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn class="p_min"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p class="d_f_equalsTwo">
+                            Расчетное сопротивление грунта под подошвой фундамента определим согласно п.
+                            <span class="with_feeII">
+                                5.4.1
+                            </span>
+                            <span class="without_feeII">
+                                5.4.3.1
+                            </span>
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="with_feeII cover-math">
+                            <math>
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>&#947;</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mo>&#183;</mo>
+                                        <msub>
+                                            <mi>&#947;</mi>
+                                            <mn>2</mn>
+                                        </msub>
+                                    </mrow>
+                                    <mi>k</mi>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mo>&#91;</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>&#947;</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>k</mi>
+                                    <mi>z</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>b</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>&#947;</mi>
+                                    <mi>II</mi>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>l</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msubsup>
+                                    <mi>&#947;</mi>
+                                    <mi>II</mi>
+                                    <mi>'</mi>
+                                </msubsup>
+                                <mo>+</mo>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>q</mi>
+                                </msub>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>b</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msubsup>
+                                    <mi>&#947;</mi>
+                                    <mi>II</mi>
+                                    <mi>'</mi>
+                                </msubsup>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>M</mi>
+                                    <mi>c</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msub>
+                                    <mi>c</mi>
+                                    <mi>II</mi>
+                                </msub>
+                                <mo>&#93;</mo>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl class="with_feeII">
+                            <dt>
+                                где &#947;<sub>1</sub> и &#947;<sub>2</sub> &ndash; коэффициенты условий работы (т. 5.2,
+                                п. 5.4.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                k &ndash; коэффициент, принимаемый согласно п. 5.4.1
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                ;
+                            </dt>
+                            <dt>
+                                M<sub>&#947;</sub>, M<sub>q</sub>, M<sub>c</sub>, &ndash; коэффициенты, принимаемые в
+                                зависимости от угла внутреннего трения (т. 5.3, п.
+                                5.4.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                k<sub>z</sub> &ndash; коэффициент, принимаемый согласно п. 5.4.1
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                ;
+                            </dt>
+                            <dt>
+                                b<sub>f</sub> &ndash; ширина подошвы фундамента;
+                            </dt>
+                            <dt>
+                                &#947;<sub>II</sub> &ndash; среднее арифметическое расчетное значение удельного веса
+                                грунтов, залегающих ниже подошвы фундамента на глубину сжимаемой толщи;
+                            </dt>
+                            <dt>
+                                d<sub>l</sub> &ndash; глубина заложения фундаментов бесподвальных сооружений от уровня
+                                планировки
+                                или приведенная глубина заложения наружных и внутренних фундаментов от пола подвала;
+                            </dt>
+                            <dt>
+                                &#947;'<sub>II</sub> &ndash; среднее арифметическое расчетное значение удельного веса
+                                грунтов, залегающих выше подошвы фундамента;
+                            </dt>
+                            <dt>
+                                d<sub>b</sub> &ndash; глубина подвала, от уровня планировки до верха пола;
+                            </dt>
+                            <dt>
+                                c<sub>II</sub> &ndash; расчетное удельное сцепление грунта, залегающего непосредственно
+                                под подошвой
+                                фундамента.
+                            </dt>
+                        </dl>
+                        <div class="with_feeII">
+                            <math>
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn class="GAMA_ONE"></mn>
+                                        <mo>&#183;</mo>
+                                        <mn class="GAMA_TWO"></mn>
+                                    </mrow>
+                                    <mn class="kForR"></mn>
+                                </mfrac>
+                                <mo>&#183;</mo>
+                                <mo>&#91;</mo>
+                                <mn class="Mgama"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="k_z"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="b_f"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="gama_II"></mn>
+                                <mo>+</mo>
+                                <mn class="Mq"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="gama_II_backSoil"></mn>
+                                <mo class="without_cII">+</mo>
+                                <mn class="without_cII Mc"></mn>
+                                <mo class="without_cII">&#183;</mo>
+                                <mn class="without_cII c_II"></mn>
+                                <mo>&#93;</mo>
+                                <mo>=</mo>
+                                <mn class="R"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div class="cover-math without_feeII d_f_lessTwo">
+                            <math>
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>R</mi>
+                                    <mi>0</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn>1</mn>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>k</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>b</mi>
+                                            <mi>f</mi>
+                                        </msub>
+                                        <mo>-</mo>
+                                        <msub>
+                                            <mi>b</mi>
+                                            <mi>0</mi>
+                                        </msub>
+                                    </mrow>
+                                    <msub>
+                                        <mi>b</mi>
+                                        <mi>0</mi>
+                                    </msub>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>d</mi>
+                                            <mi>f</mi>
+                                        </msub>
+                                        <mo>+</mo>
+                                        <msub>
+                                            <mi>d</mi>
+                                            <mi>0</mi>
+                                        </msub>
+                                    </mrow>
+                                    <mrow>
+                                        <mn>2</mn>
+                                        <mo>&#183;</mo>
+                                        <msub>
+                                            <mi>d</mi>
+                                            <mi>0</mi>
+                                        </msub>
+                                    </mrow>
+                                </mfrac>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <div class="cover-math without_feeII d_f_moreTwo">
+                            <math>
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>R</mi>
+                                    <mi>0</mi>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn>1</mn>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>k</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>b</mi>
+                                            <mi>f</mi>
+                                        </msub>
+                                        <mo>-</mo>
+                                        <msub>
+                                            <mi>b</mi>
+                                            <mi>0</mi>
+                                        </msub>
+                                    </mrow>
+                                    <msub>
+                                        <mi>b</mi>
+                                        <mi>0</mi>
+                                    </msub>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>k</mi>
+                                    <mn>2</mn>
+                                </msub>
+                                <mo>&#183;</mo>
+                                <msubsup>
+                                    <mi>&#947;</mi>
+                                    <mn>II</mn>
+                                    <mi>'</mi>
+                                </msubsup>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>f</mi>
+                                </msub>
+                                <mo>-</mo>
+                                <msub>
+                                    <mi>d</mi>
+                                    <mi>0</mi>
+                                </msub>
+                                <mo>&#41;</mo>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <dl class="without_feeII d_f_equalsTwo">
+                            <dt>
+                                где b<sub>0</sub> &ndash; условная ширина фундамента (п. 5.4.3.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt>
+                                k<sub>1</sub> &ndash; коэффициент, принимаемый для оснований в зависимости грунта,
+                                расположенного ниже подошвы фундамента (п. 5.4.3.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt class="d_f_moreTwo">
+                                k<sub>2</sub> &ndash; коэффициент, принимаемый для оснований в зависимости грунта,
+                                расположенного выше подошвы фундамента (п. 5.4.3.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                );
+                            </dt>
+                            <dt class="d_f_moreTwo">
+                                &#947;'<sub>II</sub> &ndash; среднее арифметическое расчетное значение удельного веса
+                                грунтов, залегающих выше подошвы фундамента;
+                            </dt>
+                            <dt>
+                                d<sub>0</sub> &ndash; условная глубина заложения фундамента (п.
+                                5.4.3.1,
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    [2]
+                                </a>
+                                ).
+                            </dt>
+                        </dl>
+                        <div class="without_feeII d_f_lessTwo">
+                            <math>
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mn class="Rnull"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn>1</mn>
+                                <mo>+</mo>
+                                <mn class="kOne"></mn>
+                                <mo>&#183;</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn class="b_f"></mn>
+                                        <mo>-</mo>
+                                        <mn class="bNull"></mn>
+                                    </mrow>
+                                    <mn class="bNull"></mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>&#183;</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn class="d_f"></mn>
+                                        <mo>+</mo>
+                                        <mn class="dNull"></mn>
+                                    </mrow>
+                                    <mrow>
+                                        <mn>2</mn>
+                                        <mo>&#183;</mo>
+                                        <mn class="dNull"></mn>
+                                    </mrow>
+                                </mfrac>
+                                <mo>=</mo>
+                                <mn class="R"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div class="without_feeII d_f_moreTwo">
+                            <math>
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mn class="Rnull"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn>1</mn>
+                                <mo>+</mo>
+                                <mn class="kOne"></mn>
+                                <mo>&#183;</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn class="b_f"></mn>
+                                        <mo>-</mo>
+                                        <mn class="bNull"></mn>
+                                    </mrow>
+                                    <mn class="bNull"></mn>
+                                </mfrac>
+                                <mo>&#41;</mo>
+                                <mo>+</mo>
+                                <mn class="kTwo"></mn>
+                                <mo>&#183;</mo>
+                                <mn class="gama_II_backSoil"></mn>
+                                <mo>&#183;</mo>
+                                <mo>&#40;</mo>
+                                <mn class="d_f"></mn>
+                                <mo>-</mo>
+                                <mn class="dNull"></mn>
+                                <mo>&#41;</mo>
+                                <mo>=</mo>
+                                <mn class="R"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p>
+                            <span class="conclusion_e_for_p"></span>
+                            <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                [2]
+                            </a>
+                        </p>
+                        <div class="cover-math">
+                            <math>
+                                <msub>
+                                    <mi>p</mi>
+                                    <mi>m</mi>
+                                </msub>
+                                <mo>&#8804;</mo>
+                                <mi>R</mi>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <div class="cover-math p_offCenterLoadedFoundation">
+                            <math>
+                                <msub>
+                                    <mi>p</mi>
+                                    <mi>max</mi>
+                                </msub>
+                                <mo>&#8804;</mo>
+                                <mn>1.2</mn>
+                                <mn>R</mn>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <div class="cover-math p_offCenterLoadedFoundation">
+                            <math>
+                                <msub>
+                                    <mi>p</mi>
+                                    <mi>min</mi>
+                                </msub>
+                                <mo>&#8805;</mo>
+                                <mn>0</mn>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <div>
+                            <math>
+                                <mn class="p_m"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo class="conclusion_p_m_sign"></mo>
+                                <mn class="R"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo class="signEndOfSentence"></mo>
+                            </math>
+                        </div>
+                        <div class="p_offCenterLoadedFoundation">
+                            <math>
+                                <mn class="p_max"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo class="conclusion_p_max_sign"></mo>
+                                <mn>1.2</mn>
+                                <mo>&#183;</mo>
+                                <mn class="R"></mn>
+                                <mo>=</mo>
+                                <mn class="p_max_conclusion"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>,</mo>
+                            </math>
+                        </div>
+                        <div class="p_offCenterLoadedFoundation">
+                            <math>
+                                <mn class="p_min"></mn>
+                                <msup>
+                                    <mn>&ensp;т/м</mn>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo class="conclusion_p_min_sign"></mo>
+                                <mn>0</mn>
+                                <mo>.</mo>
+                            </math>
+                        </div>
+                        <p class="conclusion_p_m"></p>
+                    </section>
+                    <section>
+                        <h3>
+                            Список используемой литературы
+                        </h3>
+                        <ol>
+                            <li>
+                                <a href="tnpa/sn2.01.01-2022.pdf" target="_blank"
+                                    title="СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ КОНСТРУКЦИЙ">
+                                    СН 2.01.01-2022. ОСНОВЫ ПРОЕКТИРОВАНИЯ СТРОИТЕЛЬНЫХ
+                                    КОНСТРУКЦИЙ. &ndash;
+                                    Минстройархитектуры, 2022. &ndash; 60 с.
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tnpa/tkp45-5.01-67-2007.pdf" target="_blank"
+                                    title="ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования">
+                                    ТКП 45-5.01-67-2007. ФУНДАМЕНТЫ ПЛИТНЫЕ. Правила проектирования. &ndash;
+                                    Министерство архитектуры и строительства РБ, 2018. &ndash; 136 с.
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tnpa/sn2.01.05-2019.pdf" target="_blank"
+                                    title="СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия">
+                                    СН 2.01.05-2019. ВОЗДЕЙСТВИЯ НА КОНСТРУКЦИИ. ОБЩИЕ ВОЗДЕЙСТВИЯ. Ветровые воздействия
+                                    &ndash;
+                                    Минстройархитектуры, 2020. &ndash; 120 с.
+                                </a>
+                            </li>
+                        </ol>
+                    </section>
+                </article>
+            </div>
+            <div class="menu"></div>
+        </main>
+        <footer></footer>
+    </div>
+    <script src="js/header.js"></script>
+    <script src="js/RCS12CalcLightingSuppirt.js"></script>
+    <!-- <script src="js/menu.js"></script> -->
+    <!-- <script src="js/rcsList.js"></script> -->
+    <!-- <script src="js/workspace.js"></script> -->
+</body>
+
+</html>

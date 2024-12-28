@@ -12,7 +12,7 @@ function calcSupport() {
 
     let gama_II = 1.7;
     let c_II_Enter = 0;         /*значение в кПа*/
-    let fee_II_Enter = 0;
+    let fee_II_Enter = 30;
     let Rnull_Enter = 180;       /*значение в кПа*/
 
     let q_q = 2;                /*значение в т/м2*/
@@ -53,10 +53,6 @@ function calcSupport() {
     let c_II_Exit = get_c_II(c_II_Enter);
     let Rnull_Exit = getRnull(Rnull_Enter);
 
-    console.log('фиII=' + fee_II_Exit);
-    console.log('cII=' + c_II_Exit);
-    console.log('Ro=' + Rnull_Exit);
-
     let A_Exit = getA(b_f, l_f);
     let Gf_Exit = getGf(RO_CONCR, b_f, l_f, d_f);
     let W_Exit = getW(b_f, l_f);
@@ -96,6 +92,8 @@ function calcSupport() {
 
     }
 
+    getCoefOfStability(suma_Fsh_Exit, suma_Fsp_Exit, GAMMA_C, GAMMA_N, '.coefOfStability_Kf', '.coefOfStability_Kf0', '.coefOfStability_Kf_sign', '.coefOfStability_Kf_concl');
+
     let Mext_Exit = getMext(GAMA_Q, PSI_0, GAMA_Gsup, Eq_Exit, Fw_Exit, Ea_Exit, supportHigt, d_f);
     let Mint_Exit = getMint(GAMA_Ginf, supportMass, Gf_Exit, b_f, d_f, Ep_Exit);
 
@@ -120,11 +118,13 @@ function calcSupport() {
         replaceVariables('>', '.conclusion_Mext_sign');
     }
 
+    getCoefOfStability(Mext_Exit, Mint_Exit, GAMMA_C, GAMMA_N, '.coefOfStability_Km', '.coefOfStability_Km0', '.coefOfStability_Km_sign', '.coefOfStability_Km_concl');
+
     let Mcg_Exit = getMcg(Eq_Exit, Fw_Exit, Ea_Exit, Ep_Exit, supportHigt, d_f);
 
     let R_Exit = getR(gama_II, fee_II_Exit, c_II_Exit, Rnull_Exit, b_f, d_f);
 
-    let e_Exit = getEccentricity(Mcg_Exit, N_Exit, Gf_Exit, l_f);
+    let e_Exit = getEccentricity(Mcg_Exit, N_Exit, Gf_Exit);
     let eNull = getEccentricityNull(l_f);
 
     if (e_Exit < eNull) {
@@ -375,6 +375,7 @@ function getSigma_p(gama_II, fee_II, d_f) {
         let sigma_p = gama_II * d_f * Math.pow(Math.tan((Math.PI / 4) + 0.5 * (fee_II * (Math.PI / 180))), 2);
         let sigma_p_Fixed = + sigma_p.toFixed(3);
         replaceVariables(sigma_p_Fixed, '.sigma_p');
+
         return sigma_p;
 
     } else {
@@ -383,6 +384,7 @@ function getSigma_p(gama_II, fee_II, d_f) {
         let sigma_p_Fixed = + sigma_p.toFixed(3);
         replaceVariables('3', '.sigma_p_coefFriction');
         replaceVariables(sigma_p_Fixed, '.sigma_p');
+
         return sigma_p;
     }
 };
@@ -392,6 +394,7 @@ function getEa(sigma_a, d_f, b_f) {
     let Ea = 0.5 * sigma_a * d_f * b_f;
     let Ea_Fixed = + Ea.toFixed(3);
     replaceVariables(Ea_Fixed, '.Ea');
+
     return Ea;
 };
 
@@ -400,6 +403,7 @@ function getEp(sigma_p, d_f, b_f) {
     let Ep = 0.5 * sigma_p * d_f * b_f;
     let Ep_Fixed = + Ep.toFixed(3);
     replaceVariables(Ep_Fixed, '.Ep');
+
     return Ep;
 };
 
@@ -410,6 +414,7 @@ function getEq(q_q, d_f, b_f, fee_II) {
         let Eq = q_q * d_f * b_f * Math.pow(Math.tan((Math.PI / 4) - 0.5 * (fee_II * (Math.PI / 180))), 2);
         let Eq_Fixed = + Eq.toFixed(3);
         replaceVariables(Eq_Fixed, '.Eq');
+
         return Eq;
 
     } else {
@@ -418,6 +423,7 @@ function getEq(q_q, d_f, b_f, fee_II) {
         let Eq_Fixed = + Eq.toFixed(3);
         replaceVariables('0.333', '.sigma_a_coefFriction');
         replaceVariables(Eq_Fixed, '.Eq');
+
         return Eq;
     }
 };
@@ -559,6 +565,7 @@ function getFsp(GAMA_Ginf, supportMass, Gf_Exit, fee_II, A, c_II, Ep_Exit) {
         replaceVariables(suma_Fsp_Fixed, '.suma_Fsp');
 
         document.querySelectorAll(".without_cII").forEach(elements => elements.style.display = 'none');
+        document.querySelectorAll(".without_feeII").forEach(elements => elements.style.display = 'none');
 
         return suma_Fsp;
     }
@@ -624,7 +631,7 @@ function getEccentricityNull(l_f) {
     return eNull;
 };
 
-function getEccentricity(M, N, Gf, l_f) {
+function getEccentricity(M, N, Gf) {
 
     let e = M / (N + Gf);
     let e_Fixed = + e.toFixed(3);
@@ -758,3 +765,31 @@ function getR(gama_II, feeIIforR, cIIforR, Rnull, b_f, d_l) {
         }
     }
 };
+
+function getCoefOfStability(effortsExt, effortsInt, GAMMA_C, GAMMA_N, classOfVariableKf, classOfVariableKf0, classOfVariableSign, classOfVariableConcl) {
+
+    let coefOfStability = effortsInt / effortsExt;
+    let coefOfStabilityNull = GAMMA_N / GAMMA_C;
+
+    let coefOfStability_Fixed = + coefOfStability.toFixed(3);
+    let coefOfStabilityNull_Fixed = + coefOfStabilityNull.toFixed(3);
+
+    replaceVariables(coefOfStability_Fixed, classOfVariableKf);
+    replaceVariables(coefOfStabilityNull_Fixed, classOfVariableKf0);
+
+    if (coefOfStability > coefOfStabilityNull) {
+
+        replaceVariables('>', classOfVariableSign);
+        replaceVariables('Устойчивость фундамента обеспечена', classOfVariableConcl);
+
+    } else if (coefOfStability === coefOfStabilityNull) {
+
+        replaceVariables('=', classOfVariableSign);
+        replaceVariables('Устойчивость фундамента обеспечена', classOfVariableConcl);
+
+    } else {
+
+        replaceVariables('<', classOfVariableSign);
+        replaceVariables('Устойчивость фундамента не обеспечена', classOfVariableConcl);
+    }
+}
