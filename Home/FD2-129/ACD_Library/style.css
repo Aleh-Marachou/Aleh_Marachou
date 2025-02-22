@@ -212,6 +212,74 @@ article section {
     padding: 10px 0;
 }
 
+.formCalcRCS12,
+.calcResultsRCS12 {
+    display: grid;
+    grid-template-columns: 3fr 4fr 3fr;
+    grid-template-rows: auto;
+}
+
+.formCalcRCS12 section {
+    padding: 10px 0px;
+}
+
+.loadsOnFoundation {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: auto;
+    /* max-width: 250px; */
+}
+
+.loadsOnFoundation p,
+.loadsOnFoundation span {
+    padding: 5px 5px;
+}
+
+/* раскрывающееся меню для опоры освещения - start */
+
+.supportCheckbox,
+.foundationCheckbox,
+.soilUnderFoundationCheckbox {
+    visibility: hidden;
+}
+
+.supportCheckbox::before,
+.foundationCheckbox::before,
+.soilUnderFoundationCheckbox::before {
+    visibility: visible;
+    content: '+';
+}
+
+.supportCheckbox:checked::before,
+.foundationCheckbox:checked::before,
+.soilUnderFoundationCheckbox:checked::before {
+    content: '-';
+}
+
+.characteristicsOfSupport,
+.characteristicsOfFoundation,
+.characteristicsOfSoilUnderFoundation {
+    display: none;
+}
+
+.supportCheckbox:checked+div,
+.foundationCheckbox:checked+div,
+.soilUnderFoundationCheckbox:checked+div {
+    display: block;
+    padding: 10px;
+}
+
+/* раскрывающееся меню для опоры освещения - end */
+
+fieldset {
+    border: bisque;
+}
+
+/* .loadModel {
+    background: url(img/RCS12_calcModel.png) no-repeat;
+    background-size: contain;
+} */
+
 /* .workspace article section:first-child {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -259,4 +327,3 @@ article section {
 } */
 
 /* вычисления в формуле - end*/
-

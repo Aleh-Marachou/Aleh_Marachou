@@ -69,12 +69,9 @@
                         <h3>
                             Схема загружения
                         </h3>
-                        <!-- <div>
-                                            <img src="img/RCS12_calcModel.png" alt="calcModel">
-                                            <p>
-                                                Рисунок 1 &ndash; Расчетная схема фундамента
-                                            </p>
-                                        </div> -->
+                        <div class="loadModel">
+                            <img src="img/RCS12_calcModel.png" alt="calcModel">
+                        </div>
                     </section>
                     <section>
                         <h3>
@@ -337,41 +334,121 @@
                 <h3>
                     Исходные данные
                 </h3>
-                <div>
-                    <input class="supportCheckbox" id="SupportCheckbox" type="checkbox">
+                <fieldset>
                     <label for="SupportCheckbox">
                         <span>
                             Опора
                         </span>
-                        <span>
-                            &#8743;
-                        </span>
-                        <span>
-                            &#8744;
-                        </span>
-                        <div>
-                            <label for="">
-                                <span>
-                                    Высота опоры z, м
-                                </span>
-                                <input type="number">
-                            </label>
-                        </div>
+                        <span class="menuSign"></span>
                     </label>
-                </div>
-                <div>
-                    <fieldset>
-                        <legend>Паспортные данные</legend>
-                        <label>Ваша фамилия:<br>
-                            <input type="text" name="fam" value="Иванов">
-                        </label><br>
-                        <label>Ваше имя:<br>
-                            <input type="number" name="im" value="Иван">
-                        </label><br>
-                    </fieldset>
-                </div>
-                <div></div>
-                <div></div>
+                    <input class="supportCheckbox" id="SupportCheckbox" type="checkbox">
+                    <div class="characteristicsOfSupport">
+                        <label>
+                            <p>
+                                Высота z, м
+                            </p>
+                            <input type="number">
+                        </label>
+                        <br>
+                        <label>
+                            <p>
+                                Диаметр b, м
+                            </p>
+                            <input type="number">
+                        </label>
+                        <br>
+                        <label>
+                            <p>
+                                Масса, т
+                            </p>
+                            <input type="number">
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="FoundationCheckbox">
+                        <span>
+                            Фундамент
+                        </span>
+                        <span class="menuSign"></span>
+                    </label>
+                    <input class="foundationCheckbox" id="FoundationCheckbox" type="checkbox">
+                    <div class="characteristicsOfFoundation">
+                        <label>
+                            <span>
+                                Длина l<sub>f</sub>, м
+                            </span>
+                            <input type="number">
+                        </label>
+                        <br>
+                        <label>
+                            <p>
+                                Ширина b<sub>f</sub>, м
+                            </p>
+                            <input type="number">
+                        </label>
+                        <br>
+                        <label>
+                            <p>
+                                Глубина d<sub>f</sub>, м
+                            </p>
+                            <input type="number">
+                        </label>
+                        <label>
+                            <p>
+                                Плотность бетона, т/м<sup>3</sup>
+                            </p>
+                            <input type="number">
+                        </label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label for="SoilUnderFoundationCheckbox">
+                        <span>
+                            Грунт под подошвой фундамента
+                        </span>
+                        <span class="menuSign"></span>
+                    </label>
+                    <input class="soilUnderFoundationCheckbox" id="SoilUnderFoundationCheckbox" type="checkbox">
+                    <div class="characteristicsOfSoilUnderFoundation">
+                        <textarea name="soil_Under_Foundation" id="">
+                            Вид грунта
+                        </textarea>
+                        <br>
+                        <label>
+                            <span>
+                                Удельный вес грунта &#947;<sub>II</sub>, т/м<sup>3</sup>
+                            </span>
+                            <input type="number">
+                        </label>
+                        <br>
+                        <label>
+                            <p>
+                                Угол внутреннего трения &#966;<sub>II</sub>, &#176;
+                            </p>
+                            <input type="number">
+                        </label>
+                        <br>
+                        <label>
+                            <p>
+                                Удельное сцепление c<sub>II</sub>, кПа
+                            </p>
+                            <input type="number">
+                        </label>
+                        <label>
+                            <p>
+                                Условное расчетное сопротивление R<sub>0</sub>, кПа
+                            </p>
+                            <input type="number">
+                        </label>
+                        <label>
+                            <p>
+                                Модуль деформации Е, МПа
+                            </p>
+                            <input type="number">
+                        </label>
+                    </div>
+                </fieldset>
             </div>
         </main>
         <footer></footer>
