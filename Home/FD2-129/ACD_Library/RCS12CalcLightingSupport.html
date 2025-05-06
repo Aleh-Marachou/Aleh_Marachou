@@ -136,7 +136,9 @@
                             МПа
                         </span>
                     </div>
-                    <p class="soilType">Песок</p>
+                    <p class="soilType">
+                        Песок
+                    </p>
                 </div>
                 <div>
                     <h3>
@@ -334,121 +336,173 @@
                 <h3>
                     Исходные данные
                 </h3>
-                <fieldset>
-                    <label for="SupportCheckbox">
-                        <span>
-                            Опора
-                        </span>
-                        <span class="menuSign"></span>
-                    </label>
-                    <input class="supportCheckbox" id="SupportCheckbox" type="checkbox">
-                    <div class="characteristicsOfSupport">
-                        <label>
-                            <p>
-                                Высота z, м
-                            </p>
-                            <input type="number">
-                        </label>
-                        <br>
-                        <label>
-                            <p>
-                                Диаметр b, м
-                            </p>
-                            <input type="number">
-                        </label>
-                        <br>
-                        <label>
-                            <p>
-                                Масса, т
-                            </p>
-                            <input type="number">
-                        </label>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <label for="FoundationCheckbox">
-                        <span>
-                            Фундамент
-                        </span>
-                        <span class="menuSign"></span>
-                    </label>
-                    <input class="foundationCheckbox" id="FoundationCheckbox" type="checkbox">
-                    <div class="characteristicsOfFoundation">
-                        <label>
+                <form name="initialDataForRCS12" id="RCS12_INITIAL_DATA">
+                    <fieldset>
+                        <label for="SupportCheckbox">
                             <span>
-                                Длина l<sub>f</sub>, м
+                                Опора
                             </span>
-                            <input type="number">
+                            <span class="menuSign"></span>
                         </label>
-                        <br>
-                        <label>
-                            <p>
-                                Ширина b<sub>f</sub>, м
-                            </p>
-                            <input type="number">
-                        </label>
-                        <br>
-                        <label>
-                            <p>
-                                Глубина d<sub>f</sub>, м
-                            </p>
-                            <input type="number">
-                        </label>
-                        <label>
-                            <p>
-                                Плотность бетона, т/м<sup>3</sup>
-                            </p>
-                            <input type="number">
-                        </label>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <label for="SoilUnderFoundationCheckbox">
-                        <span>
-                            Грунт под подошвой фундамента
-                        </span>
-                        <span class="menuSign"></span>
-                    </label>
-                    <input class="soilUnderFoundationCheckbox" id="SoilUnderFoundationCheckbox" type="checkbox">
-                    <div class="characteristicsOfSoilUnderFoundation">
-                        <textarea name="soil_Under_Foundation" id="">
-                            Вид грунта
-                        </textarea>
-                        <br>
-                        <label>
+                        <input class="supportCheckbox" id="SupportCheckbox" type="checkbox">
+                        <div class="characteristicsOfSupport">
+                            <label>
+                                <p>
+                                    Высота z, м
+                                </p>
+                                <input type="number" name="enteringHeightOfSupport" step="0.001">
+                            </label>
+                            <br>
+                            <label>
+                                <p>
+                                    Диаметр b, м
+                                </p>
+                                <input type="number" name="enteringDiametrOfSupport" step="0.001">
+                            </label>
+                            <br>
+                            <label>
+                                <p>
+                                    Масса, т
+                                </p>
+                                <input type="number" name="enteringMassaOfSupport" step="0.001">
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="FoundationCheckbox">
                             <span>
-                                Удельный вес грунта &#947;<sub>II</sub>, т/м<sup>3</sup>
+                                Фундамент
                             </span>
-                            <input type="number">
+                            <span class="menuSign"></span>
                         </label>
-                        <br>
-                        <label>
-                            <p>
-                                Угол внутреннего трения &#966;<sub>II</sub>, &#176;
-                            </p>
-                            <input type="number">
+                        <input class="foundationCheckbox" id="FoundationCheckbox" type="checkbox">
+                        <div class="characteristicsOfFoundation">
+                            <label>
+                                <span>
+                                    Длина l<sub>f</sub>, м
+                                </span>
+                                <input type="number" name="enteringLengthOfSupport" step="0.001">
+                            </label>
+                            <br>
+                            <label>
+                                <p>
+                                    Ширина b<sub>f</sub>, м
+                                </p>
+                                <input type="number" name="enteringWidthOfSupport" step="0.001">
+                            </label>
+                            <br>
+                            <label>
+                                <p>
+                                    Глубина d<sub>f</sub>, м
+                                </p>
+                                <input type="number" name="enteringDepthOfSupport" step="0.001">
+                            </label>
+                            <label>
+                                <p>
+                                    Плотность бетона, т/м<sup>3</sup>
+                                </p>
+                                <input type="number" name="enteringRoOfConcret" step="0.001">
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="SoilUnderFoundationCheckbox">
+                            <span>
+                                Характеристики грунта под подошвой фундамента
+                            </span>
+                            <span class="menuSign"></span>
                         </label>
-                        <br>
-                        <label>
-                            <p>
-                                Удельное сцепление c<sub>II</sub>, кПа
-                            </p>
-                            <input type="number">
+                        <input class="soilUnderFoundationCheckbox" id="SoilUnderFoundationCheckbox" type="checkbox">
+                        <div class="characteristicsOfSoilUnderFoundation">
+                            <textarea name="soil_Under_Foundation">
+                                                Вид грунта
+                                            </textarea>
+                            <br>
+                            <label>
+                                <span>
+                                    Удельный вес грунта &#947;<sub>II</sub>, т/м<sup>3</sup>
+                                </span>
+                                <input type="number" name="enteringGamaIIUnderFoundation" step="0.001">
+                            </label>
+                            <br>
+                            <label>
+                                <p>
+                                    Угол внутреннего трения &#966;<sub>II</sub>, &#176;
+                                </p>
+                                <input type="number" name="enteringFeeIIUnderFoundation" step="0.001">
+                            </label>
+                            <br>
+                            <label>
+                                <p>
+                                    Удельное сцепление c<sub>II</sub>, кПа
+                                </p>
+                                <input type="number" name="enteringCIIUnderFoundation" step="0.001">
+                            </label>
+                            <label>
+                                <p>
+                                    Условное расчетное сопротивление R<sub>0</sub>, кПа
+                                </p>
+                                <input type="number" name="enteringRoUnderFoundation" step="0.001">
+                            </label>
+                            <label>
+                                <p>
+                                    Модуль деформации Е, МПа
+                                </p>
+                                <input type="number" name="enteringEUnderFoundation" step="0.001">
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset name="userFields">
+                        <label for="SoilAboveFoundationCheckbox">
+                            <span>
+                                Характеристики грунта выше подошвы фундамента
+                            </span>
+                            <span class="menuSign"></span>
                         </label>
-                        <label>
-                            <p>
-                                Условное расчетное сопротивление R<sub>0</sub>, кПа
-                            </p>
-                            <input type="number">
-                        </label>
-                        <label>
-                            <p>
-                                Модуль деформации Е, МПа
-                            </p>
-                            <input type="number">
-                        </label>
-                    </div>
-                </fieldset>
+                        <input class="soilAboveFoundationCheckbox" id="SoilAboveFoundationCheckbox" type="checkbox">
+                        <div class="characteristicsOfSoilAboveFoundation">
+                            <textarea name="denomination_Of_Soil_Above_Foundation" id="">
+                                Вид грунта
+                            </textarea>
+                            <br>
+                            <label>
+                                <span>
+                                    Удельный вес грунта &#947;<sub>II</sub>, т/м<sup>3</sup>
+                                </span>
+                                <input type="number" name="login">
+                            </label>
+                            <br>
+                            <label>
+                                <p>
+                                    Угол внутреннего трения &#966;<sub>II</sub>, &#176;
+                                </p>
+                                <input type="number">
+                            </label>
+                            <br>
+                            <label>
+                                <p>
+                                    Удельное сцепление c<sub>II</sub>, кПа
+                                </p>
+                                <input type="number">
+                            </label>
+                            <label>
+                                <p>
+                                    Условное расчетное сопротивление R<sub>0</sub>, кПа
+                                </p>
+                                <input type="number">
+                            </label>
+                            <label>
+                                <p>
+                                    Модуль деформации Е, МПа
+                                </p>
+                                <input type="number">
+                            </label>
+                        </div>
+                    </fieldset>
+                    <button class="buttonForCalculation">
+                        Рассчитать
+                    </button>
+                </form>
             </div>
         </main>
         <footer></footer>

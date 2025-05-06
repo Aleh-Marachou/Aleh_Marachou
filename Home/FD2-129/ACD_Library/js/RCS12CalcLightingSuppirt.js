@@ -1,23 +1,46 @@
 // function calcSupport(suma_Fsh, suma_Fsp, Mext, Mint) {
-function calcSupport() {
+//
 
-    // Исходые данные
-    let supportMass = 0.15;         /*т*/
-    let supportHigt = 9;            /*м*/
-    let supportDiametr = 0.16;       /*м*/
+const formElement = document.getElementById('RCS12_INITIAL_DATA'); // извлекаем элемент формы
+formElement.addEventListener('submit', (e) => {
 
-    let b_f = 1.2;
-    let l_f = 1.2;
-    let d_f = 1.6;
+    e.preventDefault();
+    const formData = new FormData(formElement); // создаём объект FormData, передаём в него элемент формы
+    // теперь можно извлечь исходные данные
+    let supportHigt = +formData.get('enteringHeightOfSupport');
+    let supportDiametr = +formData.get('enteringDiametrOfSupport');
+    let supportMass = +formData.get('enteringMassaOfSupport');         /*т*/
 
-    let gama_II = 1.7;
-    let c_II_Enter = 0;         /*значение в кПа*/
-    let fee_II_Enter = 30;
-    let Rnull_Enter = 180;       /*значение в кПа*/
+    let b_f = +formData.get('enteringLengthOfSupport');
+    let l_f = +formData.get('enteringWidthOfSupport');
+    let d_f = +formData.get('enteringDepthOfSupport');
+    const RO_CONCR = +formData.get('enteringRoOfConcret'); /*плотность бетона в т/м3*/
+
+
+
+    // function calcSupport() {
+
+    console.log(`масса опоры=${supportMass}`);
+    console.log(`высота опоры=${supportHigt}`);
+    console.log(`диаметр опоры=${supportDiametr}`);
+    console.log(`длина фунтамента=${b_f}`);
+    console.log(`ширина фунтамента=${l_f}`);
+    console.log(`глубина фунтамента=${d_f}`);
+
+
+    // let b_f = +document.forms['initialDataForRCS12'].elements['enteringLengthOfSupport'].value;
+    // let l_f = 1.2;
+    // let d_f = 1.6;
+
+    let gama_II = +formData.get('enteringGamaIIUnderFoundation');
+    let c_II_Enter = +formData.get('enteringCIIUnderFoundation');         /*значение в кПа*/
+    let fee_II_Enter = +formData.get('enteringFeeIIUnderFoundation');
+    let Rnull_Enter = +formData.get('enteringRoUnderFoundation');       /*значение в кПа*/
+    let E_under_foundation = +formData.get('enteringEUnderFoundation');
 
     let q_q = 2;                /*значение в т/м2*/
 
-    const RO_CONCR = 2.4;       /*плотность бетона в т/м3*/
+
 
     // Коэффициенты сочетания нагрузок
     const GAMA_Q = 1.5;
@@ -264,8 +287,9 @@ function calcSupport() {
             replaceVariables('Условие не выполняется. Размеры фундамента подобраны неправильно.', '.conclusion_p_m');
         }
     }
-}
-calcSupport();
+});
+// };
+// calcSupport();
 
 // let tanFee_II_Square = Math.pow(Math.tan((Math.PI / 4) + 0.5 * (fee_II * (Math.PI / 180))), 2);
 
