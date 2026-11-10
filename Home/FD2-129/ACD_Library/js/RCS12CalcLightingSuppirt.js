@@ -1,5 +1,6 @@
-// function calcSupport(suma_Fsh, suma_Fsp, Mext, Mint) {
-//
+// import { COEF_M_FOR_CALC_R } from './Conn.js';
+// console.log(COEF_M_FOR_CALC_R);
+
 
 const formElement = document.getElementById('RCS12_INITIAL_DATA'); // извлекаем элемент формы
 formElement.addEventListener('submit', (e) => {
@@ -16,31 +17,30 @@ formElement.addEventListener('submit', (e) => {
     let d_f = +formData.get('enteringDepthOfSupport');
     const RO_CONCR = +formData.get('enteringRoOfConcret'); /*плотность бетона в т/м3*/
 
+    console.log(`масса опоры=${supportMass}т`);
+    console.log(`высота опоры=${supportHigt}м`);
+    console.log(`диаметр опоры=${supportDiametr}м`);
+    console.log(`длина фунтамента=${b_f}м`);
+    console.log(`ширина фунтамента=${l_f}м`);
+    console.log(`глубина фунтамента=${d_f}м`);
 
-
-    // function calcSupport() {
-
-    console.log(`масса опоры=${supportMass}`);
-    console.log(`высота опоры=${supportHigt}`);
-    console.log(`диаметр опоры=${supportDiametr}`);
-    console.log(`длина фунтамента=${b_f}`);
-    console.log(`ширина фунтамента=${l_f}`);
-    console.log(`глубина фунтамента=${d_f}`);
-
-
-    // let b_f = +document.forms['initialDataForRCS12'].elements['enteringLengthOfSupport'].value;
-    // let l_f = 1.2;
-    // let d_f = 1.6;
-
+    // Грунт в основании фундамента
+    let nameOfSoilUnderFoundation = formData.get('soil_Under_Foundation');
     let gama_II = +formData.get('enteringGamaIIUnderFoundation');
     let c_II_Enter = +formData.get('enteringCIIUnderFoundation');         /*значение в кПа*/
     let fee_II_Enter = +formData.get('enteringFeeIIUnderFoundation');
     let Rnull_Enter = +formData.get('enteringRoUnderFoundation');       /*значение в кПа*/
-    let E_under_foundation = +formData.get('enteringEUnderFoundation');
+    let E_under_foundation_Enter = +formData.get('enteringEUnderFoundation');
+
+    // Грунт выше подошвы фундамента
+    let gama_IIAboveFoundation = +formData.get('enteringGamaIIAboveFoundation');
+    // let c_IIAboveFoundation_Enter = +formData.get('enteringCIIAboveFoundation');         /*значение в кПа*/
+    // let fee_IIAboveFoundation_Enter = +formData.get('enteringFeeIIAboveFoundation');
+    // let RnullAboveFoundation_Enter = +formData.get('enteringRoAboveFoundation');       /*значение в кПа*/
+    // let E_above_foundation_Enter = +formData.get('enteringEAboveFoundation');
+
 
     let q_q = 2;                /*значение в т/м2*/
-
-
 
     // Коэффициенты сочетания нагрузок
     const GAMA_Q = 1.5;
@@ -54,6 +54,8 @@ formElement.addEventListener('submit', (e) => {
     const GAMMA_N = 1.1;
 
     replaceVariables(gama_II, '.gama_II');
+    replaceVariables(nameOfSoilUnderFoundation, '.soilType');
+
 
     replaceVariables(GAMA_Q, '.gama_Q');
     replaceVariables(PSI_0, '.psi_0');
@@ -75,6 +77,7 @@ formElement.addEventListener('submit', (e) => {
     let fee_II_Exit = get_fee_II(fee_II_Enter);
     let c_II_Exit = get_c_II(c_II_Enter);
     let Rnull_Exit = getRnull(Rnull_Enter);
+    getEunderFoundation(E_under_foundation_Enter);
 
     let A_Exit = getA(b_f, l_f);
     let Gf_Exit = getGf(RO_CONCR, b_f, l_f, d_f);
@@ -145,8 +148,170 @@ formElement.addEventListener('submit', (e) => {
 
     let Mcg_Exit = getMcg(Eq_Exit, Fw_Exit, Ea_Exit, Ep_Exit, supportHigt, d_f);
 
-    let R_Exit = getR(gama_II, fee_II_Exit, c_II_Exit, Rnull_Exit, b_f, d_f);
+    let Gamma1 = (document.getElementById("Soil_Type1").checked) ? 1.4 :
+        (document.getElementById("Soil_Type2").checked) ? 1.3 :
+            (document.getElementById("Soil_Type3").checked) ? 1.25 :
+                (document.getElementById("Soil_Type4").checked) ? 1.1 :
+                    (document.getElementById("Soil_Type5").checked) ? 1.25 :
+                        (document.getElementById("Soil_Type6").checked) ? 1.2 :
+                            (document.getElementById("Soil_Type7").checked) ? 1.1 : 1.4;
+    ;
+    // console.log(`Gamma1=${Gamma1}`);
 
+    let Gamma2 = (document.getElementById("Soil_Type1").checked) ? 1.4 :
+        (document.getElementById("Soil_Type2").checked) ? 1.3 :
+            (document.getElementById("Soil_Type3").checked) ? 1.2 :
+                (document.getElementById("Soil_Type4").checked) ? 1.2 :
+                    (document.getElementById("Soil_Type5").checked) ? 1.1 :
+                        (document.getElementById("Soil_Type6").checked) ? 1.1 :
+                            (document.getElementById("Soil_Type7").checked) ? 1 : 1.4;
+    // console.log(`Gamma2=${Gamma2}`);
+
+    let Mgama = (fee_II_Exit === 0) ? 0 :
+        (fee_II_Exit === 1) ? 0.01 :
+            (fee_II_Exit === 2) ? 0.03 :
+                (fee_II_Exit === 3) ? 0.04 :
+                    (fee_II_Exit === 4) ? 0.06 :
+                        (fee_II_Exit === 5) ? 0.08 :
+                            (fee_II_Exit === 6) ? 0.10 :
+                                (fee_II_Exit === 7) ? 0.12 :
+                                    (fee_II_Exit === 8) ? 0.14 :
+                                        (fee_II_Exit === 9) ? 0.16 :
+                                            (fee_II_Exit === 10) ? 0.18 :
+                                                (fee_II_Exit === 11) ? 0.21 :
+                                                    (fee_II_Exit === 12) ? 0.23 :
+                                                        (fee_II_Exit === 13) ? 0.26 :
+                                                            (fee_II_Exit === 14) ? 0.29 :
+                                                                (fee_II_Exit === 15) ? 0.32 :
+                                                                    (fee_II_Exit === 16) ? 0.36 :
+                                                                        (fee_II_Exit === 17) ? 0.39 :
+                                                                            (fee_II_Exit === 18) ? 0.43 :
+                                                                                (fee_II_Exit === 19) ? 0.47 :
+                                                                                    (fee_II_Exit === 20) ? 0.51 :
+                                                                                        (fee_II_Exit === 21) ? 0.56 :
+                                                                                            (fee_II_Exit === 22) ? 0.61 :
+                                                                                                (fee_II_Exit === 23) ? 0.69 :
+                                                                                                    (fee_II_Exit === 24) ? 0.72 :
+                                                                                                        (fee_II_Exit === 25) ? 0.78 :
+                                                                                                            (fee_II_Exit === 26) ? 0.84 :
+                                                                                                                (fee_II_Exit === 27) ? 0.91 :
+                                                                                                                    (fee_II_Exit === 28) ? 0.98 :
+                                                                                                                        (fee_II_Exit === 29) ? 1.06 :
+                                                                                                                            (fee_II_Exit === 30) ? 1.15 :
+                                                                                                                                (fee_II_Exit === 31) ? 1.24 :
+                                                                                                                                    (fee_II_Exit === 32) ? 1.34 :
+                                                                                                                                        (fee_II_Exit === 33) ? 1.44 :
+                                                                                                                                            (fee_II_Exit === 34) ? 1.55 :
+                                                                                                                                                (fee_II_Exit === 35) ? 1.68 :
+                                                                                                                                                    (fee_II_Exit === 36) ? 1.81 :
+                                                                                                                                                        (fee_II_Exit === 37) ? 1.95 :
+                                                                                                                                                            (fee_II_Exit === 38) ? 2.11 :
+                                                                                                                                                                (fee_II_Exit === 39) ? 2.28 :
+                                                                                                                                                                    (fee_II_Exit === 40) ? 2.46 :
+                                                                                                                                                                        (fee_II_Exit === 41) ? 2.66 :
+                                                                                                                                                                            (fee_II_Exit === 42) ? 2.88 :
+                                                                                                                                                                                (fee_II_Exit === 43) ? 3.12 :
+                                                                                                                                                                                    (fee_II_Exit === 44) ? 3.38 :
+                                                                                                                                                                                        (fee_II_Exit === 45) ? 3.66 : 0;
+
+
+
+    let Mq = (fee_II_Exit === 0) ? 1.0 :
+        (fee_II_Exit === 1) ? 1.06 :
+            (fee_II_Exit === 2) ? 1.12 :
+                (fee_II_Exit === 3) ? 1.18 :
+                    (fee_II_Exit === 4) ? 1.25 :
+                        (fee_II_Exit === 5) ? 1.32 :
+                            (fee_II_Exit === 6) ? 1.39 :
+                                (fee_II_Exit === 7) ? 1.47 :
+                                    (fee_II_Exit === 8) ? 1.55 :
+                                        (fee_II_Exit === 9) ? 1.64 :
+                                            (fee_II_Exit === 10) ? 1.73 :
+                                                (fee_II_Exit === 11) ? 1.83 :
+                                                    (fee_II_Exit === 12) ? 1.94 :
+                                                        (fee_II_Exit === 13) ? 2.05 :
+                                                            (fee_II_Exit === 14) ? 2.17 :
+                                                                (fee_II_Exit === 15) ? 2.30 :
+                                                                    (fee_II_Exit === 16) ? 2.43 :
+                                                                        (fee_II_Exit === 17) ? 2.57 :
+                                                                            (fee_II_Exit === 18) ? 2.73 :
+                                                                                (fee_II_Exit === 19) ? 2.89 :
+                                                                                    (fee_II_Exit === 20) ? 3.06 :
+                                                                                        (fee_II_Exit === 21) ? 3.24 :
+                                                                                            (fee_II_Exit === 22) ? 3.44 :
+                                                                                                (fee_II_Exit === 23) ? 3.65 :
+                                                                                                    (fee_II_Exit === 24) ? 3.87 :
+                                                                                                        (fee_II_Exit === 25) ? 4.11 :
+                                                                                                            (fee_II_Exit === 26) ? 4.37 :
+                                                                                                                (fee_II_Exit === 27) ? 4.64 :
+                                                                                                                    (fee_II_Exit === 28) ? 4.93 :
+                                                                                                                        (fee_II_Exit === 29) ? 5.25 :
+                                                                                                                            (fee_II_Exit === 30) ? 5.59 :
+                                                                                                                                (fee_II_Exit === 31) ? 5.95 :
+                                                                                                                                    (fee_II_Exit === 32) ? 6.34 :
+                                                                                                                                        (fee_II_Exit === 33) ? 6.76 :
+                                                                                                                                            (fee_II_Exit === 34) ? 7.22 :
+                                                                                                                                                (fee_II_Exit === 35) ? 7.71 :
+                                                                                                                                                    (fee_II_Exit === 36) ? 8.24 :
+                                                                                                                                                        (fee_II_Exit === 37) ? 8.81 :
+                                                                                                                                                            (fee_II_Exit === 38) ? 9.44 :
+                                                                                                                                                                (fee_II_Exit === 39) ? 10.11 :
+                                                                                                                                                                    (fee_II_Exit === 40) ? 10.85 :
+                                                                                                                                                                        (fee_II_Exit === 41) ? 11.64 :
+                                                                                                                                                                            (fee_II_Exit === 42) ? 12.51 :
+                                                                                                                                                                                (fee_II_Exit === 43) ? 13.46 :
+                                                                                                                                                                                    (fee_II_Exit === 44) ? 14.50 :
+                                                                                                                                                                                        (fee_II_Exit === 45) ? 15.64 : 1;
+
+
+    let Mc = (fee_II_Exit === 0) ? 3.14 :
+        (fee_II_Exit === 1) ? 3.23 :
+            (fee_II_Exit === 2) ? 3.32 :
+                (fee_II_Exit === 3) ? 3.41 :
+                    (fee_II_Exit === 4) ? 3.51 :
+                        (fee_II_Exit === 5) ? 3.61 :
+                            (fee_II_Exit === 6) ? 3.71 :
+                                (fee_II_Exit === 7) ? 3.82 :
+                                    (fee_II_Exit === 8) ? 3.93 :
+                                        (fee_II_Exit === 9) ? 4.05 :
+                                            (fee_II_Exit === 10) ? 4.17 :
+                                                (fee_II_Exit === 11) ? 4.29 :
+                                                    (fee_II_Exit === 12) ? 4.42 :
+                                                        (fee_II_Exit === 13) ? 4.55 :
+                                                            (fee_II_Exit === 14) ? 4.69 :
+                                                                (fee_II_Exit === 15) ? 4.84 :
+                                                                    (fee_II_Exit === 16) ? 4.99 :
+                                                                        (fee_II_Exit === 17) ? 5.15 :
+                                                                            (fee_II_Exit === 18) ? 5.31 :
+                                                                                (fee_II_Exit === 19) ? 5.48 :
+                                                                                    (fee_II_Exit === 20) ? 5.66 :
+                                                                                        (fee_II_Exit === 21) ? 5.84 :
+                                                                                            (fee_II_Exit === 22) ? 6.04 :
+                                                                                                (fee_II_Exit === 23) ? 6.24 :
+                                                                                                    (fee_II_Exit === 24) ? 6.45 :
+                                                                                                        (fee_II_Exit === 25) ? 6.67 :
+                                                                                                            (fee_II_Exit === 26) ? 6.90 :
+                                                                                                                (fee_II_Exit === 27) ? 7.14 :
+                                                                                                                    (fee_II_Exit === 28) ? 7.40 :
+                                                                                                                        (fee_II_Exit === 29) ? 7.67 :
+                                                                                                                            (fee_II_Exit === 30) ? 7.95 :
+                                                                                                                                (fee_II_Exit === 31) ? 8.24 :
+                                                                                                                                    (fee_II_Exit === 32) ? 8.55 :
+                                                                                                                                        (fee_II_Exit === 33) ? 8.88 :
+                                                                                                                                            (fee_II_Exit === 34) ? 9.22 :
+                                                                                                                                                (fee_II_Exit === 35) ? 9.58 :
+                                                                                                                                                    (fee_II_Exit === 36) ? 9.97 :
+                                                                                                                                                        (fee_II_Exit === 37) ? 10.37 :
+                                                                                                                                                            (fee_II_Exit === 38) ? 10.80 :
+                                                                                                                                                                (fee_II_Exit === 39) ? 11.25 :
+                                                                                                                                                                    (fee_II_Exit === 40) ? 11.73 :
+                                                                                                                                                                        (fee_II_Exit === 41) ? 12.24 :
+                                                                                                                                                                            (fee_II_Exit === 42) ? 12.79 :
+                                                                                                                                                                                (fee_II_Exit === 43) ? 13.37 :
+                                                                                                                                                                                    (fee_II_Exit === 44) ? 13.98 :
+                                                                                                                                                                                        (fee_II_Exit === 45) ? 14.64 : 3.14;
+
+    let R_Exit = getR(gama_II, fee_II_Exit, c_II_Exit, Rnull_Exit, b_f, d_f, gama_IIAboveFoundation, Gamma1, Gamma2, Mgama, Mq, Mc);
     let e_Exit = getEccentricity(Mcg_Exit, N_Exit, Gf_Exit);
     let eNull = getEccentricityNull(l_f);
 
@@ -288,8 +453,6 @@ formElement.addEventListener('submit', (e) => {
         }
     }
 });
-// };
-// calcSupport();
 
 // let tanFee_II_Square = Math.pow(Math.tan((Math.PI / 4) + 0.5 * (fee_II * (Math.PI / 180))), 2);
 
@@ -332,6 +495,24 @@ function getRnull(Rnull_Enter) {
     replaceVariables(Rnull_Fixed, '.Rnull');
 
     return Rnull;
+};
+
+function getEunderFoundation(E_under_foundation_Enter) {
+
+    if (E_under_foundation_Enter <= 0) {
+
+        let E_under_foundation = 0;
+        document.querySelectorAll(".without_soilDeformationModulus").forEach(elements => elements.style.display = 'none');
+        return E_under_foundation;
+
+    } else {
+
+        let E_under_foundation = E_under_foundation_Enter;
+        let E_under_foundation_Fixed = + E_under_foundation.toFixed(3);
+        replaceVariables(E_under_foundation_Fixed, '.soilDeformationModulus');
+
+        return E_under_foundation;
+    }
 };
 
 function getN(supportMass) {
@@ -532,6 +713,18 @@ function getWind(z, b) {
     replaceVariables(w_e_translate_Exit, '.w_e_translate_Exit');
     replaceVariables(Fw_translate_Exit, '.Fw_translate_Exit');
 
+    //для того, чтобы значения не выходили за пределы скобок и ширине знака деления
+    // ХАК ДЛЯ MATHML: заставляем браузер перерисовать формулу целиком
+    document.querySelectorAll('math').forEach(mathElem => {
+        // Временное скрытие и показ элемента заставляет движок MathML
+        // полностью пересчитать ширину всех дробей и высоту скобок
+        const originalDisplay = mathElem.getAttribute('display') || 'block';
+        mathElem.style.display = 'none';
+        mathElem.offsetHeight; // чтение триггерит reflow
+        mathElem.style.display = originalDisplay === 'block' ? 'block' : 'inline';
+    });
+    // добавлено 2026.30.10 по совету ИИ
+
     return Fw_translate;
 }
 
@@ -694,20 +887,18 @@ function get_p_min(N, Q, M, A, W) {
     return p_min;
 };
 
-function getR(gama_II, feeIIforR, cIIforR, Rnull, b_f, d_l) {
+function getR(gama_II, feeIIforR, cIIforR, Rnull, b_f, d_l, gama_II_backSoil, GAMA_ONE, GAMA_TWO, Mgama, Mq, Mc) {
 
     let fee_II = feeIIforR;
     let c_II = cIIforR;
 
-    const GAMA_ONE = 1;
-    const GAMA_TWO = 1;
+    // const GAMA_ONE = 1;
+    // const GAMA_TWO = 1;
     const k = 1;
     const k_z = 1;
-    const Mgama = 1.15;
-    const Mq = 5.59;
-    const Mc = 7.95;
-
-    let gama_II_backSoil = 1.7;
+    // const Mgama = 1.15;
+    // const Mq = 5.59;
+    // const Mc = 7.95;
 
     replaceVariables(GAMA_ONE, '.GAMA_ONE');
     replaceVariables(GAMA_TWO, '.GAMA_TWO');
@@ -817,3 +1008,16 @@ function getCoefOfStability(effortsExt, effortsInt, GAMMA_C, GAMMA_N, classOfVar
         replaceVariables('Устойчивость фундамента не обеспечена', classOfVariableConcl);
     }
 }
+
+// Кнопка для ПЗ (старт)
+// 1. Находим обе кнопки в документе по их ID
+const trigger = document.getElementById('CalcRCS12');
+const target = document.querySelectorAll('.btnHidden');
+
+// 2. Вешаем обработчик события "клик" на первую кнопку
+trigger.addEventListener('click', () => {
+    target.forEach(button => {
+        button.style.visibility = 'visible';
+    });
+});
+// Кнопка для ПЗ (финиш)

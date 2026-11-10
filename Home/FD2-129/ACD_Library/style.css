@@ -1,7 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     -webkit-text-size-adjust: none;
     /*чтобы автоматически НЕ изменять размеры шрифтов при изменении ориентации устройства*/
 }
@@ -13,8 +13,22 @@
     overflow: hidden;
 }
 
-a[href]::before {
+/* убираем иконку на ссылки */
+/* a[href]::before {
     content: url(img/extref.png);
+} */
+
+button {
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: rgba(73, 76, 84, 1);
+    box-shadow: 0 0 20px #415360 inset;
+}
+
+div button:hover {
+    color: #2DB1E4;
+    background-color: #F7F5F3;
+    box-shadow: 0 0 20px #2DB1E4 inset;
 }
 
 h3 {
@@ -32,12 +46,6 @@ ul {
     list-style: none;
 }
 
-li ul li:before {
-    content: "\2012";
-    position: relative;
-    left: -5px;
-}
-
 div input[type="text"] {
     width: 100%;
     font-size: 21px;
@@ -51,36 +59,189 @@ div img {
     object-fit: contain;
 }
 
+/* Общие стили сетки страницы */
+/* .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 0 5%;
+} */
+
 header {
-    /* display: block; */
+    box-sizing: border-box;
     position: fixed;
-    z-index: 1;
-    /* padding: 0 50px; */
+    top: 0;
     left: 10px;
     right: 10px;
-    background-color: rgb(247, 248, 250);
+    z-index: 1000;
+    padding: 0 20px;
+    background-color: #FFFFFF;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.header-container {
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: auto;
-    padding: 30px;
+/* Обертка меню (Логотип + Навигация) */
+header .menu_wrap {
+    display: flex;
+    justify-content: space-between;
+    /* Логотип слева, меню справа */
     align-items: center;
+    /* Выравнивание по вертикали */
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.search-container {
-    padding: 0 50px;
+/* ИСПРАВЛЕНО: Стили для тега img (логотип Минскинжпроект) */
+header .menu_wrap .mip-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
 
-.header-container button {
-    padding: 10px 0;
+header .menu_wrap nav {
+    /* Паддинг 50px убран, так как align-items: center выравнивает меню идеально */
+    display: flex;
+    justify-content: flex-end;
+    /* Сдвигаем меню к правому краю */
 }
 
-.workspace {
-    background-color: aqua;
+/* ========================================== */
+/* MENU / START                               */
+/* ========================================== */
+
+header .menu_wrap nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
+/* Базовые стили для ВСЕХ ссылок в меню */
+header .menu_wrap .topmenu a {
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    color: #2F323B;
+    /* Единый темный цвет для главных пунктов */
+}
+
+/* Главное меню (верхний уровень: КЖ.3, КЖ.4...) */
+header .menu_wrap .topmenu {
+    display: flex;
+    /* Выстраиваем КЖ.3, КЖ.4 в одну горизонтальную линию */
+}
+
+header .menu_wrap .topmenu>li {
+    position: relative;
+    /* Родоначальник координат для выпадающего списка */
+}
+
+header .menu_wrap .topmenu>li>a {
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+/* ИСПРАВЛЕНО: Безопасный ховер (изменение цвета вместо деформирующего scale) */
+header .menu_wrap .topmenu>li:hover>a {
+    color: #0056b3;
+    /* Цвет при наведении на главный пункт (например, синий) */
+}
+
+/* ========================================== */
+/* ВЫПАДАЮЩЕЕ ПОДМЕНЮ (SUBMENU)               */
+/* ========================================== */
+
+header .menu_wrap .topmenu .submenu {
+    position: absolute;
+    top: 100%;
+    /* Появляется ровно под главным пунктом */
+    left: 0;
+    min-width: 200px;
+    /* Минимальная ширина выпадашки */
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+}
+
+/* Показываем подменю при наведении мыши на родительский <li> */
+header .menu_wrap .topmenu>li:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Стили для ссылок ВНУТРИ выпадающего меню */
+header .menu_wrap .topmenu .submenu li a {
+    padding: 10px 15px;
+    border-bottom: 1px solid #efefef;
+    font-size: 13px;
+    line-height: 16px;
+    color: #415360;
+}
+
+/* Ховер для подпунктов */
+header .menu_wrap .topmenu .submenu li a:hover {
+    background-color: #f8f9fa;
+    /* Легкий серый фон при наведении */
+    color: #0056b3;
+}
+
+/* Последний пункт подменю оставляем без нижней рамки */
+header .menu_wrap .topmenu .submenu li:last-child a {
+    border-bottom: none;
+}
+
+header .menu_wrap .topmenu>li:nth-last-child(1) .submenu,
+header .menu_wrap .topmenu>li:nth-last-child(2) .submenu {
+    left: auto;
+    right: 0;
+    /* Выравнивание по правому краю кнопки */
+}
+
+.topmenu {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Не дает пунктам падать на вторую строку */
+    gap: 15px;
+    /* Умеренные зазоры между КЖ.3, КЖ.4 и т.д. */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Делаем так, чтобы сами ссылки КЖ не сжимались до нечитаемого состояния */
+.topmenu>li {
+    flex-shrink: 0;
+}
+
+header .menu_wrap nav ul {
+    list-style: none;
+}
+
+header .menu_wrap .topmenu a {
+    text-decoration: none;
+    display: block;
+    transition: .4s ease-in-out;
+}
+
+header .menu_wrap .topmenu>li>a {
+    padding: 0 20px;
+}
+
+header .menu_wrap .topmenu li a:hover {
+    transform: scale(1.2);
+}
+
+header .menu_wrap .topmenu .submenu li a {
+    border-bottom: 1px solid #efefef;
+    font-size: 12px;
+    line-height: 16px;
+    color: #415360;
+}
+
+/* раскрывающееся меню - end */
 
 main {
     /* position: relative; */
@@ -88,42 +249,12 @@ main {
     grid-template-columns: 1fr 5fr 1fr;
     grid-template-rows: auto;
     margin-top: 135px;
-    background-color: yellow;
+    background-color: #FFFFFF;
 }
 
-/* раскрывающееся меню - start */
-
-nav {
-    background-color: white;
-    position: fixed;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+.workspace {
+    background-color: aqua;
 }
-
-.listree-submenu-items {
-    cursor: pointer;
-}
-
-ul.listree-submenu-items {
-    list-style: none;
-    border-left: 1px dashed black;
-    white-space: nowrap;
-    margin-right: 4px;
-    padding-left: 20px;
-}
-
-div.listree-submenu-heading.collapsed:before {
-    content: "+";
-    margin-right: 4px;
-}
-
-div.listree-submenu-heading.expanded:before {
-    content: "-";
-    margin-right: 4px;
-}
-
-/* раскрывающееся меню - end */
 
 table {
     border-collapse: collapse;
@@ -200,10 +331,6 @@ tr:hover td {
     display: none;
 }
 
-/* .search>div {
-    visibility: hidden;
-} */
-
 .cover-math {
     text-align: center;
 }
@@ -227,7 +354,6 @@ article section {
     display: grid;
     grid-template-columns: 4fr 1fr;
     grid-template-rows: auto;
-    /* max-width: 250px; */
 }
 
 .loadsOnFoundation p,
@@ -237,34 +363,40 @@ article section {
 
 /* раскрывающееся меню для опоры освещения - start */
 
+.btnHidden,
 .supportCheckbox,
 .foundationCheckbox,
-.soilUnderFoundationCheckbox {
+.soilUnderFoundationCheckbox,
+.soilAboveFoundationCheckbox {
     visibility: hidden;
 }
 
 .supportCheckbox::before,
 .foundationCheckbox::before,
-.soilUnderFoundationCheckbox::before {
+.soilUnderFoundationCheckbox::before,
+.soilAboveFoundationCheckbox::before {
     visibility: visible;
     content: '+';
 }
 
 .supportCheckbox:checked::before,
 .foundationCheckbox:checked::before,
-.soilUnderFoundationCheckbox:checked::before {
+.soilUnderFoundationCheckbox:checked::before,
+.soilAboveFoundationCheckbox:checked::before {
     content: '-';
 }
 
 .characteristicsOfSupport,
 .characteristicsOfFoundation,
-.characteristicsOfSoilUnderFoundation {
+.characteristicsOfSoilUnderFoundation,
+.characteristicsOfSoilAboveFoundation {
     display: none;
 }
 
 .supportCheckbox:checked+div,
 .foundationCheckbox:checked+div,
-.soilUnderFoundationCheckbox:checked+div {
+.soilUnderFoundationCheckbox:checked+div,
+.soilAboveFoundationCheckbox:checked+div {
     display: block;
     padding: 10px;
 }
@@ -272,58 +404,6 @@ article section {
 /* раскрывающееся меню для опоры освещения - end */
 
 fieldset {
-    border: bisque;
+    padding: 10px 5px;
+    border: bisque solid 1x;
 }
-
-/* .loadModel {
-    background: url(img/RCS12_calcModel.png) no-repeat;
-    background-size: contain;
-} */
-
-/* .workspace article section:first-child {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.workspace article section:first-child h3 {
-    grid-column: 1 / span 2;
-}
-
-.workspace article section:first-child div img {
-    background: url(img/RCS12_calcModel.png) no-repeat;
-    background-size: contain;
-}
-
-.workspace article section:first-child ul {
-    padding: 10px;
-} */
-
-/* вычисления в формуле - start*/
-/* .formula {
-    border: 1px solid yellow;
-    display: flex;
-    align-items: center;
-} */
-
-/* .drob-box {
-    display: flex;
-    align-items: center;
-}
-
-.drob {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.drob span:first-child {
-    border-bottom: 1px solid green;
-    align-items: center;
-}
-
-.formula span {
-    padding: 0 1px;
-} */
-
-/* вычисления в формуле - end*/

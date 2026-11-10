@@ -1,5 +1,289 @@
-import {createTable}  from './function.js';
+import { createTable } from './function.js';
 
+const COEF_M_FOR_CALC_R = [
+    {
+        feeII: 0,
+        My: 0,
+        Mq: 1.0,
+        Mc: 3.14,
+    },
+    {
+        feeII: 1,
+        My: 0.01,
+        Mq: 1.06,
+        Mc: 3.23,
+    },
+    {
+        feeII: 2,
+        My: 0.03,
+        Mq: 1.12,
+        Mc: 3.32,
+    },
+    {
+        feeII: 3,
+        My: 0.04,
+        Mq: 1.18,
+        Mc: 3.41,
+    },
+    {
+        feeII: 4,
+        My: 0.06,
+        Mq: 1.25,
+        Mc: 3.51,
+    },
+    {
+        feeII: 5,
+        My: 0.08,
+        Mq: 1.32,
+        Mc: 3.61,
+    },
+    {
+        feeII: 6,
+        My: 0.10,
+        Mq: 1.39,
+        Mc: 3.71,
+    },
+    {
+        feeII: 7,
+        My: 0.12,
+        Mq: 1.47,
+        Mc: 3.82,
+    },
+    {
+        feeII: 8,
+        My: 0.14,
+        Mq: 1.55,
+        Mc: 3.93,
+    },
+    {
+        feeII: 9,
+        My: 0.16,
+        Mq: 1.64,
+        Mc: 4.05,
+    },
+    {
+        feeII: 10,
+        My: 0.18,
+        Mq: 1.73,
+        Mc: 4.17,
+    },
+    {
+        feeII: 11,
+        My: 0.21,
+        Mq: 1.83,
+        Mc: 4.29,
+    },
+    {
+        feeII: 12,
+        My: 0.23,
+        Mq: 1.94,
+        Mc: 4.42,
+    },
+    {
+        feeII: 13,
+        My: 0.26,
+        Mq: 2.05,
+        Mc: 4.55,
+    },
+    {
+        feeII: 14,
+        My: 0.29,
+        Mq: 2.17,
+        Mc: 4.69,
+    },
+    {
+        feeII: 15,
+        My: 0.32,
+        Mq: 2.30,
+        Mc: 4.84,
+    },
+    {
+        feeII: 16,
+        My: 0.36,
+        Mq: 2.43,
+        Mc: 4.99,
+    },
+    {
+        feeII: 17,
+        My: 0.39,
+        Mq: 2.57,
+        Mc: 5.15,
+    },
+    {
+        feeII: 18,
+        My: 0.43,
+        Mq: 2.73,
+        Mc: 5.31,
+    },
+    {
+        feeII: 19,
+        My: 0.47,
+        Mq: 2.89,
+        Mc: 5.48,
+    },
+    {
+        feeII: 20,
+        My: 0.51,
+        Mq: 3.06,
+        Mc: 5.66,
+    },
+    {
+        feeII: 21,
+        My: 0.56,
+        Mq: 3.24,
+        Mc: 5.84,
+    },
+    {
+        feeII: 22,
+        My: 0.61,
+        Mq: 3.24,
+        Mc: 5.84,
+    },
+    {
+        feeII: 22,
+        My: 0.61,
+        Mq: 3.44,
+        Mc: 6.04,
+    },
+    {
+        feeII: 23,
+        My: 0.69,
+        Mq: 3.65,
+        Mc: 6.24,
+    },
+    {
+        feeII: 24,
+        My: 0.72,
+        Mq: 3.87,
+        Mc: 6.45,
+    },
+    {
+        feeII: 25,
+        My: 0.78,
+        Mq: 4.11,
+        Mc: 6.67,
+    },
+    {
+        feeII: 26,
+        My: 0.84,
+        Mq: 4.37,
+        Mc: 6.90,
+    },
+    {
+        feeII: 27,
+        My: 0.91,
+        Mq: 4.64,
+        Mc: 7.14,
+    },
+    {
+        feeII: 28,
+        My: 0.98,
+        Mq: 4.93,
+        Mc: 7.40,
+    },
+    {
+        feeII: 29,
+        My: 1.06,
+        Mq: 5.25,
+        Mc: 7.67,
+    },
+    {
+        feeII: 30,
+        My: 1.15,
+        Mq: 5.59,
+        Mc: 7.95,
+    },
+    {
+        feeII: 31,
+        My: 1.24,
+        Mq: 5.95,
+        Mc: 8.24,
+    },
+    {
+        feeII: 32,
+        My: 1.34,
+        Mq: 6.34,
+        Mc: 8.55,
+    },
+    {
+        feeII: 33,
+        My: 1.44,
+        Mq: 6.76,
+        Mc: 8.88,
+    },
+    {
+        feeII: 34,
+        My: 1.55,
+        Mq: 7.22,
+        Mc: 9.22,
+    },
+    {
+        feeII: 35,
+        My: 1.68,
+        Mq: 7.71,
+        Mc: 9.58,
+    },
+    {
+        feeII: 36,
+        My: 1.81,
+        Mq: 8.24,
+        Mc: 9.97,
+    },
+    {
+        feeII: 37,
+        My: 1.95,
+        Mq: 8.81,
+        Mc: 10.37,
+    },
+    {
+        feeII: 38,
+        My: 2.11,
+        Mq: 9.44,
+        Mc: 10.80,
+    },
+    {
+        feeII: 39,
+        My: 2.28,
+        Mq: 10.11,
+        Mc: 11.25,
+    },
+    {
+        feeII: 40,
+        My: 2.46,
+        Mq: 10.85,
+        Mc: 11.73,
+    },
+    {
+        feeII: 41,
+        My: 2.66,
+        Mq: 11.64,
+        Mc: 12.24,
+    },
+    {
+        feeII: 42,
+        My: 2.88,
+        Mq: 12.51,
+        Mc: 12.79,
+    },
+    {
+        feeII: 43,
+        My: 3.12,
+        Mq: 13.46,
+        Mc: 13.37,
+    },
+    {
+        feeII: 44,
+        My: 3.38,
+        Mq: 14.50,
+        Mc: 13.98,
+    },
+    {
+        feeII: 45,
+        My: 3.66,
+        Mq: 15.64,
+        Mc: 14.64,
+    },
+];
 const LIST_BUILDING_CODE = [
     {
         use: 'Уровень ответствености сооружений',
@@ -188,7 +472,7 @@ const RCS7_LIST_BUILDING_CODE = [
         note: ''
     }
 ]
-    
+
 
 /*
 function getValue(array, key) {
@@ -203,3 +487,4 @@ console.log(getValue(RCS4_LIST_BUILDING_CODE, 'name'))
 */
 //createTable(document.body, RCS4_LIST_BUILDING_CODE);
 //createTable(document.body, RCS6_LIST_BUILDING_CODE);
+export { COEF_M_FOR_CALC_R };
