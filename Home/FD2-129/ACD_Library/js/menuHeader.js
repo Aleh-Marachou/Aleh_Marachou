@@ -3,7 +3,7 @@ const menuData = [
     {
         title: "КЖ.3",
         submenu: [
-            { text: "Общие данные", url: "acdLibrary.html" },
+            { text: "Общие данные", url: "kzh3_general.html" },
             { text: "Фундаменты", url: "kzh3_foundations.html" },
             { text: "Экспертиза", url: "kzh3_expertise.html" }
         ]
@@ -11,12 +11,13 @@ const menuData = [
     {
         title: "КЖ.4",
         submenu: [
-            { text: "Общие данные", url: "acdLibrary.html" },
+            { text: "Общие данные", url: "kzh4_general.html" },
             { text: "Камеры", url: "kzh4_chambers.html" },
             { text: "Колодцы", url: "kzh4_wells.html" },
-            { text: "Крышки деревянные", url: "kzh4_covers.html" },
+            { text: "КЖИ", url: "kzh4_kzhi.html" },
             { text: "Лестницы", url: "kzh4_ladders.html" },
             { text: "Неподвижные опоры", url: "kzh4_supports_fixed.html" },
+            { text: "Основание труб", url: "kzh4_pipe_base.html" },
             { text: "Упоры", url: "kzh4_stops.html" },
             { text: "Экспертиза", url: "kzh4_expertise.html" }
         ]
@@ -27,6 +28,8 @@ const menuData = [
             { text: "Общие данные", url: "kzh6_general.html" },
             { text: "Камеры", url: "kzh6_chambers.html" },
             { text: "Колодцы", url: "kzh6_wells.html" },
+            { text: "КЖИ", url: "kzh6_kzhi.html" },
+            { text: "Основание труб", url: "kzh6_pipe_base.html" },
             { text: "Экспертиза", url: "kzh6_expertise.html" }
         ]
     },
@@ -34,9 +37,11 @@ const menuData = [
         title: "КЖ.7",
         submenu: [
             { text: "Общие данные", url: "kzh7_general.html" },
+            { text: "Дождеприемники", url: "kzh7_wells_rain.html" },
             { text: "Камеры", url: "kzh7_chambers.html" },
-            { text: "Колодцы смотровые", url: "kzh7_wells_view.html" },
-            { text: "Колодцы дождеприемные", url: "kzh7_wells_rain.html" },
+            { text: "Колодцы", url: "kzh7_wells_view.html" },
+            { text: "КЖИ", url: "kzh7_kzhi.html" },
+            { text: "Основание труб", url: "kzh7_pipe_base.html" },
             { text: "Экспертиза", url: "kzh7_expertise.html" }
         ]
     },
@@ -67,7 +72,8 @@ const menuData = [
         title: "КЖ.11",
         submenu: [
             { text: "Общие данные", url: "kzh11_general.html" },
-            { text: "Фундаменты", url: "kzh11_foundations.html" },
+            { text: "Фундаменты (поиск)", url: "kzh11_base_search.html" },
+            { text: "Фундаменты (расчет)", url: "kzh11_base_calc.html" },
             { text: "Стойки", url: "kzh11_posts.html" },
             { text: "Дверца", url: "kzh11_doors.html" },
             { text: "Экспертиза", url: "kzh11_expertise.html" }
@@ -87,15 +93,15 @@ const menuData = [
     {
         title: "Нормы",
         submenu: [
-            { text: "Беларусь" },
-            { text: "Россия" },
-            { text: "Казахстан" },
-            { text: "Азейбарджан" },
-            { text: "Армения" },
-            { text: "Кыргыстан" },
-            { text: "Таджикистан" },
-            { text: "Туркменистан" },
-            { text: "Узбекистан" }
+            { text: "Беларусь", url: "#" },
+            { text: "Россия", url: "#" },
+            { text: "Казахстан", url: "#" },
+            { text: "Азейбарджан", url: "#" },
+            { text: "Армения", url: "#" },
+            { text: "Кыргыстан", url: "#" },
+            { text: "Таджикистан", url: "#" },
+            { text: "Туркменистан", url: "#" },
+            { text: "Узбекистан", url: "#" }
         ]
     }
 ];
